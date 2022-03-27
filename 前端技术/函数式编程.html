@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - 函数式编程</title>
+
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
+  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：3/27/2022, 3:51:00 PM -->
+
+  <script>
+    window.root = '/my-book';
+    hljs.highlightAll();
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <div class="menu" id="menu"></div>
+    <div class="mobile_menu" id="mobile_menu">
+      <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
+    </div>
+    <div class="content markdown-body"><h1>函数式编程</h1>
+<h1>是什么</h1>
+<ul>
+<li>函数式编程是一种编程范式，目标是使用函数来抽象作用在数据之上的控制流与操作，从而在系统中消除副作用并减少对状态的改变，</li>
+<li>旨在尽可能地提高代码的无状态性和不变性</li>
+<li>主要思想是把运算过程尽量写成一系列嵌套的函数调用，比如柯里化、react 的高阶函数</li>
+</ul>
+<h1>函数式库：Ramda.js、lodash、RxJS</h1>
+<h1>命令模式中 run 函数的好处</h1>
+<ul>
+<li>将函数本身参数化，非侵入式的修改函数，无需重写任何内部逻辑</li>
+</ul>
+<h1>为什么纯函数</h1>
+<ul>
+<li>易于维护：无状态的代码不会改变或破坏全局的状态</li>
+<li>易于测试：不依赖外部资源的算法</li>
+<li>灵活便于重用、保持业务逻辑代码的纯净</li>
+<li>任务分解，一定程度增加代码可读性</li>
+<li>函数式的控制流能够在不需要研究任何内部细节的条件下提供该程序意图的清晰结构，这样就能更深刻地了解代码，并获知数据在不同阶段是如何流入和流出的</li>
+</ul>
+</div>
+  </body>
+</html>

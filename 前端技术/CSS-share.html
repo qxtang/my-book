@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - CSS</title>
+
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
+  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：3/27/2022, 3:51:00 PM -->
+
+  <script>
+    window.root = '/my-book';
+    hljs.highlightAll();
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <div class="content markdown-body"><h1>CSS</h1>
+<h1>层叠上下文</h1>
+<ul>
+<li>z-index 属性值并不是在任何元素上都有效果。它仅在定位元素上有效果。（定义了 position 属性，且属性值为非 static 值的元素）</li>
+<li>产生层叠上下文：设置 position 为非 static 值</li>
+</ul>
+<h1>css3 新特性</h1>
+<ul>
+<li>选择器 nth-child</li>
+<li>边框圆角</li>
+<li>渐变色</li>
+<li>颜色透明度</li>
+<li>多列布局</li>
+<li>弹性布局</li>
+<li>过渡、动画</li>
+<li>flex</li>
+<li>媒体查询</li>
+</ul>
+<h1>一行的时候居中，多行的时候左对齐</h1>
+<ul>
+<li>利用行内元素的特点，父元素 text-align: center，子元素设为行内元素，设置 text-align: left</li>
+</ul>
+<h1>怎么清除浮动</h1>
+<ul>
+<li>clear:both;</li>
+<li>br 标签清浮动，br 标签存在一个属性：clear。这个属性能够清除浮动，在 br 标签中设置属性 clear，并赋值 all。即能清除掉浮动。</li>
+</ul>
+<h1>CSS 选择器优先级</h1>
+<ul>
+<li>!important</li>
+<li>内联样式（1000）</li>
+<li>ID 选择器（0100）</li>
+<li>类选择器/属性选择器/伪类选择器（0010）</li>
+<li>元素选择器/关系选择器/伪元素选择器（0001）</li>
+<li>通配符选择器（0000）</li>
+</ul>
+<h1>BFC</h1>
+<ul>
+<li>BFC 全称为块级格式化上下文。</li>
+<li>它决定了元素如何对其内容进行定位以及与其他元素的关系和相互作用，</li>
+<li>BFC 提供了一个环境，HTML 元素在这个环境中按照一定规则进行布局。</li>
+<li>一个环境中的元素不会影响到其它环境中的布局。</li>
+<li>比如浮动元素会形成 BFC，浮动元素内部子元素的主要受该浮动元素影响，两个浮动元素之间是互不影响的。</li>
+<li>可以说 BFC 就是一个作用范围，把它理解成是一个独立的容器，并且这个容器里的布局与这个容器外毫不相干。</li>
+<li>触发 BFC 的条件：
+<ul>
+<li>根元素或其它包含它的元素</li>
+<li>浮动元素 (元素的 float 不是 none)</li>
+<li>绝对定位元素 (元素具有 position 为 absolute 或 fixed)</li>
+<li>内联块 (元素具有 display: inline-block)</li>
+<li>表格单元格 (元素具有 display: table-cell，HTML 表格单元格默认属性)</li>
+<li>表格标题 (元素具有 display: table-caption, HTML 表格标题默认属性)</li>
+<li>具有 overflow 且值不是 visible 的块元素</li>
+<li>弹性盒（flex 或 inline-flex）</li>
+<li>display: flow-root</li>
+<li>column-span: all</li>
+</ul>
+</li>
+</ul>
+<h1>行级块级区别</h1>
+<ul>
+<li>块级可设置宽高，单独成行</li>
+<li>行内元素设置宽高无效，宽高由内容撑起</li>
+</ul>
+<h1>盒模型</h1>
+<ul>
+<li>标准盒模型：高宽仅为内容</li>
+<li>怪异盒模型：高宽包括内容+边框+内边距</li>
+</ul>
+<h1>水平居中</h1>
+<ul>
+<li>内行元素使用 text-align: center</li>
+<li>margin: auto</li>
+<li>元素为绝对定位使用 left:0; right:0; margin: auto</li>
+<li>使用 flex</li>
+</ul>
+<h1>垂直居中</h1>
+<ul>
+<li>单行文字使用 lineheight</li>
+<li>使用 flex</li>
+<li>绝对定位元素：bottom:0; top:0; margin:auto</li>
+<li>绝对定位元素：top:50%; margin-top:-(元素高度一半)</li>
+</ul>
+<h1>各个单位区别 rem、em、vh、px</h1>
+<h1>画一条 0.5px 的直线</h1>
+<pre><code class="language-css">height: 1px;
+transform: scale(0.5);
+</code></pre>
+<h1>link 与 @import 的区别</h1>
+<ul>
+<li>link 功能较多，可以定义 RSS，定义 Rel 等作用，而@import 只能用于加载 css</li>
+<li>当解析到 link 时，页面会同步加载所引的 css，而@import 所引用的 css 会等到页面加载完才被加载</li>
+<li>@import 需要 IE5 以上才能使用</li>
+<li>link 可以使用 js 动态引入，@import 不行</li>
+</ul>
+<h1>渐进增强和优雅降级</h1>
+<ul>
+<li>渐进增强：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</li>
+<li>优雅降级：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</li>
+</ul>
+</div>
+  </body>
+</html>

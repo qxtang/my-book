@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - GitFlow 学习笔记</title>
+
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
+  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：3/27/2022, 3:51:00 PM -->
+
+  <script>
+    window.root = '/my-book';
+    hljs.highlightAll();
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <div class="content markdown-body"><blockquote>
+<p>简单记录工作中使用 gitflow 模型管理代码版本、保证代码安全的方法。</p>
+</blockquote>
+<p>参考文章：<br>
+<a href="https://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a><br>
+<a href="http://www.ruanyifeng.com/blog/2015/12/git-workflow.html">Git 工作流程</a><br>
+<a href="http://www.ruanyifeng.com/blog/2012/07/git.html">Git 分支管理策略</a><br>
+<a href="https://www.cnblogs.com/lcngu/p/5770288.html">git flow 的使用</a><br>
+<a href="https://www.cnblogs.com/diffx/p/10690632.html">GitFlow 原理浅析</a></p>
+<p>gitflow 现在被认为过于复杂，可能不适用于现代软件开发：<br>
+<a href="https://www.zhihu.com/question/379545619">如何看待 Git flow 发明人称其不适用于持续交付？</a><br>
+<a href="http://scottchacon.com/2011/08/31/github-flow.html">Issues with git-flow</a><br>
+<a href="https://mp.weixin.qq.com/s/0N3isbSZL4fM5HjZo1aafA?">在阿里，我们如何管理代码分支？</a></p>
+<h1>分支类型</h1>
+<h2>master</h2>
+<ul>
+<li>只有一条</li>
+<li>主分支</li>
+<li>只读，只能从分支 release 或 hotfix 合并进来</li>
+<li>所有发生在 master 分支的修改应该打 tag 做记录，方便追溯</li>
+</ul>
+<h2>develop</h2>
+<ul>
+<li>只有一条</li>
+<li>主开发分支，基于 master 分支克隆</li>
+<li>包含所有要发布到下一个 release 的代码</li>
+<li>只读，只能从 feature 或 release 合并进来</li>
+<li>feature 功能分支完成开发后，合并到 develop，合并到 develop 前，提交合并申请，与 develop 分支进行比较做代码审查，审查通过则允许合并</li>
+<li>从 develop 拉取 release 分支，提测</li>
+<li>release 或 hotfix 分支上线完毕，合并回 develop。</li>
+</ul>
+<h2>feature</h2>
+<ul>
+<li>功能开发分支，基于 develop 分支克隆，主要用于新需求新功能的开发</li>
+<li>有多条，按功能划分，如：<code>/feature/20200712-新增用户</code>、<code>/feature/20200801-登陆注册</code></li>
+<li>可以几个人一起开发一条 feature，也可以一人负责一条 feature</li>
+<li>功能开发完毕后，提测前，合并到 develop 分支</li>
+<li>feature 类型的分支可同时存在多个，用于团队中多个功能同时开发，属于临时分支，功能完成后可选择删除</li>
+</ul>
+<h2>release</h2>
+<ul>
+<li>版本分支，用于测试与上线，基于 feature 分支合并到 develop 之后，从 develop 分支克隆</li>
+<li>有多条，按版本划分，如：<code>/release/20200712-第一版v0.1</code>、<code>/release/20200713-第二版v0.2</code></li>
+<li>release 类型的分支主要用于测试和修改 bug，完成上线后合并回 develop 与 master 分支</li>
+</ul>
+<h2>hotfix</h2>
+<ul>
+<li>补丁分支，基于 master 分支克隆，主要用于对线上的版本进行 BUG 修复</li>
+<li>有多条，按版本划分，如：<code>/hotfix/20200712-修复xss漏洞</code>、<code>/hotfix/20200713-修复新增用户失败bug</code></li>
+<li>修复完毕后合并回 develop 与 master 分支</li>
+</ul>
+<h1>主要工作流程示例</h1>
+<ul>
+<li>初始化项目，创建 master 分支，然后从 master 拉取 develop 分支</li>
+<li>根据需求划分功能，从 develop 拉取 feature 分支进行编码开发，如<code>/feature/20200712-新增用户</code>、<code>/feature/20200801-登陆注册</code></li>
+<li>feature 分支完成后，合并到 develop 前，提交合并申请，与 develop 比较，进行代码审查，合并完成可以选择删除当前 feature</li>
+<li>需要发布时，从 develop 拉取 release 分支进行测试，例如<code>/release/20200712-第一版</code>，测试过程中在该条 release 分支上修改 BUG，测试通过后将该条 release 分支发布</li>
+<li>回归：任一 release 分支通过测试上线后，合并该 release 分支到 develop 与 master，master 分支打 tag，当前 release 不可修改，线上有问题须从 master 拉取 hotfix 分支进行修改</li>
+<li>通知所有进行中的 feature、release 把 master 合进来一次</li>
+<li>上线之后若发现 bug，从 master 拉取 hotfix 进行 bug 修改，如<code>/hotfix/20200713-修复新增用户失败bug</code></li>
+<li>hotfix 通过测试上线后，合并 hotfix 分支到 develop 与 master，master 分支打 tag</li>
+<li>版本回退：如果需进行版本回退，则选择上一版本号的 release 分支进行发布</li>
+</ul>
+</div>
+  </body>
+</html>

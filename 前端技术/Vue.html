@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - Vue</title>
+
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
+  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：3/27/2022, 3:51:00 PM -->
+
+  <script>
+    window.root = '/my-book';
+    hljs.highlightAll();
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <div class="menu" id="menu"></div>
+    <div class="mobile_menu" id="mobile_menu">
+      <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
+    </div>
+    <div class="content markdown-body"><h1>Vue</h1>
+<h1>Vue 生命周期</h1>
+<ul>
+<li>beforeCreate</li>
+<li>created</li>
+<li>beforeMount</li>
+<li>mounted <code>dom加载完毕，可以进行ajax请求和dom操作</code></li>
+<li>beforeUpdate</li>
+<li>updated</li>
+<li>beforeDestroy</li>
+<li>destroyed</li>
+</ul>
+<h1>组件通信方式</h1>
+<ul>
+<li>props / $emit 适用 父子组件通信</li>
+<li>parent / children 适用 父子组件通信</li>
+<li>事件总线 EventBus</li>
+<li>vuex 状态管理库</li>
+</ul>
+<h1>什么是 mvvm</h1>
+<ul>
+<li>Model-View-ViewModel 的缩写</li>
+<li>mvvm 是一种设计思想</li>
+<li>Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑</li>
+<li>View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来</li>
+<li>ViewModel 是一个同步 View 和 Model 的对象</li>
+<li>在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互</li>
+</ul>
+<h1>双向绑定原理</h1>
+<ul>
+<li>vue2 是采用数据劫持结合发布者-订阅者模式的方式，通过 Object.defineProperty() 来劫持各个属性的 setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</li>
+<li>Vue2 中使用 Object.definePorperty() 的缺陷
+<ul>
+<li>Object.definePorperty()递归遍历所有对象的所有属性，当数据层级较深时，会造成性能影响。</li>
+<li>Object.definePorperty()只能作用在对象上，不能作用在数组上。</li>
+<li>Object.definePorperty()只能监听定义时的属性，不能监听新增属性。</li>
+<li>由于 Object.definePorperty()不能作用于数组，vue2.0 选择通过重写数组方法原型的方式对数组数据进行监听，但是仍然无法监听数组索引的变化和长度的变更</li>
+</ul>
+</li>
+<li>Vue3.x 改用 Proxy 替代 Object.defineProperty，因为 Proxy 可以直接监听对象和数组的变化，数组变化也能监听到，不需要深度遍历监听，并且作为新标准将受到浏览器厂商重点持续的性能优化</li>
+<li>Proxy 只会代理对象的第一层，那么 Vue3 又是怎样处理这个问题的呢？
+<ul>
+<li>判断当前 Reflect.get 的返回值是否为 Object，如果是则再通过 reactive 方法做代理， 这样就实现了深度观测</li>
+</ul>
+</li>
+<li>监测数组的时候可能触发多次 get/set，那么如何防止触发多次呢？
+<ul>
+<li>我们可以判断 key 是否为当前被代理对象 target 自身属性，也可以判断旧值与新值是否相等，只有满足以上两个条件之一时，才有可能执行 trigger。</li>
+</ul>
+</li>
+</ul>
+<h1>说一下 vue2.x 中如何监测数组变化</h1>
+<p>使用了函数劫持的方式，重写了数组的方法，Vue 将 data 中的数组进行了原型链重写，指向了自己定义的数组原型方法。这样当调用数组 api 时，可以通知依赖更新。如果数组中包含着引用类型，会对数组中的引用类型再次递归遍历进行监控。这样就实现了监测数组变化。</p>
+<h1>data 和 computed 的区别</h1>
+<ul>
+<li>data 中的属性并不会随赋值变量的改动而改动，而 computed 会</li>
+</ul>
+<h1>为什么 vue 中 data 必须是一个函数</h1>
+<ul>
+<li>js 中，对象为引用类型</li>
+<li>由于数据对象都指向同一个 data 对象，当在一个组件中修改 data 时，其他重用的组件中的 data 会同时被修改</li>
+<li>使用返回对象的函数，每次都创建一个新对象，引用地址不同，则不会出现这个问题</li>
+</ul>
+<h1>nextTick</h1>
+<p>定义：在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。 理解：nextTick()，是将回调函数延迟在下一次 dom 更新数据后调用，简单的理解是：当数据更新了，在 dom 中渲染后，自动执行该函数。</p>
+<ul>
+<li>什么时候用：
+<ul>
+<li>Vue 生命周期的 created()钩子函数进行的 DOM 操作一定要放在 Vue.nextTick()的回调函数中</li>
+<li>当项目中你想在改变 DOM 元素的数据后基于新的 dom 做点什么，对新 DOM 一系列的 js 操作都需要放进 Vue.nextTick()的回调函数中</li>
+<li>在使用某个第三方插件时 ，希望在 vue 生成的某些 dom 动态发生变化时重新应用该插件，也会用到该方法，这时候就需要在 $nextTick 的回调函数中执行重新应用插件的方法，比如 swipebox 插件</li>
+</ul>
+</li>
+</ul>
+<h1>v-if 和 v-show 的区别</h1>
+<ul>
+<li>v-if 是动态的向 DOM 树内添加或者删除 DOM 元素</li>
+<li>v-show 是通过设置 DOM 元素的 display 样式属性控制显隐</li>
+</ul>
+<h1>Vue 事件绑定原理</h1>
+<p>原生事件绑定是通过 addEventListener 绑定给真实元素的，组件事件绑定是通过 Vue 自定义的$on 实现的。</p>
+<h1>Vue 模版编译原理</h1>
+<p>简单说，Vue 的编译过程就是将 template 转化为 render 函数的过程。会经历以下阶段：</p>
+<ul>
+<li>生成 AST 树</li>
+<li>优化</li>
+<li>codegen</li>
+</ul>
+<p>首先解析模版，生成 AST 语法树(一种用 JavaScript 对象的形式来描述整个模板)。 使用大量的正则表达式对模板进行解析，遇到标签、文本的时候都会执行对应的钩子进行相关处理。</p>
+<p>Vue 的数据是响应式的，但其实模板中并不是所有的数据都是响应式的。有一些数据首次渲染后就不会再变化，对应的 DOM 也不会变化。那么优化过程就是深度遍历 AST 树，按照相关条件对树节点进行标记。这些被标记的节点(静态节点)我们就可以跳过对它们的比对，对运行时的模板起到很大的优化作用。 编译的最后一步是将优化后的 AST 树转换为可执行的代码。</p>
+<h1>keep-alive</h1>
+<ul>
+<li>keep-alive 可以实现组件缓存，当组件切换时不会对当前组件进行卸载。</li>
+<li>常用的两个属性 include/exclude，允许组件有条件的进行缓存。</li>
+<li>两个生命周期 activated/deactivated，用来得知当前组件是否处于活跃状态。</li>
+</ul>
+<h1>Vue 的性能优化</h1>
+<ul>
+<li>编码阶段
+<ul>
+<li>尽量减少 data 中的数据，data 中的数据都会增加 getter 和 setter，会收集对应的 watcher</li>
+<li>v-if 和 v-for 不能连用</li>
+<li>如果需要使用 v-for 给每项元素绑定事件时使用事件代理</li>
+<li>SPA 页面采用 keep-alive 缓存组件</li>
+<li>在更多的情况下，使用 v-if 替代 v-show</li>
+<li>key 保证唯一</li>
+<li>使用路由懒加载、异步组件</li>
+<li>防抖、节流</li>
+<li>第三方模块按需导入</li>
+<li>长列表滚动到可视区域动态加载</li>
+<li>图片懒加载</li>
+</ul>
+</li>
+<li>SEO 优化
+<ul>
+<li>服务端渲染 SSR</li>
+</ul>
+</li>
+<li>打包优化
+<ul>
+<li>压缩代码</li>
+<li>使用 cdn 加载第三方模块</li>
+<li>抽离公共文件</li>
+</ul>
+</li>
+<li>用户体验
+<ul>
+<li>骨架屏</li>
+<li>缓存优化（客户端缓存、服务端缓存、服务端开启 gzip 压缩等）</li>
+</ul>
+</li>
+</ul>
+<h1>vue3 新特性</h1>
+<ul>
+<li>基于 Proxy 的观察者机制，目前，Vue 的反应系统是使用 Object.defineProperty 的 getter 和 setter。 但是，Vue 3 将使用 ES2015 Proxy 作为其观察者机制。 这消除了以前存在的警告，使速度加倍，并节省了一半的内存开销</li>
+<li>更好的支持 TS 和 JSX</li>
+</ul>
+<h1>vuex</h1>
+<h2>核心属性</h2>
+<ul>
+<li>state 全局唯一数据源</li>
+<li>getters 类似过滤器和计算属性，从 store 中的 state 中派生出一些状态</li>
+<li>mutations 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation，类似 redux 里的 reducer，同步任务</li>
+<li>actions 类似 redux 里的异步 reducer，可以执行异步任务</li>
+<li>modules 模块，使用单一状态树，应用的所有状态会集中到一个比较大的对象，变得复杂、臃肿。Vuex 允许我们将 store 分割成模块（module）</li>
+</ul>
+<h2>Vuex 中状态储存在哪里，怎么改变它？</h2>
+<ul>
+<li>存储在 state 中，改变 Vuex 中的状态的唯一途径就是显式地提交 (commit) mutation。</li>
+</ul>
+<h2>Vuex 中状态是对象时，使用时要注意什么？</h2>
+<ul>
+<li>因为对象是引用类型，复制后改变属性还是会影响原始数据，这样会改变 state 里面的状态，是不允许，所以先用深度克隆复制对象，再修改。</li>
+</ul>
+</div>
+  </body>
+</html>

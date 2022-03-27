@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - 网络</title>
+
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
+  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：3/27/2022, 3:51:01 PM -->
+
+  <script>
+    window.root = '/my-book';
+    hljs.highlightAll();
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <div class="content markdown-body"><h1>TCP/IP</h1>
+<h2>TCP 和 UDP 的区别</h2>
+<ul>
+<li>tcp 是面向连接的，udp 是无连接的即发送数据前不需要先建立链接。</li>
+<li>tcp 提供可靠的服务。</li>
+<li>tcp 只能是 1 对 1 的，UDP 支持 1 对 1,1 对多。</li>
+<li>tcp 的首部较大为 20 字节，而 UDP 只有 8 字节。</li>
+<li>tcp 是面向连接的可靠性传输，而 UDP 是不可靠的。</li>
+</ul>
+<h1>HTTP 协议</h1>
+<h2>说一下常见请求头？</h2>
+<ul>
+<li>Accept 可接受的响应内容类型</li>
+<li>Cookie</li>
+<li>Content-Type 请求体的 MIME 类型</li>
+<li>Origin</li>
+<li>Referer 来源</li>
+<li>User-Agent</li>
+<li>Cache-Control 强缓存相关</li>
+<li>Expires 强缓存相关</li>
+<li>Last-Modified 协商缓存相关</li>
+<li>Etag 协商缓存相关</li>
+<li>Access-Control-Allow-Origin 指定允许跨域的域名</li>
+</ul>
+<h2>HTTP 2.0</h2>
+<p>1.0 协议缺点：</p>
+<ul>
+<li>文本协议传输，不够安全</li>
+<li>无法复用链接，完成即断开，重新慢启动和 TCP 3 次握手</li>
+<li>线头阻塞，导致请求之间互相影响</li>
+<li>Header 内容繁多，有时有可能会超过响应内容，并且每次有许多字段都是重复传输</li>
+<li>基于以上缺点，也出现了许多优化手段：雪碧图、合并脚本和样式表、资源内联、域名分片等优化工作，但是如果 HTTP 协议足够好的话，本可以避免这些额外的操作。</li>
+</ul>
+<h3>1.1 新特性</h3>
+<ul>
+<li>长连接(默认 keep-alive)，复用</li>
+<li>断点续传</li>
+<li>身份认证</li>
+<li>状态管理</li>
+<li>cache 缓存头部标识
+<ul>
+<li>Cache-Control</li>
+<li>Expires</li>
+<li>Last-Modified</li>
+<li>Etag</li>
+</ul>
+</li>
+</ul>
+<h3>2.0 新特性</h3>
+<ul>
+<li>多路复用，单一长连接，二进制格式传输</li>
+<li>头部 header 压缩</li>
+<li>服务端推送</li>
+<li>多路复用</li>
+</ul>
+<h2>什么是 http</h2>
+<ul>
+<li>超文本传输协议，</li>
+<li>是一个客户端和服务器端请求和应答的标准，</li>
+<li>默认端口 80</li>
+</ul>
+<h2>什么是 https</h2>
+<ul>
+<li>是以安全为目的设计</li>
+<li>结合 ssl 协议，建立一个信息安全通道，来确保数组的传输，确保网站的真实性。</li>
+<li>http 传输的数据都是未加密的</li>
+<li>网景公司设置了 SSL 协议来对 http 协议传输的数据进行加密处理</li>
+<li>需要证书，有成本</li>
+<li>默认端口 443</li>
+</ul>
+<h2>什么是 tcp 三次握手</h2>
+<ul>
+<li>客户端和服务端都需要知道各自是否可收发，因此需要三次握手。</li>
+</ul>
+<h2>HTTP 报文格式</h2>
+<ul>
+<li>http 报文分为三部分：起始行、头部、主体</li>
+<li>起始行是对请求或响应的描述</li>
+<li>头部存放如 cookie、content-type 等</li>
+<li>主体存放数据，明文传输</li>
+</ul>
+<h2>状态码</h2>
+<ul>
+<li>1** 信息，服务器收到请求，需要请求者继续执行操作</li>
+<li>2** 成功，操作被成功接收并处理</li>
+<li>3** 重定向，需要进一步的操作以完成请求</li>
+<li>4** 客户端错误，请求包含语法错误或无法完成请求</li>
+<li>5** 服务器错误，服务器在处理请求的过程中发生了错误</li>
+<li>100 表示目前为止一切正常, 客户端应该继续请求, 如果已完成请求则忽略</li>
+<li>200 表明请求已经成功. 默认情况下状态码为 200 的响应可以被缓存</li>
+<li>201 表示请求已经被成功处理，并且创建了新的资源。新的资源在应答返回之前已经被创建。</li>
+<li>202 表示服务器端已经收到请求消息，但是尚未进行处理。但是对于请求的处理确实无保证的，即稍后无法通过 HTTP 协议给客户端发送一个异步请求来告知其请求的处理结果。</li>
+<li>204 表示目前请求成功，但客户端不需要更新其现有页面。</li>
+<li>301 永久重定向。说明请求的资源已经被移动到了由 Location 头部指定的 url 上，是固定的不会再改变。搜索引擎会根据该响应修正。</li>
+<li>302 临时重定向。重定向状态码表明请求的资源被暂时的移动到了由 Location 头部指定的 URL 上。浏览器会重定向到这个 URL，但是搜索引擎不会对该资源的链接进行更新</li>
+<li>304 Not Modified 说明无需再次传输请求的内容，也就是说可以使用缓存的内容。这通常是在 GET 请求, 或在请求中附带了头部信息：If-None-Match 或 If-Modified-Since</li>
+<li>307 临时重定向。类似 302，区别在于能够确保请求方法和消息主体不会发生改变。</li>
+<li>308 永久重定向。类似 301，区别在于能够确保请求方法和消息主体不会发生改变。</li>
+<li>400 表示由于语法无效，服务器无法理解该请求。客户端不应该在未经修改的情况下重复此请求。</li>
+<li>401 说明由于缺乏目标资源要求的身份验证凭证，发送的请求未得到满足。</li>
+<li>403 指的是服务器端有能力处理该请求，但是拒绝授权访问。进入该状态后，不能再继续进行验证。该访问是永久禁止的，并且与应用逻辑密切相关（例如不正确的密码）</li>
+<li>404 说明服务器端无法找到所请求的资源。</li>
+<li>405 Method Not Allowed 表明服务器禁止了使用当前 HTTP 方法的请求。需要注意的是，GET 与 HEAD 两个方法不得被禁止，当然也不得返回状态码 405。</li>
+<li>500 表示所请求的服务器遇到意外的情况并阻止其执行请求，比如服务端代码语法错误</li>
+<li>502 表示作为网关或代理角色的服务器，从上游服务器（如 tomcat、php-fpm）中接收到的响应是无效的。</li>
+<li>504 表示网关或者代理的服务器无法在规定的时间内获得想要的响应。比如 代码执行时间超时，或死循环了。</li>
+</ul>
+<h2>301 和 302 区别</h2>
+<ul>
+<li>302 重定向只是暂时的重定向，例如未登陆的用户访问用户中心重定向到登录页面。</li>
+<li>因为服务器返回 302，所以，搜索搜索引擎认为新的网址是暂时的，搜索引擎会抓取新的内容而保留旧的地址。</li>
+<li>301 重定向是永久的重定向，搜索引擎在抓取新的内容的同时也将旧的网址替换为了重定向之后的网址</li>
+</ul>
+<h2>options 请求</h2>
+<ul>
+<li>OPTIONS 方法是用于请求获得由 Request-URI 标识的资源在请求/响应的通信过程中可以使用的功能选项。通过这个方法，客户端可以在采取具体资源请求之前，决定对该资源采取何种必要措施，或者了解服务器的性能。</li>
+<li>该请求方法的响应不能缓存。</li>
+</ul>
+<h2>HTTP 队头阻塞</h2>
+<ul>
+<li>“队头阻塞”与短连接和长连接无关，而是由 HTTP 基本的“请求 - 应答”模型所导致的。</li>
+<li>因为 HTTP 规定报文必须是“一发一收”，这就形成了一个先进先出的“串行”队列。</li>
+<li>队列里的请求没有轻重缓急的优先级，只有入队的先后顺序，排在最前面的请求被最优先处理。</li>
+<li>如果队首的请求因为处理的太慢耽误了时间，那么队列里后面的所有请求也不得不跟着一起等待，结果就是其他的请求承担了不应有的时间成本。 解决：</li>
+<li>域名分片，多开几个域名，而这些域名都指向同一个服务器</li>
+</ul>
+<h2>post 和 get 区别</h2>
+<ul>
+<li>GET 和 POST 方法没有实质区别，只是报文格式不同。</li>
+<li>约定上，get 一般使用 url 传参，post 一般使用 body 传参，实际上 post 也可以 url 传参。</li>
+<li>GET 没有副作用，点击 浏览器后退和刷新按钮时，POST 的数据会被重新提交，GET 可以收藏为书签，GET 参数可被浏览器历史保存。</li>
+<li>GET 的参数长度受到浏览器限制，http 协议上并没有限制。POST 无限制。</li>
+<li>数据类型 GET 只允许传 ASCII 字符，POST 没有限制，允许传二进制数据。</li>
+<li>POST 并不比 GET 安全，只有 https 才是安全的。</li>
+<li>get 请求传参长度的误区：
+误区：我们经常说 get 请求参数的大小存在限制，而 post 请求的参数大小是无限制的。 实际上 HTTP 协议从未规定 GET/POST 的请求长度限制是多少。对 get 请求参数的限制是来源与浏览器或 web 服务器，浏览器或 web 服务器限制了 url 的长度。为了明确这个概念，我们必须再次强调下面几点:</li>
+<li>HTTP 协议 未规定 GET 和 POST 的长度限制</li>
+<li>GET 的最大长度显示是因为 浏览器和 web 服务器限制了 URI 的长度</li>
+<li>不同的浏览器和 WEB 服务器，限制的最大长度不一样</li>
+</ul>
+<p>https://segmentfault.com/a/1190000018129846
+https://juejin.im/post/59fc04ecf265da4317697f26</p>
+<h2>cookie</h2>
+<ul>
+<li>主要作用：会话状态管理、个性化设置、浏览器行为跟踪</li>
+<li>一段一般不超过 4KB 的小型文本数据</li>
+<li>由名称（name）、值（value）和其它几个用于控制 Cookie 有效期、安全性、使用范围的可选属性组成</li>
+<li>Expires 用于设置 Cookie 的过期时间</li>
+<li>Max-Age 用于设置在 Cookie 失效之前需要经过的秒数</li>
+<li>Domain 指定了 Cookie 可以送达的主机名。</li>
+<li>Path 指定了一个 URL 路径，这个路径必须出现在要请求的资源的路径中才可以发送 Cookie 首部。</li>
+<li>标记为 Secure 的 Cookie 只应通过被 HTTPS 协议加密过的请求发送给服务端。</li>
+<li>设置 HTTPOnly 属性可以防止客户端脚本访问 Cookie，保证安全，例如 XSS 攻击。</li>
+<li>SameSite 是最近非常值得一提的内容，因为新的 Chrome80 版本中默认屏蔽了第三方的 Cookie</li>
+</ul>
+<h2>cookie 缺点</h2>
+<ul>
+<li>大小只有 4kb、会增加请求大小</li>
+<li>个数限制、长度限制</li>
+<li>不安全，有可能被截获</li>
+<li>相比 localstorage， 需要自己封装 setter 和 getter</li>
+</ul>
+<h2>cookie-session</h2>
+<ul>
+<li>HTTP 是一个无状态的协议。</li>
+<li>为了解决 HTTP 无状态导致的问题，出现了 Cookie，为了解决客户端与服务端会话状态的问题，这个状态是指后端服务的状态而非通讯协议的状态。</li>
+<li>第一次请求服务端的时候，服务端响应报头出现一个 Set-Cookie 字段，在客户端设置一个 cookie，</li>
+<li>当再次请求服务端的时候，请求会附带这个 cookie 过去，cookie 中存有 sessionId 这样的信息来到服务端这边确认是否属于同一次会话。</li>
+<li>当客户端请求创建一个 session 的时候，服务端会先检查这个客户端的请求里是否已包含了一个 session 标识 - sessionId，</li>
+<li>如果已包含这个 sessionId，则说明以前已经为此客户端创建过 session，服务端就按照 sessionId 把这个 session 检索出来使用</li>
+</ul>
+<h1>跨域请求如何携带 cookie</h1>
+<ul>
+<li>服务端设置 Access-Control-Allow-Origin 响应头，为允许跨域的域</li>
+<li>服务端设置 Access-Control-Allow-Credentials 响应头 为 true</li>
+<li>请求时设置 withCredentials 为 true</li>
+</ul>
+<h2>withCredentials 是什么</h2>
+<ul>
+<li>XMLHttpRequest 的一个请求配置</li>
+<li>指示了是否该使用类似 cookies,authorization headers(头部授权)或者 TLS 客户端证书这一类资格证书来创建一个跨站点访问控制</li>
+</ul>
+</div>
+  </body>
+</html>

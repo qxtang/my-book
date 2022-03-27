@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - Fiddler 真机调试微信 h5</title>
+
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
+  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：3/27/2022, 3:51:00 PM -->
+
+  <script>
+    window.root = '/my-book';
+    hljs.highlightAll();
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <div class="menu" id="menu"></div>
+    <div class="mobile_menu" id="mobile_menu">
+      <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
+    </div>
+    <div class="content markdown-body"><blockquote>
+<p>需求：真机上通过 https 和微信可信域名访问本地服务</p>
+</blockquote>
+<h1>前提条件</h1>
+<ul>
+<li>手机和电脑处在同一局域网环境</li>
+<li>电脑安装 Fiddler</li>
+</ul>
+<h1>本地 hosts 文件添加映射</h1>
+<ul>
+<li>假设可信域名为 abc.com</li>
+<li>假设电脑局域网 ip 为 192.168.1.106</li>
+</ul>
+<p>编辑 hosts 文件，将域名映射到电脑局域网 ip</p>
+<pre><code class="language-txt"># 微信开发
+192.168.1.106 abc.com
+</code></pre>
+<h1>设置 Fiddler</h1>
+<ul>
+<li>tools -&gt; options</li>
+<li>https 相关设置</li>
+</ul>
+<p><img src="../resource/20210801123947.png" alt=""></p>
+<ul>
+<li>代理相关设置，这里设置代理端口号为 8002，可以设置任意合法端口号</li>
+</ul>
+<p><img src="../resource/20210801124045.png" alt=""></p>
+<h1>修改 webpack 配置</h1>
+<ul>
+<li>
+<p>开启 https
+<a href="https://webpack.js.org/configuration/dev-server/#devserverhttps">https://webpack.js.org/configuration/dev-server/#devserverhttps</a></p>
+</li>
+<li>
+<p>本地服务端口号改成 443</p>
+</li>
+</ul>
+<p>此时可在电脑浏览器通过 https://abc.com 访问本地服务</p>
+<h1>修改手机代理</h1>
+<ul>
+<li>进入手机 wlan 设置，选择连接的 wifi，代理选择手动</li>
+<li>主机名填电脑局域网 ip，端口填 Fiddler 代理设置中的端口号</li>
+</ul>
+<p><img src="../resource/20210801124751.jpg" alt=""></p>
+<h1>手机安装 Fiddler 证书</h1>
+<ul>
+<li>手机浏览器访问 <code>http://[电脑局域网ip]:[Fiddler 代理端口号]</code>，这里是 <code>http://192.168.1.106:8002</code></li>
+<li>点击下载 Fiddler 证书，进入手机 wlan 设置安装证书</li>
+</ul>
+<p><img src="../resource/20210801125321.jpg" alt=""></p>
+<p>此时手机浏览器可通过 https://abc.com 访问电脑上的本地服务。</p>
+<p>结束</p>
+</div>
+  </body>
+</html>

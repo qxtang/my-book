@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - Browserslist</title>
+
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
+  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：3/27/2022, 3:51:00 PM -->
+
+  <script>
+    window.root = '/my-book';
+    hljs.highlightAll();
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <div class="content markdown-body"><h1>Browserslist</h1>
+<ul>
+<li>用特定的语句来查询浏览器列表<pre><code class="language-sh"># 查询 Chrome 最后的两个版本
+npx browserslist &quot;last 2 Chrome versions&quot;
+chrome 96
+chrome 95
+</code></pre>
+</li>
+<li>autoprefixer 和 babel 都会用到</li>
+<li>开发过程中为了减小垫片的体积，避免使用过多没必要的垫片</li>
+<li>当我们确认的浏览器版本号，那么它的垫片体积就可以确认</li>
+<li>例如：当我们确认的浏览器版本号，那么它的垫片体积就会确认</li>
+</ul>
+<h2>caniuse-lite 与 caniuse-db</h2>
+<ul>
+<li>browserslist 是从 caniuse-lite 这个库中查询数据的，caniuse-lite 是 caniuse-db 的精简版本，对 caniuse-db 的数据按一定规则做了简化，减少了库的大小</li>
+<li>caniuse-db 则是 can i use 网站的数据源，提供了网站查询所需的所有数据，caniuse-db 发布时会同步发布 caniuse-lite</li>
+<li>caniuse-lite 这个库也由 browserslist 团队进行维护</li>
+<li>由于它们都不属于线上数据库，使用时会将数据克隆至本地，所以可能会存在本地数据不是最新的情况，browserslist 提供了更新 caniuse-lite 的命令，可定期运行以获取最新数据<pre><code class="language-sh">npx browserslist@latest --update-db
+</code></pre>
+</li>
+</ul>
+<h2>原理</h2>
+<ul>
+<li>browserslist 根据正则解析查询语句，对浏览器版本数据库 caniuse-lite 进行查询，返回所得的浏览器版本列表</li>
+<li>因为 browserslist 并不维护数据库，因此它会经常提醒你去更新 caniuse-lite 这个库</li>
+</ul>
+</div>
+  </body>
+</html>
