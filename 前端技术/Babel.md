@@ -1,0 +1,88 @@
+# 概念
+
+- 一个 JavaScript 翻译器
+- 用于将采用 ECMAScript 2015+ 语法编写的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中
+- 通过 Polyfill 方式在目标环境中添加缺失的特性 （通过引入第三方 polyfill 模块，例如 core-js）
+
+# .babelrc 和 babel.config.js 区别
+
+- .babelrc 只会影响本项目中的代码
+- babel.config.js 会影响整个项目中的代码，包含 node_modules 中的代码
+- 推荐使用 babel.config.js
+
+# 基本工作原理
+
+- 第 1 步 解析（Parse）  
+  通过解析器 babylon 将代码解析成抽象语法树
+
+- 第 2 步 转换（TransForm）  
+  通过 babel-traverse plugin 对抽象语法树进行深度优先遍历，遇到需要转换的，就直接在 AST 对象上对节点进行添加、更新及移除操作，比如遇到箭头函数，就转换成普通函数，最后得到新的 AST 树
+
+- 第 3 步 生成（Generate）  
+  通过 babel-generator 将 AST 树生成 es5 代码
+
+# useBuiltIns
+
+```json
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "debug": true
+      }
+    ]
+  ]
+}
+```
+
+- babel 在转译的时候，会将源代码分成 syntax（语法） 和 api 两部分来处理，语法处理所需要的配置相对简单，
+- babel 使用 polyfill 来处理 api，@babel/preset-env 中有一个配置选项 useBuiltIns，用来告诉 babel 如何处理 api，由于这个选项默认值为 false，即不处理 api，所以代码转译后默认没有处理 api，可以通过手动引入 polyfill，但是 polyfill 没有动态引入会增加包的体积，
+- 设置 useBuiltIns 的值为 "entry"，同时在源代码的最上方手动引入 `@babel/polyfill` 这个库（该库一共分为两部分，第一部分是 core-js，第二部分是 regenerator-runtime。其中 core-js 为其他团队开源的另一个独立项目），此时 babel 根据项目 browserslist，引入浏览器不兼容的 polyfill。需要在入口文件手动添加 `import '@babel/polyfill'`，会自动根据 browserslist 替换成浏览器不兼容的所有 polyfill
+- 将 useBuiltIns 改为 "usage"，babel 就可以按需加载 polyfill，并且不需要手动引入 `@babel/polyfill`
+
+## 存在的问题
+
+- polyfill 会直接在全局对象上定义方法，比如 Array.include，众所周知前端开发不鼓励修改全局变量，
+- babel 会向翻译后的**每一个**文件原地定义许多帮助函数，用于转移语法，比如 `__spreadArray`、`__generator`,
+
+# @babel/plugin-transform-runtime
+
+这个插件就是为了解决以上问题，其中 `@babel/plugin-transform-runtime` 的作用是转译代码，转译后的代码中可能会引入 `@babel/runtime-corejs3` 里面的模块。所以前者运行在编译时，后者运行在运行时。类似 polyfill，后者需要被打包到最终产物里在浏览器中运行。
+
+安装：
+
+```sh
+$ yarn add @babel/plugin-transform-runtime -D
+$ yarn add @babel/runtime-corejs3
+```
+
+修改配置如下：
+
+```json
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "debug": true
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3 // 指定 runtime-corejs 的版本，目前有 2 3 两个版本
+      }
+    ]
+  ]
+}
+```
+
+引入了这个插件后：
+
+- api 从之前的直接修改原型改为了从一个统一的模块中引入，避免了对全局变量及其原型的污染
+- helpers 从之前的原地定义改为了从一个统一的模块中引入，使得打包的结果中每个 helper 只会存在一个
