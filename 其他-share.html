@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：3/28/2022, 1:35:58 AM -->
+  <!-- 编译时间：3/29/2022, 3:18:03 PM -->
 
   <script>
     window.root = '/my-book';
@@ -158,6 +158,11 @@
 <ul>
 <li>PSCP (PuTTY Secure Copy client)是 PuTTY 提供的文件传输工具，通过 SSH 连接，在两台机器之间安全的传输文件，可以用于任何 SSH（包括 SSH v1、SSH v2）服务器。</li>
 </ul>
+<h1>redis 的雪崩和穿透</h1>
+<h2>原因</h2>
+<p>某个时刻，多个键同时失效，大量请求打进数据库</p>
+<h2>解决</h2>
+<p>封装 redis 的 set 方法时，给过期时间随即加上时间戳</p>
 </div>
   </body>
 </html>

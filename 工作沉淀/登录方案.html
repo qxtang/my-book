@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - 登录方案</title>
+
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
+  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：3/29/2022, 3:18:03 PM -->
+
+  <script>
+    window.root = '/my-book';
+    hljs.highlightAll();
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <div class="menu" id="menu"></div>
+    <div class="mobile_menu" id="mobile_menu">
+      <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
+    </div>
+    <div class="content markdown-body"><h1>登录方案</h1>
+<h2>方案一：仅 jwt</h2>
+<ul>
+<li>后端直接签发 jwt，后端不存储</li>
+<li>缺点：一旦下发，后端无法拒绝携带该 jwt 的请求，无法踢除用户</li>
+</ul>
+<h2>方案二：jwt + redis</h2>
+<ul>
+<li>后端备份一份 token 存入 redis，请求进来时，使用前端传来的 jwt 从 redis 查询出对应 token，做对比，</li>
+<li>若 redis 中的 token 过期或不存在则视为无权限</li>
+</ul>
+<h2>方案三：长短 token</h2>
+<ul>
+<li>首次登录设置两个 token，都保存进 redis
+<ul>
+<li>access_token：标准 JWT 格式，即请求时的授权令牌，过期时间较短，一般 2 个小时，redis key：uuid-access，value：jwt</li>
+<li>refresh_token：用于刷新 access_token，过期时间较长，一般 1 个月，redis key：uuid-refresh，value：jwt</li>
+</ul>
+</li>
+<li>添加凭 refresh_token 刷新 access_token 的接口</li>
+<li>前端请求封装
+<ul>
+<li>先发起请求，如果接口返回 access_token 过期，先刷新 access_token，再进行一次重试</li>
+</ul>
+</li>
+<li>为了让活跃用户保持登录，其他方案频繁续签会有性能问题，该方案解决此问题</li>
+</ul>
+<h2>问题</h2>
+<h2>前端请求刷新 token 有延迟，如何防止多次请求同时发起多次刷新 token</h2>
+<ul>
+<li>请求封装中设置刷新 token 防抖锁，如果一次刷新任务进行中，则其他刷新请求取消</li>
+</ul>
+<h2>同时发起多个请求时，access_token 正好过期，同时多次提示无权限</h2>
+<ul>
+<li>请求封装中，如果刷新 token 锁处于关闭状态，则把请求任务保存进一个数组，等待锁打开再执行</li>
+</ul>
+</div>
+  </body>
+</html>
