@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：3/29/2022, 3:18:03 PM -->
+  <!-- 编译时间：3/30/2022, 8:49:50 AM -->
 
   <script>
     window.root = '/my-book';
@@ -67,8 +67,40 @@
 </code></pre>
 <h1>service worker 实现离线缓存</h1>
 <ul>
-<li>是 Chrome 团队提出和力推的一个 WEB API，用于给 web 应用提供高级的可持续的后台处理能力</li>
-<li>就像介于服务器和网页之间的拦截器，能够拦截进出的 HTTP 请求，从而完全控制你的网站（所以 PWA 必须 https）</li>
+<li>
+<p>是 Chrome 团队提出和力推的一个 WEB API，用于给 web 应用提供高级的可持续的后台处理能力</p>
+</li>
+<li>
+<p>在后台独立于网页运行，也是用 JavaScript 编写</p>
+</li>
+<li>
+<p>就像介于服务器和网页之间的拦截器，能够拦截进出的 HTTP 请求，从而完全控制你的网站（所以 PWA 必须 https）</p>
+</li>
+<li>
+<p>代码示例</p>
+<pre><code class="language-javascript">// head 标签中
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/service-worker.js').then(
+      function (registration) {
+        console.log('注册成功');
+      },
+      function (err) {
+        console.log('注册失败');
+      }
+    );
+  });
+}
+</code></pre>
+<pre><code class="language-javascript">// service-worker.js
+self.addEventListener('fetch', function (event) {
+  if (/\.png$/.test(event.request.url)) {
+    event.respondWith(fetch('some url'));
+  }
+});
+</code></pre>
+</li>
 </ul>
 </div>
   </body>
