@@ -34,4 +34,32 @@
 # service worker 实现离线缓存
 
 - 是 Chrome 团队提出和力推的一个 WEB API，用于给 web 应用提供高级的可持续的后台处理能力
+- 在后台独立于网页运行，也是用 JavaScript 编写
 - 就像介于服务器和网页之间的拦截器，能够拦截进出的 HTTP 请求，从而完全控制你的网站（所以 PWA 必须 https）
+- 代码示例
+
+  ```javascript
+  // head 标签中
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/service-worker.js').then(
+        function (registration) {
+          console.log('注册成功');
+        },
+        function (err) {
+          console.log('注册失败');
+        }
+      );
+    });
+  }
+  ```
+
+  ```javascript
+  // service-worker.js
+  self.addEventListener('fetch', function (event) {
+    if (/\.png$/.test(event.request.url)) {
+      event.respondWith(fetch('some url'));
+    }
+  });
+  ```
