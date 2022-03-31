@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：3/30/2022, 8:49:50 AM -->
+  <!-- 编译时间：3/31/2022, 10:14:08 AM -->
 
   <script>
     window.root = '/my-book';
@@ -67,6 +67,15 @@
 <li>自测不够充分</li>
 <li>ui 验收时也会将 bug 加进来</li>
 <li>评估存在不足，后面赶工时，质量受影响</li>
+</ul>
+<h1>开发毕业设计系统时，MySQL 数据库使用 utf8 编码格式 无法保存 emoji 表情</h1>
+<ul>
+<li>解决：改成 utf8mb4</li>
+<li>是 MySQL 的一个历史遗留问题，utf8mb4 才是真正的 UTF-8</li>
+<li>在 MySQL 中，“utf8”编码只支持每个字符最多三个字节，中文是占 3 个字节，其他数字、英文、符号占一个字节</li>
+<li>而真正的 UTF-8 是每个字符最多四个字节，emoji 符号占 4 个字节，一些较复杂的文字、繁体字也是 4 个字节</li>
+<li>MySQL 一直没有修复这个 bug，他们在 2010 年发布了一个叫作“utf8mb4”的字符集，巧妙的绕过了这个问题</li>
+<li>他们并没有对新的字符集广而告之（可能是因为这个 bug 让他们觉得很尴尬），以致于现在网络上仍然在建议开发者使用“utf8”，但这些建议都是错误的</li>
 </ul>
 </div>
   </body>

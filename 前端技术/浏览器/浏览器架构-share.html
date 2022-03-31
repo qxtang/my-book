@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：3/30/2022, 8:49:50 AM -->
+  <!-- 编译时间：3/31/2022, 10:14:08 AM -->
 
   <script>
     window.root = '/my-book';
@@ -31,12 +31,55 @@
 </head>
 
   <body>
-    <div class="content markdown-body"><!-- TODO -->
-<ul>
-<li>参考：
-<a href="https://juejin.cn/post/6844904046411644941">https://juejin.cn/post/6844904046411644941</a>
+    <div class="content markdown-body"><ul>
+<li>参考：<br>
+<a href="https://juejin.cn/post/6844904046411644941">https://juejin.cn/post/6844904046411644941</a><br>
 <a href="https://zhuanlan.zhihu.com/p/149063367">https://zhuanlan.zhihu.com/p/149063367</a></li>
-<li>以 chrome 举例</li>
+</ul>
+<h1>浏览器架构（以 chrome 为例）</h1>
+<p>采用多进程架构</p>
+<h2>各个进程具体负责的工作内容</h2>
+<table>
+<thead>
+<tr>
+<th>进程</th>
+<th>负责的工作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Browser</td>
+<td>负责浏览器的“Chrome”部分， 包括导航栏，书签， 前进和后退按钮。同时这个进程还会控制那些我们看不见的部分，包括网络请求的发送以及文件的读写。</td>
+</tr>
+<tr>
+<td>Renderer</td>
+<td>负责 tab 内和网页展示相关的所有工作。Chrome 会尽可能为每一个 tab 甚至是页面里面的每一个 iframe 都分配一个单独的渲染进程</td>
+</tr>
+<tr>
+<td>Plugin</td>
+<td>控制网页使用的所有插件，例如 flash 插件。</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>负责独立于其它进程的 GPU 任务。它之所以被独立为一个进程是因为它要处理来自于不同 tab 的渲染请求并把它在同一个界面上画出来。</td>
+</tr>
+</tbody>
+</table>
+<h2>多进程架构</h2>
+<p>为了节省内存，Chrome 会限制被启动的进程数目，</p>
+<p>当进程数达到一定的界限后，Chrome 会将访问同一个网站的 tab 都放在一个进程里面跑</p>
+<h3>好处</h3>
+<ul>
+<li>提供安全性和沙盒性，当其中一个 tab 的崩溃时，你可以随时关闭这个 tab 并且其他 tab 不受到影响</li>
+</ul>
+<h3>坏处</h3>
+<ul>
+<li>内存消耗大</li>
+</ul>
+<h2>网站隔离功能</h2>
+<ul>
+<li>会为网站内不同站点的 iframe 分配一个独立的渲染进程</li>
+<li>由来：如果一个 tab 只有一个进程的话不同站点的 iframe 都会跑在这个进程里面，这也意味着它们会共享内存，这就有可能会破坏同源策略</li>
 </ul>
 </div>
   </body>
