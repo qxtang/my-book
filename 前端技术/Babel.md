@@ -95,9 +95,12 @@
 
 ## @babel/plugin-transform-runtime
 
-- 这个插件就是为了解决 polyfill 污染全局的问题，
+- 这个插件就是为了解决 useBuiltIns polyfill 污染全局的问题和每一个文件都有辅助函数问题，
+- 将 babel 转译时添加到文件中的内联辅助函数统一隔离到 babel-runtime 提供的 helper 模块中
+- 编译时，直接从 helper 模块加载，不在每个文件中重复的定义辅助函数，从而减少包的尺寸
 - 其中 `@babel/plugin-transform-runtime` 的作用是转译代码，转译后的代码中可能会引入 `@babel/runtime-corejs3` 里面的模块。
 - 前者运行在编译时，后者运行在运行时。类似 polyfill，后者需要被打包到最终产物里在浏览器中运行。
+- typescript 的 importHelpers 配置和 tslib 类似原理
 
 安装：
 
@@ -160,6 +163,11 @@ $ yarn add @babel/runtime-corejs3
 ## @babel/polyfill
 
 - @babel/polyfill 融合了 core-js 和 regenerator-runtime，因此 babel-polyfill 本质就是 corejs
+- 引入 @bable/polyfill 就相当于在代码中引入下面两个库
+  ```javascript
+  import 'core-js/stable';
+  import 'regenerator-runtime/runtime';
+  ```
 - 官方提示已经 deprecated，推荐使用 core-js@3 + @babel/preset-env 即可
   ```txt
   🚨 As of Babel 7.4.0, this package has been deprecated in favor of directly including core-js/stable (to polyfill ECMAScript features) and regenerator-runtime/runtime (needed to use transpiled generator functions)
