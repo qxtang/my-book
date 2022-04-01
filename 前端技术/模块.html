@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/1/2022, 1:29:44 AM -->
+  <!-- 编译时间：4/1/2022, 10:49:51 AM -->
 
   <script>
     window.root = '/my-book';
@@ -35,14 +35,14 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1>模块化机制</h1>
+    <div class="content markdown-body"><h1 id="%E6%A8%A1%E5%9D%97%E5%8C%96%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%9C%BA%E5%88%B6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 模块化机制</h1>
 <ul>
 <li>常用 IIFE 模式实现模块化：匿名函数自调用，将数据和行为封装到一个函数内部，外部依赖通过参数传入</li>
 <li>常见的模块规范：ES6 模块（esm）、CommonJS、CMD、AMD</li>
 </ul>
-<h1>什么是 Tree Shaking</h1>
+<h1 id="%E4%BB%80%E4%B9%88%E6%98%AF-tree-shaking" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-tree-shaking" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 什么是 Tree Shaking</h1>
 <p>消除无用的 js 代码的算法，集成在 webpack 和 rollup 等打包工具中</p>
-<h1>CommonJS</h1>
+<h1 id="commonjs" tabindex="-1"><a class="header-anchor" href="#commonjs" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> CommonJS</h1>
 <ul>
 <li>通用环境，比如 nodejs，不局限于浏览器</li>
 <li>每个模块提供一个 module 变量</li>
@@ -50,14 +50,14 @@
 <li>可以动态引入，所以不支持树摇</li>
 <li>特点：语法相对简单，浏览器不直接支持</li>
 </ul>
-<h1>AMD</h1>
+<h1 id="amd" tabindex="-1"><a class="header-anchor" href="#amd" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> AMD</h1>
 <ul>
 <li>明确基于浏览器</li>
 <li>基本退出了历史舞台</li>
 <li>RequireJS 是 AMD 的一个实现</li>
 <li>特点：异步加载、同一个文件定义一个模块</li>
 </ul>
-<h1>ESM</h1>
+<h1 id="esm" tabindex="-1"><a class="header-anchor" href="#esm" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> ESM</h1>
 <ul>
 <li>esm 是 javascript 的标准功能，是语言规范，是官方明确的发展方向，cjs 也只是 esm 出来之前的临时解决方案而已</li>
 <li>相比 cjs 的好处是可以使用 tree shaking，支持静态分析</li>
@@ -68,7 +68,7 @@
 <li>模块缓存：同一个模块如果加载多次，只会执行一次</li>
 <li>export 导出的是值引用，当模块内部的值被修改时，esm 可以获取到被修改后的值，cjs 获取不到</li>
 </ul>
-<h1>CommonJS，ESM 区别</h1>
+<h1 id="commonjs%EF%BC%8Cesm-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#commonjs%EF%BC%8Cesm-%E5%8C%BA%E5%88%AB" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> CommonJS，ESM 区别</h1>
 <ul>
 <li>都属于不同的模块规范，require 属于 CommonJS 规范，import 属于 ES module</li>
 <li>require 支持动态导入，import 不支持</li>
@@ -79,7 +79,7 @@
 <li>CommonJS 模块的 require() 是同步加载模块，ES6 模块的 import 命令是异步加载，有一个独立的模块依赖的解析阶段</li>
 <li>ES6 模块之中，顶层的 this 指向 undefined；CommonJS 模块的顶层 this 指向当前模块</li>
 </ul>
-<h1>UMD</h1>
+<h1 id="umd" tabindex="-1"><a class="header-anchor" href="#umd" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> UMD</h1>
 <ul>
 <li>通用模块定义规范（Universal Module Definition）</li>
 <li>可以通过运行时或者编译时让同一个代码模块在使用 CommonJs、CMD 甚至是 AMD 的项目中运行。未来同一个 JavaScript 包运行在浏览器端、服务区端甚至是 APP 端都只需要遵守同一个写法就行了</li>
@@ -114,6 +114,7 @@
   最后如果没有模块环境，直接挂载在全局对象上，这个传进来的全局对象 this，其值可能是 window 或者 global，视运行环境而定
 */
 </code></pre>
+<p><div class="table-of-contents"><ul><li><a href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%9C%BA%E5%88%B6"> 模块化机制</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-tree-shaking"> 什么是 Tree Shaking</a></li><li><a href="#commonjs"> CommonJS</a></li><li><a href="#amd"> AMD</a></li><li><a href="#esm"> ESM</a></li><li><a href="#commonjs%EF%BC%8Cesm-%E5%8C%BA%E5%88%AB"> CommonJS，ESM 区别</a></li><li><a href="#umd"> UMD</a></li></ul></div></p>
 </div>
   </body>
 </html>

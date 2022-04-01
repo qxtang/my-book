@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/1/2022, 1:29:44 AM -->
+  <!-- 编译时间：4/1/2022, 10:49:51 AM -->
 
   <script>
     window.root = '/my-book';
@@ -35,7 +35,7 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1>Browserslist</h1>
+    <div class="content markdown-body"><h1 id="browserslist" tabindex="-1"><a class="header-anchor" href="#browserslist" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Browserslist</h1>
 <ul>
 <li>用特定的语句来查询浏览器列表<pre><code class="language-sh"># 查询 Chrome 最后的两个版本
 npx browserslist &quot;last 2 Chrome versions&quot;
@@ -48,7 +48,7 @@ chrome 95
 <li>当我们确认的浏览器版本号，那么它的垫片体积就可以确认</li>
 <li>例如：当我们确认的浏览器版本号，那么它的垫片体积就会确认</li>
 </ul>
-<h2>caniuse-lite 与 caniuse-db</h2>
+<h2 id="caniuse-lite-%E4%B8%8E-caniuse-db" tabindex="-1"><a class="header-anchor" href="#caniuse-lite-%E4%B8%8E-caniuse-db" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> caniuse-lite 与 caniuse-db</h2>
 <ul>
 <li>browserslist 是从 caniuse-lite 这个库中查询数据的，caniuse-lite 是 caniuse-db 的精简版本，对 caniuse-db 的数据按一定规则做了简化，减少了库的大小</li>
 <li>caniuse-db 则是 can i use 网站的数据源，提供了网站查询所需的所有数据，caniuse-db 发布时会同步发布 caniuse-lite</li>
@@ -57,11 +57,12 @@ chrome 95
 </code></pre>
 </li>
 </ul>
-<h2>原理</h2>
+<h2 id="%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E7%90%86" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 原理</h2>
 <ul>
 <li>browserslist 根据正则解析查询语句，对浏览器版本数据库 caniuse-lite 进行查询，返回所得的浏览器版本列表</li>
 <li>因为 browserslist 并不维护数据库，因此它会经常提醒你去更新 caniuse-lite 这个库</li>
 </ul>
+<p><div class="table-of-contents"><ul><li><a href="#browserslist"> Browserslist</a><ul><li><a href="#caniuse-lite-%E4%B8%8E-caniuse-db"> caniuse-lite 与 caniuse-db</a></li><li><a href="#%E5%8E%9F%E7%90%86"> 原理</a></li></ul></li></ul></div></p>
 </div>
   </body>
 </html>

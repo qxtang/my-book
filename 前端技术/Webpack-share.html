@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/1/2022, 1:29:44 AM -->
+  <!-- 编译时间：4/1/2022, 10:49:51 AM -->
 
   <script>
     window.root = '/my-book';
@@ -31,8 +31,8 @@
 </head>
 
   <body>
-    <div class="content markdown-body"><h1>Webpack</h1>
-<h1>Webpack</h1>
+    <div class="content markdown-body"><h1 id="webpack" tabindex="-1"><a class="header-anchor" href="#webpack" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Webpack</h1>
+<h1 id="webpack-1" tabindex="-1"><a class="header-anchor" href="#webpack-1" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Webpack</h1>
 <p>原理：</p>
 <ul>
 <li>是一个 JavaScript 的模块打包工具。</li>
@@ -51,7 +51,7 @@
 <li>Plugin: 拓展插件，可以通过 Webpack 相应的事件钩子，介入到打包过程中的任意环节，从而对代码按需修改；</li>
 <li>Bundle: webpack 打包出来的文件，webpack 最终输出的东西，可以直接在浏览器运行。在抽离 css(当然也可以是图片、字体文件之类的)的情况下，一个 chunk 是会输出多个 bundle 的，但是默认情况下一般一个 chunk 也只是会输出一个 bundle</li>
 </ul>
-<h1>工作流程 (加载 - 编译 - 输出)</h1>
+<h1 id="%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B-(%E5%8A%A0%E8%BD%BD---%E7%BC%96%E8%AF%91---%E8%BE%93%E5%87%BA)" tabindex="-1"><a class="header-anchor" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B-(%E5%8A%A0%E8%BD%BD---%E7%BC%96%E8%AF%91---%E8%BE%93%E5%87%BA)" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 工作流程 (加载 - 编译 - 输出)</h1>
 <ul>
 <li>1、读取配置文件，按命令 初始化 配置参数，创建 Compiler 对象；</li>
 <li>2、调用插件的 apply 方法 挂载插件 监听，然后从入口文件开始执行编译；</li>
@@ -59,20 +59,20 @@
 <li>4、将编译后的所有代码包装成一个个代码块 (Chuck)， 并按依赖和配置确定 输出内容。这个步骤，仍然可以通过 Plugin 进行文件的修改;</li>
 <li>5、最后，根据 Output 把文件内容一一写入到指定的文件夹中，完成整个过程；</li>
 </ul>
-<h1>webpack 打包原理</h1>
+<h1 id="webpack-%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#webpack-%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> webpack 打包原理</h1>
 <ul>
 <li>根据配置中的 entry 找出所有的入口文件。</li>
 <li>从入口文件出发,调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理。</li>
 <li>在经过上一步使用 Loader 翻译完所有模块后,得到了每个模块被翻译后的最终内容以及它们之间的依赖关系。</li>
 </ul>
-<h1>hash、chunkhash、contenthash</h1>
+<h1 id="hash%E3%80%81chunkhash%E3%80%81contenthash" tabindex="-1"><a class="header-anchor" href="#hash%E3%80%81chunkhash%E3%80%81contenthash" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> hash、chunkhash、contenthash</h1>
 <ul>
 <li>hash：所有的 bundle 使用同一个 hash 值，跟每一次 webpack 打包的过程有关</li>
 <li>chunkhash：根据每一个 chunk 的内容进行 hash，同一个 chunk 的所有 bundle 产物的 chunkhash 值是一样的。因此若其中一个 bundle 的修改，同一 chunk 的所有产物 hash 也会被修改</li>
 <li>contenthash：与文件内容本身相关</li>
 <li>注意：开发环境热更新下只能使用 hash 或者不使用 hash。在生产环境中我们一般使用 contenthash 或者 chunkhash，因为在热更新模式下，会导致 chunkhash 和 contenthash 计算错误</li>
 </ul>
-<h1>rollup 和 webpack 区别</h1>
+<h1 id="rollup-%E5%92%8C-webpack-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#rollup-%E5%92%8C-webpack-%E5%8C%BA%E5%88%AB" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> rollup 和 webpack 区别</h1>
 <ul>
 <li>webpack 拆分代码， 按需加载；</li>
 <li>Rollup 所有资源放在同一个地方，一次性加载，利用 tree-shake 特性来剔除项目中未使用的代码，减少冗余</li>
@@ -80,7 +80,7 @@
 <li>如果你需要代码拆分(Code Splitting)，或者你有很多静态资源需要处理，再或者你构建的项目需要引入很多 CommonJS 模块的依赖，那么 webpack 是个很不错的选择。</li>
 <li>如果您的代码库是基于 ES2015 模块的，而且希望你写的代码能够被其他人直接使用，你需要的打包工具可能是 Rollup。</li>
 </ul>
-<h1>常见 loader</h1>
+<h1 id="%E5%B8%B8%E8%A7%81-loader" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A7%81-loader" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 常见 loader</h1>
 <ul>
 <li>image-loader：加载并且压缩图片文件</li>
 <li>file-loader: 加载文件资源，如 字体 / 图片 等，具有移动/复制/命名等功能、把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件</li>
@@ -89,6 +89,7 @@
 <li>ts-loader: 加载 ts / tsx 文件，编译 TypeScript；</li>
 <li>style-loader: 将 css 代码以</li>
 </ul>
+<p><div class="table-of-contents"><ul><li><a href="#webpack"> Webpack</a></li><li><a href="#webpack-1"> Webpack</a></li><li><a href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B-(%E5%8A%A0%E8%BD%BD---%E7%BC%96%E8%AF%91---%E8%BE%93%E5%87%BA)"> 工作流程 (加载 - 编译 - 输出)</a></li><li><a href="#webpack-%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86"> webpack 打包原理</a></li><li><a href="#hash%E3%80%81chunkhash%E3%80%81contenthash"> hash、chunkhash、contenthash</a></li><li><a href="#rollup-%E5%92%8C-webpack-%E5%8C%BA%E5%88%AB"> rollup 和 webpack 区别</a></li><li><a href="#%E5%B8%B8%E8%A7%81-loader"> 常见 loader</a></li></ul></div></p>
 </div>
   </body>
 </html>

@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/1/2022, 1:29:44 AM -->
+  <!-- 编译时间：4/1/2022, 10:49:51 AM -->
 
   <script>
     window.root = '/my-book';
@@ -34,12 +34,12 @@
     <div class="content markdown-body"><blockquote>
 <p>需求：真机上通过 https 和微信可信域名访问本地服务</p>
 </blockquote>
-<h1>前提条件</h1>
+<h1 id="%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 前提条件</h1>
 <ul>
 <li>手机和电脑处在同一局域网环境</li>
 <li>电脑安装 Fiddler</li>
 </ul>
-<h1>本地 hosts 文件添加映射</h1>
+<h1 id="%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84" tabindex="-1"><a class="header-anchor" href="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 本地 hosts 文件添加映射</h1>
 <ul>
 <li>假设可信域名为 abc.com</li>
 <li>假设电脑局域网 ip 为 192.168.1.106</li>
@@ -48,7 +48,7 @@
 <pre><code class="language-txt"># 微信开发
 192.168.1.106 abc.com
 </code></pre>
-<h1>设置 Fiddler</h1>
+<h1 id="%E8%AE%BE%E7%BD%AE-fiddler" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E7%BD%AE-fiddler" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 设置 Fiddler</h1>
 <ul>
 <li>tools -&gt; options</li>
 <li>https 相关设置</li>
@@ -58,7 +58,7 @@
 <li>代理相关设置，这里设置代理端口号为 8002，可以设置任意合法端口号</li>
 </ul>
 <p><img src="../resource/20210801124045.png" alt=""></p>
-<h1>修改 webpack 配置</h1>
+<h1 id="%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 修改 webpack 配置</h1>
 <ul>
 <li>
 <p>开启 https
@@ -69,13 +69,13 @@
 </li>
 </ul>
 <p>此时可在电脑浏览器通过 https://abc.com 访问本地服务</p>
-<h1>修改手机代理</h1>
+<h1 id="%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 修改手机代理</h1>
 <ul>
 <li>进入手机 wlan 设置，选择连接的 wifi，代理选择手动</li>
 <li>主机名填电脑局域网 ip，端口填 Fiddler 代理设置中的端口号</li>
 </ul>
 <p><img src="../resource/20210801124751.jpg" alt=""></p>
-<h1>手机安装 Fiddler 证书</h1>
+<h1 id="%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 手机安装 Fiddler 证书</h1>
 <ul>
 <li>手机浏览器访问 <code>http://[电脑局域网ip]:[Fiddler 代理端口号]</code>，这里是 <code>http://192.168.1.106:8002</code></li>
 <li>点击下载 Fiddler 证书，进入手机 wlan 设置安装证书</li>
@@ -83,6 +83,7 @@
 <p><img src="../resource/20210801125321.jpg" alt=""></p>
 <p>此时手机浏览器可通过 https://abc.com 访问电脑上的本地服务。</p>
 <p>结束</p>
+<p><div class="table-of-contents"><ul><li><a href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6"> 前提条件</a></li><li><a href="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84"> 本地 hosts 文件添加映射</a></li><li><a href="#%E8%AE%BE%E7%BD%AE-fiddler"> 设置 Fiddler</a></li><li><a href="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE"> 修改 webpack 配置</a></li><li><a href="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86"> 修改手机代理</a></li><li><a href="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6"> 手机安装 Fiddler 证书</a></li></ul></div></p>
 </div>
   </body>
 </html>
