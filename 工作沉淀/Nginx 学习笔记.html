@@ -6,233 +6,244 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - Nginx 学习笔记</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
     <div class="content markdown-body"><blockquote>
 <p>工作中经常用的，简单记录一下。</p>
 </blockquote>
-<h1 id="%E5%AE%9E%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%94%A8" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 实用</h1>
+<h1 id="%E5%AE%9E%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%94%A8">实用</a></h1>
 <ul>
 <li>跨域</li>
 </ul>
-<pre><code class="language-nginx"># 这里约定代理请求url path是以/apis/开头
-location ^~/apis/ {
-    # 这里重写了请求，将正则匹配中的第一个()中$1的path，拼接到真正的请求后面，并用break停止后续匹配
-    rewrite ^/apis/(.*)$ /$1 break;
+<pre><code class="language-nginx"><span class="hljs-comment"># 这里约定代理请求url path是以/apis/开头</span>
+<span class="hljs-section">location</span><span class="hljs-regexp"> ^~/apis/</span> {
+    <span class="hljs-comment"># 这里重写了请求，将正则匹配中的第一个()中$1的path，拼接到真正的请求后面，并用break停止后续匹配</span>
+    <span class="hljs-attribute">rewrite</span><span class="hljs-regexp"> ^/apis/(.*)$</span> /<span class="hljs-variable">$1</span> <span class="hljs-literal">break</span>;
     ...
-    proxy_pass https://www.tianqiapi.com/;
+    <span class="hljs-attribute">proxy_pass</span> https://www.tianqiapi.com/;
 }
 </code></pre>
 <ul>
 <li>处理前端单页应用的 history 路由模式</li>
 </ul>
-<pre><code class="language-nginx">location / {
-    try_files $uri $uri/ /index.html;
+<pre><code class="language-nginx"><span class="hljs-section">location</span> / {
+    <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;
 }
 </code></pre>
 <ul>
 <li>适配 PC 和移动环境</li>
 </ul>
-<pre><code class="language-nginx">location / {
-    # 移动、pc设备适配
-    if ($http_user_agent ~* '(Android|webOS|iPhone|iPod|BlackBerry)') {
-        set $mobile_request '1';
+<pre><code class="language-nginx"><span class="hljs-section">location</span> / {
+    <span class="hljs-comment"># 移动、pc设备适配</span>
+    <span class="hljs-attribute">if</span> (<span class="hljs-variable">$http_user_agent</span> <span class="hljs-regexp">~* &#x27;(Android|webOS|iPhone|iPod|BlackBerry)&#x27;)</span> {
+        <span class="hljs-attribute">set</span> <span class="hljs-variable">$mobile_request</span> <span class="hljs-string">&#x27;1&#x27;</span>;
     }
-    if ($mobile_request = '1') {
-        rewrite ^.+ http://mysite-base-H5.com;
+    <span class="hljs-attribute">if</span> (<span class="hljs-variable">$mobile_request</span> = <span class="hljs-string">&#x27;1&#x27;</span>) {
+        <span class="hljs-attribute">rewrite</span><span class="hljs-regexp"> ^.+</span> http://mysite-base-H5.com;
     }
 }
 
@@ -240,18 +251,18 @@ location ^~/apis/ {
 <ul>
 <li>端口转发</li>
 </ul>
-<pre><code class="language-nginx">http {
+<pre><code class="language-nginx"><span class="hljs-section">http</span> {
     ...
-    upstream dmp8001 {
-        server 127.0.0.1:8001;
+    <span class="hljs-section">upstream</span> dmp8001 {
+        <span class="hljs-attribute">server</span> <span class="hljs-number">127.0.0.1:8001</span>;
     }
-    server {
-        listen       80;
-        server_name  abc.com;
+    <span class="hljs-section">server</span> {
+        <span class="hljs-attribute">listen</span>       <span class="hljs-number">80</span>;
+        <span class="hljs-attribute">server_name</span>  abc.com;
 
-        location / {
+        <span class="hljs-section">location</span> / {
             ...
-            proxy_pass http://dmp8001;
+            <span class="hljs-attribute">proxy_pass</span> http://dmp8001;
         }
     }
     ...
@@ -260,90 +271,90 @@ location ^~/apis/ {
 <ul>
 <li>善用正则</li>
 </ul>
-<pre><code class="language-nginx"># 动态校验企业微信 h5 应用可信域名
-location ~ WW_verify_(.*).txt {
-    return 200 $1;
+<pre><code class="language-nginx"><span class="hljs-comment"># 动态校验企业微信 h5 应用可信域名</span>
+<span class="hljs-section">location</span> <span class="hljs-regexp">~ WW_verify_(.*).txt</span> {
+    <span class="hljs-attribute">return</span> <span class="hljs-number">200</span> <span class="hljs-variable">$1</span>;
 }
 </code></pre>
 <ul>
 <li>虚拟主机</li>
 </ul>
-<pre><code class="language-nginx">server {
-    listen 12332;
-    server_name 127.0.0.1;
+<pre><code class="language-nginx"><span class="hljs-section">server</span> {
+    <span class="hljs-attribute">listen</span> <span class="hljs-number">12332</span>;
+    <span class="hljs-attribute">server_name</span> <span class="hljs-number">127.0.0.1</span>;
 
-    location / {
-        root D:/Desktop/test;
-        index index.html index.htm;
+    <span class="hljs-section">location</span> / {
+        <span class="hljs-attribute">root</span> D:/Desktop/test;
+        <span class="hljs-attribute">index</span> index.html index.htm;
     }
 }
 </code></pre>
 <ul>
 <li>防媒体文件盗链</li>
 </ul>
-<pre><code class="language-nginx">location ~* \.(gif|jpg|png|jpeg|mp4)$ {
+<pre><code class="language-nginx"><span class="hljs-section">location</span> <span class="hljs-regexp">~* \.(gif|jpg|png|jpeg|mp4)$</span> {
 
-    expires 30d;
-    valid_referers *.hugao8.com www.hugao8.com m.hugao8.com *.baidu.com *.google.com;
+    <span class="hljs-attribute">expires</span> <span class="hljs-number">30d</span>;
+    <span class="hljs-attribute">valid_referers</span> <span class="hljs-regexp">*.hugao</span>8.com www.hugao8.com m.hugao8.com <span class="hljs-regexp">*.baidu.com</span> <span class="hljs-regexp">*.google.com</span>;
 
-    if ($invalid_referer) {
-        rewrite ^/ http://ww4.sinaimg.cn/bmiddle/051bbed1gw1egjc4xl7srj20cm08aaa6.jpg;
-        # return 404;
+    <span class="hljs-attribute">if</span> (<span class="hljs-variable">$invalid_referer</span>) {
+        <span class="hljs-attribute">rewrite</span><span class="hljs-regexp"> ^/</span> http://ww4.sinaimg.cn/bmiddle/051bbed1gw1egjc4xl7srj20cm08aaa6.jpg;
+        <span class="hljs-comment"># return 404;</span>
     }
 
 }
 </code></pre>
-<h1 id="%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1" tabindex="-1"><a class="header-anchor" href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 简单实现负载均衡</h1>
+<h1 id="%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1" tabindex="-1"><a class="header-anchor" href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">简单实现负载均衡</a></h1>
 <ul>
 <li>轮询（默认），请求过来后，Nginx 随机分配流量到任一服务器</li>
 </ul>
-<pre><code class="language-nginx">upstream backend {
-    server 127.0.0.1:3000;
-    server 127.0.0.1:3001;
+<pre><code class="language-nginx"><span class="hljs-section">upstream</span> backend {
+    <span class="hljs-attribute">server</span> <span class="hljs-number">127.0.0.1:3000</span>;
+    <span class="hljs-attribute">server</span> <span class="hljs-number">127.0.0.1:3001</span>;
 }
 </code></pre>
 <ul>
 <li>weight=number 设置服务器的权重，默认为 1，权重大的会被优先分配</li>
 </ul>
-<pre><code class="language-nginx">upstream backend {
-    server 127.0.0.1:3000 weight=2;
-    server 127.0.0.1:3001 weight=1;
+<pre><code class="language-nginx"><span class="hljs-section">upstream</span> backend {
+    <span class="hljs-attribute">server</span> <span class="hljs-number">127.0.0.1:3000</span> weight=<span class="hljs-number">2</span>;
+    <span class="hljs-attribute">server</span> <span class="hljs-number">127.0.0.1:3001</span> weight=<span class="hljs-number">1</span>;
 }
 </code></pre>
 <ul>
 <li>backup 标记为备份服务器。当主服务器不可用时，将传递与备份服务器的连接</li>
 </ul>
-<pre><code class="language-nginx">upstream backend {
-    server 127.0.0.1:3000 backup;
-    server 127.0.0.1:3001;
+<pre><code class="language-nginx"><span class="hljs-section">upstream</span> backend {
+    <span class="hljs-attribute">server</span> <span class="hljs-number">127.0.0.1:3000</span> backup;
+    <span class="hljs-attribute">server</span> <span class="hljs-number">127.0.0.1:3001</span>;
 }
 </code></pre>
 <p>代理这个集群</p>
-<pre><code class="language-nginx">server {
-    listen      9000;
-    server_name localhost;
+<pre><code class="language-nginx"><span class="hljs-section">server</span> {
+    <span class="hljs-attribute">listen</span>      <span class="hljs-number">9000</span>;
+    <span class="hljs-attribute">server_name</span> localhost;
 
-    location / {
-        proxy_set_header Host $http_host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Scheme $scheme;
+    <span class="hljs-section">location</span> / {
+        <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$http_host</span>;
+        <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;
+        <span class="hljs-attribute">proxy_set_header</span> X-Scheme <span class="hljs-variable">$scheme</span>;
 
-        proxy_pass backend;
+        <span class="hljs-attribute">proxy_pass</span> backend;
     }
 }
 </code></pre>
-<h1 id="%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D" tabindex="-1"><a class="header-anchor" href="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 关于 location 的匹配</h1>
-<h2 id="location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> location 的几种匹配方式</h2>
+<h1 id="%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D" tabindex="-1"><a class="header-anchor" href="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D">关于 location 的匹配</a></h1>
+<h2 id="location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F">location 的几种匹配方式</a></h2>
 <p>普通匹配：</p>
-<pre><code class="language-nginx">location = URI { configuration } #精确匹配
-location ^~ URI { configuration } #非正则匹配
-location [空格] URI { configuration } #前缀匹配
+<pre><code class="language-nginx"><span class="hljs-section">location</span> = URI { <span class="hljs-attribute">configuration</span> } <span class="hljs-comment">#精确匹配</span>
+location<span class="hljs-regexp"> ^~</span> URI { <span class="hljs-attribute">configuration</span> } <span class="hljs-comment">#非正则匹配</span>
+location [空格] URI { <span class="hljs-attribute">configuration</span> } <span class="hljs-comment">#前缀匹配</span>
 </code></pre>
 <p>正则匹配：</p>
-<pre><code class="language-nginx">location ~ URI { configuration } #区分大小写
-location ~* URI { configuration } #不区分大小写
+<pre><code class="language-nginx"><span class="hljs-section">location</span> <span class="hljs-regexp">~ URI</span> { <span class="hljs-attribute">configuration</span> } <span class="hljs-comment">#区分大小写</span>
+location <span class="hljs-regexp">~* URI</span> { <span class="hljs-attribute">configuration</span> } <span class="hljs-comment">#不区分大小写</span>
 </code></pre>
-<h2 id="%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7" tabindex="-1"><a class="header-anchor" href="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 几种匹配方式的说明与优先级</h2>
+<h2 id="%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7" tabindex="-1"><a class="header-anchor" href="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7">几种匹配方式的说明与优先级</a></h2>
 <p>整体规则按照先普通匹配，然后再正则匹配，如果正则不匹配，则回退至上一个普通匹配。其中普通匹配没有顺序之分，哪个匹配最精确，就使用哪个 location，正则匹配按照<mark>规则的书写顺序</mark>进行。</p>
 <ul>
 <li><code>=</code> 精确匹配，匹配后停止后续匹配，直接执行该匹配后的 configuration。</li>
@@ -352,25 +363,25 @@ location ~* URI { configuration } #不区分大小写
 <li><code>~</code> 区分大小写的正则匹配，按顺序匹配，一旦匹配即停止后续匹配。</li>
 <li><code>~*</code> 不区分大小写的正则匹配，按顺序匹配，一旦匹配即停止后续匹配。</li>
 </ul>
-<h2 id="%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 示例</h2>
-<pre><code class="language-nginx">location = / {
-    [ configuration A ]
+<h2 id="%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B">示例</a></h2>
+<pre><code class="language-nginx"><span class="hljs-section">location</span> = / {
+    [ <span class="hljs-attribute">configuration</span> A ]
 }
 
 location / {
-    [ configuration B ]
+    [ <span class="hljs-attribute">configuration</span> B ]
 }
 
 location /user/ {
-    [ configuration C ]
+    [ <span class="hljs-attribute">configuration</span> C ]
 }
 
-location ^~ /images/ {
-    [ configuration D ]
+location<span class="hljs-regexp"> ^~</span> /images/ {
+    [ <span class="hljs-attribute">configuration</span> D ]
 }
 
-location ~* \.(gif|jpg|jpeg)$ {
-    [ configuration E ]
+location <span class="hljs-regexp">~* \.(gif|jpg|jpeg)$</span> {
+    [ <span class="hljs-attribute">configuration</span> E ]
 }
 </code></pre>
 <ul>
@@ -381,7 +392,7 @@ location ~* \.(gif|jpg|jpeg)$ {
 <li>请求<code>/images/1.jpg</code>匹配 D。首先进行前缀字符的查找，找到最长匹配 D。但是，特殊的是它使用了^~修饰符，<mark>不再进行接下来的正则的匹配查找</mark>，因此使用 D。这里，如果没有前面的修饰符，其实最终的匹配是 E。大家可以想一想为什么。</li>
 <li>请求<code>/documents/about.html</code>匹配 B。因为 B 表示任何以/开头的 URL 都匹配。在上面的配置中，只有 B 能满足，所以匹配 B。</li>
 </ul>
-<h2 id="%E6%80%BB%E7%BB%93" tabindex="-1"><a class="header-anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 总结</h2>
+<h2 id="%E6%80%BB%E7%BB%93" tabindex="-1"><a class="header-anchor" href="#%E6%80%BB%E7%BB%93">总结</a></h2>
 <ul>
 <li>location 的配置有两种形式，普通和正则。</li>
 <li>查找匹配的时候，先查找普通，选择最长匹配项，再查找正则。</li>
@@ -391,7 +402,12 @@ location ~* \.(gif|jpg|jpeg)$ {
 </ul>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#%E5%AE%9E%E7%94%A8">实用</a></li><li><a href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">简单实现负载均衡</a></li><li><a href="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D">关于 location 的匹配</a><ul><li><a href="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F">location 的几种匹配方式</a></li><li><a href="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7">几种匹配方式的说明与优先级</a></li><li><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li><li><a href="#%E6%80%BB%E7%BB%93">总结</a></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title=实用><a href="#%E5%AE%9E%E7%94%A8" data-anchor="#%E5%AE%9E%E7%94%A8">实用</a></li><li title=简单实现负载均衡><a href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1" data-anchor="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">简单实现负载均衡</a></li><li title=关于 location 的匹配><a href="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D" data-anchor="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D">关于 location 的匹配</a><ul><li title=location 的几种匹配方式><a href="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F" data-anchor="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F">location 的几种匹配方式</a></li><li title=几种匹配方式的说明与优先级><a href="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7" data-anchor="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7">几种匹配方式的说明与优先级</a></li><li title=示例><a href="#%E7%A4%BA%E4%BE%8B" data-anchor="#%E7%A4%BA%E4%BE%8B">示例</a></li><li title=总结><a href="#%E6%80%BB%E7%BB%93" data-anchor="#%E6%80%BB%E7%BB%93">总结</a></li></ul></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>

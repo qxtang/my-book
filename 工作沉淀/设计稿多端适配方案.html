@@ -6,246 +6,262 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - 设计稿多端适配方案</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E9%A2%98" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 问题</h1>
+    <div class="content markdown-body"><h1 id="%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E9%A2%98">问题</a></h1>
 <p>如何让不同尺寸的屏幕能以正常比例呈现设计稿</p>
-<h2 id="%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E6%96%B9%E6%A1%88" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 方案</h2>
+<h2 id="%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E6%96%B9%E6%A1%88">方案</a></h2>
 <ul>
 <li>
 <p>动态修改 html 标签 font-size，样式单位统一用 rem，数值为设计稿尺寸除以 base</p>
-<pre><code class="language-javascript">var fn = function () {
-  var designWidth = 1920; // 设计稿尺寸
-  var base = 16; // 1rem 的占比，不要小于 12
-  var html = document.getElementsByTagName('html')[0];
-  var clientWidth = document.body.clientWidth || document.documentElement.clientWidth;
-  html.style.fontSize = (clientWidth / designWidth) * base + 'px';
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> fn = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">var</span> designWidth = <span class="hljs-number">1920</span>; <span class="hljs-comment">// 设计稿尺寸</span>
+  <span class="hljs-keyword">var</span> base = <span class="hljs-number">16</span>; <span class="hljs-comment">// 1rem 的占比，不要小于 12</span>
+  <span class="hljs-keyword">var</span> html = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;html&#x27;</span>)[<span class="hljs-number">0</span>];
+  <span class="hljs-keyword">var</span> clientWidth = <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">clientWidth</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">clientWidth</span>;
+  html.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = (clientWidth / designWidth) * base + <span class="hljs-string">&#x27;px&#x27;</span>;
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-  fn();
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-title function_">fn</span>();
 });
 
-window.onresize = function () {
-  fn();
+<span class="hljs-variable language_">window</span>.<span class="hljs-property">onresize</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-title function_">fn</span>();
 };
 </code></pre>
 </li>
 </ul>
-<h1 id="dpr-%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#dpr-%E6%98%AF%E4%BB%80%E4%B9%88" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> dpr 是什么</h1>
+<h1 id="dpr-%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#dpr-%E6%98%AF%E4%BB%80%E4%B9%88">dpr 是什么</a></h1>
 <ul>
 <li>设备像素比，通过 window.devicePixelRatio 获取</li>
 <li>是设备上物理像素和设备独立像素（dips）的比例，window.devicePixelRatio = 物理像素 / dips</li>
 <li>简单的讲其实就是 dpr 决定了 css 1px 等于多少屏幕物理像素</li>
 </ul>
-<h2 id="%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 物理像素</h2>
+<h2 id="%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0">物理像素</a></h2>
 <ul>
 <li>显示器上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值</li>
 </ul>
-<h2 id="%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 设备独立像素（dips）</h2>
+<h2 id="%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89">设备独立像素（dips）</a></h2>
 <ul>
 <li>也叫密度无关像素，可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素（比如: css 像素），然后由相关系统转换为物理像素</li>
 </ul>
-<h1 id="viewport" tabindex="-1"><a class="header-anchor" href="#viewport" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> viewport</h1>
+<h1 id="viewport" tabindex="-1"><a class="header-anchor" href="#viewport">viewport</a></h1>
 <ul>
 <li>用于定义视口的各种行为：视口宽度、初始缩放、最小最大缩放比例、是否允许用户手动缩放</li>
 </ul>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#%E9%97%AE%E9%A2%98">问题</a><ul><li><a href="#%E6%96%B9%E6%A1%88">方案</a></li></ul></li><li><a href="#dpr-%E6%98%AF%E4%BB%80%E4%B9%88">dpr 是什么</a><ul><li><a href="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0">物理像素</a></li><li><a href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89">设备独立像素（dips）</a></li></ul></li><li><a href="#viewport">viewport</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=问题><a href="#%E9%97%AE%E9%A2%98" data-anchor="#%E9%97%AE%E9%A2%98">问题</a><ul><li title=方案><a href="#%E6%96%B9%E6%A1%88" data-anchor="#%E6%96%B9%E6%A1%88">方案</a></li></ul></li><li title=dpr 是什么><a href="#dpr-%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#dpr-%E6%98%AF%E4%BB%80%E4%B9%88">dpr 是什么</a><ul><li title=物理像素><a href="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0" data-anchor="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0">物理像素</a></li><li title=设备独立像素（dips）><a href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89" data-anchor="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89">设备独立像素（dips）</a></li></ul></li><li title=viewport><a href="#viewport" data-anchor="#viewport">viewport</a></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>

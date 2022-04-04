@@ -6,203 +6,214 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - 网络</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="tcp%2Fip" tabindex="-1"><a class="header-anchor" href="#tcp%2Fip" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> TCP/IP</h1>
-<h2 id="tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> TCP 和 UDP 的区别</h2>
+    <div class="content markdown-body"><h1 id="tcp%2Fip" tabindex="-1"><a class="header-anchor" href="#tcp%2Fip">TCP/IP</a></h1>
+<h2 id="tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB">TCP 和 UDP 的区别</a></h2>
 <ul>
 <li>tcp 是面向连接的，udp 是无连接的即发送数据前不需要先建立链接。</li>
 <li>tcp 提供可靠的服务。</li>
@@ -210,8 +221,8 @@
 <li>tcp 的首部较大为 20 字节，而 UDP 只有 8 字节。</li>
 <li>tcp 是面向连接的可靠性传输，而 UDP 是不可靠的。</li>
 </ul>
-<h1 id="http-%E5%8D%8F%E8%AE%AE" tabindex="-1"><a class="header-anchor" href="#http-%E5%8D%8F%E8%AE%AE" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> HTTP 协议</h1>
-<h2 id="%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 说一下常见请求头？</h2>
+<h1 id="http-%E5%8D%8F%E8%AE%AE" tabindex="-1"><a class="header-anchor" href="#http-%E5%8D%8F%E8%AE%AE">HTTP 协议</a></h1>
+<h2 id="%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F">说一下常见请求头？</a></h2>
 <ul>
 <li>Accept 可接受的响应内容类型</li>
 <li>Cookie</li>
@@ -225,7 +236,7 @@
 <li>Etag 协商缓存相关</li>
 <li>Access-Control-Allow-Origin 指定允许跨域的域名</li>
 </ul>
-<h2 id="http-2.0" tabindex="-1"><a class="header-anchor" href="#http-2.0" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> HTTP 2.0</h2>
+<h2 id="http-2.0" tabindex="-1"><a class="header-anchor" href="#http-2.0">HTTP 2.0</a></h2>
 <p>1.0 协议缺点：</p>
 <ul>
 <li>文本协议传输，不够安全</li>
@@ -234,7 +245,7 @@
 <li>Header 内容繁多，有时有可能会超过响应内容，并且每次有许多字段都是重复传输</li>
 <li>基于以上缺点，也出现了许多优化手段：雪碧图、合并脚本和样式表、资源内联、域名分片等优化工作，但是如果 HTTP 协议足够好的话，本可以避免这些额外的操作。</li>
 </ul>
-<h3 id="1.1-%E6%96%B0%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 1.1 新特性</h3>
+<h3 id="1.1-%E6%96%B0%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7">1.1 新特性</a></h3>
 <ul>
 <li>长连接(默认 keep-alive)，复用</li>
 <li>断点续传</li>
@@ -249,20 +260,20 @@
 </ul>
 </li>
 </ul>
-<h3 id="2.0-%E6%96%B0%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 2.0 新特性</h3>
+<h3 id="2.0-%E6%96%B0%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7">2.0 新特性</a></h3>
 <ul>
 <li>多路复用，单一长连接，二进制格式传输</li>
 <li>头部 header 压缩</li>
 <li>服务端推送</li>
 <li>多路复用</li>
 </ul>
-<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-http" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-http" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 什么是 http</h2>
+<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-http" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-http">什么是 http</a></h2>
 <ul>
 <li>超文本传输协议，</li>
 <li>是一个客户端和服务器端请求和应答的标准，</li>
 <li>默认端口 80</li>
 </ul>
-<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-https" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-https" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 什么是 https</h2>
+<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-https" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-https">什么是 https</a></h2>
 <ul>
 <li>是以安全为目的设计</li>
 <li>结合 ssl 协议，建立一个信息安全通道，来确保数组的传输，确保网站的真实性。</li>
@@ -271,18 +282,18 @@
 <li>需要证书，有成本</li>
 <li>默认端口 443</li>
 </ul>
-<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 什么是 tcp 三次握手</h2>
+<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B">什么是 tcp 三次握手</a></h2>
 <ul>
 <li>客户端和服务端都需要知道各自是否可收发，因此需要三次握手。</li>
 </ul>
-<h2 id="http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> HTTP 报文格式</h2>
+<h2 id="http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F">HTTP 报文格式</a></h2>
 <ul>
 <li>http 报文分为三部分：起始行、头部、主体</li>
 <li>起始行是对请求或响应的描述</li>
 <li>头部存放如 cookie、content-type 等</li>
 <li>主体存放数据，明文传输</li>
 </ul>
-<h2 id="%E7%8A%B6%E6%80%81%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#%E7%8A%B6%E6%80%81%E7%A0%81" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 状态码</h2>
+<h2 id="%E7%8A%B6%E6%80%81%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#%E7%8A%B6%E6%80%81%E7%A0%81">状态码</a></h2>
 <ul>
 <li>1** 信息，服务器收到请求，需要请求者继续执行操作</li>
 <li>2** 成功，操作被成功接收并处理</li>
@@ -308,18 +319,18 @@
 <li>502 表示作为网关或代理角色的服务器，从上游服务器（如 tomcat、php-fpm）中接收到的响应是无效的。</li>
 <li>504 表示网关或者代理的服务器无法在规定的时间内获得想要的响应。比如 代码执行时间超时，或死循环了。</li>
 </ul>
-<h2 id="301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 301 和 302 区别</h2>
+<h2 id="301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB">301 和 302 区别</a></h2>
 <ul>
 <li>302 重定向只是暂时的重定向，例如未登陆的用户访问用户中心重定向到登录页面。</li>
 <li>因为服务器返回 302，所以，搜索搜索引擎认为新的网址是暂时的，搜索引擎会抓取新的内容而保留旧的地址。</li>
 <li>301 重定向是永久的重定向，搜索引擎在抓取新的内容的同时也将旧的网址替换为了重定向之后的网址</li>
 </ul>
-<h2 id="options-%E8%AF%B7%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#options-%E8%AF%B7%E6%B1%82" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> options 请求</h2>
+<h2 id="options-%E8%AF%B7%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#options-%E8%AF%B7%E6%B1%82">options 请求</a></h2>
 <ul>
 <li>OPTIONS 方法是用于请求获得由 Request-URI 标识的资源在请求/响应的通信过程中可以使用的功能选项。通过这个方法，客户端可以在采取具体资源请求之前，决定对该资源采取何种必要措施，或者了解服务器的性能。</li>
 <li>该请求方法的响应不能缓存。</li>
 </ul>
-<h2 id="http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E" tabindex="-1"><a class="header-anchor" href="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> HTTP 队头阻塞</h2>
+<h2 id="http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E" tabindex="-1"><a class="header-anchor" href="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E">HTTP 队头阻塞</a></h2>
 <ul>
 <li>“队头阻塞”与短连接和长连接无关，而是由 HTTP 基本的“请求 - 应答”模型所导致的。</li>
 <li>因为 HTTP 规定报文必须是“一发一收”，这就形成了一个先进先出的“串行”队列。</li>
@@ -327,7 +338,7 @@
 <li>如果队首的请求因为处理的太慢耽误了时间，那么队列里后面的所有请求也不得不跟着一起等待，结果就是其他的请求承担了不应有的时间成本。 解决：</li>
 <li>域名分片，多开几个域名，而这些域名都指向同一个服务器</li>
 </ul>
-<h2 id="post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> post 和 get 区别</h2>
+<h2 id="post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB">post 和 get 区别</a></h2>
 <ul>
 <li>GET 和 POST 方法没有实质区别，只是报文格式不同。</li>
 <li>约定上，get 一般使用 url 传参，post 一般使用 body 传参，实际上 post 也可以 url 传参。</li>
@@ -341,9 +352,9 @@
 <li>GET 的最大长度显示是因为 浏览器和 web 服务器限制了 URI 的长度</li>
 <li>不同的浏览器和 WEB 服务器，限制的最大长度不一样</li>
 </ul>
-<p>https://segmentfault.com/a/1190000018129846
-https://juejin.im/post/59fc04ecf265da4317697f26</p>
-<h2 id="cookie" tabindex="-1"><a class="header-anchor" href="#cookie" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> cookie</h2>
+<p><a href="https://segmentfault.com/a/1190000018129846" target="_blank">https://segmentfault.com/a/1190000018129846</a>
+<a href="https://juejin.im/post/59fc04ecf265da4317697f26" target="_blank">https://juejin.im/post/59fc04ecf265da4317697f26</a></p>
+<h2 id="cookie" tabindex="-1"><a class="header-anchor" href="#cookie">cookie</a></h2>
 <ul>
 <li>主要作用：会话状态管理、个性化设置、浏览器行为跟踪</li>
 <li>一段一般不超过 4KB 的小型文本数据</li>
@@ -356,14 +367,14 @@ https://juejin.im/post/59fc04ecf265da4317697f26</p>
 <li>设置 HTTPOnly 属性可以防止客户端脚本访问 Cookie，保证安全，例如 XSS 攻击。</li>
 <li>SameSite 是最近非常值得一提的内容，因为新的 Chrome80 版本中默认屏蔽了第三方的 Cookie</li>
 </ul>
-<h2 id="cookie-%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#cookie-%E7%BC%BA%E7%82%B9" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> cookie 缺点</h2>
+<h2 id="cookie-%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#cookie-%E7%BC%BA%E7%82%B9">cookie 缺点</a></h2>
 <ul>
 <li>大小只有 4kb、会增加请求大小</li>
 <li>个数限制、长度限制</li>
 <li>不安全，有可能被截获</li>
 <li>相比 localstorage， 需要自己封装 setter 和 getter</li>
 </ul>
-<h2 id="cookie-session" tabindex="-1"><a class="header-anchor" href="#cookie-session" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> cookie-session</h2>
+<h2 id="cookie-session" tabindex="-1"><a class="header-anchor" href="#cookie-session">cookie-session</a></h2>
 <ul>
 <li>HTTP 是一个无状态的协议。</li>
 <li>为了解决 HTTP 无状态导致的问题，出现了 Cookie，为了解决客户端与服务端会话状态的问题，这个状态是指后端服务的状态而非通讯协议的状态。</li>
@@ -372,20 +383,25 @@ https://juejin.im/post/59fc04ecf265da4317697f26</p>
 <li>当客户端请求创建一个 session 的时候，服务端会先检查这个客户端的请求里是否已包含了一个 session 标识 - sessionId，</li>
 <li>如果已包含这个 sessionId，则说明以前已经为此客户端创建过 session，服务端就按照 sessionId 把这个 session 检索出来使用</li>
 </ul>
-<h1 id="%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie" tabindex="-1"><a class="header-anchor" href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 跨域请求如何携带 cookie</h1>
+<h1 id="%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie" tabindex="-1"><a class="header-anchor" href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie">跨域请求如何携带 cookie</a></h1>
 <ul>
 <li>服务端设置 Access-Control-Allow-Origin 响应头，为允许跨域的域</li>
 <li>服务端设置 Access-Control-Allow-Credentials 响应头 为 true</li>
 <li>请求时设置 withCredentials 为 true</li>
 </ul>
-<h2 id="withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> withCredentials 是什么</h2>
+<h2 id="withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88">withCredentials 是什么</a></h2>
 <ul>
 <li>XMLHttpRequest 的一个请求配置</li>
 <li>指示了是否该使用类似 cookies,authorization headers(头部授权)或者 TLS 客户端证书这一类资格证书来创建一个跨站点访问控制</li>
 </ul>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#tcp%2Fip">TCP/IP</a><ul><li><a href="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB">TCP 和 UDP 的区别</a></li></ul></li><li><a href="#http-%E5%8D%8F%E8%AE%AE">HTTP 协议</a><ul><li><a href="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F">说一下常见请求头？</a></li><li><a href="#http-2.0">HTTP 2.0</a><ul><li><a href="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7">1.1 新特性</a></li><li><a href="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7">2.0 新特性</a></li></ul></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-http">什么是 http</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-https">什么是 https</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B">什么是 tcp 三次握手</a></li><li><a href="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F">HTTP 报文格式</a></li><li><a href="#%E7%8A%B6%E6%80%81%E7%A0%81">状态码</a></li><li><a href="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB">301 和 302 区别</a></li><li><a href="#options-%E8%AF%B7%E6%B1%82">options 请求</a></li><li><a href="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E">HTTP 队头阻塞</a></li><li><a href="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB">post 和 get 区别</a></li><li><a href="#cookie">cookie</a></li><li><a href="#cookie-%E7%BC%BA%E7%82%B9">cookie 缺点</a></li><li><a href="#cookie-session">cookie-session</a></li></ul></li><li><a href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie">跨域请求如何携带 cookie</a><ul><li><a href="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88">withCredentials 是什么</a></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title=TCP/IP><a href="#tcp%2Fip" data-anchor="#tcp%2Fip">TCP/IP</a><ul><li title=TCP 和 UDP 的区别><a href="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB">TCP 和 UDP 的区别</a></li></ul></li><li title=HTTP 协议><a href="#http-%E5%8D%8F%E8%AE%AE" data-anchor="#http-%E5%8D%8F%E8%AE%AE">HTTP 协议</a><ul><li title=说一下常见请求头？><a href="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F" data-anchor="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F">说一下常见请求头？</a></li><li title=HTTP 2.0><a href="#http-2.0" data-anchor="#http-2.0">HTTP 2.0</a><ul><li title=1.1 新特性><a href="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7">1.1 新特性</a></li><li title=2.0 新特性><a href="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7">2.0 新特性</a></li></ul></li><li title=什么是 http><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-http" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-http">什么是 http</a></li><li title=什么是 https><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-https" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-https">什么是 https</a></li><li title=什么是 tcp 三次握手><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B">什么是 tcp 三次握手</a></li><li title=HTTP 报文格式><a href="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F" data-anchor="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F">HTTP 报文格式</a></li><li title=状态码><a href="#%E7%8A%B6%E6%80%81%E7%A0%81" data-anchor="#%E7%8A%B6%E6%80%81%E7%A0%81">状态码</a></li><li title=301 和 302 区别><a href="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB" data-anchor="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB">301 和 302 区别</a></li><li title=options 请求><a href="#options-%E8%AF%B7%E6%B1%82" data-anchor="#options-%E8%AF%B7%E6%B1%82">options 请求</a></li><li title=HTTP 队头阻塞><a href="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E" data-anchor="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E">HTTP 队头阻塞</a></li><li title=post 和 get 区别><a href="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB" data-anchor="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB">post 和 get 区别</a></li><li title=cookie><a href="#cookie" data-anchor="#cookie">cookie</a></li><li title=cookie 缺点><a href="#cookie-%E7%BC%BA%E7%82%B9" data-anchor="#cookie-%E7%BC%BA%E7%82%B9">cookie 缺点</a></li><li title=cookie-session><a href="#cookie-session" data-anchor="#cookie-session">cookie-session</a></li></ul></li><li title=跨域请求如何携带 cookie><a href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie" data-anchor="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie">跨域请求如何携带 cookie</a><ul><li title=withCredentials 是什么><a href="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88">withCredentials 是什么</a></li></ul></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>

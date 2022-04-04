@@ -6,203 +6,214 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - Fiber</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="fiber" tabindex="-1"><a class="header-anchor" href="#fiber" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Fiber</h1>
-<h1 id="%E4%BB%80%E4%B9%88%E6%98%AF-fiber" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 什么是 Fiber</h1>
+    <div class="content markdown-body"><h1 id="fiber" tabindex="-1"><a class="header-anchor" href="#fiber">Fiber</a></h1>
+<h1 id="%E4%BB%80%E4%B9%88%E6%98%AF-fiber" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber">什么是 Fiber</a></h1>
 <ul>
 <li>Fiber 在英文中的意思为纤维化，即细化，在计算机科学中是比线程还要细的一个东西，把整个更新过程碎片化</li>
 <li>是 React 核心算法的重新实现，是 React 团队两年多研究的结晶，是对 reconciliation 的重新编写，重新实现了 reconciler（协调器）</li>
@@ -211,12 +222,12 @@
 <li>其他主要功能包括能够在新更新到来时暂停，中止或重用工作</li>
 <li>注意：并不会减少总工作量或更新所需的时间</li>
 </ul>
-<h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88-fiber" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 为什么 Fiber</h1>
+<h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88-fiber" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber">为什么 Fiber</a></h1>
 <ul>
 <li>旧版 React 在处理 UI 时，使用栈递归遍历树结构，整个过程同步无法被打断，如果树结构太大层级很深，会一直占用浏览器主线程，可能导致动画丢帧，看起来断断续续（JS 线程和 GUI 线程是互斥的）</li>
 <li>改变了之前 react 的组件渲染机制，新的架构使原来同步渲染的组件可以异步化，可中途中断渲染，执行更高优先级的任务。释放浏览器主线程，保证任务在浏览器空闲的时候执行</li>
 </ul>
-<h1 id="fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3" tabindex="-1"><a class="header-anchor" href="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Fiber 架构思想</h1>
+<h1 id="fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3" tabindex="-1"><a class="header-anchor" href="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3">Fiber 架构思想</a></h1>
 <ul>
 <li>浏览器现有 api：requestIdleCallback （闲时调用）来实现异步渲染，但 React 为了照顾绝大多数的浏览器，自己实现了 requestIdleCallback</li>
 <li>两个阶段：Reconciliation 与 Commit。Reconciliation 阶段对应早期版本的 diff 过程，Commit 阶段对应早期版本的 patch 过程，以 render 为界</li>
@@ -237,20 +248,25 @@
 </ul>
 </li>
 </ul>
-<h1 id="fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Fiber 为什么使用链表</h1>
+<h1 id="fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8">Fiber 为什么使用链表</a></h1>
 <ul>
 <li>React 使用单链表树遍历算法实现在没有递归的情况下遍历树，树形结构并不满足中途暂停</li>
 <li>对异步友好，它使暂停遍历并使阻止堆栈增长成为可能</li>
 <li>目前的虚拟 DOM 是树结构，当任务被打断后，树结构无法恢复之前的任务继续执行，所以需要一种新的数据结构，即链表，链表可以包含多个指针，可以轻易找到下一个节点，继而恢复任务的执行</li>
 <li>Fiber 采用的链表中包含三个指针，parent 指向其父 Fiber 节点，child 指向其子 Fiber 节点，sibling 指向其兄弟 Fiber 节点。一个 Fiber 节点对应一个任务节点</li>
 </ul>
-<h1 id="fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88" tabindex="-1"><a class="header-anchor" href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Fiber 为什么深度优先</h1>
+<h1 id="fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88" tabindex="-1"><a class="header-anchor" href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88">Fiber 为什么深度优先</a></h1>
 <ul>
 <li>查找 context 的消费节点，当 context 改变之后, 需要找出依赖该 context 的所有子节点</li>
 </ul>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#fiber">Fiber</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber">什么是 Fiber</a></li><li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber">为什么 Fiber</a></li><li><a href="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3">Fiber 架构思想</a></li><li><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8">Fiber 为什么使用链表</a></li><li><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88">Fiber 为什么深度优先</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=Fiber><a href="#fiber" data-anchor="#fiber">Fiber</a></li><li title=什么是 Fiber><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber">什么是 Fiber</a></li><li title=为什么 Fiber><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber">为什么 Fiber</a></li><li title=Fiber 架构思想><a href="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3" data-anchor="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3">Fiber 架构思想</a></li><li title=Fiber 为什么使用链表><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8" data-anchor="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8">Fiber 为什么使用链表</a></li><li title=Fiber 为什么深度优先><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88" data-anchor="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88">Fiber 为什么深度优先</a></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>

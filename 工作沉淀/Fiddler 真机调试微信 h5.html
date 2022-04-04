@@ -6,219 +6,230 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - Fiddler 真机调试微信 h5</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
     <div class="content markdown-body"><blockquote>
 <p>需求：真机上通过 https 和微信可信域名访问本地服务</p>
 </blockquote>
-<h1 id="%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 前提条件</h1>
+<h1 id="%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6">前提条件</a></h1>
 <ul>
 <li>手机和电脑处在同一局域网环境</li>
 <li>电脑安装 Fiddler</li>
 </ul>
-<h1 id="%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84" tabindex="-1"><a class="header-anchor" href="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 本地 hosts 文件添加映射</h1>
+<h1 id="%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84" tabindex="-1"><a class="header-anchor" href="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84">本地 hosts 文件添加映射</a></h1>
 <ul>
-<li>假设可信域名为 abc.com</li>
+<li>假设可信域名为 <a href="http://abc.com" target="_blank">abc.com</a></li>
 <li>假设电脑局域网 ip 为 192.168.1.106</li>
 </ul>
 <p>编辑 hosts 文件，将域名映射到电脑局域网 ip</p>
 <pre><code class="language-txt"># 微信开发
 192.168.1.106 abc.com
 </code></pre>
-<h1 id="%E8%AE%BE%E7%BD%AE-fiddler" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E7%BD%AE-fiddler" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 设置 Fiddler</h1>
+<h1 id="%E8%AE%BE%E7%BD%AE-fiddler" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E7%BD%AE-fiddler">设置 Fiddler</a></h1>
 <ul>
 <li>tools -&gt; options</li>
 <li>https 相关设置</li>
@@ -228,7 +239,7 @@
 <li>代理相关设置，这里设置代理端口号为 8002，可以设置任意合法端口号</li>
 </ul>
 <p><img src="../resource/20210801124045.png" alt=""></p>
-<h1 id="%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 修改 webpack 配置</h1>
+<h1 id="%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE">修改 webpack 配置</a></h1>
 <ul>
 <li>
 <p>开启 https
@@ -238,24 +249,29 @@
 <p>本地服务端口号改成 443</p>
 </li>
 </ul>
-<p>此时可在电脑浏览器通过 https://abc.com 访问本地服务</p>
-<h1 id="%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 修改手机代理</h1>
+<p>此时可在电脑浏览器通过 <a href="https://abc.com" target="_blank">https://abc.com</a> 访问本地服务</p>
+<h1 id="%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86">修改手机代理</a></h1>
 <ul>
 <li>进入手机 wlan 设置，选择连接的 wifi，代理选择手动</li>
 <li>主机名填电脑局域网 ip，端口填 Fiddler 代理设置中的端口号</li>
 </ul>
 <p><img src="../resource/20210801124751.jpg" alt=""></p>
-<h1 id="%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 手机安装 Fiddler 证书</h1>
+<h1 id="%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6">手机安装 Fiddler 证书</a></h1>
 <ul>
 <li>手机浏览器访问 <code>http://[电脑局域网ip]:[Fiddler 代理端口号]</code>，这里是 <code>http://192.168.1.106:8002</code></li>
 <li>点击下载 Fiddler 证书，进入手机 wlan 设置安装证书</li>
 </ul>
 <p><img src="../resource/20210801125321.jpg" alt=""></p>
-<p>此时手机浏览器可通过 https://abc.com 访问电脑上的本地服务。</p>
+<p>此时手机浏览器可通过 <a href="https://abc.com" target="_blank">https://abc.com</a> 访问电脑上的本地服务。</p>
 <p>结束</p>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6">前提条件</a></li><li><a href="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84">本地 hosts 文件添加映射</a></li><li><a href="#%E8%AE%BE%E7%BD%AE-fiddler">设置 Fiddler</a></li><li><a href="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE">修改 webpack 配置</a></li><li><a href="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86">修改手机代理</a></li><li><a href="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6">手机安装 Fiddler 证书</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=前提条件><a href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6" data-anchor="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6">前提条件</a></li><li title=本地 hosts 文件添加映射><a href="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84" data-anchor="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84">本地 hosts 文件添加映射</a></li><li title=设置 Fiddler><a href="#%E8%AE%BE%E7%BD%AE-fiddler" data-anchor="#%E8%AE%BE%E7%BD%AE-fiddler">设置 Fiddler</a></li><li title=修改 webpack 配置><a href="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE" data-anchor="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE">修改 webpack 配置</a></li><li title=修改手机代理><a href="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86" data-anchor="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86">修改手机代理</a></li><li title=手机安装 Fiddler 证书><a href="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6" data-anchor="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6">手机安装 Fiddler 证书</a></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>

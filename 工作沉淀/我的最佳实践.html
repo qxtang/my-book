@@ -6,211 +6,222 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - 我的最佳实践</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
     <div class="content markdown-body"><blockquote>
 <p>总结开发中常用的习惯和模式。</p>
 </blockquote>
-<h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 参考</h1>
+<h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
 <ul>
 <li><a href="https://isamatov.com/simple-tips-for-writing-clean-react-components/" target="_blank">Simple tips for writing clean React components</a></li>
 <li><a href="https://react-typescript-cheatsheet.netlify.app/" target="_blank">React TypeScript Cheatsheet</a></li>
 <li><a href="https://juejin.im/post/5e021eb96fb9a01628014095" target="_blank">JavaScript 设计模式</a></li>
 </ul>
-<h1 id="javascript" tabindex="-1"><a class="header-anchor" href="#javascript" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Javascript</h1>
+<h1 id="javascript" tabindex="-1"><a class="header-anchor" href="#javascript">Javascript</a></h1>
 <ul>
 <li>先声明后调用</li>
 <li>声明变量优先使用 const</li>
@@ -225,89 +236,89 @@
 <li>少写 console（或提交代码时删除 console），善于利用浏览器或 IDE 自带的 debugger 工具来调试，项目跑起来一堆的日志让队友很头疼</li>
 <li>多元判断时，可将条件拼接成字符串存到 Object 里</li>
 </ul>
-<pre><code class="language-js">/**
+<pre><code class="language-js"><span class="hljs-comment">/**
  * 按钮点击事件
- * @param {number} status 活动状态：1未开始 2进行中 3 结束
- * @param {string} identity 身份标识：guest游客 admin管理员
- */
-const onButtonClick = (status, identity) =&gt; {
-    if (identity == 'guest') {
-        if (status == 1) {
-            //do sth
-        } else if (status == 2) {
-            //do sth
-        } else if (status == 3) {
-            //do sth
-        } else {
-            //do sth
-        }
-    } else if (identity == 'admin') {
-        if (status == 1) {
-            //do sth
-        } else if (status == 2) {
-            //do sth
-        } else if (status == 3) {
-            //do sth
-        } else {
-            //do sth
-        }
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number</span>} status 活动状态：1未开始 2进行中 3 结束
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">string</span>} identity 身份标识：guest游客 admin管理员
+ */</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">onButtonClick</span> = (<span class="hljs-params">status, identity</span>) =&gt; {
+  <span class="hljs-keyword">if</span> (identity == <span class="hljs-string">&#x27;guest&#x27;</span>) {
+    <span class="hljs-keyword">if</span> (status == <span class="hljs-number">1</span>) {
+      <span class="hljs-comment">//do sth</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (status == <span class="hljs-number">2</span>) {
+      <span class="hljs-comment">//do sth</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (status == <span class="hljs-number">3</span>) {
+      <span class="hljs-comment">//do sth</span>
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">//do sth</span>
     }
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (identity == <span class="hljs-string">&#x27;admin&#x27;</span>) {
+    <span class="hljs-keyword">if</span> (status == <span class="hljs-number">1</span>) {
+      <span class="hljs-comment">//do sth</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (status == <span class="hljs-number">2</span>) {
+      <span class="hljs-comment">//do sth</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (status == <span class="hljs-number">3</span>) {
+      <span class="hljs-comment">//do sth</span>
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">//do sth</span>
+    }
+  }
 };
 
-// 可优化为
-const actions = new Map([
-    [
-        'guest_1',
-        () =&gt; {
-            /*do sth*/
-        },
-    ],
-    [
-        'guest_2',
-        () =&gt; {
-            /*do sth*/
-        },
-    ],
-    [
-        'guest_3',
-        () =&gt; {
-            /*do sth*/
-        },
-    ],
-    [
-        'admin_1',
-        () =&gt; {
-            /*do sth*/
-        },
-    ],
-    [
-        'admin_2',
-        () =&gt; {
-            /*do sth*/
-        },
-    ],
-    [
-        'admin_3',
-        () =&gt; {
-            /*do sth*/
-        },
-    ],
-    [
-        'default',
-        () =&gt; {
-            /*do sth*/
-        },
-    ],
+<span class="hljs-comment">// 可优化为</span>
+<span class="hljs-keyword">const</span> actions = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>([
+  [
+    <span class="hljs-string">&#x27;guest_1&#x27;</span>,
+    <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-comment">/*do sth*/</span>
+    },
+  ],
+  [
+    <span class="hljs-string">&#x27;guest_2&#x27;</span>,
+    <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-comment">/*do sth*/</span>
+    },
+  ],
+  [
+    <span class="hljs-string">&#x27;guest_3&#x27;</span>,
+    <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-comment">/*do sth*/</span>
+    },
+  ],
+  [
+    <span class="hljs-string">&#x27;admin_1&#x27;</span>,
+    <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-comment">/*do sth*/</span>
+    },
+  ],
+  [
+    <span class="hljs-string">&#x27;admin_2&#x27;</span>,
+    <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-comment">/*do sth*/</span>
+    },
+  ],
+  [
+    <span class="hljs-string">&#x27;admin_3&#x27;</span>,
+    <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-comment">/*do sth*/</span>
+    },
+  ],
+  [
+    <span class="hljs-string">&#x27;default&#x27;</span>,
+    <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-comment">/*do sth*/</span>
+    },
+  ],
 ]);
 
-/**
+<span class="hljs-comment">/**
  * 按钮点击事件
- * @param {string} identity 身份标识：guest游客 admin管理员
- * @param {number} status 活动状态：1未开始 2进行中 3 结束
- */
-const onButtonClick = (identity, status) =&gt; {
-    let action = actions.get(`${identity}_${status}`) || actions.get('default');
-    action.call(this);
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">string</span>} identity 身份标识：guest游客 admin管理员
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number</span>} status 活动状态：1未开始 2进行中 3 结束
+ */</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">onButtonClick</span> = (<span class="hljs-params">identity, status</span>) =&gt; {
+  <span class="hljs-keyword">let</span> action = actions.<span class="hljs-title function_">get</span>(<span class="hljs-string">`<span class="hljs-subst">${identity}</span>_<span class="hljs-subst">${status}</span>`</span>) || actions.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;default&#x27;</span>);
+  action.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>);
 };
 </code></pre>
 <ul>
@@ -317,93 +328,93 @@ const onButtonClick = (identity, status) =&gt; {
 <li>减少嵌套，提前使用 return 语句</li>
 <li>用有意义且常用的单词命名变量</li>
 </ul>
-<pre><code class="language-js">// 错误：
-const yyyymmdstr = moment().format('YYYY/MM/DD');
-// 正确:
-const currentDate = moment().format('YYYY/MM/DD');
+<pre><code class="language-js"><span class="hljs-comment">// 错误：</span>
+<span class="hljs-keyword">const</span> yyyymmdstr = <span class="hljs-title function_">moment</span>().<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;YYYY/MM/DD&#x27;</span>);
+<span class="hljs-comment">// 正确:</span>
+<span class="hljs-keyword">const</span> currentDate = <span class="hljs-title function_">moment</span>().<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;YYYY/MM/DD&#x27;</span>);
 </code></pre>
 <ul>
 <li>保持统一命名<br>
 可能同一个项目对于获取用户信息，会有三个不一样的命名，应该保持统一。</li>
 </ul>
-<pre><code class="language-js">// 错误：
-getUserInfo();
-getClientData();
-getCustomerRecord();
+<pre><code class="language-js"><span class="hljs-comment">// 错误：</span>
+<span class="hljs-title function_">getUserInfo</span>();
+<span class="hljs-title function_">getClientData</span>();
+<span class="hljs-title function_">getCustomerRecord</span>();
 
-// 正确：
-getUser();
+<span class="hljs-comment">// 正确：</span>
+<span class="hljs-title function_">getUser</span>();
 </code></pre>
 <ul>
 <li>尽量少写魔法值，每个常量都该命名</li>
 </ul>
-<pre><code class="language-js">// 错误：
-// 三个月之后你还能知道 86400000 是什么吗?
-setTimeout(doSomeThing, 86400000);
+<pre><code class="language-js"><span class="hljs-comment">// 错误：</span>
+<span class="hljs-comment">// 三个月之后你还能知道 86400000 是什么吗?</span>
+<span class="hljs-built_in">setTimeout</span>(doSomeThing, <span class="hljs-number">86400000</span>);
 
-// 正确：
-const MILLISECOND_IN_A_DAY = 86400000;
-setTimeout(doSomeThing, MILLISECOND_IN_A_DAY);
+<span class="hljs-comment">// 正确：</span>
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MILLISECOND_IN_A_DAY</span> = <span class="hljs-number">86400000</span>;
+<span class="hljs-built_in">setTimeout</span>(doSomeThing, <span class="hljs-variable constant_">MILLISECOND_IN_A_DAY</span>);
 </code></pre>
 <ul>
 <li>避免无意义的前缀<br>
 如果创建了一个对象 car，就没有必要把它的颜色命名为 carColor。</li>
 </ul>
-<pre><code class="language-js">// 错误：
-const car = {
-    carMake: 'Honda',
-    carModel: 'Accord',
-    carColor: 'Blue',
+<pre><code class="language-js"><span class="hljs-comment">// 错误：</span>
+<span class="hljs-keyword">const</span> car = {
+  <span class="hljs-attr">carMake</span>: <span class="hljs-string">&#x27;Honda&#x27;</span>,
+  <span class="hljs-attr">carModel</span>: <span class="hljs-string">&#x27;Accord&#x27;</span>,
+  <span class="hljs-attr">carColor</span>: <span class="hljs-string">&#x27;Blue&#x27;</span>,
 };
 
-function paintCar(car) {
-    car.carColor = 'Red';
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">paintCar</span>(<span class="hljs-params">car</span>) {
+  car.<span class="hljs-property">carColor</span> = <span class="hljs-string">&#x27;Red&#x27;</span>;
 }
 
-// 正确：
-const car = {
-    make: 'Honda',
-    model: 'Accord',
-    color: 'Blue',
+<span class="hljs-comment">// 正确：</span>
+<span class="hljs-keyword">const</span> car = {
+  <span class="hljs-attr">make</span>: <span class="hljs-string">&#x27;Honda&#x27;</span>,
+  <span class="hljs-attr">model</span>: <span class="hljs-string">&#x27;Accord&#x27;</span>,
+  <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;Blue&#x27;</span>,
 };
 
-function paintCar(car) {
-    car.color = 'Red';
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">paintCar</span>(<span class="hljs-params">car</span>) {
+  car.<span class="hljs-property">color</span> = <span class="hljs-string">&#x27;Red&#x27;</span>;
 }
 </code></pre>
 <ul>
 <li>使用函数参数默认值</li>
 </ul>
-<pre><code class="language-js">// 错误：
-function doSomeThing(name) {
-    const username = name || 'tony';
-    // ...
+<pre><code class="language-js"><span class="hljs-comment">// 错误：</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">doSomeThing</span>(<span class="hljs-params">name</span>) {
+  <span class="hljs-keyword">const</span> username = name || <span class="hljs-string">&#x27;tony&#x27;</span>;
+  <span class="hljs-comment">// ...</span>
 }
 
-// 正确：
-function doSomeThing(name = 'tony') {
-    // ...
+<span class="hljs-comment">// 正确：</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">doSomeThing</span>(<span class="hljs-params">name = <span class="hljs-string">&#x27;tony&#x27;</span></span>) {
+  <span class="hljs-comment">// ...</span>
 }
 </code></pre>
 <ul>
 <li>参数越少越好<br>
 如果参数超过两个，使用解构语法，不用考虑参数的顺序。</li>
 </ul>
-<pre><code class="language-js">// 错误：
-function createMenu(title, body, buttonText, cancellable) {
-    // ...
+<pre><code class="language-js"><span class="hljs-comment">// 错误：</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">createMenu</span>(<span class="hljs-params">title, body, buttonText, cancellable</span>) {
+  <span class="hljs-comment">// ...</span>
 }
 
-// 正确：
-function createMenu({ title, body, buttonText, cancellable }) {
-    // ...
+<span class="hljs-comment">// 正确：</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">createMenu</span>(<span class="hljs-params">{ title, body, buttonText, cancellable }</span>) {
+  <span class="hljs-comment">// ...</span>
 }
 
-createMenu({
-    title: 'Foo',
-    body: 'Bar',
-    buttonText: 'Baz',
-    cancellable: true,
+<span class="hljs-title function_">createMenu</span>({
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Foo&#x27;</span>,
+  <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;Bar&#x27;</span>,
+  <span class="hljs-attr">buttonText</span>: <span class="hljs-string">&#x27;Baz&#x27;</span>,
+  <span class="hljs-attr">cancellable</span>: <span class="hljs-literal">true</span>,
 });
 </code></pre>
 <ul>
@@ -431,37 +442,37 @@ createMenu({
 这种模式让的代码简洁优雅，在类的方法最后返回 this 就可以了。</p>
 </li>
 </ul>
-<pre><code class="language-js">class Car {
-    constructor(make, model, color) {
-      this.make = make;
-      this.model = model;
-      this.color = color;
+<pre><code class="language-js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> {
+    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">make, model, color</span>) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">make</span> = make;
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">model</span> = model;
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">color</span> = color;
     }
 
-    setMake(make) {
-      this.make = make;
-      return this;
+    <span class="hljs-title function_">setMake</span>(<span class="hljs-params">make</span>) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">make</span> = make;
+      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;
     }
 
-    setModel(model) {
-      this.model = model;
-      return this;
+    <span class="hljs-title function_">setModel</span>(<span class="hljs-params">model</span>) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">model</span> = model;
+      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;
     }
 
-    setColor(color) {
-      this.color = color;
-      return this;
+    <span class="hljs-title function_">setColor</span>(<span class="hljs-params">color</span>) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">color</span> = color;
+      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;
     }
 
-    save() {
-      console.log(this.make, this.model, this.color);
-      return this;
+    <span class="hljs-title function_">save</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">make</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">model</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">color</span>);
+      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;
     }
 }
 
-const car = new Car('Ford','F-150','red')
-  .setColor('pink');
-  .save();
+<span class="hljs-keyword">const</span> car = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Car</span>(<span class="hljs-string">&#x27;Ford&#x27;</span>,<span class="hljs-string">&#x27;F-150&#x27;</span>,<span class="hljs-string">&#x27;red&#x27;</span>)
+  .<span class="hljs-title function_">setColor</span>(<span class="hljs-string">&#x27;pink&#x27;</span>);
+  .<span class="hljs-title function_">save</span>();
 </code></pre>
 <ul>
 <li>
@@ -474,7 +485,7 @@ const car = new Car('Ford','F-150','red')
 比如我想修改一个公共组件的样式来适配自己的页面，但又需要保证其他使用这个组件的页面不受影响，可以通过增加一个主题参数，根据该参数加载一份新的样式文件</p>
 </li>
 </ul>
-<h1 id="react" tabindex="-1"><a class="header-anchor" href="#react" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> React</h1>
+<h1 id="react" tabindex="-1"><a class="header-anchor" href="#react">React</a></h1>
 <ul>
 <li>定义类组件时，使用 PropTypes 对属性进行类型检查和赋予默认值（deprecate）</li>
 <li>组件属性超过 3 个则换行</li>
@@ -489,71 +500,71 @@ const car = new Car('Ford','F-150','red')
 <li>封装切换类型的组件时，使用一个配置数组来减少判断（策略模式）</li>
 <li>多使用解构，例如声明函数组件的 props 和 默认值</li>
 </ul>
-<pre><code class="language-jsx">export default ({ name = '小明', sex = '男' }) =&gt; (
-    &lt;&gt;
-        我叫 {name}，性别 {sex}
-    &lt;/&gt;
+<pre><code class="language-jsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> ({ name = <span class="hljs-string">&#x27;小明&#x27;</span>, sex = <span class="hljs-string">&#x27;男&#x27;</span> }) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+    我叫 {name}，性别 {sex}
+  <span class="hljs-tag">&lt;/&gt;</span></span>
 );
 </code></pre>
 <ul>
 <li>没有子元素的组件写成自闭合</li>
 </ul>
-<pre><code class="language-jsx">// 错误：
-&lt;Foo&gt;&lt;/Foo&gt;
+<pre><code class="language-jsx"><span class="hljs-comment">// 错误：</span>
+&lt;<span class="hljs-title class_">Foo</span>&gt;&lt;/<span class="hljs-title class_">Foo</span>&gt;
 
-// 正确：
-&lt;Foo/&gt;
+<span class="hljs-comment">// 正确：</span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Foo</span>/&gt;</span></span>
 </code></pre>
 <ul>
 <li>组件属性命名保持统一，使兼容性良好，避免无意义前缀</li>
 </ul>
-<pre><code class="language-jsx">// 错误，心塞
-&lt;MyInput inputValue onInputChange wrapStyle wrapClassName /&gt;
+<pre><code class="language-jsx"><span class="hljs-comment">// 错误，心塞</span>
+&lt;<span class="hljs-title class_">MyInput</span> inputValue onInputChange wrapStyle wrapClassName /&gt;
 
-// 正确
-&lt;MyInput value onChange style className /&gt;
+<span class="hljs-comment">// 正确</span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyInput</span> <span class="hljs-attr">value</span> <span class="hljs-attr">onChange</span> <span class="hljs-attr">style</span> <span class="hljs-attr">className</span> /&gt;</span></span>
 </code></pre>
 <ul>
 <li>避免在 render 里面动态创建对象 / 方法，否则会导致子组件每次都 render</li>
 </ul>
-<pre><code class="language-jsx">// 错误：
-render() {
-    const obj = {num: 1}
+<pre><code class="language-jsx"><span class="hljs-comment">// 错误：</span>
+<span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> obj = {<span class="hljs-attr">num</span>: <span class="hljs-number">1</span>}
 
-    return (
-        &lt;Child obj={obj} onClick={()=&gt;{...}} /&gt;
+    <span class="hljs-keyword">return</span> (
+        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">obj</span>=<span class="hljs-string">{obj}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span>=&gt;</span>{...}} /&gt;</span>
     );
 }
 </code></pre>
 <ul>
 <li>避免在 JSX 中写复杂的三元表达式，应通过封装函数或组件实现</li>
 </ul>
-<pre><code class="language-jsx">// 错误：
-render() {
-    const a = 8;
-    return (
-        &lt;div&gt;
+<pre><code class="language-jsx"><span class="hljs-comment">// 错误：</span>
+<span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> a = <span class="hljs-number">8</span>;
+    <span class="hljs-keyword">return</span> (
+        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
             {
                 a &gt; 0 ? a &lt; 9 ? ... : ... : ...
             }
-        &lt;/div&gt;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
     );
 }
 </code></pre>
-<pre><code class="language-jsx">// 正确：
-f() {
+<pre><code class="language-jsx"><span class="hljs-comment">// 正确：</span>
+<span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {
     ...
 }
 
-render() {
-    const a = 8;
+<span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> a = <span class="hljs-number">8</span>;
 
-    return (
-        &lt;div&gt;
+    <span class="hljs-keyword">return</span> (
+        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
             {
                 this.f()
             }
-        &lt;/div&gt;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
     );
 }
 </code></pre>
@@ -563,12 +574,12 @@ render() {
 </ul>
 <p>例如：</p>
 <pre><code class="language-jsx">{
-    loading ? &lt;Loading /&gt; : null;
+  loading ? <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Loading</span> /&gt;</span></span> : <span class="hljs-literal">null</span>;
 }
 </code></pre>
 <p>可简化为</p>
 <pre><code class="language-jsx">{
-    loading &amp;&amp; &lt;Loading /&gt;;
+  loading &amp;&amp; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Loading</span> /&gt;</span></span>;
 }
 </code></pre>
 <ul>
@@ -581,20 +592,20 @@ render() {
 例如：</p>
 </li>
 </ul>
-<pre><code class="language-jsx">import React from 'react';
+<pre><code class="language-jsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
 
-export default function SampleComponent({ onValueChange }) {
-    const handleChange = (key) =&gt; {
-        return (e) =&gt; onValueChange(key, e.target.value);
-    };
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">SampleComponent</span>(<span class="hljs-params">{ onValueChange }</span>) {
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleChange</span> = (<span class="hljs-params">key</span>) =&gt; {
+    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> <span class="hljs-title function_">onValueChange</span>(key, e.<span class="hljs-property">target</span>.<span class="hljs-property">value</span>);
+  };
 
-    return (
-        &lt;form&gt;
-            &lt;input onChange={handleChange('name')} /&gt;
-            &lt;input onChange={handleChange('email')} /&gt;
-            &lt;input onChange={handleChange('phone')} /&gt;
-        &lt;/form&gt;
-    );
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{handleChange(</span>&#x27;<span class="hljs-attr">name</span>&#x27;)} /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{handleChange(</span>&#x27;<span class="hljs-attr">email</span>&#x27;)} /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{handleChange(</span>&#x27;<span class="hljs-attr">phone</span>&#x27;)} /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span>
+  );
 }
 </code></pre>
 <p>这样看起来比较简洁</p>
@@ -602,90 +613,90 @@ export default function SampleComponent({ onValueChange }) {
 <li>使用 Hook components<br>
 比如要封装一个弹窗组件：</li>
 </ul>
-<pre><code class="language-jsx">// 组件
-import React, { useCallback, useState } from 'react';
-import ConfirmationDialog from 'components/global/ConfirmationDialog';
+<pre><code class="language-jsx"><span class="hljs-comment">// 组件</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useCallback, useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">ConfirmationDialog</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;components/global/ConfirmationDialog&#x27;</span>;
 
-export default function useConfirmationDialog({ headerText, bodyText, confirmationButtonText, onConfirmClick }) {
-    const [isOpen, setIsOpen] = useState(false);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">useConfirmationDialog</span>(<span class="hljs-params">{ headerText, bodyText, confirmationButtonText, onConfirmClick }</span>) {
+  <span class="hljs-keyword">const</span> [isOpen, setIsOpen] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">false</span>);
 
-    const onOpen = () =&gt; {
-        setIsOpen(true);
-    };
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">onOpen</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-title function_">setIsOpen</span>(<span class="hljs-literal">true</span>);
+  };
 
-    const Dialog = useCallback(
-        () =&gt; (
-            &lt;ConfirmationDialog
-                headerText={headerText}
-                bodyText={bodyText}
-                isOpen={isOpen}
-                onConfirmClick={onConfirmClick}
-                onCancelClick={() =&gt; setIsOpen(false)}
-                confirmationButtonText={confirmationButtonText}
-            /&gt;
-        ),
-        [isOpen]
-    );
+  <span class="hljs-keyword">const</span> <span class="hljs-title class_">Dialog</span> = <span class="hljs-title function_">useCallback</span>(
+    <span class="hljs-function">() =&gt;</span> (
+      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ConfirmationDialog</span>
+        <span class="hljs-attr">headerText</span>=<span class="hljs-string">{headerText}</span>
+        <span class="hljs-attr">bodyText</span>=<span class="hljs-string">{bodyText}</span>
+        <span class="hljs-attr">isOpen</span>=<span class="hljs-string">{isOpen}</span>
+        <span class="hljs-attr">onConfirmClick</span>=<span class="hljs-string">{onConfirmClick}</span>
+        <span class="hljs-attr">onCancelClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setIsOpen(false)}
+        confirmationButtonText={confirmationButtonText}
+      /&gt;</span>
+    ),
+    [isOpen]
+  );
 
-    return {
-        Dialog,
-        onOpen,
-    };
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-title class_">Dialog</span>,
+    onOpen,
+  };
 }
 </code></pre>
-<pre><code class="language-jsx">// 使用
-import React from 'react';
-import { useConfirmationDialog } from './useConfirmationDialog';
+<pre><code class="language-jsx"><span class="hljs-comment">// 使用</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
+<span class="hljs-keyword">import</span> { useConfirmationDialog } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./useConfirmationDialog&#x27;</span>;
 
-function Client() {
-    const { Dialog, onOpen } = useConfirmationDialog({
-        headerText: 'Delete this record?',
-        bodyText: 'Are you sure you want delete this record? This cannot be undone.',
-        confirmationButtonText: 'Delete',
-        onConfirmClick: handleDeleteConfirm,
-    });
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Client</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> { <span class="hljs-title class_">Dialog</span>, onOpen } = <span class="hljs-title function_">useConfirmationDialog</span>({
+    <span class="hljs-attr">headerText</span>: <span class="hljs-string">&#x27;Delete this record?&#x27;</span>,
+    <span class="hljs-attr">bodyText</span>: <span class="hljs-string">&#x27;Are you sure you want delete this record? This cannot be undone.&#x27;</span>,
+    <span class="hljs-attr">confirmationButtonText</span>: <span class="hljs-string">&#x27;Delete&#x27;</span>,
+    <span class="hljs-attr">onConfirmClick</span>: handleDeleteConfirm,
+  });
 
-    function handleDeleteConfirm() {}
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">handleDeleteConfirm</span>(<span class="hljs-params"></span>) {}
 
-    const handleDeleteClick = () =&gt; {
-        onOpen();
-    };
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleDeleteClick</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-title function_">onOpen</span>();
+  };
 
-    return (
-        &lt;div&gt;
-            &lt;Dialog /&gt;
-            &lt;button onClick={handleDeleteClick} /&gt;
-        &lt;/div&gt;
-    );
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Dialog</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleDeleteClick}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
 }
 
-export default Client;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">Client</span>;
 </code></pre>
 <p>这种模式可以少写很多与组件相关的 state，比如弹窗的 visible、title 之类的</p>
 <ul>
 <li>将业务逻辑封装进 hooks，业务逻辑与 UI 分离（关注点分离）</li>
 </ul>
-<pre><code class="language-jsx">// 例如：
-import React from 'react';
-import ItemDisplay from './ItemDisplay';
+<pre><code class="language-jsx"><span class="hljs-comment">// 例如：</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">ItemDisplay</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./ItemDisplay&#x27;</span>;
 
-export default function SampleComponent() {
-    const { data, handleDelete, handleEdit, handleAdd } = useCustomHook();
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">SampleComponent</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> { data, handleDelete, handleEdit, handleAdd } = <span class="hljs-title function_">useCustomHook</span>();
 
-    return (
-        &lt;div&gt;
-            &lt;div&gt;
-                {data.map((item) =&gt; (
-                    &lt;ItemDisplay item={item} /&gt;
-                ))}
-            &lt;/div&gt;
-            &lt;div&gt;
-                &lt;button onClick={handleDelete} /&gt;
-                &lt;button onClick={handleAdd} /&gt;
-                &lt;button onClick={handleEdit} /&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    );
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        {data.map((item) =&gt; (
+          <span class="hljs-tag">&lt;<span class="hljs-name">ItemDisplay</span> <span class="hljs-attr">item</span>=<span class="hljs-string">{item}</span> /&gt;</span>
+        ))}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleDelete}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleAdd}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleEdit}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
 }
 </code></pre>
 <ul>
@@ -697,17 +708,17 @@ export default function SampleComponent() {
 </li>
 <li>
 <p>尽量不要在组件中声明新的组件</p>
-<pre><code class="language-jsx">// 错误，不建议
-function A() {
-    const B = () =&gt; {
-        return &lt;p&gt;hello&lt;/p&gt;;
-    };
+<pre><code class="language-jsx"><span class="hljs-comment">// 错误，不建议</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">A</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">B</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>;
+  };
 
-    return (
-        &lt;div&gt;
-            &lt;B /&gt;
-        &lt;/div&gt;
-    );
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">B</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
 }
 </code></pre>
 <p>原因：</p>
@@ -721,7 +732,7 @@ function A() {
 <p>避免为了优化少量性能过度设计代码，反而降低了代码的可维护性、易读性，浪费时间</p>
 </li>
 </ul>
-<h1 id="typescript" tabindex="-1"><a class="header-anchor" href="#typescript" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Typescript</h1>
+<h1 id="typescript" tabindex="-1"><a class="header-anchor" href="#typescript">Typescript</a></h1>
 <ul>
 <li>接口命名以大写字母“I”开头，来自：<a href="http://wiki.eclipse.org/Naming_Conventions#Classes_and_Interfaces" target="_blank">eclipse 的建议</a></li>
 <li>少写 any</li>
@@ -735,7 +746,12 @@ function A() {
 </ul>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#%E5%8F%82%E8%80%83">参考</a></li><li><a href="#javascript">Javascript</a></li><li><a href="#react">React</a></li><li><a href="#typescript">Typescript</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=参考><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title=Javascript><a href="#javascript" data-anchor="#javascript">Javascript</a></li><li title=React><a href="#react" data-anchor="#react">React</a></li><li title=Typescript><a href="#typescript" data-anchor="#typescript">Typescript</a></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>

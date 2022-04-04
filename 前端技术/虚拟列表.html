@@ -6,233 +6,249 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - 虚拟列表</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 虚拟列表</h1>
-<h2 id="%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#%E6%98%AF%E4%BB%80%E4%B9%88" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 是什么</h2>
+    <div class="content markdown-body"><h1 id="%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8">虚拟列表</a></h1>
+<h2 id="%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></h2>
 <ul>
 <li>只对可见区域进行渲染，对非可见区域中的数据不渲染或部分渲染的技术，从而达到极高的渲染性能</li>
 </ul>
-<h2 id="%E4%BD%9C%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E4%BD%9C%E7%94%A8" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 作用</h2>
+<h2 id="%E4%BD%9C%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E4%BD%9C%E7%94%A8">作用</a></h2>
 <ul>
 <li>不能分页的情况下渲染多条（上万级别）数据</li>
 </ul>
-<h2 id="%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 实现描述</h2>
+<h2 id="%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0">实现描述</a></h2>
 <ul>
 <li>首屏加载时，只加载可视区域内需要的列表项</li>
 <li>滚动发生时，计算出可视区域内的列表项，并将非可视区域内存在的列表项销毁</li>
 </ul>
-<h2 id="%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E9%A2%98" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 问题</h2>
-<h3 id="%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 列表项动态高度问题</h3>
+<h2 id="%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E9%A2%98">问题</a></h2>
+<h3 id="%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98">列表项动态高度问题</a></h3>
 <ul>
 <li>对组件属性 itemSize 进行扩展，支持传递类型为数字、数组、函数</li>
 <li>将列表项渲染到屏幕外，对其高度进行测量并缓存，然后再将其渲染至可视区域内</li>
 <li>以预估高度先行渲染，然后获取真实高度并缓存</li>
 </ul>
-<h3 id="scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> scroll 事件频繁触发问题</h3>
+<h3 id="scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98">scroll 事件频繁触发问题</a></h3>
 <ul>
 <li>IntersectionObserver</li>
 </ul>
-<h3 id="%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8C%85%E5%90%AB%E5%9B%BE%E7%89%87%EF%BC%8C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E6%98%AF%E5%BC%82%E6%AD%A5%E7%9A%84%EF%BC%8C%E6%97%A0%E6%B3%95%E9%A2%84%E5%88%A4%E9%AB%98%E5%BA%A6" tabindex="-1"><a class="header-anchor" href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8C%85%E5%90%AB%E5%9B%BE%E7%89%87%EF%BC%8C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E6%98%AF%E5%BC%82%E6%AD%A5%E7%9A%84%EF%BC%8C%E6%97%A0%E6%B3%95%E9%A2%84%E5%88%A4%E9%AB%98%E5%BA%A6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 列表项包含图片，图片加载完成是异步的，无法预判高度</h3>
+<h3 id="%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8C%85%E5%90%AB%E5%9B%BE%E7%89%87%EF%BC%8C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E6%98%AF%E5%BC%82%E6%AD%A5%E7%9A%84%EF%BC%8C%E6%97%A0%E6%B3%95%E9%A2%84%E5%88%A4%E9%AB%98%E5%BA%A6" tabindex="-1"><a class="header-anchor" href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8C%85%E5%90%AB%E5%9B%BE%E7%89%87%EF%BC%8C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E6%98%AF%E5%BC%82%E6%AD%A5%E7%9A%84%EF%BC%8C%E6%97%A0%E6%B3%95%E9%A2%84%E5%88%A4%E9%AB%98%E5%BA%A6">列表项包含图片，图片加载完成是异步的，无法预判高度</a></h3>
 <ul>
 <li>ResizeObserver（但有兼容性问题）</li>
 </ul>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8">虚拟列表</a><ul><li><a href="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li><li><a href="#%E4%BD%9C%E7%94%A8">作用</a></li><li><a href="#%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0">实现描述</a></li><li><a href="#%E9%97%AE%E9%A2%98">问题</a><ul><li><a href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98">列表项动态高度问题</a></li><li><a href="#scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98">scroll 事件频繁触发问题</a></li><li><a href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8C%85%E5%90%AB%E5%9B%BE%E7%89%87%EF%BC%8C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E6%98%AF%E5%BC%82%E6%AD%A5%E7%9A%84%EF%BC%8C%E6%97%A0%E6%B3%95%E9%A2%84%E5%88%A4%E9%AB%98%E5%BA%A6">列表项包含图片，图片加载完成是异步的，无法预判高度</a></li></ul></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title=虚拟列表><a href="#%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8" data-anchor="#%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8">虚拟列表</a><ul><li title=是什么><a href="#%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li><li title=作用><a href="#%E4%BD%9C%E7%94%A8" data-anchor="#%E4%BD%9C%E7%94%A8">作用</a></li><li title=实现描述><a href="#%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0" data-anchor="#%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0">实现描述</a></li><li title=问题><a href="#%E9%97%AE%E9%A2%98" data-anchor="#%E9%97%AE%E9%A2%98">问题</a><ul><li title=列表项动态高度问题><a href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98" data-anchor="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98">列表项动态高度问题</a></li><li title=scroll 事件频繁触发问题><a href="#scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98" data-anchor="#scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98">scroll 事件频繁触发问题</a></li><li title=列表项包含图片，图片加载完成是异步的，无法预判高度><a href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8C%85%E5%90%AB%E5%9B%BE%E7%89%87%EF%BC%8C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E6%98%AF%E5%BC%82%E6%AD%A5%E7%9A%84%EF%BC%8C%E6%97%A0%E6%B3%95%E9%A2%84%E5%88%A4%E9%AB%98%E5%BA%A6" data-anchor="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8C%85%E5%90%AB%E5%9B%BE%E7%89%87%EF%BC%8C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E6%98%AF%E5%BC%82%E6%AD%A5%E7%9A%84%EF%BC%8C%E6%97%A0%E6%B3%95%E9%A2%84%E5%88%A4%E9%AB%98%E5%BA%A6">列表项包含图片，图片加载完成是异步的，无法预判高度</a></li></ul></li></ul></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>

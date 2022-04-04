@@ -6,224 +6,235 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - 语言基础</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80" tabindex="-1"><a class="header-anchor" href="#%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 语言基础</h1>
-<h1 id="arguments" tabindex="-1"><a class="header-anchor" href="#arguments" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> arguments</h1>
+    <div class="content markdown-body"><h1 id="%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80" tabindex="-1"><a class="header-anchor" href="#%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80">语言基础</a></h1>
+<h1 id="arguments" tabindex="-1"><a class="header-anchor" href="#arguments">arguments</a></h1>
 <ul>
 <li>是一个类数组对象，存储传入函数的全部参数。（类数组对象：属性是 0 开始的下标，并且有 length 属性，但没有数组独有的方法）</li>
 <li>callee 属性：当前函数的引用</li>
 <li>妙用：递归、参数累加</li>
 </ul>
-<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 为什么 ES6 不推荐使用 arguments.callee()</h2>
+<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></h2>
 <ul>
 <li>访问 arguments 是个很昂贵的操作，因为它是个很大的对象，每次递归调用时都需要重新创建。影响浏览器的性能，还会影响闭包。</li>
 <li>当一个函数必须调用自身的时候，假如它是函数表达式则给它命名，或者使用函数声明，避免使用 callee</li>
 </ul>
-<h1 id="delete-%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#delete-%E6%9C%BA%E5%88%B6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> delete 机制</h1>
+<h1 id="delete-%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></h1>
 <ul>
 <li>使用 delete 操作符并不会直接释放内存，与 V8 引擎有关</li>
 <li>最有效的方式，应该是将不需要的属性设置为 undefined</li>
 <li>在实际业务中可以考虑使用 Map 来代替 object，map 包装对象有 delete 方法，比以上方式都快</li>
 </ul>
-<h1 id="0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" tabindex="-1"><a class="header-anchor" href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 0.1 + 0.2 为什么不等于 0.3</h1>
+<h1 id="0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" tabindex="-1"><a class="header-anchor" href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a></h1>
 <ul>
 <li>二进制模拟十进制进行计算时 的精度问题</li>
 </ul>
-<h1 id="es6-%E6%96%B0%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> es6 新特性</h1>
+<h1 id="es6-%E6%96%B0%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></h1>
 <ul>
 <li>箭头函数</li>
 <li>Promise</li>
@@ -237,14 +248,14 @@
 <li>模块</li>
 <li>尾调用优化 TCO</li>
 </ul>
-<h1 id="var-let-const" tabindex="-1"><a class="header-anchor" href="#var-let-const" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> var let const</h1>
+<h1 id="var-let-const" tabindex="-1"><a class="header-anchor" href="#var-let-const">var let const</a></h1>
 <ul>
 <li>const 用于声明常量，const 声明的一般类型的变量，不能修改</li>
 <li>const 声明的对象，属性可以被修改</li>
 <li>用 var 重复声明不会报错，但 let 和 const 会</li>
 <li>var 会使变量提升，变量可以在 var 声明之前使用。let 和 const 不会使变量提升，提前使用会报错。</li>
 </ul>
-<h1 id="%E6%9F%AF%E9%87%8C%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E6%9F%AF%E9%87%8C%E5%8C%96" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 柯里化</h1>
+<h1 id="%E6%9F%AF%E9%87%8C%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a></h1>
 <ul>
 <li>含义：把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。</li>
 <li>意义：让人们将关注的重点聚焦到函数本身，而不因冗余的数据参数分散注意力，单一参数的纯函数是最简单的，目的单纯、职责单一、灵活且通用</li>
@@ -255,31 +266,31 @@
 <li>使代码模块化，减少耦合增强其可维护性</li>
 <li>经过柯里化之后，函数的通用性有所降低，但是适用性有所提高</li>
 </ul>
-<pre><code class="language-javascript">// 手写柯里化
+<pre><code class="language-javascript"><span class="hljs-comment">// 手写柯里化</span>
 
-const add = function (a, b, c) {
-  return a + b + c;
+<span class="hljs-keyword">const</span> add = <span class="hljs-keyword">function</span> (<span class="hljs-params">a, b, c</span>) {
+  <span class="hljs-keyword">return</span> a + b + c;
 };
 
-function curry(fn) {
-  return function curryFun(...args) {
-    if (args.length &lt; fn.length) {
-      return function () {
-        return curryFun(...args.concat(Array.from(arguments)));
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">curry</span>(<span class="hljs-params">fn</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">curryFun</span>(<span class="hljs-params">...args</span>) {
+    <span class="hljs-keyword">if</span> (args.<span class="hljs-property">length</span> &lt; fn.<span class="hljs-property">length</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-title function_">curryFun</span>(...args.<span class="hljs-title function_">concat</span>(<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(<span class="hljs-variable language_">arguments</span>)));
       };
     }
-    return fn(...args);
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn</span>(...args);
   };
 }
 
-const curried = curry(add);
+<span class="hljs-keyword">const</span> curried = <span class="hljs-title function_">curry</span>(add);
 
-const a = curried(1)(9)(3);
-const b = curried(2, 8)(6);
+<span class="hljs-keyword">const</span> a = <span class="hljs-title function_">curried</span>(<span class="hljs-number">1</span>)(<span class="hljs-number">9</span>)(<span class="hljs-number">3</span>);
+<span class="hljs-keyword">const</span> b = <span class="hljs-title function_">curried</span>(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>)(<span class="hljs-number">6</span>);
 
-console.log({ a, b });
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>({ a, b });
 </code></pre>
-<h1 id="%E9%97%AD%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#%E9%97%AD%E5%8C%85" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 闭包</h1>
+<h1 id="%E9%97%AD%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#%E9%97%AD%E5%8C%85">闭包</a></h1>
 <ul>
 <li>能够访问已经被销毁的执行期上下文的活动对象的函数</li>
 <li>闭包就是指有权访问另一个函数作用域中的变量的函数</li>
@@ -289,37 +300,37 @@ console.log({ a, b });
 <li>闭包就是能够读取其他函数内部变量的函数，或者子函数在外调用，才是形成闭包，子函数所在的父函数的作用域不会被释放。</li>
 <li>父函数被销毁 的情况下，返回出的子函数的作用域中仍然保留着父级的单变量对象和作用域链，因此可以继续访问到父级的变量对象。</li>
 </ul>
-<h2 id="%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 如何优化闭包</h2>
+<h2 id="%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></h2>
 <ul>
 <li>通过解除对匿名函数的引用，可以将匿名函数占用的内存安全释（将闭包创建的函数赋值为 null）</li>
 </ul>
-<pre><code class="language-jsx">function outerFun(outerArg) {
-  return function () {
-    console.log('这里是内部匿名函数');
-    console.log('可以访问包含函数的变量', outerArg);
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">outerFun</span>(<span class="hljs-params">outerArg</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这里是内部匿名函数&#x27;</span>);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;可以访问包含函数的变量&#x27;</span>, outerArg);
   };
 }
-var create = outerFun('hi');
-// 创建一个函数，是 outerFun 中返回的匿名函数create();
-// 调用函数，是调用匿名函数create = null;
-// 释放对匿名函数的引用
+<span class="hljs-keyword">var</span> create = <span class="hljs-title function_">outerFun</span>(<span class="hljs-string">&#x27;hi&#x27;</span>);
+<span class="hljs-comment">// 创建一个函数，是 outerFun 中返回的匿名函数create();</span>
+<span class="hljs-comment">// 调用函数，是调用匿名函数create = null;</span>
+<span class="hljs-comment">// 释放对匿名函数的引用</span>
 </code></pre>
 <ul>
 <li>如果没有对匿名函数的引用，匿名函数执行完之后自动销毁，就可以做到减少占用内存的问题。</li>
 <li>利用匿名函数，制造私有作用域（块级作用域），这样匿名函数执行完之后可以将引用的活动对象销毁。</li>
 </ul>
-<h1 id="%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" tabindex="-1"><a class="header-anchor" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 垃圾回收</h1>
+<h1 id="%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" tabindex="-1"><a class="header-anchor" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a></h1>
 <ul>
 <li>现在各大浏览器通常用采用的垃圾回收有两种方法：标记清除、引用计数</li>
 </ul>
-<h2 id="%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 标记清除（主流）</h2>
+<h2 id="%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></h2>
 <ul>
 <li>当变量进入执行环境时，就标记这个变量为“进入环境”</li>
 <li>从逻辑上讲，不能释放进入环境的变量所占用的内存，因为会有可能用到</li>
 <li>当变量离开环境时，则将其标记为“离开环境”。</li>
 <li>垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。</li>
 </ul>
-<h2 id="%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 引用计数</h2>
+<h2 id="%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></h2>
 <ul>
 <li>如果一个对象没有被其他对象引用，那它将被垃圾回收机制回收。</li>
 <li>跟踪记录每个值被引用的次数</li>
@@ -327,14 +338,14 @@ var create = outerFun('hi');
 <li>相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数就减 1</li>
 <li>当这个引用次数变成 0 时，则说明没有办法再访问这个值了，因而就可以将其所占的内存空间给收回来</li>
 </ul>
-<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 为什么标记清除是主流的</h2>
+<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84">为什么标记清除是主流的</a></h2>
 <p>引用计数垃圾收集有一个缺点，就是循环引用会造成对象无法被回收 引用计数有个最大的问题：循环引用。比如对象 A 有一个属性指向对象 B，而对象 B 也有有一个属性指向对象 A 这样通过各自的属性相互引用；也就是说这两个对象的引用次数都是 2。在采用引用计数的策略时，由于函数执行之后，这两个对象都离开了作用域，函数执行完成之后，对象 A 和对象 B 还将会继续存在，因为他们的引用次数永远不会是 0。这样的相互引用如果说很大量的存在就会导致大量的内存泄露。</p>
-<h2 id="%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 如何避免垃圾回收</h2>
+<h2 id="%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></h2>
 <ul>
 <li>对象尽量复用</li>
 <li>数组优化： 将[]赋值给一个数组对象，是清空数组的捷径(例如： arr = [];),但是需要注意的是，这种方式又创建了一个新的空对象，并且将原来的数组对象变成了一小片内存垃圾！实际上，将数组长度赋值为 0（arr.length = 0）也能达到清空数组的目的，并且同时能实现数组重用，减少内存垃圾的产生。</li>
 </ul>
-<h2 id="%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" tabindex="-1"><a class="header-anchor" href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 引起内存泄漏的操作</h2>
+<h2 id="%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" tabindex="-1"><a class="header-anchor" href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></h2>
 <ul>
 <li>全局变量</li>
 <li>闭包</li>
@@ -343,7 +354,7 @@ var create = outerFun('hi');
 <li>setTimeout 的第一个参数使用字符串而非函数</li>
 <li>引用循环：在两个对象彼此引用且彼此保留时，就会产生一个引用循环</li>
 </ul>
-<h1 id="js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> js 数据类型</h1>
+<h1 id="js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a></h1>
 <ul>
 <li>基本类型：undefined、null、number、boolean、string、Symbol、BigInt（BigInt 是一种内置对象，它提供了一种方法来表示大于 253 - 1 的整数。这原本是 Javascript 中可以用 Number 表示的最大数字。BigInt 可以表示任意大的整数）</li>
 <li>栈内存：是一种特殊的线性表，它具有后进先出的特性，存放基本类型</li>
@@ -353,21 +364,21 @@ var create = outerFun('hi');
 <li>引用类型：Object、Array、Function、内置对象（Array、Date、Math 等等）</li>
 <li>JS 类型判断 Object.prototype.toString.call()</li>
 </ul>
-<h1 id="null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> null 和 undefined 区别</h1>
+<h1 id="null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></h1>
 <p>null 表示没有对象，即该处不应该有值。
 undefined 表示缺少值，即此处应该有值，但没有定义。
 typeof null 为 object
 typeof undefined 为 undefined</p>
 <p>null 和 undefined 转换成 number 数据类型时，
 null 转成 0 undefined 转成 NaN</p>
-<h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 为什么会出现精度丢失</h1>
+<h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></h1>
 <ul>
 <li>这跟浮点数在计算机内部（用二进制存储）的表示方法有关</li>
 <li>JS 采用 IEEE 754 标准的 64 位双精度浮点数表示法，这个标准是 20 世纪 80 年代以来最广泛使用的浮点数运算标准，为许多 CPU 与浮点运算器所采用，也被很多语言如 java、python 采用。</li>
 </ul>
 <p>这个标准，会让大部分的十进制小数都不能用二进制浮点数来精确表示（比如转成二进制就会变成无限小数）。所以一般情况下，你输入的十进制小数仅由实际存储在计算机中的近似的二进制浮点数表示。</p>
 <p>然而，许多语言在处理的时候，在一定误差范围内（通常极小）会将结果修正为正确的目标数字，而不是像 JS 一样将存在误差的真实结果转换成最接近的小数输出</p>
-<h1 id="%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 深拷贝、浅拷贝</h1>
+<h1 id="%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></h1>
 <ul>
 <li>浅拷贝: 以赋值的形式拷贝引用对象，仍指向同一个地址，修改时原对象也会受到影响 Object.assign 或 展开运算符</li>
 <li>深拷贝：
@@ -379,22 +390,22 @@ null 转成 0 undefined 转成 NaN</p>
 </li>
 <li>手写深拷贝：</li>
 </ul>
-<pre><code class="language-jsx">function deepCopy(obj) {
-  // 1、判断是否是简单数据类型，
-  if (typeof obj == 'object') {
-    // 2、复杂数据类型
-    var result = obj.constructor == Array ? [] : {};
-    for (let i in obj) {
-      result[i] = typeof obj[i] == 'object' ? deepCopy(obj[i]) : obj[i];
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">deepCopy</span>(<span class="hljs-params">obj</span>) {
+  <span class="hljs-comment">// 1、判断是否是简单数据类型，</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj == <span class="hljs-string">&#x27;object&#x27;</span>) {
+    <span class="hljs-comment">// 2、复杂数据类型</span>
+    <span class="hljs-keyword">var</span> result = obj.<span class="hljs-property">constructor</span> == <span class="hljs-title class_">Array</span> ? [] : {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> obj) {
+      result[i] = <span class="hljs-keyword">typeof</span> obj[i] == <span class="hljs-string">&#x27;object&#x27;</span> ? <span class="hljs-title function_">deepCopy</span>(obj[i]) : obj[i];
     }
-  } else {
-    // 简单数据类型 直接赋值
-    var result = obj;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// 简单数据类型 直接赋值</span>
+    <span class="hljs-keyword">var</span> result = obj;
   }
-  return result;
+  <span class="hljs-keyword">return</span> result;
 }
 </code></pre>
-<h1 id="%E6%8F%8F%E8%BF%B0-promise" tabindex="-1"><a class="header-anchor" href="#%E6%8F%8F%E8%BF%B0-promise" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 描述 Promise</h1>
+<h1 id="%E6%8F%8F%E8%BF%B0-promise" tabindex="-1"><a class="header-anchor" href="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></h1>
 <ul>
 <li>用来解决回调地狱</li>
 <li>实例化一个 Promise 需要传入一个函数，业务代码在这个函数中执行，这个函数往往接收两个参数 resolve 和 reject</li>
@@ -404,229 +415,229 @@ null 转成 0 undefined 转成 NaN</p>
 <li>Promise.all 接受一个数组作为参数，都是 Promise 实例，调用 Promise.all 的时候，这些实例会一起开始执行，返回一个结果数组，只有全部实例的状态是已完成，结果的状态才会是已完成，只要有一个失败，结果就是失败</li>
 <li>Promise.race 接受一个数组作为参数，都是 Promise 实例，返回一个结果数组，调用 Promise.race 的时候，传进去的实例是竞赛关系，哪个结果获得的快，就返回那个结果</li>
 </ul>
-<h1 id="%E6%89%8B%E5%86%99-promise" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99-promise" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 手写 Promise</h1>
-<pre><code class="language-jsx">// 在这里用Symbol定义三种状态，防止外部改变状态
-const Pending = Symbol('Pending');
-// 进行中
-const Fulfilled = Symbol('Fulfilled');
-// 已成功
-const Rejected = Symbol('Rejected');
-// 已失败
-const handleValue = (promise, x, resolve, reject) =&gt; {
-  // 循环引用，自己等待自己完成，会出错，用reject传递出错误原因
-  if (promise === x) {
-    return reject(new TypeError('检测到Promise的链式循环引用'));
+<h1 id="%E6%89%8B%E5%86%99-promise" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></h1>
+<pre><code class="language-jsx"><span class="hljs-comment">// 在这里用Symbol定义三种状态，防止外部改变状态</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">Pending</span> = <span class="hljs-title class_">Symbol</span>(<span class="hljs-string">&#x27;Pending&#x27;</span>);
+<span class="hljs-comment">// 进行中</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">Fulfilled</span> = <span class="hljs-title class_">Symbol</span>(<span class="hljs-string">&#x27;Fulfilled&#x27;</span>);
+<span class="hljs-comment">// 已成功</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">Rejected</span> = <span class="hljs-title class_">Symbol</span>(<span class="hljs-string">&#x27;Rejected&#x27;</span>);
+<span class="hljs-comment">// 已失败</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">handleValue</span> = (<span class="hljs-params">promise, x, resolve, reject</span>) =&gt; {
+  <span class="hljs-comment">// 循环引用，自己等待自己完成，会出错，用reject传递出错误原因</span>
+  <span class="hljs-keyword">if</span> (promise === x) {
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">reject</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">TypeError</span>(<span class="hljs-string">&#x27;检测到Promise的链式循环引用&#x27;</span>));
   }
-  // 确保递归解析中只传递出去一次值
-  let once = false;
-  if ((x !== null &amp;&amp; typeof x === 'object') || typeof x === 'function') {
-    try {
-      // 防止重复去读取x.then
-      let then = x.then;
-      // 判断x是不是Promise
-      if (typeof then === 'function') {
-        //调用then实例方法处理Promise执行结果
-        then.call(
+  <span class="hljs-comment">// 确保递归解析中只传递出去一次值</span>
+  <span class="hljs-keyword">let</span> once = <span class="hljs-literal">false</span>;
+  <span class="hljs-keyword">if</span> ((x !== <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-keyword">typeof</span> x === <span class="hljs-string">&#x27;object&#x27;</span>) || <span class="hljs-keyword">typeof</span> x === <span class="hljs-string">&#x27;function&#x27;</span>) {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-comment">// 防止重复去读取x.then</span>
+      <span class="hljs-keyword">let</span> then = x.<span class="hljs-property">then</span>;
+      <span class="hljs-comment">// 判断x是不是Promise</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> then === <span class="hljs-string">&#x27;function&#x27;</span>) {
+        <span class="hljs-comment">//调用then实例方法处理Promise执行结果</span>
+        then.<span class="hljs-title function_">call</span>(
           x,
-          (y) =&gt; {
-            if (once) return;
-            once = true;
-            // 防止Promise中Promise执行成功后又传递一个Promise过来，
-            // 要做递归解析。
-            handleValue(promise, y, resolve, reject);
+          <span class="hljs-function">(<span class="hljs-params">y</span>) =&gt;</span> {
+            <span class="hljs-keyword">if</span> (once) <span class="hljs-keyword">return</span>;
+            once = <span class="hljs-literal">true</span>;
+            <span class="hljs-comment">// 防止Promise中Promise执行成功后又传递一个Promise过来，</span>
+            <span class="hljs-comment">// 要做递归解析。</span>
+            <span class="hljs-title function_">handleValue</span>(promise, y, resolve, reject);
           },
-          (r) =&gt; {
-            if (once) return;
-            once = true;
-            reject(r);
+          <span class="hljs-function">(<span class="hljs-params">r</span>) =&gt;</span> {
+            <span class="hljs-keyword">if</span> (once) <span class="hljs-keyword">return</span>;
+            once = <span class="hljs-literal">true</span>;
+            <span class="hljs-title function_">reject</span>(r);
           }
         );
-      } else {
-        // 如果x是个普通对象，直接调用resolve(x)
-        resolve(x);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// 如果x是个普通对象，直接调用resolve(x)</span>
+        <span class="hljs-title function_">resolve</span>(x);
       }
-    } catch (err) {
-      if (once) return;
-      once = true;
-      reject(err);
+    } <span class="hljs-keyword">catch</span> (err) {
+      <span class="hljs-keyword">if</span> (once) <span class="hljs-keyword">return</span>;
+      once = <span class="hljs-literal">true</span>;
+      <span class="hljs-title function_">reject</span>(err);
     }
-  } else {
-    // 如果x是个原始值，直接调用resolve(x)
-    resolve(x);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// 如果x是个原始值，直接调用resolve(x)</span>
+    <span class="hljs-title function_">resolve</span>(x);
   }
 };
-class Promise {
-  constructor(executor) {
-    this.status = Pending;
-    //存储 Promise 的状态
-    this.value = undefined;
-    //存储executor函数中业务代码执行成功的结果
-    this.reason = undefined;
-    //存储executor函数中业务代码执行失败的原因
-    this.onFulfilled = [];
-    //executor函数中业务代码执行成功回调函数的集合
-    this.onRejected = [];
-    //executor函数中业务代码执行失败回调函数的集合
-    const resolve = (value) =&gt; {
-      // 只有当状态为 Pending 才会改变，来保证一旦状态改变就不会再变。
-      if (this.status === Pending) {
-        this.status = Fulfilled;
-        this.value = value;
-        // 依次调用成功回调函数
-        this.onFulfilled.forEach((fn) =&gt; fn());
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Promise</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">executor</span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">status</span> = <span class="hljs-title class_">Pending</span>;
+    <span class="hljs-comment">//存储 Promise 的状态</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">value</span> = <span class="hljs-literal">undefined</span>;
+    <span class="hljs-comment">//存储executor函数中业务代码执行成功的结果</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">reason</span> = <span class="hljs-literal">undefined</span>;
+    <span class="hljs-comment">//存储executor函数中业务代码执行失败的原因</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">onFulfilled</span> = [];
+    <span class="hljs-comment">//executor函数中业务代码执行成功回调函数的集合</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">onRejected</span> = [];
+    <span class="hljs-comment">//executor函数中业务代码执行失败回调函数的集合</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-title function_">resolve</span> = (<span class="hljs-params">value</span>) =&gt; {
+      <span class="hljs-comment">// 只有当状态为 Pending 才会改变，来保证一旦状态改变就不会再变。</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">status</span> === <span class="hljs-title class_">Pending</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">status</span> = <span class="hljs-title class_">Fulfilled</span>;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">value</span> = value;
+        <span class="hljs-comment">// 依次调用成功回调函数</span>
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">onFulfilled</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">fn</span>) =&gt;</span> <span class="hljs-title function_">fn</span>());
       }
     };
-    const reject = (value) =&gt; {
-      // 只有当状态为 Pending 才会改变，来保证一旦状态改变就不会再变。
-      if (this.status === Pending) {
-        this.status = Rejected;
-        this.reason = value;
-        // 依次调用失败回调函数
-        this.onRejected.forEach((fn) =&gt; fn());
+    <span class="hljs-keyword">const</span> <span class="hljs-title function_">reject</span> = (<span class="hljs-params">value</span>) =&gt; {
+      <span class="hljs-comment">// 只有当状态为 Pending 才会改变，来保证一旦状态改变就不会再变。</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">status</span> === <span class="hljs-title class_">Pending</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">status</span> = <span class="hljs-title class_">Rejected</span>;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">reason</span> = value;
+        <span class="hljs-comment">// 依次调用失败回调函数</span>
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">onRejected</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">fn</span>) =&gt;</span> <span class="hljs-title function_">fn</span>());
       }
     };
-    try {
-      executor(resolve, reject);
-    } catch (error) {
-      reject(error);
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-title function_">executor</span>(resolve, reject);
+    } <span class="hljs-keyword">catch</span> (error) {
+      <span class="hljs-title function_">reject</span>(error);
     }
   }
-  then(onFulfilled, onRejected) {
-    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : (v) =&gt; v;
+  <span class="hljs-title function_">then</span>(<span class="hljs-params">onFulfilled, onRejected</span>) {
+    onFulfilled = <span class="hljs-keyword">typeof</span> onFulfilled === <span class="hljs-string">&#x27;function&#x27;</span> ? onFulfilled : <span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> v;
     onRejected =
-      typeof onRejected === 'function'
+      <span class="hljs-keyword">typeof</span> onRejected === <span class="hljs-string">&#x27;function&#x27;</span>
         ? onRejected
-        : (err) =&gt; {
-            throw err;
+        : <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+            <span class="hljs-keyword">throw</span> err;
           };
-    let promise = new Promise((resolve, reject) =&gt; {
-      if (this.status === Fulfilled) {
-        setTimeout(() =&gt; {
-          try {
-            let x = onFulfilled(this.value);
-            handleValue(promise, x, resolve, reject);
-          } catch (error) {
-            reject(error);
+    <span class="hljs-keyword">let</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">status</span> === <span class="hljs-title class_">Fulfilled</span>) {
+        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+          <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">let</span> x = <span class="hljs-title function_">onFulfilled</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">value</span>);
+            <span class="hljs-title function_">handleValue</span>(promise, x, resolve, reject);
+          } <span class="hljs-keyword">catch</span> (error) {
+            <span class="hljs-title function_">reject</span>(error);
           }
-        }, 0);
+        }, <span class="hljs-number">0</span>);
       }
-      if (this.status === Rejected) {
-        if (onRejected &amp;&amp; typeof onRejected === 'function') {
-          setTimeout(() =&gt; {
-            try {
-              let x = onRejected(this.reason);
-              handleValue(promise, x, resolve, reject);
-            } catch (error) {
-              reject(error);
+      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">status</span> === <span class="hljs-title class_">Rejected</span>) {
+        <span class="hljs-keyword">if</span> (onRejected &amp;&amp; <span class="hljs-keyword">typeof</span> onRejected === <span class="hljs-string">&#x27;function&#x27;</span>) {
+          <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+            <span class="hljs-keyword">try</span> {
+              <span class="hljs-keyword">let</span> x = <span class="hljs-title function_">onRejected</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">reason</span>);
+              <span class="hljs-title function_">handleValue</span>(promise, x, resolve, reject);
+            } <span class="hljs-keyword">catch</span> (error) {
+              <span class="hljs-title function_">reject</span>(error);
             }
-          }, 0);
+          }, <span class="hljs-number">0</span>);
         }
       }
-      if (this.status === Pending) {
-        this.onFulfilled.push(() =&gt; {
-          setTimeout(() =&gt; {
-            try {
-              let x = onFulfilled(this.value);
-              handleValue(promise, x, resolve, reject);
-            } catch (error) {
-              reject(error);
+      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">status</span> === <span class="hljs-title class_">Pending</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">onFulfilled</span>.<span class="hljs-title function_">push</span>(<span class="hljs-function">() =&gt;</span> {
+          <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+            <span class="hljs-keyword">try</span> {
+              <span class="hljs-keyword">let</span> x = <span class="hljs-title function_">onFulfilled</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">value</span>);
+              <span class="hljs-title function_">handleValue</span>(promise, x, resolve, reject);
+            } <span class="hljs-keyword">catch</span> (error) {
+              <span class="hljs-title function_">reject</span>(error);
             }
-          }, 0);
+          }, <span class="hljs-number">0</span>);
         });
-        if (onRejected &amp;&amp; typeof onRejected === 'function') {
-          this.onRejected.push(() =&gt; {
-            setTimeout(() =&gt; {
-              try {
-                let x = onRejected(this.reason);
-                handleValue(promise, x, resolve, reject);
-              } catch (error) {
-                reject(error);
+        <span class="hljs-keyword">if</span> (onRejected &amp;&amp; <span class="hljs-keyword">typeof</span> onRejected === <span class="hljs-string">&#x27;function&#x27;</span>) {
+          <span class="hljs-variable language_">this</span>.<span class="hljs-property">onRejected</span>.<span class="hljs-title function_">push</span>(<span class="hljs-function">() =&gt;</span> {
+            <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+              <span class="hljs-keyword">try</span> {
+                <span class="hljs-keyword">let</span> x = <span class="hljs-title function_">onRejected</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">reason</span>);
+                <span class="hljs-title function_">handleValue</span>(promise, x, resolve, reject);
+              } <span class="hljs-keyword">catch</span> (error) {
+                <span class="hljs-title function_">reject</span>(error);
               }
-            }, 0);
+            }, <span class="hljs-number">0</span>);
           });
         }
       }
     });
-    return promise;
+    <span class="hljs-keyword">return</span> promise;
   }
-  static resolve(param) {
-    if (param instanceof Promise) {
-      return param;
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">resolve</span>(<span class="hljs-params">param</span>) {
+    <span class="hljs-keyword">if</span> (param <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Promise</span>) {
+      <span class="hljs-keyword">return</span> param;
     }
-    return new Promise((resolve, reject) =&gt; {
-      if (param &amp;&amp; Object.prototype.toString.call(param) === '[object Object]' &amp;&amp; typeof param.then === 'function') {
-        setTimeout(() =&gt; {
-          param.then(resolve, reject);
-        }, 0);
-      } else {
-        resolve(param);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (param &amp;&amp; <span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">toString</span>.<span class="hljs-title function_">call</span>(param) === <span class="hljs-string">&#x27;[object Object]&#x27;</span> &amp;&amp; <span class="hljs-keyword">typeof</span> param.<span class="hljs-property">then</span> === <span class="hljs-string">&#x27;function&#x27;</span>) {
+        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+          param.<span class="hljs-title function_">then</span>(resolve, reject);
+        }, <span class="hljs-number">0</span>);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-title function_">resolve</span>(param);
       }
     });
   }
-  static reject(param) {
-    return new Promise((resolve, reject) =&gt; {
-      reject(param);
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">reject</span>(<span class="hljs-params">param</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+      <span class="hljs-title function_">reject</span>(param);
     });
   }
-  static all(promises) {
-    //将参数promises转为一个真正的数组
-    promises = Array.from(promises);
-    return new Promise((resolve, reject) =&gt; {
-      const length = promises.length;
-      let value = [];
-      if (length) {
-        value = Array.apply(null, { length: length });
-        for (let i = 0; i &lt; length; i++) {
-          Promise.resolve(promises[i]).then(
-            (res) =&gt; {
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">all</span>(<span class="hljs-params">promises</span>) {
+    <span class="hljs-comment">//将参数promises转为一个真正的数组</span>
+    promises = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(promises);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+      <span class="hljs-keyword">const</span> length = promises.<span class="hljs-property">length</span>;
+      <span class="hljs-keyword">let</span> value = [];
+      <span class="hljs-keyword">if</span> (length) {
+        value = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">apply</span>(<span class="hljs-literal">null</span>, { <span class="hljs-attr">length</span>: length });
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; length; i++) {
+          <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(promises[i]).<span class="hljs-title function_">then</span>(
+            <span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
               value[i] = res;
-              if (value.length == length) {
-                resolve(value);
+              <span class="hljs-keyword">if</span> (value.<span class="hljs-property">length</span> == length) {
+                <span class="hljs-title function_">resolve</span>(value);
               }
             },
-            (err) =&gt; {
-              reject(err);
-              return;
+            <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+              <span class="hljs-title function_">reject</span>(err);
+              <span class="hljs-keyword">return</span>;
             }
           );
         }
-      } else {
-        resolve(value);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-title function_">resolve</span>(value);
       }
     });
   }
-  static race(promises) {
-    //将参数promises转为一个真正的数组
-    promises = Array.from(promises);
-    return new Promise((resolve, reject) =&gt; {
-      const length = promises.length;
-      if (length) {
-        for (let i = 0; i &lt; length; i++) {
-          Promise.resolve(promises[i]).then(
-            (res) =&gt; {
-              resolve(res);
-              return;
+  <span class="hljs-keyword">static</span> <span class="hljs-title function_">race</span>(<span class="hljs-params">promises</span>) {
+    <span class="hljs-comment">//将参数promises转为一个真正的数组</span>
+    promises = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(promises);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+      <span class="hljs-keyword">const</span> length = promises.<span class="hljs-property">length</span>;
+      <span class="hljs-keyword">if</span> (length) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; length; i++) {
+          <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(promises[i]).<span class="hljs-title function_">then</span>(
+            <span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+              <span class="hljs-title function_">resolve</span>(res);
+              <span class="hljs-keyword">return</span>;
             },
-            (err) =&gt; {
-              reject(err);
-              return;
+            <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+              <span class="hljs-title function_">reject</span>(err);
+              <span class="hljs-keyword">return</span>;
             }
           );
         }
-      } else {
-        return;
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span>;
       }
     });
   }
 }
 </code></pre>
-<h1 id="%E6%8F%8F%E8%BF%B0-async%2Fawait" tabindex="-1"><a class="header-anchor" href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 描述 async/await</h1>
+<h1 id="%E6%8F%8F%E8%BF%B0-async%2Fawait" tabindex="-1"><a class="header-anchor" href="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></h1>
 <ul>
 <li>async 用来声明函数，告诉解释器这是一个异步函数，只有 async 声明的函数里面才能用 await</li>
 <li>await 用来等待一个 promise 执行结束，可以返回 promise 对象 resolve 出来的结果</li>
 <li>如果 await 等待的这个 Promise 对象出错或者结果为 reject，可以通过 try catch 捕获到错误</li>
 </ul>
-<h1 id="array-%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#array-%E7%9A%84%E6%96%B9%E6%B3%95" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Array 的方法</h1>
+<h1 id="array-%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></h1>
 <ul>
 <li>isArray()</li>
 <li>indexOf、lastIndexOf</li>
@@ -643,7 +654,7 @@ class Promise {
 <li>sort</li>
 <li>map、forEach、filter、some、every、reduce、reduceRight</li>
 </ul>
-<h1 id="string-%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#string-%E7%9A%84%E6%96%B9%E6%B3%95" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> String 的方法</h1>
+<h1 id="string-%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></h1>
 <ul>
 <li>split(o:str) 按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组</li>
 <li>toLowerCase、toUpperCase</li>
@@ -658,7 +669,7 @@ class Promise {
 <li>btoa 任意值转为 Base64 编码</li>
 <li>atob Base64 编码转为原来的值</li>
 </ul>
-<h1 id="%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 数组的遍历迭代方法</h1>
+<h1 id="%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></h1>
 <ul>
 <li>for in
 以任意顺序遍历一个对象自有的、继承的、可枚举的、非 Symbol 的属性。对于每个不同的属性，语句都会被执行。</li>
@@ -692,7 +703,7 @@ ES6 新增，用来替代 for in 和 forEach，可以遍历 Arrays（数组）, 
 <li>for of 数组对象都可以遍历，遍历对象需要通过和 Object.keys()</li>
 <li>for in 循环出的是 key，for of 循环出的是 value</li>
 </ul>
-<h1 id="%E5%8E%9F%E5%9E%8B%E9%93%BE" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 原型链</h1>
+<h1 id="%E5%8E%9F%E5%9E%8B%E9%93%BE" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE">原型链</a></h1>
 <ul>
 <li>原型是一个对象，其他对象可以通过它实现属性继承</li>
 <li>原型对象上的所有属性和方法，都能被对应的构造函数创建的实例对象共享（这就是 JavaScript 继承机制的基本设计）</li>
@@ -707,23 +718,23 @@ ES6 新增，用来替代 for in 和 forEach，可以遍历 Arrays（数组）, 
 <li>当 js 引擎查找对象的属性时，先查找对象本身是否存在该属性，如果不存在，会在原型链上查找</li>
 <li>原型链顶端就是一个 空对象</li>
 </ul>
-<h2 id="typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> typeof 和 instanceof 区别</h2>
+<h2 id="typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB">typeof 和 instanceof 区别</a></h2>
 <ul>
 <li>typeof：判断一个变量的类型</li>
 <li>instanceof：判断一个变量是否是某个对象的实例</li>
 <li>instanceof 原理：能在实例的 原型对象链 中找到该构造函数的 prototype 属性所指向的 原型对象，就返回 true</li>
 </ul>
-<h2 id="%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 原型对象 和 构造函数</h2>
+<h2 id="%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">原型对象 和 构造函数</a></h2>
 <ul>
 <li>在 JavaScript 中，每当定义一个函数数据类型(普通函数、类)时候，都会天生自带一个 prototype 属性，这个属性指向函数的原型对象。</li>
 <li>当函数经过 new 调用时，这个函数就成为了构造函数，返回一个全新的实例对象，这个实例对象有一个 <strong>proto</strong> 属性，指向构造函数的原型对象。</li>
 </ul>
-<h2 id="%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype" tabindex="-1"><a class="header-anchor" href="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 声明方法为什么要用 prototype</h2>
+<h2 id="%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype" tabindex="-1"><a class="header-anchor" href="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype">声明方法为什么要用 prototype</a></h2>
 <ul>
 <li>让每个对象共享</li>
 <li>通过该构造函数生成的实例所拥有的方法都是指向一个函数的索引，这样可以节省内存</li>
 </ul>
-<h2 id="prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> prototype 和 proto 和 constructor 的关系</h2>
+<h2 id="prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB">prototype 和 proto 和 constructor 的关系</a></h2>
 <ul>
 <li>prototype 用于访问函数的原型对象。它是函数所独有的，它是从一个函数指向一个对象。它的含义是函数的原型对象，任何函数在创建的时候，其实会默认同时创建该函数的 prototype 对象</li>
 <li><strong>proto</strong> 用于访问对象实例的原型对象（或者使用 Object.getPrototypeOf()）</li>
@@ -731,7 +742,7 @@ ES6 新增，用来替代 for in 和 forEach，可以遍历 Arrays（数组）, 
 <li><strong>proto</strong> 作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的<strong>proto</strong>属性所指向的那个对象（可以理解为父对象）里找，如果父对象也不存在这个属性，则继续往父对象的<strong>proto</strong>属性所指向的那个对象（可以理解为爷爷对象）里找，如果还没找到，则继续往上找，直到原型链顶端 null 空对象</li>
 <li>constructor 属性也是对象才拥有的，它是从一个对象指向一个函数，含义就是指向该对象的构造函数</li>
 </ul>
-<h1 id="new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> new 干了什么</h1>
+<h1 id="new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88">new 干了什么</a></h1>
 <ul>
 <li>创建一个空对象</li>
 <li>将构造函数的作用域赋给新对象</li>
@@ -742,14 +753,14 @@ ES6 新增，用来替代 for in 和 forEach，可以遍历 Arrays（数组）, 
 <ul>
 <li>手写 new</li>
 </ul>
-<pre><code class="language-jsx">const createNew = (Con, ...args) =&gt; {
-  const obj = {};
-  Object.setPrototypeOf(obj, Con.prototype);
-  let result = Con.apply(obj, args);
-  return result instanceof Object ? result : obj;
+<pre><code class="language-jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">createNew</span> = (<span class="hljs-params">Con, ...args</span>) =&gt; {
+  <span class="hljs-keyword">const</span> obj = {};
+  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">setPrototypeOf</span>(obj, <span class="hljs-title class_">Con</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);
+  <span class="hljs-keyword">let</span> result = <span class="hljs-title class_">Con</span>.<span class="hljs-title function_">apply</span>(obj, args);
+  <span class="hljs-keyword">return</span> result <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Object</span> ? result : obj;
 };
 </code></pre>
-<h1 id="apply%E3%80%81call%E3%80%81bind" tabindex="-1"><a class="header-anchor" href="#apply%E3%80%81call%E3%80%81bind" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> apply、call、bind</h1>
+<h1 id="apply%E3%80%81call%E3%80%81bind" tabindex="-1"><a class="header-anchor" href="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a></h1>
 <ul>
 <li>都是用来改变函数 this 的指向</li>
 </ul>
@@ -758,63 +769,63 @@ ES6 新增，用来替代 for in 和 forEach，可以遍历 Arrays（数组）, 
 <li>apply 和 call 的区别是 call 方法接受的是若干个参数列表，而 apply 接收的是一个包含多个参数的数组。</li>
 <li>bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用，bind 与 apply/call 一样都能改变函数 this 指向，但 bind 并不会立即执行函数，而是返回一个绑定了 this 的新函数，你需要再次调用此函数才能达到最终执行</li>
 </ul>
-<h2 id="%E6%89%8B%E5%86%99" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 手写</h2>
-<pre><code class="language-jsx">// call
-Function.prototype.myCall = function (context, ...args) {
-  context = context || new Object(context);
-  const key = Symbol();
-  context[key] = this;
-  const result = context[key](...args);
-  delete context[key];
-  return result;
+<h2 id="%E6%89%8B%E5%86%99" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99">手写</a></h2>
+<pre><code class="language-jsx"><span class="hljs-comment">// call</span>
+<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myCall</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">context, ...args</span>) {
+  context = context || <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>(context);
+  <span class="hljs-keyword">const</span> key = <span class="hljs-title class_">Symbol</span>();
+  context[key] = <span class="hljs-variable language_">this</span>;
+  <span class="hljs-keyword">const</span> result = context[key](...args);
+  <span class="hljs-keyword">delete</span> context[key];
+  <span class="hljs-keyword">return</span> result;
 };
 
-// apply
-Function.prototype.myApply = function (context) {
-  context = context || new Object(context);
-  const key = Symbol();
-  const args = arguments[1];
-  context[key] = this;
-  const result = args ? context[key](...args) : context[key]();
-  delete context[key];
-  return result;
+<span class="hljs-comment">// apply</span>
+<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myApply</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">context</span>) {
+  context = context || <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>(context);
+  <span class="hljs-keyword">const</span> key = <span class="hljs-title class_">Symbol</span>();
+  <span class="hljs-keyword">const</span> args = <span class="hljs-variable language_">arguments</span>[<span class="hljs-number">1</span>];
+  context[key] = <span class="hljs-variable language_">this</span>;
+  <span class="hljs-keyword">const</span> result = args ? context[key](...args) : context[key]();
+  <span class="hljs-keyword">delete</span> context[key];
+  <span class="hljs-keyword">return</span> result;
 };
 
-// bind
-// 接受一个或者多个参数，第一个是要绑定的上下文，第二个是额外参数
-// 返回原函数的拷贝，即返回一个新函数，这个函数具备原函数的功能，支持柯里化（柯里化就是在函数调用时只传递一部分参数进行调用，函数会返回一个新函数去处理剩下的参数）
-Function.prototype.myBind = function (context, ...args) {
-  const fn = this;
-  const bindFn = function (...newFnArgs) {
-    return fn.call(this instanceof bindFn ? this : context, ...args, ...newFnArgs);
+<span class="hljs-comment">// bind</span>
+<span class="hljs-comment">// 接受一个或者多个参数，第一个是要绑定的上下文，第二个是额外参数</span>
+<span class="hljs-comment">// 返回原函数的拷贝，即返回一个新函数，这个函数具备原函数的功能，支持柯里化（柯里化就是在函数调用时只传递一部分参数进行调用，函数会返回一个新函数去处理剩下的参数）</span>
+<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myBind</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">context, ...args</span>) {
+  <span class="hljs-keyword">const</span> fn = <span class="hljs-variable language_">this</span>;
+  <span class="hljs-keyword">const</span> bindFn = <span class="hljs-keyword">function</span> (<span class="hljs-params">...newFnArgs</span>) {
+    <span class="hljs-keyword">return</span> fn.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span> <span class="hljs-keyword">instanceof</span> bindFn ? <span class="hljs-variable language_">this</span> : context, ...args, ...newFnArgs);
   };
-  bindFn.prototype = Object.create(fn.prototype);
-  return bindFn;
+  bindFn.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(fn.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);
+  <span class="hljs-keyword">return</span> bindFn;
 };
 </code></pre>
-<h1 id="%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" tabindex="-1"><a class="header-anchor" href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 尾调用和尾递归</h1>
+<h1 id="%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" tabindex="-1"><a class="header-anchor" href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></h1>
 <ul>
 <li>指某个函数的最后一步是调用另一个函数</li>
 <li>递归非常耗费内存，因为需要同时保存成千上百个调用记录，很容易发生栈溢出错误</li>
 <li>但对于尾递归来说，由于只存在一个调用记录，所以不会发生栈溢出</li>
 </ul>
-<pre><code class="language-javascript">function factorial(num) {
-  if (num === 1) return 1;
-  return num * factorial(num - 1);
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">factorial</span>(<span class="hljs-params">num</span>) {
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">return</span> num * <span class="hljs-title function_">factorial</span>(num - <span class="hljs-number">1</span>);
 }
 
-console.log(factorial(5));
-console.log(factorial(10));
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">factorial</span>(<span class="hljs-number">5</span>));
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">factorial</span>(<span class="hljs-number">10</span>));
 </code></pre>
-<h1 id="%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 正则表达式</h1>
-<p>https://wangdoc.com/javascript/stdlib/regexp.html</p>
-<h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%9A%E4%B9%89%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8-prototype" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%9A%E4%B9%89%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8-prototype" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 为什么定义类的方法使用 prototype</h1>
+<h1 id="%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></h1>
+<p><a href="https://wangdoc.com/javascript/stdlib/regexp.html" target="_blank">https://wangdoc.com/javascript/stdlib/regexp.html</a></p>
+<h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%9A%E4%B9%89%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8-prototype" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%9A%E4%B9%89%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8-prototype">为什么定义类的方法使用 prototype</a></h1>
 <ul>
 <li>为了在类的各个实例间共享</li>
 <li>不使用 prototype 定义的方法相当于类的静态方法，可以直接使用，不需要 new</li>
 <li>使用 prototype 定义的方法相当于类的实例方法，必须 new 后才能使用</li>
 </ul>
-<h1 id="%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E7%BB%A7%E6%89%BF" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 继承</h1>
+<h1 id="%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E7%BB%A7%E6%89%BF">继承</a></h1>
 <ul>
 <li>JavaScript 没有提供传统面向对象语言中的类式继承，而是通过原型委托的方式来实现对象与对象之间的继承</li>
 <li>JavaScript 也没有在语言层面提供对抽象类和接口的支持</li>
@@ -825,29 +836,29 @@ console.log(factorial(10));
 <li>确定是否原型与实例的关系：instanceof、isPrototypeOf()</li>
 <li>以对象字面量方式创建原型方法会破坏之前的原型链，因为这相当于重写了原型链</li>
 </ul>
-<h2 id="%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 原型链继承</h2>
+<h2 id="%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF">原型链继承</a></h2>
 <ul>
 <li>直接通过原型继承属性和方法</li>
 </ul>
-<pre><code class="language-jsx">Son.prototype = new Father();
+<pre><code class="language-jsx"><span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Father</span>();
 </code></pre>
 <p>缺点：</p>
 <ul>
 <li>原型中包含引用值的时候，会在所有实例间共享，修改子类引用类型属性会影响到父类</li>
 <li>子类型在实例化时不能给父类型的构造函数传参</li>
 </ul>
-<h2 id="%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 盗用构造函数</h2>
+<h2 id="%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">盗用构造函数</a></h2>
 <ul>
 <li>为了解决原型包含引用值导致的继承问题（含引用类型值的原型属性会被所有实例共享）</li>
 <li>在子类型构造函数的内部调用父类型构造函数</li>
 <li>优点是可以在子类构造函数中向父类构造函数传参</li>
 </ul>
-<pre><code class="language-jsx">function Father() {
-  this.colors = ['red', 'blue', 'green'];
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Father</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">colors</span> = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>];
 }
-function Son() {
-  Father.call(this);
-  // 继承了Father，且向父类型传递参数
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Son</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-title class_">Father</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>);
+  <span class="hljs-comment">// 继承了Father，且向父类型传递参数</span>
 }
 </code></pre>
 <p>缺点：</p>
@@ -855,33 +866,33 @@ function Son() {
 <li>必须在构造函数中定义方法，因此函数不能重用</li>
 <li>子类也不能访问父类原型上定义的方法</li>
 </ul>
-<h2 id="%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 组合继承</h2>
+<h2 id="%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">组合继承</a></h2>
 <ul>
 <li>原型链继承和盗用构造函数继承的结合</li>
 <li>使用原型链实现对原型属性和方法的继承</li>
 <li>通过盗用构造函数来实现对实例属性的继承</li>
 <li>既通过在原型上定义方法实现了函数复用，又能够保证每个实例都有它自己的属性</li>
 </ul>
-<pre><code class="language-jsx">function Father(name) {
-  this.name = name;
-  this.colors = ['red', 'blue', 'green'];
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Father</span>(<span class="hljs-params">name</span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">colors</span> = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>];
 }
-Father.prototype.sayName = function () {
-  alert(this.name);
+<span class="hljs-title class_">Father</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">sayName</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-title function_">alert</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);
 };
-function Son(name, age) {
-  // 继承属性
-  Father.call(this, name);
-  this.age = age;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Son</span>(<span class="hljs-params">name, age</span>) {
+  <span class="hljs-comment">// 继承属性</span>
+  <span class="hljs-title class_">Father</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>, name);
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;
 }
-// 继承方法
-Son.prototype = new Father();
-Son.prototype.constructor = Son;
-Son.prototype.sayAge = function () {
-  alert(this.age);
+<span class="hljs-comment">// 继承方法</span>
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Father</span>();
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> = <span class="hljs-title class_">Son</span>;
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">sayAge</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-title function_">alert</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span>);
 };
 </code></pre>
-<h2 id="%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 原型式继承</h2>
+<h2 id="%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF">原型式继承</a></h2>
 <ul>
 <li>即相当于 ES6 的 Object.create()方法</li>
 <li>适合不需要单独创建构造函数，但仍然需要在对象间共享信息的场合</li>
@@ -889,70 +900,75 @@ Son.prototype.sayAge = function () {
 <li>将传入的对象赋值给这个构造函数的原型</li>
 <li>然后返回这个临时类型的一个实例</li>
 </ul>
-<pre><code class="language-jsx">function object(o) {
-  function F() {}
-  F.prototype = o;
-  return new F();
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">object</span>(<span class="hljs-params">o</span>) {
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">F</span>(<span class="hljs-params"></span>) {}
+  F.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = o;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title function_">F</span>();
 }
 </code></pre>
-<h2 id="%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 寄生式继承</h2>
+<h2 id="%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF">寄生式继承</a></h2>
 <ul>
 <li>类似工厂模式</li>
 <li>创建一个实现继承的函数，以某种方式增强对象，然后返回这个对象</li>
 <li>适合主要关注对象，而不在乎类型和构造函数的场景</li>
 <li>通过寄生式继承给对象添加函数会导致函数难以重用，与构造函数模式类似</li>
 </ul>
-<pre><code class="language-jsx">var book = { name: 'js book', likeBook: ['html book', 'css book'] };
-function createBook(obj) {
-  // 通过原型方式创建新的对象
-  var o = new inheritObject(obj);
-  // 拓展新对象
-  o.getName = function (name) {
-    console.log(name);
+<pre><code class="language-jsx"><span class="hljs-keyword">var</span> book = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;js book&#x27;</span>, <span class="hljs-attr">likeBook</span>: [<span class="hljs-string">&#x27;html book&#x27;</span>, <span class="hljs-string">&#x27;css book&#x27;</span>] };
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">createBook</span>(<span class="hljs-params">obj</span>) {
+  <span class="hljs-comment">// 通过原型方式创建新的对象</span>
+  <span class="hljs-keyword">var</span> o = <span class="hljs-keyword">new</span> <span class="hljs-title function_">inheritObject</span>(obj);
+  <span class="hljs-comment">// 拓展新对象</span>
+  o.<span class="hljs-property">getName</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">name</span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(name);
   };
-  // 返回拓展后的新对象
-  return o;
+  <span class="hljs-comment">// 返回拓展后的新对象</span>
+  <span class="hljs-keyword">return</span> o;
 }
 </code></pre>
-<h2 id="%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 寄生组合继承</h2>
+<h2 id="%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">寄生组合继承</a></h2>
 <ul>
 <li>组合继承的问题：会调用两次父类型构造函数，创建子类原型时、在子类构造函数内部</li>
 <li>通过借用构造函数来继承属性</li>
 <li>通过原型链的混成形式来继承方法</li>
 <li>不必为了指定子类型的原型而调用超类型的构造函数，我们所需要的无非就是超类型原型的一个副本而已</li>
 </ul>
-<pre><code class="language-jsx">function Father(foo) {
-  this.foo = foo;
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Father</span>(<span class="hljs-params">foo</span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span> = foo;
 }
-Father.prototype.printFoo = function () {
-  console.log(this.foo);
+<span class="hljs-title class_">Father</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">printFoo</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span>);
 };
-function Son(bar) {
-  this.bar = bar;
-  Father.call(this);
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Son</span>(<span class="hljs-params">bar</span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">bar</span> = bar;
+  <span class="hljs-title class_">Father</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>);
 }
-Son.prototype = Object.create(Super.prototype);
-Son.prototype.constructor = Son;
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">Super</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> = <span class="hljs-title class_">Son</span>;
 </code></pre>
-<h2 id="es6-%E7%9A%84-extends" tabindex="-1"><a class="header-anchor" href="#es6-%E7%9A%84-extends" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> ES6 的 extends</h2>
-<pre><code class="language-jsx">class Father {
-  constructor(foo) {
-    this.foo = foo;
+<h2 id="es6-%E7%9A%84-extends" tabindex="-1"><a class="header-anchor" href="#es6-%E7%9A%84-extends">ES6 的 extends</a></h2>
+<pre><code class="language-jsx"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Father</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">foo</span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span> = foo;
   }
-  printFoo() {
-    console.log(this.foo);
+  <span class="hljs-title function_">printFoo</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span>);
   }
 }
-class Son extends Father {
-  constructor(foo, bar) {
-    super(foo);
-    this.bar = bar;
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Father</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">foo, bar</span>) {
+    <span class="hljs-variable language_">super</span>(foo);
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">bar</span> = bar;
   }
 }
 </code></pre>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80">语言基础</a></li><li><a href="#arguments">arguments</a><ul><li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li><li><a href="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a></li><li><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li><a href="#var-let-const">var let const</a></li><li><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a></li><li><a href="#%E9%97%AD%E5%8C%85">闭包</a><ul><li><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84">为什么标记清除是主流的</a></li><li><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li></ul></li><li><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a></li><li><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li><li><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li><a href="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li><a href="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li><a href="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></li><li><a href="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></li><li><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE">原型链</a><ul><li><a href="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB">typeof 和 instanceof 区别</a></li><li><a href="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">原型对象 和 构造函数</a></li><li><a href="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype">声明方法为什么要用 prototype</a></li><li><a href="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB">prototype 和 proto 和 constructor 的关系</a></li></ul></li><li><a href="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88">new 干了什么</a></li><li><a href="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li><a href="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li><li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%9A%E4%B9%89%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8-prototype">为什么定义类的方法使用 prototype</a></li><li><a href="#%E7%BB%A7%E6%89%BF">继承</a><ul><li><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF">原型链继承</a></li><li><a href="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">盗用构造函数</a></li><li><a href="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">组合继承</a></li><li><a href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF">原型式继承</a></li><li><a href="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF">寄生式继承</a></li><li><a href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">寄生组合继承</a></li><li><a href="#es6-%E7%9A%84-extends">ES6 的 extends</a></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title=语言基础><a href="#%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80" data-anchor="#%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80">语言基础</a></li><li title=arguments><a href="#arguments" data-anchor="#arguments">arguments</a><ul><li title=为什么 ES6 不推荐使用 arguments.callee()><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li><li title=delete 机制><a href="#delete-%E6%9C%BA%E5%88%B6" data-anchor="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li title=0.1 + 0.2 为什么不等于 0.3><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" data-anchor="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a></li><li title=es6 新特性><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li title=var let const><a href="#var-let-const" data-anchor="#var-let-const">var let const</a></li><li title=柯里化><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a></li><li title=闭包><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title=如何优化闭包><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li title=垃圾回收><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li title=标记清除（主流）><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" data-anchor="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li title=引用计数><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" data-anchor="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li title=为什么标记清除是主流的><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84">为什么标记清除是主流的</a></li><li title=如何避免垃圾回收><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li title=引起内存泄漏的操作><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" data-anchor="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li></ul></li><li title=js 数据类型><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" data-anchor="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a></li><li title=null 和 undefined 区别><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" data-anchor="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li title=为什么会出现精度丢失><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li><li title=深拷贝、浅拷贝><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" data-anchor="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li title=描述 Promise><a href="#%E6%8F%8F%E8%BF%B0-promise" data-anchor="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li title=手写 Promise><a href="#%E6%89%8B%E5%86%99-promise" data-anchor="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li title=描述 async/await><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" data-anchor="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li title=Array 的方法><a href="#array-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></li><li title=String 的方法><a href="#string-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></li><li title=数组的遍历迭代方法><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" data-anchor="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li title=原型链><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE" data-anchor="#%E5%8E%9F%E5%9E%8B%E9%93%BE">原型链</a><ul><li title=typeof 和 instanceof 区别><a href="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB" data-anchor="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB">typeof 和 instanceof 区别</a></li><li title=原型对象 和 构造函数><a href="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" data-anchor="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">原型对象 和 构造函数</a></li><li title=声明方法为什么要用 prototype><a href="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype" data-anchor="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype">声明方法为什么要用 prototype</a></li><li title=prototype 和 proto 和 constructor 的关系><a href="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB" data-anchor="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB">prototype 和 proto 和 constructor 的关系</a></li></ul></li><li title=new 干了什么><a href="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88" data-anchor="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88">new 干了什么</a></li><li title=apply、call、bind><a href="#apply%E3%80%81call%E3%80%81bind" data-anchor="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li title=手写><a href="#%E6%89%8B%E5%86%99" data-anchor="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li title=尾调用和尾递归><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" data-anchor="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li title=正则表达式><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" data-anchor="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li><li title=为什么定义类的方法使用 prototype><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%9A%E4%B9%89%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8-prototype" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%9A%E4%B9%89%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8-prototype">为什么定义类的方法使用 prototype</a></li><li title=继承><a href="#%E7%BB%A7%E6%89%BF" data-anchor="#%E7%BB%A7%E6%89%BF">继承</a><ul><li title=原型链继承><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF" data-anchor="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF">原型链继承</a></li><li title=盗用构造函数><a href="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" data-anchor="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">盗用构造函数</a></li><li title=组合继承><a href="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" data-anchor="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">组合继承</a></li><li title=原型式继承><a href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF" data-anchor="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF">原型式继承</a></li><li title=寄生式继承><a href="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF" data-anchor="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF">寄生式继承</a></li><li title=寄生组合继承><a href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" data-anchor="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">寄生组合继承</a></li><li title=ES6 的 extends><a href="#es6-%E7%9A%84-extends" data-anchor="#es6-%E7%9A%84-extends">ES6 的 extends</a></li></ul></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>

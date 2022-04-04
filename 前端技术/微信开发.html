@@ -6,207 +6,218 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Book - 微信开发</title>
 
+  <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
   <link rel="stylesheet" href="/my-book/resource/style.css" />
-  <link rel="stylesheet" href="/my-book/resource/lib/highlight/default.min.css" />
-  <script src="/my-book/resource/lib/highlight/highlight.min.js"></script>
-  <script src="/my-book/resource/lib/jquery.min.js"></script>
-  <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
-  <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
   <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
 
   <link rel="manifest" href="/my-book/manifest.json" />
   <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/2/2022, 10:02:47 AM -->
+  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
 
   <script>
     window.root = '/my-book';
-    hljs.highlightAll();
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
   </script>
 
   <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
-    <ul class="menu" id="menu">
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
       
             <ul class="parent open">
-              <li id="工作沉淀" class="dir">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children">
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
             <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
           </li>
         
-          <li id="工作沉淀/GitFlow 学习笔记.md" class="children">
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
             <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/Nginx 学习笔记.md" class="children">
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
             <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
           </li>
         
-          <li id="工作沉淀/工作中遇到问题汇总.md" class="children">
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
             <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
           </li>
         
-          <li id="工作沉淀/我的最佳实践.md" class="children">
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
             <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
           </li>
         
-          <li id="工作沉淀/敏捷迭代.md" class="children">
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
             <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
           </li>
         
-          <li id="工作沉淀/登录方案.md" class="children">
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
             <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
           </li>
         
-          <li id="工作沉淀/设计稿多端适配方案.md" class="children">
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
             <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
           </li>
         
             </ul>
           
             <ul class="parent open">
-              <li id="前端技术" class="dir">
+              <li id="前端技术" class="dir" title="前端技术">
                 <span>前端技术</span>
                 <div class="triangle"></div>
               </li>
               
             <ul class="parent open">
-              <li id="前端技术/浏览器" class="dir">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
                 <span>浏览器</span>
                 <div class="triangle"></div>
               </li>
               
-          <li id="前端技术/浏览器/其他.md" class="children">
-            <a href="/my-book/前端技术/浏览器/其他.html">其他</a>
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
           </li>
         
-          <li id="前端技术/浏览器/浏览器架构.md" class="children">
-            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
-          </li>
-        
-          <li id="前端技术/浏览器/浏览器缓存.md" class="children">
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
             <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
           </li>
         
             </ul>
           
-          <li id="前端技术/AST抽象语法树.md" class="children">
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
             <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
           </li>
         
-          <li id="前端技术/Babel.md" class="children">
+          <li id="前端技术/Babel.md" class="children" title="Babel">
             <a href="/my-book/前端技术/Babel.html">Babel</a>
           </li>
         
-          <li id="前端技术/Browserslist.md" class="children">
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
             <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
           </li>
         
-          <li id="前端技术/CSS.md" class="children">
+          <li id="前端技术/CSS.md" class="children" title="CSS">
             <a href="/my-book/前端技术/CSS.html">CSS</a>
           </li>
         
-          <li id="前端技术/Fiber.md" class="children">
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
             <a href="/my-book/前端技术/Fiber.html">Fiber</a>
           </li>
         
-          <li id="前端技术/Hooks.md" class="children">
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
             <a href="/my-book/前端技术/Hooks.html">Hooks</a>
           </li>
         
-          <li id="前端技术/Nodejs.md" class="children">
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
             <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
           </li>
         
-          <li id="前端技术/PWA.md" class="children">
-            <a href="/my-book/前端技术/PWA.html">PWA</a>
-          </li>
-        
-          <li id="前端技术/React.md" class="children">
+          <li id="前端技术/React.md" class="children" title="React">
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
-          <li id="前端技术/Typescript.md" class="children">
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
         
-          <li id="前端技术/Vue.md" class="children">
+          <li id="前端技术/Vue.md" class="children" title="Vue">
             <a href="/my-book/前端技术/Vue.html">Vue</a>
           </li>
         
-          <li id="前端技术/Webpack.md" class="children">
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
             <a href="/my-book/前端技术/Webpack.html">Webpack</a>
           </li>
         
-          <li id="前端技术/npm.md" class="children">
+          <li id="前端技术/npm.md" class="children" title="npm">
             <a href="/my-book/前端技术/npm.html">npm</a>
           </li>
         
-          <li id="前端技术/函数式编程.md" class="children">
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
-          <li id="前端技术/微信开发.md" class="children">
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
         
-          <li id="前端技术/微前端.md" class="children">
+          <li id="前端技术/微前端.md" class="children" title="微前端">
             <a href="/my-book/前端技术/微前端.html">微前端</a>
           </li>
         
-          <li id="前端技术/手写题.md" class="children">
+          <li id="前端技术/手写题.md" class="children" title="手写题">
             <a href="/my-book/前端技术/手写题.html">手写题</a>
           </li>
         
-          <li id="前端技术/模块.md" class="children">
+          <li id="前端技术/模块.md" class="children" title="模块">
             <a href="/my-book/前端技术/模块.html">模块</a>
           </li>
         
-          <li id="前端技术/虚拟列表.md" class="children">
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
             <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
           </li>
         
-          <li id="前端技术/设计模式.md" class="children">
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
             <a href="/my-book/前端技术/设计模式.html">设计模式</a>
           </li>
         
-          <li id="前端技术/语言基础.md" class="children">
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
             <a href="/my-book/前端技术/语言基础.html">语言基础</a>
           </li>
         
             </ul>
           
-          <li id="其他.md" class="children">
+          <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
         
-          <li id="网络.md" class="children">
+          <li id="网络.md" class="children" title="网络">
             <a href="/my-book/网络.html">网络</a>
           </li>
         
-
       <li id="index.md" class="children about">
         <a href="/my-book/">关于</a>
       </li>
     </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91" tabindex="-1"><a class="header-anchor" href="#%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 微信开发</h1>
-<h1 id="%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" tabindex="-1"><a class="header-anchor" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 小程序开发最佳实践</h1>
+    <div class="content markdown-body"><h1 id="%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91" tabindex="-1"><a class="header-anchor" href="#%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91">微信开发</a></h1>
+<h1 id="%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" tabindex="-1"><a class="header-anchor" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">小程序开发最佳实践</a></h1>
 <ul>
 <li>全局共享数据（非响应式），可以保存在 wx 对象，wx 就类似于网页的 window 对象</li>
 </ul>
-<h1 id="%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E5%8C%85%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E5%8C%85%E6%9C%BA%E5%88%B6" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 微信小程序分包机制</h1>
+<h1 id="%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E5%8C%85%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E5%8C%85%E6%9C%BA%E5%88%B6">微信小程序分包机制</a></h1>
 <ul>
 <li>某些情况下，开发者需要将小程序划分成不同的子包，在构建时打包成不同的分包，用户在使用时按需进行加载。</li>
 <li>在构建小程序分包项目时，构建会输出一个或多个分包。每个使用分包小程序必定含有一个主包。所谓的主包，即放置默认启动页面/TabBar 页面，以及一些所有分包都需用到公共资源/JS 脚本；而分包则是根据开发者的配置进行划分。</li>
@@ -218,22 +229,22 @@
 </li>
 <li>对小程序进行分包，可以优化小程序首次启动的下载时间，以及在多团队共同开发时可以更好的解耦协作。</li>
 </ul>
-<h1 id="%E4%BB%80%E4%B9%88%E6%98%AF-wxs" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-wxs" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 什么是 wxs</h1>
-<h1 id="%E5%85%AC%E4%BC%97%E5%8F%B7%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83" tabindex="-1"><a class="header-anchor" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 公众号用户授权</h1>
-<h2 id="1%E3%80%81%E7%94%A8%E6%88%B7%E5%90%8C%E6%84%8F%E6%8E%88%E6%9D%83%EF%BC%8C%E8%8E%B7%E5%8F%96-code" tabindex="-1"><a class="header-anchor" href="#1%E3%80%81%E7%94%A8%E6%88%B7%E5%90%8C%E6%84%8F%E6%8E%88%E6%9D%83%EF%BC%8C%E8%8E%B7%E5%8F%96-code" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 1、用户同意授权，获取 code</h2>
+<h1 id="%E4%BB%80%E4%B9%88%E6%98%AF-wxs" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-wxs">什么是 wxs</a></h1>
+<h1 id="%E5%85%AC%E4%BC%97%E5%8F%B7%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83" tabindex="-1"><a class="header-anchor" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83">公众号用户授权</a></h1>
+<h2 id="1%E3%80%81%E7%94%A8%E6%88%B7%E5%90%8C%E6%84%8F%E6%8E%88%E6%9D%83%EF%BC%8C%E8%8E%B7%E5%8F%96-code" tabindex="-1"><a class="header-anchor" href="#1%E3%80%81%E7%94%A8%E6%88%B7%E5%90%8C%E6%84%8F%E6%8E%88%E6%9D%83%EF%BC%8C%E8%8E%B7%E5%8F%96-code">1、用户同意授权，获取 code</a></h2>
 <ul>
 <li>先在后台配置合法域名，页面需要运行在合法的域名下</li>
 <li>开发的时候，可以修改电脑的 hosts 文件，将配置的域名映射为 127.0.0.1，即可进行本地开发</li>
 <li>引导关注者打开一个微信的授权页面</li>
 <li>页面链接会通过 url 传递一些参数 appid、redirect_uri、response_type 等</li>
 </ul>
-<h2 id="2%E3%80%81%E9%80%9A%E8%BF%87-code-%E6%8D%A2%E5%8F%96%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83-access_token" tabindex="-1"><a class="header-anchor" href="#2%E3%80%81%E9%80%9A%E8%BF%87-code-%E6%8D%A2%E5%8F%96%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83-access_token" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 2、通过 code 换取网页授权 access_token</h2>
+<h2 id="2%E3%80%81%E9%80%9A%E8%BF%87-code-%E6%8D%A2%E5%8F%96%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83-access_token" tabindex="-1"><a class="header-anchor" href="#2%E3%80%81%E9%80%9A%E8%BF%87-code-%E6%8D%A2%E5%8F%96%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83-access_token">2、通过 code 换取网页授权 access_token</a></h2>
 <ul>
 <li>把 code 传给后台</li>
 <li>后台调微信接口传 code，获得网页授权 access_token 和 openid</li>
 <li>请求微信用户信息接口，传上一步获得的 access_token 和 openid，响应给前端</li>
 </ul>
-<h1 id="%E6%8E%A5%E5%85%A5-js-sdk" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E5%85%A5-js-sdk" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 接入 js-sdk</h1>
+<h1 id="%E6%8E%A5%E5%85%A5-js-sdk" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E5%85%A5-js-sdk">接入 js-sdk</a></h1>
 <ul>
 <li>登录后台配置合法域名，页面需要运行在这个域名</li>
 <li>页面进入一个微信 js-sdk 的库</li>
@@ -244,7 +255,7 @@
 <li>前端调用 wx.config 注入权限</li>
 <li>通过 ready 接口处理成功验证、通过 error 接口处理失败验证</li>
 </ul>
-<h1 id="%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B" aria-hidden="true"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> 小程序登录流程</h1>
+<h1 id="%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B">小程序登录流程</a></h1>
 <p>首次登录：</p>
 <ul>
 <li>首先需要调用小程序 api 接口 wx.login() 获取 临时登录凭证 code ，这个 code 是有过期时间的</li>
@@ -260,7 +271,12 @@
 </ul>
 </div>
     
-    <div class="table-of-contents"><ul><li><a href="#%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91">微信开发</a></li><li><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">小程序开发最佳实践</a></li><li><a href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E5%8C%85%E6%9C%BA%E5%88%B6">微信小程序分包机制</a></li><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-wxs">什么是 wxs</a></li><li><a href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83">公众号用户授权</a><ul><li><a href="#1%E3%80%81%E7%94%A8%E6%88%B7%E5%90%8C%E6%84%8F%E6%8E%88%E6%9D%83%EF%BC%8C%E8%8E%B7%E5%8F%96-code">1、用户同意授权，获取 code</a></li><li><a href="#2%E3%80%81%E9%80%9A%E8%BF%87-code-%E6%8D%A2%E5%8F%96%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83-access_token">2、通过 code 换取网页授权 access_token</a></li></ul></li><li><a href="#%E6%8E%A5%E5%85%A5-js-sdk">接入 js-sdk</a></li><li><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B">小程序登录流程</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=微信开发><a href="#%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91" data-anchor="#%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91">微信开发</a></li><li title=小程序开发最佳实践><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" data-anchor="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">小程序开发最佳实践</a></li><li title=微信小程序分包机制><a href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E5%8C%85%E6%9C%BA%E5%88%B6" data-anchor="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E5%8C%85%E6%9C%BA%E5%88%B6">微信小程序分包机制</a></li><li title=什么是 wxs><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-wxs" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-wxs">什么是 wxs</a></li><li title=公众号用户授权><a href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83" data-anchor="#%E5%85%AC%E4%BC%97%E5%8F%B7%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83">公众号用户授权</a><ul><li title=1、用户同意授权，获取 code><a href="#1%E3%80%81%E7%94%A8%E6%88%B7%E5%90%8C%E6%84%8F%E6%8E%88%E6%9D%83%EF%BC%8C%E8%8E%B7%E5%8F%96-code" data-anchor="#1%E3%80%81%E7%94%A8%E6%88%B7%E5%90%8C%E6%84%8F%E6%8E%88%E6%9D%83%EF%BC%8C%E8%8E%B7%E5%8F%96-code">1、用户同意授权，获取 code</a></li><li title=2、通过 code 换取网页授权 access_token><a href="#2%E3%80%81%E9%80%9A%E8%BF%87-code-%E6%8D%A2%E5%8F%96%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83-access_token" data-anchor="#2%E3%80%81%E9%80%9A%E8%BF%87-code-%E6%8D%A2%E5%8F%96%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83-access_token">2、通过 code 换取网页授权 access_token</a></li></ul></li><li title=接入 js-sdk><a href="#%E6%8E%A5%E5%85%A5-js-sdk" data-anchor="#%E6%8E%A5%E5%85%A5-js-sdk">接入 js-sdk</a></li><li title=小程序登录流程><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B" data-anchor="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B">小程序登录流程</a></li></ul></div>
     
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
   </body>
 </html>
