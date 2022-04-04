@@ -25,9 +25,9 @@
 
 ## .babelrc._ 和 babel.config._ 区别
 
-- .babelrc.\* 仅适用于项目的某个部分
-- babel.config.\* 会影响整个项目中的代码，包含 node_modules 中的代码
-- 推荐使用 babel.config.\*，Babel 自身使用的就是这种格式
+- .babelrc._ 仅适用于项目的某个部分
+- babel.config._ 会影响整个项目中的代码，包含 node_modules 中的代码
+- 推荐使用 babel.config._，Babel 自身使用的就是这种格式
 
 ## presets
 
@@ -53,7 +53,8 @@
       "@babel/preset-env",
       {
         "useBuiltIns": "usage",
-        "debug": true
+        "debug": true,
+        "corejs": 3 // 建议使用 3，core-js@2 分支中已经不会再添加新特性，新特性都会添加到 core-js@3
       }
     ]
   ]
@@ -61,7 +62,7 @@
 ```
 
 - babel 在转译的时候，会将源代码分成 syntax（语法） 和 api 两部分来处理，语法处理通过配置 presets，
-- babel 使用 polyfill 来处理 api，@babel/preset-env 中有一个配置选项 useBuiltIns，用来告诉 babel 如何处理 api，由于这个选项默认值为 false，即不处理 api，所以代码转译后默认没有处理 api，可以通过手动引入 polyfill，但是 polyfill 没有动态引入会增加包的体积，
+- babel 使用 polyfill 来处理 api，@babel/preset-env 中有一个配置选项 useBuiltIns，用来告诉 babel 如何处理 api，由于这个选项默认值为 false，即不处理 api，所以代码转译后默认没有处理 api，可以通过手动引入 polyfill，但是 polyfill 没有动态引入会增加包的体积
 - 设置 useBuiltIns 的值为 "entry"，同时在源代码的最上方手动引入 `@babel/polyfill` 这个库（该库一共分为两部分，第一部分是 core-js，第二部分是 regenerator-runtime。其中 core-js 为其他团队开源的另一个独立项目），此时 babel 根据项目 browserslist，引入浏览器不兼容的 polyfill。需要在入口文件手动添加 `import '@babel/polyfill'`，会自动根据 browserslist 替换成浏览器不兼容的所有 polyfill
 - 将 useBuiltIns 改为 "usage"，babel 就可以按需加载 polyfill，并且不需要手动引入 `@babel/polyfill`
 
@@ -72,16 +73,16 @@
 
 ## plugins
 
-- 本质就是一个 JS 程序, 指示 Babel 如何对代码进行转换
+- 本质是一个 JS 程序, 指示 Babel 如何对代码进行转换
 - 排列顺序很重要
-- 插件在 presets 前运行
-- 插件顺序从前往后排列，与 presets 相反
+- plugins 在 presets 之前运行
+- plugins 顺序从前往后排列，与 presets 相反
 
 # 核心与其周边
 
 ## @babel/core
 
-- babel 使用了微内核的架构风格，也就是说它们的核心非常小，大部分功能都是通过插件扩展实现的，@babel/core 就是这个内核
+- babel 使用了微内核的架构风格，也就是说它们的核心非常小，大部分功能都是通过插件扩展实现的，@babel/core 就是这个内核，包含核心功能
 - 作用：
   - 加载和处理配置(config)
   - 加载插件
@@ -93,14 +94,15 @@
 
 命令行工具
 
-## @babel/plugin-transform-runtime
+## @babel/plugin-transform-runtime、@babel/runtime
 
 - 这个插件就是为了解决 useBuiltIns polyfill 污染全局的问题和每一个文件都有辅助函数问题，
 - 将 babel 转译时添加到文件中的内联辅助函数统一隔离到 babel-runtime 提供的 helper 模块中
 - 编译时，直接从 helper 模块加载，不在每个文件中重复的定义辅助函数，从而减少包的尺寸
 - 其中 `@babel/plugin-transform-runtime` 的作用是转译代码，转译后的代码中可能会引入 `@babel/runtime-corejs3` 里面的模块。
-- 前者运行在编译时，后者运行在运行时。类似 polyfill，后者需要被打包到最终产物里在浏览器中运行。
-- typescript 的 importHelpers 配置和 tslib 类似原理
+- 前者运行在编译时，后者运行在运行时。类似 polyfill，后者需要被打包到最终产物里在浏览器中运行
+- @babel/plugin-transform-runtime 通常仅在开发时使用，但是运行时最终代码需要依赖 @babel/runtime，所以 @babel/runtime 必须要作为生产依赖被安装
+- typescript 的 importHelpers 配置和 tslib 也是类似的原理
 
 安装：
 
@@ -115,11 +117,12 @@ $ yarn add @babel/runtime-corejs3
 {
   "presets": [
     [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "usage",
-        "debug": true
-      }
+      "@babel/preset-env"
+      // 移除，否则和下面重复了
+      // {
+      //   "useBuiltIns": "usage",
+      //   "debug": true
+      // }
     ]
   ],
   "plugins": [
@@ -154,7 +157,7 @@ $ yarn add @babel/runtime-corejs3
 ## @babel/preset-env
 
 - 语法转换插件的集合
-- 可以根据配置的目标浏览器或者运行环境（browserslist、targets），将 ES2015+ 的语法转换为 es5 语法，不需要一个个语法插件去安装（比如@babel/plugin-transform-arrow-functions）
+- 可以根据目标浏览器运行环境配置（browserslist、targets），将 ES2015+ 的语法转换为 es5 语法，不需要一个个语法插件去安装（比如@babel/plugin-transform-arrow-functions）
 
 ## core.js
 

@@ -103,7 +103,8 @@ function square(n) {
 - vue 模板编译过程
 - prettier
 
-## [babel-plugin-import](https://github.com/umijs/babel-plugin-import)
+## babel-plugin-import
 
+- https://github.com/umijs/babel-plugin-import
 - 将 antd 组件 import 语句转换成按需引入写法的 babel 插件，对 AST 的经典应用
 - 这个插件现在不是必须的了，antd 的组件库提供了 ES Module 的构建产物，直接通过 `import {} from` 的形式也可以 tree-shaking
