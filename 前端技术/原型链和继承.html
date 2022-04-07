@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - 原型链和继承</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
+  <link rel="stylesheet" href="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+
+  <script>
+    window.root = '/my-book';
+
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
+  </script>
+
+  <script src="/my-book/resource/script.js"></script>
+</head>
+
+  <body>
+    <ul class="menu expand" id="menu">
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
+      
+            <ul class="parent open">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
+                <span>工作沉淀</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
+            <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
+          </li>
+        
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
+            <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
+          </li>
+        
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
+            <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
+          </li>
+        
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
+            <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
+          </li>
+        
+          <li id="工作沉淀/我的最佳实践.md" class="children" title="我的最佳实践">
+            <a href="/my-book/工作沉淀/我的最佳实践.html">我的最佳实践</a>
+          </li>
+        
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
+            <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
+          </li>
+        
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
+            <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
+          </li>
+        
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
+            <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
+          </li>
+        
+            </ul>
+          
+            <ul class="parent open">
+              <li id="前端技术" class="dir" title="前端技术">
+                <span>前端技术</span>
+                <div class="triangle"></div>
+              </li>
+              
+            <ul class="parent open">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
+                <span>浏览器</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="前端技术/浏览器/事件循环.md" class="children" title="事件循环">
+            <a href="/my-book/前端技术/浏览器/事件循环.html">事件循环</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器架构.md" class="children" title="浏览器架构">
+            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
+            <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
+          </li>
+        
+            </ul>
+          
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
+            <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
+          </li>
+        
+          <li id="前端技术/Babel.md" class="children" title="Babel">
+            <a href="/my-book/前端技术/Babel.html">Babel</a>
+          </li>
+        
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
+            <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
+          </li>
+        
+          <li id="前端技术/CSS.md" class="children" title="CSS">
+            <a href="/my-book/前端技术/CSS.html">CSS</a>
+          </li>
+        
+          <li id="前端技术/Fiber.md" class="children" title="Fiber">
+            <a href="/my-book/前端技术/Fiber.html">Fiber</a>
+          </li>
+        
+          <li id="前端技术/Hooks.md" class="children" title="Hooks">
+            <a href="/my-book/前端技术/Hooks.html">Hooks</a>
+          </li>
+        
+          <li id="前端技术/Nodejs.md" class="children" title="Nodejs">
+            <a href="/my-book/前端技术/Nodejs.html">Nodejs</a>
+          </li>
+        
+          <li id="前端技术/React.md" class="children" title="React">
+            <a href="/my-book/前端技术/React.html">React</a>
+          </li>
+        
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
+            <a href="/my-book/前端技术/Typescript.html">Typescript</a>
+          </li>
+        
+          <li id="前端技术/Vue.md" class="children" title="Vue">
+            <a href="/my-book/前端技术/Vue.html">Vue</a>
+          </li>
+        
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
+            <a href="/my-book/前端技术/Webpack.html">Webpack</a>
+          </li>
+        
+          <li id="前端技术/npm.md" class="children" title="npm">
+            <a href="/my-book/前端技术/npm.html">npm</a>
+          </li>
+        
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
+            <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
+          </li>
+        
+          <li id="前端技术/原型链和继承.md" class="children" title="原型链和继承">
+            <a href="/my-book/前端技术/原型链和继承.html">原型链和继承</a>
+          </li>
+        
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
+            <a href="/my-book/前端技术/微信开发.html">微信开发</a>
+          </li>
+        
+          <li id="前端技术/微前端.md" class="children" title="微前端">
+            <a href="/my-book/前端技术/微前端.html">微前端</a>
+          </li>
+        
+          <li id="前端技术/手写题.md" class="children" title="手写题">
+            <a href="/my-book/前端技术/手写题.html">手写题</a>
+          </li>
+        
+          <li id="前端技术/模块.md" class="children" title="模块">
+            <a href="/my-book/前端技术/模块.html">模块</a>
+          </li>
+        
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
+            <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
+          </li>
+        
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
+            <a href="/my-book/前端技术/设计模式.html">设计模式</a>
+          </li>
+        
+          <li id="前端技术/语言基础.md" class="children" title="语言基础">
+            <a href="/my-book/前端技术/语言基础.html">语言基础</a>
+          </li>
+        
+            </ul>
+          
+          <li id="test.md" class="children" title="test">
+            <a href="/my-book/test.html">test</a>
+          </li>
+        
+          <li id="其他.md" class="children" title="其他">
+            <a href="/my-book/其他.html">其他</a>
+          </li>
+        
+          <li id="网络.md" class="children" title="网络">
+            <a href="/my-book/网络.html">网络</a>
+          </li>
+        
+      <li id="index.md" class="children about">
+        <a href="/my-book/">关于</a>
+      </li>
+    </ul>
+    <div class="drager" id="drager">
+      <div class="switcher" id="switcher" title="展开或收起"></div>
+    </div>
+    <div class="mobile_menu" id="mobile_menu">
+      <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
+    </div>
+    <div class="content markdown-body"><h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
+<ul>
+<li><a href="https://github.com/mqyqingfeng/blog/issues/2" target="_blank">https://github.com/mqyqingfeng/blog/issues/2</a></li>
+</ul>
+<h1 id="%E5%8E%9F%E5%9E%8B%E9%93%BE" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE">原型链</a></h1>
+<p><img src="../resource/prototype.png" alt=""></p>
+<ul>
+<li>
+<p>原型：每一个 JavaScript 对象（null 除外）在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型&quot;继承&quot;属性或方法，其实就是 prototype 对象</p>
+</li>
+<li>
+<p>原型链：由相互关联的原型组成的链状结构就是原型链</p>
+</li>
+<li>
+<p>原型对象上的所有属性和方法，都能被对应的构造函数创建的实例对象共享（这就是 JavaScript 继承机制的基本设计）</p>
+</li>
+<li>
+<p>JavaScript 对象通过 prototype 指向父类对象，直到指向 Object 对象为止，这样就形成了一个原型指向的链条, 即原型链</p>
+</li>
+<li>
+<p>如果试图引用实例的某个属性或方法，会首先在对象内部寻找，直至找不到，才在该对象的原型里去找这个属性或方法</p>
+</li>
+<li>
+<p>instanceof、isPrototypeOf：判断是否处于原型链</p>
+</li>
+<li>
+<p>Object.hasOwnProperty()：检查对象自身中是否含有该属性</p>
+</li>
+<li>
+<p>for in 会搜索原型</p>
+</li>
+<li>
+<p>几乎所有 JavaScript 中的对象都是位于原型链顶端的 null 的实例</p>
+</li>
+<li>
+<p>函数对象的 prototype -&gt; 实例原型</p>
+</li>
+<li>
+<p>实例（普通对象）的 <code>__proto__</code> -&gt; 实例原型</p>
+</li>
+<li>
+<p>原型的 constructor -&gt; 关联的构造函数</p>
+</li>
+<li>
+<p>实例原型的原型 -&gt; Object</p>
+</li>
+<li>
+<p>Object 的原型 -&gt; null，<code>Object.prototype.__proto__ === null</code></p>
+<blockquote>
+<p>此时原型链停止查找
+null 表示“没有对象”，即该处不应该有值。
+所以 <code>Object.prototype.__proto__</code> 的值为 null 跟 Object.prototype 没有原型，其实表达了一个意思</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">原型对象 和 构造函数</a></h2>
+<ul>
+<li>在 JavaScript 中，每当定义一个函数数据类型(普通函数、类)时候，都会天生自带一个 prototype 属性，这个属性指向函数的原型对象</li>
+<li>当函数经过 new 调用时，这个函数就成为了构造函数，返回一个全新的实例对象，这个实例对象有一个 <code>__proto__</code> 属性，指向构造函数的原型对象</li>
+</ul>
+<h2 id="%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype" tabindex="-1"><a class="header-anchor" href="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype">声明方法为什么要用 prototype</a></h2>
+<ul>
+<li>为了在类的各个实例间共享</li>
+<li>通过该构造函数生成的实例所拥有的方法都是指向一个函数的索引，这样可以节省内存</li>
+<li>不使用 prototype 定义的方法相当于类的静态方法，可以直接使用，不需要 new</li>
+<li>使用 prototype 定义的方法相当于类的实例方法，必须 new 后才能使用</li>
+</ul>
+<h2 id="prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB">prototype 和 proto 和 constructor 的关系</a></h2>
+<ul>
+<li>prototype 用于访问函数的原型对象。它是函数所独有的，它是从一个函数指向一个对象。它的含义是函数的原型对象，任何函数在创建的时候，其实会默认同时创建该函数的 prototype 对象</li>
+<li><code>__proto__</code> 用于访问对象实例的原型对象（或者使用 Object.getPrototypeOf()）</li>
+<li><code>__proto__</code> 是对象独有的</li>
+<li><code>__proto__</code> 作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的 <code>__proto__</code> 属性所指向的那个对象（可以理解为父对象）里找，如果父对象也不存在这个属性，则继续往父对象的 <code>__proto__</code> 属性所指向的那个对象（可以理解为爷爷对象）里找，如果还没找到，则继续往上找，直到原型链顶端 null 空对象</li>
+<li>constructor 属性也是对象才拥有的，它是从一个对象指向一个函数，含义就是指向该对象的构造函数</li>
+</ul>
+<h2 id="typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB">typeof 和 instanceof 区别</a></h2>
+<ul>
+<li>typeof：判断一个变量的类型</li>
+<li>instanceof：判断一个变量是否是某个对象的实例</li>
+<li>instanceof 原理：能在实例的 原型对象链 中找到该构造函数的 prototype 属性所指向的 原型对象，就返回 true</li>
+</ul>
+<h2 id="new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88">new 干了什么</a></h2>
+<p>new 操作符新建了一个空对象，这个对象原型指向构造函数的 prototype，执行构造函数后返回这个对象。</p>
+<ul>
+<li>创建一个空对象</li>
+<li>将构造函数的作用域赋给新对象，根据原型链，设置空对象的 <code>__proto__</code> 为构造函数的 prototype</li>
+<li>构造函数的 this 指向这个对象，执行构造函数的代码（为这个新对象添加属性）</li>
+<li>判断函数的返回值类型，如果是引用类型，就返回这个引用类型的对象</li>
+</ul>
+<p>手写 new：</p>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myNew</span>(<span class="hljs-params">context</span>) {
+  <span class="hljs-keyword">const</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();
+  obj.<span class="hljs-property">__proto__</span> = context.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>;
+  <span class="hljs-keyword">const</span> res = context.<span class="hljs-title function_">apply</span>(obj, [...<span class="hljs-variable language_">arguments</span>].<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> res === <span class="hljs-string">&#x27;object&#x27;</span> ? res : obj;
+}
+</code></pre>
+<h1 id="%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E7%BB%A7%E6%89%BF">继承</a></h1>
+<ul>
+<li>许多面向对象语言都支持两种继承方式: 接口继承 和 实现继承</li>
+<li>JavaScript 没有提供传统面向对象语言中的类式继承，而是通过原型委托的方式来实现对象与对象之间的继承</li>
+<li>JavaScript 也没有在语言层面提供对抽象类和接口的支持</li>
+<li>接口继承只继承方法签名，而实现继承则继承实际的方法</li>
+<li>在 JavaScript 中无法实现接口继承，只支持实现继承，而且其实现继承主要是依靠原型链来实现的</li>
+<li>以对象字面量方式创建原型方法会破坏之前的原型链，因为这相当于重写了原型链</li>
+</ul>
+<h2 id="%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF">原型链继承</a></h2>
+<ul>
+<li>直接通过原型继承属性和方法</li>
+</ul>
+<pre><code class="language-jsx"><span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Father</span>();
+</code></pre>
+<p>缺点：</p>
+<ul>
+<li>原型中包含引用值的时候，会在所有实例间共享，修改子类引用类型属性会影响到父类</li>
+<li>子类型在实例化时不能给父类型的构造函数传参</li>
+</ul>
+<h2 id="%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">盗用构造函数</a></h2>
+<ul>
+<li>为了解决原型包含引用值导致的继承问题（含引用类型值的原型属性会被所有实例共享）</li>
+<li>在子类型构造函数的内部调用父类型构造函数</li>
+<li>优点是可以在子类构造函数中向父类构造函数传参</li>
+</ul>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Father</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">colors</span> = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>];
+}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Son</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-title class_">Father</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>);
+  <span class="hljs-comment">// 继承了Father，且向父类型传递参数</span>
+}
+</code></pre>
+<p>缺点：</p>
+<ul>
+<li>必须在构造函数中定义方法，因此函数不能重用</li>
+<li>子类也不能访问父类原型上定义的方法</li>
+</ul>
+<h2 id="%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">组合继承</a></h2>
+<ul>
+<li>原型链继承和盗用构造函数继承的结合</li>
+<li>使用原型链实现对原型属性和方法的继承</li>
+<li>通过盗用构造函数来实现对实例属性的继承</li>
+<li>既通过在原型上定义方法实现了函数复用，又能够保证每个实例都有它自己的属性</li>
+</ul>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Father</span>(<span class="hljs-params">name</span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">colors</span> = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>];
+}
+<span class="hljs-title class_">Father</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">sayName</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-title function_">alert</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);
+};
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Son</span>(<span class="hljs-params">name, age</span>) {
+  <span class="hljs-comment">// 继承属性</span>
+  <span class="hljs-title class_">Father</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>, name);
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;
+}
+<span class="hljs-comment">// 继承方法</span>
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Father</span>();
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> = <span class="hljs-title class_">Son</span>;
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">sayAge</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-title function_">alert</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span>);
+};
+</code></pre>
+<h2 id="%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF">原型式继承</a></h2>
+<ul>
+<li>即相当于 ES6 的 Object.create()方法</li>
+<li>适合不需要单独创建构造函数，但仍然需要在对象间共享信息的场合</li>
+<li>创建一个临时构造函数</li>
+<li>将传入的对象赋值给这个构造函数的原型</li>
+<li>然后返回这个临时类型的一个实例</li>
+</ul>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">object</span>(<span class="hljs-params">o</span>) {
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">F</span>(<span class="hljs-params"></span>) {}
+  F.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = o;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title function_">F</span>();
+}
+</code></pre>
+<h2 id="%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF">寄生式继承</a></h2>
+<ul>
+<li>类似工厂模式</li>
+<li>创建一个实现继承的函数，以某种方式增强对象，然后返回这个对象</li>
+<li>适合主要关注对象，而不在乎类型和构造函数的场景</li>
+<li>通过寄生式继承给对象添加函数会导致函数难以重用，与构造函数模式类似</li>
+</ul>
+<pre><code class="language-jsx"><span class="hljs-keyword">var</span> book = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;js book&#x27;</span>, <span class="hljs-attr">likeBook</span>: [<span class="hljs-string">&#x27;html book&#x27;</span>, <span class="hljs-string">&#x27;css book&#x27;</span>] };
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">createBook</span>(<span class="hljs-params">obj</span>) {
+  <span class="hljs-comment">// 通过原型方式创建新的对象</span>
+  <span class="hljs-keyword">var</span> o = <span class="hljs-keyword">new</span> <span class="hljs-title function_">inheritObject</span>(obj);
+  <span class="hljs-comment">// 拓展新对象</span>
+  o.<span class="hljs-property">getName</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">name</span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(name);
+  };
+  <span class="hljs-comment">// 返回拓展后的新对象</span>
+  <span class="hljs-keyword">return</span> o;
+}
+</code></pre>
+<h2 id="%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">寄生组合继承</a></h2>
+<ul>
+<li>组合继承的问题：会调用两次父类型构造函数，创建子类原型时、在子类构造函数内部</li>
+<li>通过借用构造函数来继承属性</li>
+<li>通过原型链的混成形式来继承方法</li>
+<li>不必为了指定子类型的原型而调用超类型的构造函数，我们所需要的无非就是超类型原型的一个副本而已</li>
+</ul>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Father</span>(<span class="hljs-params">foo</span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span> = foo;
+}
+<span class="hljs-title class_">Father</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">printFoo</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span>);
+};
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Son</span>(<span class="hljs-params">bar</span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">bar</span> = bar;
+  <span class="hljs-title class_">Father</span>.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>);
+}
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(<span class="hljs-title class_">Super</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>);
+<span class="hljs-title class_">Son</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> = <span class="hljs-title class_">Son</span>;
+</code></pre>
+<h2 id="es6-%E7%9A%84-extends" tabindex="-1"><a class="header-anchor" href="#es6-%E7%9A%84-extends">ES6 的 extends</a></h2>
+<pre><code class="language-jsx"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Father</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">foo</span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span> = foo;
+  }
+  <span class="hljs-title function_">printFoo</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span>);
+  }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Father</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">foo, bar</span>) {
+    <span class="hljs-variable language_">super</span>(foo);
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">bar</span> = bar;
+  }
+}
+</code></pre>
+</div>
+    
+    <div class="table-of-contents"><ul><li title=参考><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title=原型链><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE" data-anchor="#%E5%8E%9F%E5%9E%8B%E9%93%BE">原型链</a><ul><li title=原型对象 和 构造函数><a href="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" data-anchor="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">原型对象 和 构造函数</a></li><li title=声明方法为什么要用 prototype><a href="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype" data-anchor="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype">声明方法为什么要用 prototype</a></li><li title=prototype 和 proto 和 constructor 的关系><a href="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB" data-anchor="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB">prototype 和 proto 和 constructor 的关系</a></li><li title=typeof 和 instanceof 区别><a href="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB" data-anchor="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB">typeof 和 instanceof 区别</a></li><li title=new 干了什么><a href="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88" data-anchor="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88">new 干了什么</a></li></ul></li><li title=继承><a href="#%E7%BB%A7%E6%89%BF" data-anchor="#%E7%BB%A7%E6%89%BF">继承</a><ul><li title=原型链继承><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF" data-anchor="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF">原型链继承</a></li><li title=盗用构造函数><a href="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" data-anchor="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">盗用构造函数</a></li><li title=组合继承><a href="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" data-anchor="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">组合继承</a></li><li title=原型式继承><a href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF" data-anchor="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF">原型式继承</a></li><li title=寄生式继承><a href="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF" data-anchor="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF">寄生式继承</a></li><li title=寄生组合继承><a href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" data-anchor="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">寄生组合继承</a></li><li title=ES6 的 extends><a href="#es6-%E7%9A%84-extends" data-anchor="#es6-%E7%9A%84-extends">ES6 的 extends</a></li></ul></li></ul></div>
+    
+
+    <!-- bottom scripts -->
+    <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+    <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
+    <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+  </body>
+</html>

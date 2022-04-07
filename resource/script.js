@@ -46,10 +46,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var body = $('body');
     var menu = $('#menu');
     drager.mouseover(function () {
-      $(this).css('cursor', 'e-resize');
+      if (menu.hasClass('expand')) {
+        $(this).css('cursor', 'e-resize');
+      } else {
+        $(this).css('cursor', 'unset');
+      }
     });
     drager.mousedown(function () {
-      $(this).css('cursor', 'e-resize');
+      if (menu.hasClass('expand')) {
+        $(this).css('cursor', 'e-resize');
+      } else {
+        $(this).css('cursor', 'unset');
+      }
+
       body.mousemove(function (e) {
         var _x = e.pageX;
 

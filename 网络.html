@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/4/2022, 9:19:34 AM -->
+  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
 
   <script>
     window.root = '/my-book';
@@ -102,8 +102,16 @@
                 <div class="triangle"></div>
               </li>
               
+          <li id="前端技术/浏览器/事件循环.md" class="children" title="事件循环">
+            <a href="/my-book/前端技术/浏览器/事件循环.html">事件循环</a>
+          </li>
+        
           <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
             <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器架构.md" class="children" title="浏览器架构">
+            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
           </li>
         
           <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
@@ -164,6 +172,10 @@
             <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
           </li>
         
+          <li id="前端技术/原型链和继承.md" class="children" title="原型链和继承">
+            <a href="/my-book/前端技术/原型链和继承.html">原型链和继承</a>
+          </li>
+        
           <li id="前端技术/微信开发.md" class="children" title="微信开发">
             <a href="/my-book/前端技术/微信开发.html">微信开发</a>
           </li>
@@ -194,6 +206,10 @@
         
             </ul>
           
+          <li id="test.md" class="children" title="test">
+            <a href="/my-book/test.html">test</a>
+          </li>
+        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -212,7 +228,12 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="tcp%2Fip" tabindex="-1"><a class="header-anchor" href="#tcp%2Fip">TCP/IP</a></h1>
+    <div class="content markdown-body"><h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
+<ul>
+<li><a href="https://www.cnblogs.com/leezhxing/p/4524176.html" target="_blank">https://www.cnblogs.com/leezhxing/p/4524176.html</a></li>
+<li><a href="https://juejin.cn/post/6844904100035821575" target="_blank">https://juejin.cn/post/6844904100035821575</a></li>
+</ul>
+<h1 id="tcp%2Fip" tabindex="-1"><a class="header-anchor" href="#tcp%2Fip">TCP/IP</a></h1>
 <h2 id="tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB">TCP 和 UDP 的区别</a></h2>
 <ul>
 <li>tcp 是面向连接的，udp 是无连接的即发送数据前不需要先建立链接。</li>
@@ -221,7 +242,23 @@
 <li>tcp 的首部较大为 20 字节，而 UDP 只有 8 字节。</li>
 <li>tcp 是面向连接的可靠性传输，而 UDP 是不可靠的。</li>
 </ul>
-<h1 id="http-%E5%8D%8F%E8%AE%AE" tabindex="-1"><a class="header-anchor" href="#http-%E5%8D%8F%E8%AE%AE">HTTP 协议</a></h1>
+<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88">什么是 tcp 三次握手，为什么</a></h2>
+<ul>
+<li>由 TCP 的自身特点可靠传输决定的</li>
+<li>客户端和服务端都需要知道各自是否可收发，因此需要三次握手</li>
+<li>第一次握手可以确认客服端的发送能力，第二次握手，确认了服务端的发送能力和接收能力，所以第三次握手才可以确认客户端的接收能力。不然容易出现丢包的现象</li>
+<li>客户端发送一个带 SYN=1，Seq=X 的数据包到服务器端口（第一次握手，由浏览器发起，告诉服务器我要发送请求了）</li>
+<li>服务器发回一个带 SYN=1，ACK=X+1，Seq=Y 的响应包以示传达确认信息（第二次握手，由服务器发起，告诉浏览器我准备接受了，你赶紧发送吧）</li>
+<li>客户端再回传一个带 ACK=Y+1，Seq=Z 的数据包，代表“握手结束”（第三次握手，由浏览器发送，告诉服务器，我马上就发了，准备接受吧）</li>
+</ul>
+<h2 id="tcp-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B" tabindex="-1"><a class="header-anchor" href="#tcp-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B">tcp 四次挥手</a></h2>
+<ul>
+<li>发起方向被动方发送报文，Fin、Ack、Seq，表示已经没有数据传输了。并进入 FIN_WAIT_1 状态。(第一次挥手：由浏览器发起的，发送给服务器，我请求报文发送完了，你准备关闭吧)</li>
+<li>被动方发送报文，Ack、Seq，表示同意关闭请求。此时主机发起方进入 FIN_WAIT_2 状态。(第二次挥手：由服务器发起的，告诉浏览器，我请求报文接受完了，我准备关闭了，你也准备吧)</li>
+<li>被动方向发起方发送报文段，Fin、Ack、Seq，请求关闭连接。并进入 LAST_ACK 状态。(第三次挥手：由服务器发起，告诉浏览器，我响应报文发送完了，你准备关闭吧)</li>
+<li>发起方向被动方发送报文段，Ack、Seq。然后进入等待 TIME_WAIT 状态。被动方收到发起方的报文段以后关闭连接。发起方等待一定时间未收到回复，则正常关闭。(第四次挥手：由浏览器发起，告诉服务器，我响应报文接受完了，我准备关闭了，你也准备吧)</li>
+</ul>
+<h1 id="http" tabindex="-1"><a class="header-anchor" href="#http">HTTP</a></h1>
 <h2 id="%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F">说一下常见请求头？</a></h2>
 <ul>
 <li>Accept 可接受的响应内容类型</li>
@@ -282,10 +319,6 @@
 <li>需要证书，有成本</li>
 <li>默认端口 443</li>
 </ul>
-<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B">什么是 tcp 三次握手</a></h2>
-<ul>
-<li>客户端和服务端都需要知道各自是否可收发，因此需要三次握手。</li>
-</ul>
 <h2 id="http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F">HTTP 报文格式</a></h2>
 <ul>
 <li>http 报文分为三部分：起始行、头部、主体</li>
@@ -295,11 +328,11 @@
 </ul>
 <h2 id="%E7%8A%B6%E6%80%81%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#%E7%8A%B6%E6%80%81%E7%A0%81">状态码</a></h2>
 <ul>
-<li>1** 信息，服务器收到请求，需要请求者继续执行操作</li>
-<li>2** 成功，操作被成功接收并处理</li>
-<li>3** 重定向，需要进一步的操作以完成请求</li>
-<li>4** 客户端错误，请求包含语法错误或无法完成请求</li>
-<li>5** 服务器错误，服务器在处理请求的过程中发生了错误</li>
+<li>1xx 信息，服务器收到请求，需要请求者继续执行操作</li>
+<li>2xx 成功，操作被成功接收并处理</li>
+<li>3xx 重定向，需要进一步的操作以完成请求</li>
+<li>4xx 客户端错误，请求包含语法错误或无法完成请求</li>
+<li>5xx 服务器错误，服务器在处理请求的过程中发生了错误</li>
 <li>100 表示目前为止一切正常, 客户端应该继续请求, 如果已完成请求则忽略</li>
 <li>200 表明请求已经成功. 默认情况下状态码为 200 的响应可以被缓存</li>
 <li>201 表示请求已经被成功处理，并且创建了新的资源。新的资源在应答返回之前已经被创建。</li>
@@ -342,7 +375,7 @@
 <ul>
 <li>GET 和 POST 方法没有实质区别，只是报文格式不同。</li>
 <li>约定上，get 一般使用 url 传参，post 一般使用 body 传参，实际上 post 也可以 url 传参。</li>
-<li>GET 没有副作用，点击 浏览器后退和刷新按钮时，POST 的数据会被重新提交，GET 可以收藏为书签，GET 参数可被浏览器历史保存。</li>
+<li>GET 请求会被浏览器主动缓存下来，GET 没有副作用，点击浏览器后退和刷新按钮时，POST 的数据会被重新提交，GET 可以收藏为书签，GET 参数可被浏览器历史保存。</li>
 <li>GET 的参数长度受到浏览器限制，http 协议上并没有限制。POST 无限制。</li>
 <li>数据类型 GET 只允许传 ASCII 字符，POST 没有限制，允许传二进制数据。</li>
 <li>POST 并不比 GET 安全，只有 https 才是安全的。</li>
@@ -351,8 +384,9 @@
 <li>HTTP 协议 未规定 GET 和 POST 的长度限制</li>
 <li>GET 的最大长度显示是因为 浏览器和 web 服务器限制了 URI 的长度</li>
 <li>不同的浏览器和 WEB 服务器，限制的最大长度不一样</li>
+<li>从 TCP 的角度，GET 请求会把请求报文一次性发出去，而 POST 会分为两个 TCP 数据包，首先发 header 部分，如果服务器响应 100(continue)， 然后发 body 部分。(火狐浏览器除外，它的 POST 请求只发一个 TCP 包)</li>
 </ul>
-<p><a href="https://segmentfault.com/a/1190000018129846" target="_blank">https://segmentfault.com/a/1190000018129846</a>
+<p><a href="https://segmentfault.com/a/1190000018129846" target="_blank">https://segmentfault.com/a/1190000018129846</a><br>
 <a href="https://juejin.im/post/59fc04ecf265da4317697f26" target="_blank">https://juejin.im/post/59fc04ecf265da4317697f26</a></p>
 <h2 id="cookie" tabindex="-1"><a class="header-anchor" href="#cookie">cookie</a></h2>
 <ul>
@@ -396,7 +430,7 @@
 </ul>
 </div>
     
-    <div class="table-of-contents"><ul><li title=TCP/IP><a href="#tcp%2Fip" data-anchor="#tcp%2Fip">TCP/IP</a><ul><li title=TCP 和 UDP 的区别><a href="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB">TCP 和 UDP 的区别</a></li></ul></li><li title=HTTP 协议><a href="#http-%E5%8D%8F%E8%AE%AE" data-anchor="#http-%E5%8D%8F%E8%AE%AE">HTTP 协议</a><ul><li title=说一下常见请求头？><a href="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F" data-anchor="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F">说一下常见请求头？</a></li><li title=HTTP 2.0><a href="#http-2.0" data-anchor="#http-2.0">HTTP 2.0</a><ul><li title=1.1 新特性><a href="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7">1.1 新特性</a></li><li title=2.0 新特性><a href="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7">2.0 新特性</a></li></ul></li><li title=什么是 http><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-http" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-http">什么是 http</a></li><li title=什么是 https><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-https" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-https">什么是 https</a></li><li title=什么是 tcp 三次握手><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B">什么是 tcp 三次握手</a></li><li title=HTTP 报文格式><a href="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F" data-anchor="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F">HTTP 报文格式</a></li><li title=状态码><a href="#%E7%8A%B6%E6%80%81%E7%A0%81" data-anchor="#%E7%8A%B6%E6%80%81%E7%A0%81">状态码</a></li><li title=301 和 302 区别><a href="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB" data-anchor="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB">301 和 302 区别</a></li><li title=options 请求><a href="#options-%E8%AF%B7%E6%B1%82" data-anchor="#options-%E8%AF%B7%E6%B1%82">options 请求</a></li><li title=HTTP 队头阻塞><a href="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E" data-anchor="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E">HTTP 队头阻塞</a></li><li title=post 和 get 区别><a href="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB" data-anchor="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB">post 和 get 区别</a></li><li title=cookie><a href="#cookie" data-anchor="#cookie">cookie</a></li><li title=cookie 缺点><a href="#cookie-%E7%BC%BA%E7%82%B9" data-anchor="#cookie-%E7%BC%BA%E7%82%B9">cookie 缺点</a></li><li title=cookie-session><a href="#cookie-session" data-anchor="#cookie-session">cookie-session</a></li></ul></li><li title=跨域请求如何携带 cookie><a href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie" data-anchor="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie">跨域请求如何携带 cookie</a><ul><li title=withCredentials 是什么><a href="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88">withCredentials 是什么</a></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title=参考><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title=TCP/IP><a href="#tcp%2Fip" data-anchor="#tcp%2Fip">TCP/IP</a><ul><li title=TCP 和 UDP 的区别><a href="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#tcp-%E5%92%8C-udp-%E7%9A%84%E5%8C%BA%E5%88%AB">TCP 和 UDP 的区别</a></li><li title=什么是 tcp 三次握手，为什么><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88">什么是 tcp 三次握手，为什么</a></li><li title=tcp 四次挥手><a href="#tcp-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B" data-anchor="#tcp-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B">tcp 四次挥手</a></li></ul></li><li title=HTTP><a href="#http" data-anchor="#http">HTTP</a><ul><li title=说一下常见请求头？><a href="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F" data-anchor="#%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E5%A4%B4%EF%BC%9F">说一下常见请求头？</a></li><li title=HTTP 2.0><a href="#http-2.0" data-anchor="#http-2.0">HTTP 2.0</a><ul><li title=1.1 新特性><a href="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#1.1-%E6%96%B0%E7%89%B9%E6%80%A7">1.1 新特性</a></li><li title=2.0 新特性><a href="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#2.0-%E6%96%B0%E7%89%B9%E6%80%A7">2.0 新特性</a></li></ul></li><li title=什么是 http><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-http" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-http">什么是 http</a></li><li title=什么是 https><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-https" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-https">什么是 https</a></li><li title=HTTP 报文格式><a href="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F" data-anchor="#http-%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F">HTTP 报文格式</a></li><li title=状态码><a href="#%E7%8A%B6%E6%80%81%E7%A0%81" data-anchor="#%E7%8A%B6%E6%80%81%E7%A0%81">状态码</a></li><li title=301 和 302 区别><a href="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB" data-anchor="#301-%E5%92%8C-302-%E5%8C%BA%E5%88%AB">301 和 302 区别</a></li><li title=options 请求><a href="#options-%E8%AF%B7%E6%B1%82" data-anchor="#options-%E8%AF%B7%E6%B1%82">options 请求</a></li><li title=HTTP 队头阻塞><a href="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E" data-anchor="#http-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E">HTTP 队头阻塞</a></li><li title=post 和 get 区别><a href="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB" data-anchor="#post-%E5%92%8C-get-%E5%8C%BA%E5%88%AB">post 和 get 区别</a></li><li title=cookie><a href="#cookie" data-anchor="#cookie">cookie</a></li><li title=cookie 缺点><a href="#cookie-%E7%BC%BA%E7%82%B9" data-anchor="#cookie-%E7%BC%BA%E7%82%B9">cookie 缺点</a></li><li title=cookie-session><a href="#cookie-session" data-anchor="#cookie-session">cookie-session</a></li></ul></li><li title=跨域请求如何携带 cookie><a href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie" data-anchor="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E5%A6%82%E4%BD%95%E6%90%BA%E5%B8%A6-cookie">跨域请求如何携带 cookie</a><ul><li title=withCredentials 是什么><a href="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#withcredentials-%E6%98%AF%E4%BB%80%E4%B9%88">withCredentials 是什么</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->
