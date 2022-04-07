@@ -76,6 +76,8 @@ require、exports、module、`__filename`、`__dirname`等变量的由来：
 
 # node 事件循环与浏览器的区别
 
+<!-- TODO -->
+
 - 浏览器的事件循环是在 HTML5 中定义的规范，而 Node 中则是由 libuv 库实现
 
 # cluster 原理
@@ -132,4 +134,4 @@ require、exports、module、`__filename`、`__dirname`等变量的由来：
 # npx
 
 - npx 想要解决的主要问题，就是调用项目内部安装的模块，可以避免全局安装模块
-- npx 的原理很简单，就是运行的时候，会到 node_modules/.bin 路径和环境变量*PATH 里面*，_检查命令是否存在_。*由于 npx 会检查环境变量*PATH，所以系统命令也可以调用
+- npx 的原理很简单，就是运行的时候，会到 node*modules/.bin 路径和环境变量*PATH 里面*，*检查命令是否存在\_。*由于 npx 会检查环境变量*PATH，所以系统命令也可以调用
