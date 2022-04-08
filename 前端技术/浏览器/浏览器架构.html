@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
+  <!-- 编译时间：4/8/2022, 9:43:32 AM -->
 
   <script>
     window.root = '/my-book';
@@ -243,7 +243,7 @@
 <h2 id="%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%9E%B6%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%9E%B6%E6%9E%84">多进程架构</a></h2>
 <p>为了节省内存，Chrome 会限制被启动的进程数目，<br>
 当进程数达到一定的界限后，Chrome 会将访问同一个网站的 tab 都放在一个进程里面跑，<br>
-每一个 tab 页面可以看作是浏览器内核进程，然后这个进程是多线程的，它有几大类子线程：</p>
+每一个 tab 页面可以看作是一个渲染进程，包含几大类子线程：</p>
 <ul>
 <li>GUI 线程</li>
 <li>JS 引擎线程</li>
