@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="css" tabindex="-1"><a class="header-anchor" href="#css">CSS</a></h1>
+    <div class="content markdown-body">
+      <h1 id="css" tabindex="-1"><a class="header-anchor" href="#css">CSS</a></h1>
 <h1 id="%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87" tabindex="-1"><a class="header-anchor" href="#%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87">层叠上下文</a></h1>
 <ul>
 <li>z-index 属性值并不是在任何元素上都有效果。它仅在定位元素上有效果。（定义了 position 属性，且属性值为非 static 值的元素）</li>
@@ -328,7 +326,9 @@
 <li>渐进增强：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</li>
 <li>优雅降级：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=CSS><a href="#css" data-anchor="#css">CSS</a></li><li title=层叠上下文><a href="#%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87" data-anchor="#%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87">层叠上下文</a></li><li title=css3 新特性><a href="#css3-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#css3-%E6%96%B0%E7%89%B9%E6%80%A7">css3 新特性</a></li><li title=一行的时候居中，多行的时候左对齐><a href="#%E4%B8%80%E8%A1%8C%E7%9A%84%E6%97%B6%E5%80%99%E5%B1%85%E4%B8%AD%EF%BC%8C%E5%A4%9A%E8%A1%8C%E7%9A%84%E6%97%B6%E5%80%99%E5%B7%A6%E5%AF%B9%E9%BD%90" data-anchor="#%E4%B8%80%E8%A1%8C%E7%9A%84%E6%97%B6%E5%80%99%E5%B1%85%E4%B8%AD%EF%BC%8C%E5%A4%9A%E8%A1%8C%E7%9A%84%E6%97%B6%E5%80%99%E5%B7%A6%E5%AF%B9%E9%BD%90">一行的时候居中，多行的时候左对齐</a></li><li title=怎么清除浮动><a href="#%E6%80%8E%E4%B9%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8" data-anchor="#%E6%80%8E%E4%B9%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8">怎么清除浮动</a></li><li title=CSS 选择器优先级><a href="#css-%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7" data-anchor="#css-%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7">CSS 选择器优先级</a></li><li title=BFC><a href="#bfc" data-anchor="#bfc">BFC</a></li><li title=行级块级区别><a href="#%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E5%8C%BA%E5%88%AB" data-anchor="#%E8%A1%8C%E7%BA%A7%E5%9D%97%E7%BA%A7%E5%8C%BA%E5%88%AB">行级块级区别</a></li><li title=盒模型><a href="#%E7%9B%92%E6%A8%A1%E5%9E%8B" data-anchor="#%E7%9B%92%E6%A8%A1%E5%9E%8B">盒模型</a></li><li title=水平居中><a href="#%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD" data-anchor="#%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD">水平居中</a></li><li title=垂直居中><a href="#%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD" data-anchor="#%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD">垂直居中</a></li><li title=各个单位区别 rem、em、vh、px><a href="#%E5%90%84%E4%B8%AA%E5%8D%95%E4%BD%8D%E5%8C%BA%E5%88%AB-rem%E3%80%81em%E3%80%81vh%E3%80%81px" data-anchor="#%E5%90%84%E4%B8%AA%E5%8D%95%E4%BD%8D%E5%8C%BA%E5%88%AB-rem%E3%80%81em%E3%80%81vh%E3%80%81px">各个单位区别 rem、em、vh、px</a></li><li title=画一条 0.5px 的直线><a href="#%E7%94%BB%E4%B8%80%E6%9D%A1-0.5px-%E7%9A%84%E7%9B%B4%E7%BA%BF" data-anchor="#%E7%94%BB%E4%B8%80%E6%9D%A1-0.5px-%E7%9A%84%E7%9B%B4%E7%BA%BF">画一条 0.5px 的直线</a></li><li title=link 与 @import 的区别><a href="#link-%E4%B8%8E-%40import-%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#link-%E4%B8%8E-%40import-%E7%9A%84%E5%8C%BA%E5%88%AB">link 与 @import 的区别</a></li><li title=渐进增强和优雅降级><a href="#%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E5%92%8C%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7" data-anchor="#%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E5%92%8C%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7">渐进增强和优雅降级</a></li></ul></div>
     

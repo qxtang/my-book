@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
+    <div class="content markdown-body">
+      <h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
 <ul>
 <li><a href="https://segmentfault.com/a/1190000016231512" target="_blank">AST 抽象语法树——最基础的 javascript 重点知识，99%的人根本不了解</a></li>
 <li><a href="https://juejin.cn/post/6844903725228621832" target="_blank">平庸前端码农之蜕变 — AST</a></li>
@@ -333,7 +331,9 @@ n * n;
 <li>将 antd 组件 import 语句转换成按需引入写法的 babel 插件，对 AST 的经典应用</li>
 <li>这个插件现在不是必须的了，antd 的组件库提供了 ES Module 的构建产物，直接通过 <code>import {} from</code> 的形式也可以 tree-shaking</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=参考><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title=解析器 Parser><a href="#%E8%A7%A3%E6%9E%90%E5%99%A8-parser" data-anchor="#%E8%A7%A3%E6%9E%90%E5%99%A8-parser">解析器 Parser</a></li><li title=解析步骤><a href="#%E8%A7%A3%E6%9E%90%E6%AD%A5%E9%AA%A4" data-anchor="#%E8%A7%A3%E6%9E%90%E6%AD%A5%E9%AA%A4">解析步骤</a><ul><li title=词法分析><a href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90" data-anchor="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">词法分析</a></li><li title=语法分析><a href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90" data-anchor="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90">语法分析</a></li></ul></li><li title=应用><a href="#%E5%BA%94%E7%94%A8" data-anchor="#%E5%BA%94%E7%94%A8">应用</a><ul><li title=babel-plugin-import><a href="#babel-plugin-import" data-anchor="#babel-plugin-import">babel-plugin-import</a></li></ul></li></ul></div>
     

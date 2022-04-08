@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a></h1>
+    <div class="content markdown-body">
+      <h1 id="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a></h1>
 <h1 id="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8E%9F%E5%88%99">设计模式原则</a></h1>
 <ul>
 <li>
@@ -742,7 +740,9 @@ client.<span class="hljs-title function_">invoke</span>();
 <li>类似于观察者模式，但是单向的，由中介者统一管理</li>
 <li>例如表单的 onchange 事件，无论是输入框还是单选按钮，都统一与 onchange 通信，由 onchange 统一处理事件类型的差异，实现各个事件间的解耦</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=设计模式><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" data-anchor="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a></li><li title=设计模式原则><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8E%9F%E5%88%99" data-anchor="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8E%9F%E5%88%99">设计模式原则</a></li><li title=设计模式分类><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BB" data-anchor="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BB">设计模式分类</a><ul><li title=创建型><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B" data-anchor="#%E5%88%9B%E5%BB%BA%E5%9E%8B">创建型</a></li><li title=组合型（结构型）><a href="#%E7%BB%84%E5%90%88%E5%9E%8B%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%EF%BC%89" data-anchor="#%E7%BB%84%E5%90%88%E5%9E%8B%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%EF%BC%89">组合型（结构型）</a></li><li title=行为型><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B" data-anchor="#%E8%A1%8C%E4%B8%BA%E5%9E%8B">行为型</a></li></ul></li><li title=工厂模式><a href="#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F" data-anchor="#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">工厂模式</a><ul><li title=场景><a href="#%E5%9C%BA%E6%99%AF" data-anchor="#%E5%9C%BA%E6%99%AF">场景</a></li><li title=示例><a href="#%E7%A4%BA%E4%BE%8B" data-anchor="#%E7%A4%BA%E4%BE%8B">示例</a></li></ul></li><li title=单例模式><a href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F" data-anchor="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F">单例模式</a><ul><li title=示例><a href="#%E7%A4%BA%E4%BE%8B-1" data-anchor="#%E7%A4%BA%E4%BE%8B-1">示例</a></li></ul></li><li title=适配器模式><a href="#%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F" data-anchor="#%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F">适配器模式</a><ul><li title=示例><a href="#%E7%A4%BA%E4%BE%8B-2" data-anchor="#%E7%A4%BA%E4%BE%8B-2">示例</a></li></ul></li><li title=装饰者模式><a href="#%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F" data-anchor="#%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">装饰者模式</a><ul><li title=缺点><a href="#%E7%BC%BA%E7%82%B9" data-anchor="#%E7%BC%BA%E7%82%B9">缺点</a></li></ul></li><li title=代理模式><a href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F" data-anchor="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F">代理模式</a><ul><li title=场景><a href="#%E5%9C%BA%E6%99%AF-1" data-anchor="#%E5%9C%BA%E6%99%AF-1">场景</a></li><li title=缺点><a href="#%E7%BC%BA%E7%82%B9-1" data-anchor="#%E7%BC%BA%E7%82%B9-1">缺点</a></li></ul></li><li title=外观模式><a href="#%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F" data-anchor="#%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F">外观模式</a><ul><li title=场景><a href="#%E5%9C%BA%E6%99%AF-2" data-anchor="#%E5%9C%BA%E6%99%AF-2">场景</a></li></ul></li><li title=观察者模式（发布订阅模式）><a href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F%EF%BC%89" data-anchor="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F%EF%BC%89">观察者模式（发布订阅模式）</a><ul><li title=场景><a href="#%E5%9C%BA%E6%99%AF-3" data-anchor="#%E5%9C%BA%E6%99%AF-3">场景</a></li></ul></li><li title=状态模式><a href="#%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F" data-anchor="#%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F">状态模式</a></li><li title=迭代器模式><a href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F" data-anchor="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F">迭代器模式</a><ul><li title=场景><a href="#%E5%9C%BA%E6%99%AF-4" data-anchor="#%E5%9C%BA%E6%99%AF-4">场景</a></li><li title=示例><a href="#%E7%A4%BA%E4%BE%8B-3" data-anchor="#%E7%A4%BA%E4%BE%8B-3">示例</a></li></ul></li><li title=桥接模式><a href="#%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F" data-anchor="#%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F">桥接模式</a><ul><li title=示例><a href="#%E7%A4%BA%E4%BE%8B-4" data-anchor="#%E7%A4%BA%E4%BE%8B-4">示例</a></li></ul></li><li title=组合模式><a href="#%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F" data-anchor="#%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F">组合模式</a><ul><li title=示例><a href="#%E7%A4%BA%E4%BE%8B-5" data-anchor="#%E7%A4%BA%E4%BE%8B-5">示例</a></li></ul></li><li title=原型模式><a href="#%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F" data-anchor="#%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F">原型模式</a><ul><li title=示例><a href="#%E7%A4%BA%E4%BE%8B-6" data-anchor="#%E7%A4%BA%E4%BE%8B-6">示例</a></li></ul></li><li title=策略模式><a href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F" data-anchor="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F">策略模式</a><ul><li title=场景><a href="#%E5%9C%BA%E6%99%AF-5" data-anchor="#%E5%9C%BA%E6%99%AF-5">场景</a></li></ul></li><li title=模板方法模式><a href="#%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F" data-anchor="#%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">模板方法模式</a><ul><li title=场景><a href="#%E5%9C%BA%E6%99%AF-6" data-anchor="#%E5%9C%BA%E6%99%AF-6">场景</a></li><li title=示例><a href="#%E7%A4%BA%E4%BE%8B-7" data-anchor="#%E7%A4%BA%E4%BE%8B-7">示例</a></li></ul></li><li title=命令模式><a href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F" data-anchor="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F">命令模式</a><ul><li title=示例><a href="#%E7%A4%BA%E4%BE%8B-8" data-anchor="#%E7%A4%BA%E4%BE%8B-8">示例</a></li></ul></li><li title=中介者模式><a href="#%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F" data-anchor="#%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F">中介者模式</a></li></ul></div>
     

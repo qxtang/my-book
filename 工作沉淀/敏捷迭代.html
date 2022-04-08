@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B">敏捷模型</a></h1>
+    <div class="content markdown-body">
+      <h1 id="%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B">敏捷模型</a></h1>
 <h2 id="%E6%80%BB%E8%A7%88" tabindex="-1"><a class="header-anchor" href="#%E6%80%BB%E8%A7%88">总览</a></h2>
 <p><img src="../resource/202203251036668.png" alt=""></p>
 <p><img src="../resource/202203251049013.png" alt=""></p>
@@ -241,7 +239,9 @@
 <p><img src="../resource/202203251049690.png" alt=""></p>
 <h3 id="%E5%B0%8F%E7%BB%84%E7%BB%84%E5%BB%BA%E4%B8%8E%E8%81%8C%E8%B4%A3" tabindex="-1"><a class="header-anchor" href="#%E5%B0%8F%E7%BB%84%E7%BB%84%E5%BB%BA%E4%B8%8E%E8%81%8C%E8%B4%A3">小组组建与职责</a></h3>
 <p><img src="../resource/202203251050827.png" alt=""></p>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=敏捷模型><a href="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B" data-anchor="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B">敏捷模型</a><ul><li title=总览><a href="#%E6%80%BB%E8%A7%88" data-anchor="#%E6%80%BB%E8%A7%88">总览</a></li><li title=敏捷模型><a href="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B-1" data-anchor="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B-1">敏捷模型</a></li><li title=组织架构><a href="#%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84" data-anchor="#%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84">组织架构</a><ul><li title=客户化小组><a href="#%E5%AE%A2%E6%88%B7%E5%8C%96%E5%B0%8F%E7%BB%84" data-anchor="#%E5%AE%A2%E6%88%B7%E5%8C%96%E5%B0%8F%E7%BB%84">客户化小组</a></li><li title=专项+小车道><a href="#%E4%B8%93%E9%A1%B9%2B%E5%B0%8F%E8%BD%A6%E9%81%93" data-anchor="#%E4%B8%93%E9%A1%B9%2B%E5%B0%8F%E8%BD%A6%E9%81%93">专项+小车道</a></li><li title=小组组建与职责><a href="#%E5%B0%8F%E7%BB%84%E7%BB%84%E5%BB%BA%E4%B8%8E%E8%81%8C%E8%B4%A3" data-anchor="#%E5%B0%8F%E7%BB%84%E7%BB%84%E5%BB%BA%E4%B8%8E%E8%81%8C%E8%B4%A3">小组组建与职责</a></li></ul></li></ul></li></ul></div>
     

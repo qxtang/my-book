@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E6%89%8B%E5%86%99%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E9%A2%98">手写题</a></h1>
+    <div class="content markdown-body">
+      <h1 id="%E6%89%8B%E5%86%99%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E9%A2%98">手写题</a></h1>
 <h1 id="%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81" tabindex="-1"><a class="header-anchor" href="#%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81">防抖节流</a></h1>
 <ul>
 <li>防抖：n 秒内只执行一次，如果 n 秒内再次触发，则重新计算时间（多用于输入框）</li>
@@ -441,7 +439,9 @@ uesr.<span class="hljs-title function_">getFactory</span>(<span class="hljs-stri
   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">getFib</span>(i));
 }
 </code></pre>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=手写题><a href="#%E6%89%8B%E5%86%99%E9%A2%98" data-anchor="#%E6%89%8B%E5%86%99%E9%A2%98">手写题</a></li><li title=防抖节流><a href="#%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81" data-anchor="#%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81">防抖节流</a></li><li title=手写工厂模式><a href="#%E6%89%8B%E5%86%99%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F" data-anchor="#%E6%89%8B%E5%86%99%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">手写工厂模式</a></li><li title=手写数组去重><a href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D" data-anchor="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D">手写数组去重</a></li><li title=手写数组扁平化><a href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96" data-anchor="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96">手写数组扁平化</a></li><li title=手写发布订阅 EventEmitter><a href="#%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85-eventemitter" data-anchor="#%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85-eventemitter">手写发布订阅 EventEmitter</a></li><li title=手写获取 url 参数><a href="#%E6%89%8B%E5%86%99%E8%8E%B7%E5%8F%96-url-%E5%8F%82%E6%95%B0" data-anchor="#%E6%89%8B%E5%86%99%E8%8E%B7%E5%8F%96-url-%E5%8F%82%E6%95%B0">手写获取 url 参数</a></li><li title=手写数组乱序><a href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E4%B9%B1%E5%BA%8F" data-anchor="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E4%B9%B1%E5%BA%8F">手写数组乱序</a></li><li title=判断括号字符串是否有效><a href="#%E5%88%A4%E6%96%AD%E6%8B%AC%E5%8F%B7%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88" data-anchor="#%E5%88%A4%E6%96%AD%E6%8B%AC%E5%8F%B7%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88">判断括号字符串是否有效</a></li><li title=求斐波那契数列第 N 项><a href="#%E6%B1%82%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%AC%AC-n-%E9%A1%B9" data-anchor="#%E6%B1%82%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%AC%AC-n-%E9%A1%B9">求斐波那契数列第 N 项</a></li></ul></div>
     

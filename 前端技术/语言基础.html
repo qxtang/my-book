@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="arguments" tabindex="-1"><a class="header-anchor" href="#arguments">arguments</a></h1>
+    <div class="content markdown-body">
+      <h1 id="arguments" tabindex="-1"><a class="header-anchor" href="#arguments">arguments</a></h1>
 <ul>
 <li>是一个类数组对象，存储传入函数的全部参数。（类数组对象：属性是 0 开始的下标，并且有 length 属性，但没有数组独有的方法）</li>
 <li>callee 属性：当前函数的引用</li>
@@ -829,7 +827,9 @@ ES6 新增，用来替代 for in 和 forEach，可以遍历 Arrays（数组）, 
 </code></pre>
 <h1 id="%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></h1>
 <p><a href="https://wangdoc.com/javascript/stdlib/regexp.html" target="_blank">https://wangdoc.com/javascript/stdlib/regexp.html</a></p>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=arguments><a href="#arguments" data-anchor="#arguments">arguments</a><ul><li title=为什么 ES6 不推荐使用 arguments.callee()><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li><li title=delete 机制><a href="#delete-%E6%9C%BA%E5%88%B6" data-anchor="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li title=0.1 + 0.2 为什么不等于 0.3><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" data-anchor="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a><ul><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li></ul></li><li title=es6 新特性><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li title=var let const><a href="#var-let-const" data-anchor="#var-let-const">var let const</a></li><li title=柯里化><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a></li><li title=闭包><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title=如何优化闭包><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li title=垃圾回收><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li title=标记清除（主流）><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" data-anchor="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li title=引用计数><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" data-anchor="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li title=为什么标记清除是主流的><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%98%AF%E4%B8%BB%E6%B5%81%E7%9A%84">为什么标记清除是主流的</a></li><li title=如何避免垃圾回收><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li title=引起内存泄漏的操作><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" data-anchor="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li></ul></li><li title=js 数据类型><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" data-anchor="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a><ul><li title=数据类型的判断><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" data-anchor="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></li><li title=如何判断变量是否为数组><a href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" data-anchor="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></li></ul></li><li title=null 和 undefined 区别><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" data-anchor="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li title=为什么会出现精度丢失><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li><li title=深拷贝、浅拷贝><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" data-anchor="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li title=描述 Promise><a href="#%E6%8F%8F%E8%BF%B0-promise" data-anchor="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li title=手写 Promise><a href="#%E6%89%8B%E5%86%99-promise" data-anchor="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li title=描述 async/await><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" data-anchor="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li title=Array 的方法><a href="#array-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></li><li title=String 的方法><a href="#string-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></li><li title=数组的遍历迭代方法><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" data-anchor="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li title=apply、call、bind><a href="#apply%E3%80%81call%E3%80%81bind" data-anchor="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li title=手写><a href="#%E6%89%8B%E5%86%99" data-anchor="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li title=尾调用和尾递归><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" data-anchor="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li title=正则表达式><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" data-anchor="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li></ul></div>
     

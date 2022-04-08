@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a></h1>
+    <div class="content markdown-body">
+      <h1 id="%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a></h1>
 <h1 id="%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></h1>
 <ul>
 <li>函数式编程是一种编程范式，目标是使用函数来抽象作用在数据之上的控制流与操作，从而在系统中消除副作用并减少对状态的改变，</li>
@@ -248,7 +246,9 @@
 <li>任务分解，一定程度增加代码可读性</li>
 <li>函数式的控制流能够在不需要研究任何内部细节的条件下提供该程序意图的清晰结构，这样就能更深刻地了解代码，并获知数据在不同阶段是如何流入和流出的</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=函数式编程><a href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B" data-anchor="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a></li><li title=是什么><a href="#%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li><li title=函数式库：Ramda.js、lodash、RxJS><a href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E5%BA%93%EF%BC%9Aramda.js%E3%80%81lodash%E3%80%81rxjs" data-anchor="#%E5%87%BD%E6%95%B0%E5%BC%8F%E5%BA%93%EF%BC%9Aramda.js%E3%80%81lodash%E3%80%81rxjs">函数式库：Ramda.js、lodash、RxJS</a></li><li title=命令模式中 run 函数的好处><a href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%AD-run-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A5%BD%E5%A4%84" data-anchor="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%AD-run-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A5%BD%E5%A4%84">命令模式中 run 函数的好处</a></li><li title=为什么纯函数><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%AF%E5%87%BD%E6%95%B0" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%AF%E5%87%BD%E6%95%B0">为什么纯函数</a></li></ul></div>
     

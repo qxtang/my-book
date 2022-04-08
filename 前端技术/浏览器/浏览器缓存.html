@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
+    <div class="content markdown-body">
+      <h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
 <ul>
 <li><a href="https://www.jianshu.com/p/54cc04190252" target="_blank">https://www.jianshu.com/p/54cc04190252</a></li>
 </ul>
@@ -364,7 +362,9 @@
 <li>f5：跳过强缓存，会检查协商缓存</li>
 <li>浏览器地址栏中输入 URL 回车：走正常流程</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=参考><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title=浏览器缓存><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98" data-anchor="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98">浏览器缓存</a></li><li title=缓存位置><a href="#%E7%BC%93%E5%AD%98%E4%BD%8D%E7%BD%AE" data-anchor="#%E7%BC%93%E5%AD%98%E4%BD%8D%E7%BD%AE">缓存位置</a><ul><li title=Memory Cache><a href="#memory-cache" data-anchor="#memory-cache">Memory Cache</a></li><li title=Disk Cache><a href="#disk-cache" data-anchor="#disk-cache">Disk Cache</a></li></ul></li><li title=缓存过程><a href="#%E7%BC%93%E5%AD%98%E8%BF%87%E7%A8%8B" data-anchor="#%E7%BC%93%E5%AD%98%E8%BF%87%E7%A8%8B">缓存过程</a><ul><li title=强缓存><a href="#%E5%BC%BA%E7%BC%93%E5%AD%98" data-anchor="#%E5%BC%BA%E7%BC%93%E5%AD%98">强缓存</a></li><li title=协商缓存><a href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98" data-anchor="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98">协商缓存</a><ul><li title=相关 header><a href="#%E7%9B%B8%E5%85%B3-header" data-anchor="#%E7%9B%B8%E5%85%B3-header">相关 header</a></li></ul></li></ul></li><li title=实际应用><a href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8" data-anchor="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8">实际应用</a></li><li title=按下 F5 或 ctrl+F5 时发生了什么><a href="#%E6%8C%89%E4%B8%8B-f5-%E6%88%96-ctrl%2Bf5-%E6%97%B6%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88" data-anchor="#%E6%8C%89%E4%B8%8B-f5-%E6%88%96-ctrl%2Bf5-%E6%97%B6%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">按下 F5 或 ctrl+F5 时发生了什么</a></li></ul></div>
     

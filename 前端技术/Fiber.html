@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="fiber" tabindex="-1"><a class="header-anchor" href="#fiber">Fiber</a></h1>
+    <div class="content markdown-body">
+      <h1 id="fiber" tabindex="-1"><a class="header-anchor" href="#fiber">Fiber</a></h1>
 <h1 id="%E4%BB%80%E4%B9%88%E6%98%AF-fiber" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber">什么是 Fiber</a></h1>
 <ul>
 <li>Fiber 在英文中的意思为纤维化，即细化，在计算机科学中是比线程还要细的一个东西，把整个更新过程碎片化</li>
@@ -275,7 +273,9 @@
 <ul>
 <li>查找 context 的消费节点，当 context 改变之后, 需要找出依赖该 context 的所有子节点</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=Fiber><a href="#fiber" data-anchor="#fiber">Fiber</a></li><li title=什么是 Fiber><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-fiber">什么是 Fiber</a></li><li title=为什么 Fiber><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber">为什么 Fiber</a></li><li title=Fiber 架构思想><a href="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3" data-anchor="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3">Fiber 架构思想</a></li><li title=Fiber 为什么使用链表><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8" data-anchor="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8">Fiber 为什么使用链表</a></li><li title=Fiber 为什么深度优先><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88" data-anchor="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88">Fiber 为什么深度优先</a></li></ul></div>
     

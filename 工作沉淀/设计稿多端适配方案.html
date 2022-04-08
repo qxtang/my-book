@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E9%A2%98">问题</a></h1>
+    <div class="content markdown-body">
+      <h1 id="%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E9%A2%98">问题</a></h1>
 <p>如何让不同尺寸的屏幕能以正常比例呈现设计稿</p>
 <h2 id="%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E6%96%B9%E6%A1%88">方案</a></h2>
 <ul>
@@ -270,7 +268,9 @@
 <ul>
 <li>用于定义视口的各种行为：视口宽度、初始缩放、最小最大缩放比例、是否允许用户手动缩放</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=问题><a href="#%E9%97%AE%E9%A2%98" data-anchor="#%E9%97%AE%E9%A2%98">问题</a><ul><li title=方案><a href="#%E6%96%B9%E6%A1%88" data-anchor="#%E6%96%B9%E6%A1%88">方案</a></li></ul></li><li title=dpr 是什么><a href="#dpr-%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#dpr-%E6%98%AF%E4%BB%80%E4%B9%88">dpr 是什么</a><ul><li title=物理像素><a href="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0" data-anchor="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0">物理像素</a></li><li title=设备独立像素（dips）><a href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89" data-anchor="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0%EF%BC%88dips%EF%BC%89">设备独立像素（dips）</a></li></ul></li><li title=viewport><a href="#viewport" data-anchor="#viewport">viewport</a></li></ul></div>
     

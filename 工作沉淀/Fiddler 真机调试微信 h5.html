@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:09 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><blockquote>
+    <div class="content markdown-body">
+      <blockquote>
 <p>需求：真机上通过 https 和微信可信域名访问本地服务</p>
 </blockquote>
 <h1 id="%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6">前提条件</a></h1>
@@ -280,7 +278,9 @@
 <p><img src="../resource/20210801125321.jpg" alt=""></p>
 <p>此时手机浏览器可通过 <a href="https://abc.com" target="_blank">https://abc.com</a> 访问电脑上的本地服务。</p>
 <p>结束</p>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=前提条件><a href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6" data-anchor="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6">前提条件</a></li><li title=本地 hosts 文件添加映射><a href="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84" data-anchor="#%E6%9C%AC%E5%9C%B0-hosts-%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E6%98%A0%E5%B0%84">本地 hosts 文件添加映射</a></li><li title=设置 Fiddler><a href="#%E8%AE%BE%E7%BD%AE-fiddler" data-anchor="#%E8%AE%BE%E7%BD%AE-fiddler">设置 Fiddler</a></li><li title=修改 webpack 配置><a href="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE" data-anchor="#%E4%BF%AE%E6%94%B9-webpack-%E9%85%8D%E7%BD%AE">修改 webpack 配置</a></li><li title=修改手机代理><a href="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86" data-anchor="#%E4%BF%AE%E6%94%B9%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86">修改手机代理</a></li><li title=手机安装 Fiddler 证书><a href="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6" data-anchor="#%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-fiddler-%E8%AF%81%E4%B9%A6">手机安装 Fiddler 证书</a></li></ul></div>
     

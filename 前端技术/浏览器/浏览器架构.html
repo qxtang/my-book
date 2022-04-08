@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><ul>
+    <div class="content markdown-body">
+      <ul>
 <li>参考：<br>
 <a href="https://juejin.cn/post/6844904046411644941" target="_blank">https://juejin.cn/post/6844904046411644941</a><br>
 <a href="https://zhuanlan.zhihu.com/p/149063367" target="_blank">https://zhuanlan.zhihu.com/p/149063367</a></li>
@@ -253,6 +251,8 @@
 <li>定时器线程</li>
 <li>网络请求线程</li>
 </ul>
+<p><strong>其中 GUI 线程和 JS 引擎线程是互斥的：</strong></p>
+<p>由于 JavaScript 是可操纵 DOM 的，如果在修改这些元素属性同时渲染界面（即 JavaScript 线程和 UI 线程同时运行），那么渲染线程前后获得的元素数据就可能不一致</p>
 <h3 id="%E5%A5%BD%E5%A4%84" tabindex="-1"><a class="header-anchor" href="#%E5%A5%BD%E5%A4%84">好处</a></h3>
 <ul>
 <li>提供安全性和沙盒性，当其中一个 tab 的崩溃时，你可以随时关闭这个 tab 并且其他 tab 不受到影响</li>
@@ -266,7 +266,9 @@
 <li>会为网站内不同站点的 iframe 分配一个独立的渲染进程</li>
 <li>由来：如果一个 tab 只有一个进程的话不同站点的 iframe 都会跑在这个进程里面，这也意味着它们会共享内存，这就有可能会破坏同源策略</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=浏览器架构（以 chrome 为例）><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9E%B6%E6%9E%84%EF%BC%88%E4%BB%A5-chrome-%E4%B8%BA%E4%BE%8B%EF%BC%89" data-anchor="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9E%B6%E6%9E%84%EF%BC%88%E4%BB%A5-chrome-%E4%B8%BA%E4%BE%8B%EF%BC%89">浏览器架构（以 chrome 为例）</a><ul><li title=各个进程具体负责的工作内容><a href="#%E5%90%84%E4%B8%AA%E8%BF%9B%E7%A8%8B%E5%85%B7%E4%BD%93%E8%B4%9F%E8%B4%A3%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9" data-anchor="#%E5%90%84%E4%B8%AA%E8%BF%9B%E7%A8%8B%E5%85%B7%E4%BD%93%E8%B4%9F%E8%B4%A3%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9">各个进程具体负责的工作内容</a></li><li title=多进程架构><a href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%9E%B6%E6%9E%84" data-anchor="#%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%9E%B6%E6%9E%84">多进程架构</a><ul><li title=好处><a href="#%E5%A5%BD%E5%A4%84" data-anchor="#%E5%A5%BD%E5%A4%84">好处</a></li><li title=坏处><a href="#%E5%9D%8F%E5%A4%84" data-anchor="#%E5%9D%8F%E5%A4%84">坏处</a></li></ul></li><li title=网站隔离功能><a href="#%E7%BD%91%E7%AB%99%E9%9A%94%E7%A6%BB%E5%8A%9F%E8%83%BD" data-anchor="#%E7%BD%91%E7%AB%99%E9%9A%94%E7%A6%BB%E5%8A%9F%E8%83%BD">网站隔离功能</a></li></ul></li></ul></div>
     

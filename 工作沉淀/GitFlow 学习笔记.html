@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:09 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><blockquote>
+    <div class="content markdown-body">
+      <blockquote>
 <p>简单记录工作中使用 gitflow 模型管理代码版本、保证代码安全的方法。</p>
 </blockquote>
 <p>参考文章：<br>
@@ -291,7 +289,9 @@
 <li>hotfix 通过测试上线后，合并 hotfix 分支到 develop 与 master，master 分支打 tag</li>
 <li>版本回退：如果需进行版本回退，则选择上一版本号的 release 分支进行发布</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=分支类型><a href="#%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B" data-anchor="#%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B">分支类型</a><ul><li title=master><a href="#master" data-anchor="#master">master</a></li><li title=develop><a href="#develop" data-anchor="#develop">develop</a></li><li title=feature><a href="#feature" data-anchor="#feature">feature</a></li><li title=release><a href="#release" data-anchor="#release">release</a></li><li title=hotfix><a href="#hotfix" data-anchor="#hotfix">hotfix</a></li></ul></li><li title=主要工作流程示例><a href="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B" data-anchor="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B">主要工作流程示例</a></li></ul></div>
     

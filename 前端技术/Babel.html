@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A6%82%E5%BF%B5">概念</a></h1>
+    <div class="content markdown-body">
+      <h1 id="%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A6%82%E5%BF%B5">概念</a></h1>
 <ul>
 <li>一个 JavaScript 翻译器</li>
 <li>将 ECMAScript 2015+ 语法编写的代码转换为向后兼容的 JavaScript 语法，以便能够运行在各种环境中</li>
@@ -398,7 +396,9 @@ $ yarn add @babel/runtime-corejs3
 <ul>
 <li>生成器函数、async、await 函数经 babel 编译后，regenerator-runtime 模块用于提供功能实现，运行时依赖，需要打包进产物</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=概念><a href="#%E6%A6%82%E5%BF%B5" data-anchor="#%E6%A6%82%E5%BF%B5">概念</a></li><li title=基本工作原理><a href="#%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" data-anchor="#%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86">基本工作原理</a></li><li title=配置><a href="#%E9%85%8D%E7%BD%AE" data-anchor="#%E9%85%8D%E7%BD%AE">配置</a><ul><li title=.babelrc._ 和 babel.config._ 区别><a href="#.babelrc._-%E5%92%8C-babel.config._-%E5%8C%BA%E5%88%AB" data-anchor="#.babelrc._-%E5%92%8C-babel.config._-%E5%8C%BA%E5%88%AB">.babelrc._ 和 babel.config._ 区别</a></li><li title=presets><a href="#presets" data-anchor="#presets">presets</a><ul><li title=useBuiltIns><a href="#usebuiltins" data-anchor="#usebuiltins">useBuiltIns</a><ul><li title=存在的问题><a href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98" data-anchor="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98">存在的问题</a></li></ul></li></ul></li><li title=plugins><a href="#plugins" data-anchor="#plugins">plugins</a></li></ul></li><li title=核心与其周边><a href="#%E6%A0%B8%E5%BF%83%E4%B8%8E%E5%85%B6%E5%91%A8%E8%BE%B9" data-anchor="#%E6%A0%B8%E5%BF%83%E4%B8%8E%E5%85%B6%E5%91%A8%E8%BE%B9">核心与其周边</a><ul><li title=@babel/core><a href="#%40babel%2Fcore" data-anchor="#%40babel%2Fcore">@babel/core</a></li><li title=@babel/cli><a href="#%40babel%2Fcli" data-anchor="#%40babel%2Fcli">@babel/cli</a></li><li title=@babel/plugin-transform-runtime、@babel/runtime><a href="#%40babel%2Fplugin-transform-runtime%E3%80%81%40babel%2Fruntime" data-anchor="#%40babel%2Fplugin-transform-runtime%E3%80%81%40babel%2Fruntime">@babel/plugin-transform-runtime、@babel/runtime</a></li><li title=@babel/parser><a href="#%40babel%2Fparser" data-anchor="#%40babel%2Fparser">@babel/parser</a></li><li title=@babel/traverse><a href="#%40babel%2Ftraverse" data-anchor="#%40babel%2Ftraverse">@babel/traverse</a></li><li title=@babel/generator><a href="#%40babel%2Fgenerator" data-anchor="#%40babel%2Fgenerator">@babel/generator</a></li><li title=@babel/preset-env><a href="#%40babel%2Fpreset-env" data-anchor="#%40babel%2Fpreset-env">@babel/preset-env</a></li><li title=core.js><a href="#core.js" data-anchor="#core.js">core.js</a></li><li title=@babel/polyfill><a href="#%40babel%2Fpolyfill" data-anchor="#%40babel%2Fpolyfill">@babel/polyfill</a></li><li title=regenerator-runtime><a href="#regenerator-runtime" data-anchor="#regenerator-runtime">regenerator-runtime</a></li></ul></li></ul></div>
     

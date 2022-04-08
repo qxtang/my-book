@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="restful" tabindex="-1"><a class="header-anchor" href="#restful">Restful</a></h1>
+    <div class="content markdown-body">
+      <h1 id="restful" tabindex="-1"><a class="header-anchor" href="#restful">Restful</a></h1>
 <ul>
 <li>用 URL 定位资源，用 HTTP 描述操作</li>
 <li>应该将 API 的版本号放入 URL</li>
@@ -394,7 +392,9 @@
 <li>计算机读取“01000011”，得到数字 67，因为 67 被编码成“01000011”。</li>
 <li>计算机在 Unicode 字符集中查找 67，找到了“C”。</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=Restful><a href="#restful" data-anchor="#restful">Restful</a></li><li title=JWT><a href="#jwt" data-anchor="#jwt">JWT</a><ul><li title=组成><a href="#%E7%BB%84%E6%88%90" data-anchor="#%E7%BB%84%E6%88%90">组成</a></li><li title=防篡改><a href="#%E9%98%B2%E7%AF%A1%E6%94%B9" data-anchor="#%E9%98%B2%E7%AF%A1%E6%94%B9">防篡改</a></li><li title=缺点><a href="#%E7%BC%BA%E7%82%B9" data-anchor="#%E7%BC%BA%E7%82%B9">缺点</a></li></ul></li><li title=单元测试><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" data-anchor="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">单元测试</a><ul><li title=前端常用单元测试框架><a href="#%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6" data-anchor="#%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6">前端常用单元测试框架</a></li></ul></li><li title=对称加密 和 非对称加密><a href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86-%E5%92%8C-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86" data-anchor="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86-%E5%92%8C-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86">对称加密 和 非对称加密</a><ul><li title=对称加密><a href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86" data-anchor="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86">对称加密</a></li><li title=非对称加密><a href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86" data-anchor="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86">非对称加密</a></li></ul></li><li title=进程和线程><a href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B" data-anchor="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B">进程和线程</a></li><li title=ESLint 常用哪个规范？><a href="#eslint-%E5%B8%B8%E7%94%A8%E5%93%AA%E4%B8%AA%E8%A7%84%E8%8C%83%EF%BC%9F" data-anchor="#eslint-%E5%B8%B8%E7%94%A8%E5%93%AA%E4%B8%AA%E8%A7%84%E8%8C%83%EF%BC%9F">ESLint 常用哪个规范？</a></li><li title=React 与 Vue 异同><a href="#react-%E4%B8%8E-vue-%E5%BC%82%E5%90%8C" data-anchor="#react-%E4%B8%8E-vue-%E5%BC%82%E5%90%8C">React 与 Vue 异同</a></li><li title=后端一次给 10 万条数据，如何处理展示><a href="#%E5%90%8E%E7%AB%AF%E4%B8%80%E6%AC%A1%E7%BB%99-10-%E4%B8%87%E6%9D%A1%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E5%B1%95%E7%A4%BA" data-anchor="#%E5%90%8E%E7%AB%AF%E4%B8%80%E6%AC%A1%E7%BB%99-10-%E4%B8%87%E6%9D%A1%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E5%B1%95%E7%A4%BA">后端一次给 10 万条数据，如何处理展示</a></li><li title=跨浏览器开发最佳实践><a href="#%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" data-anchor="#%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">跨浏览器开发最佳实践</a></li><li title=调试排错技巧><a href="#%E8%B0%83%E8%AF%95%E6%8E%92%E9%94%99%E6%8A%80%E5%B7%A7" data-anchor="#%E8%B0%83%E8%AF%95%E6%8E%92%E9%94%99%E6%8A%80%E5%B7%A7">调试排错技巧</a><ul><li title=浏览器><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8" data-anchor="#%E6%B5%8F%E8%A7%88%E5%99%A8">浏览器</a></li><li title=react><a href="#react" data-anchor="#react">react</a></li><li title=Nodejs><a href="#nodejs" data-anchor="#nodejs">Nodejs</a></li></ul></li><li title=使用 pscp 实现 Windows 和 Linux 服务器间远程传递文件><a href="#%E4%BD%BF%E7%94%A8-pscp-%E5%AE%9E%E7%8E%B0-windows-%E5%92%8C-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%B4%E8%BF%9C%E7%A8%8B%E4%BC%A0%E9%80%92%E6%96%87%E4%BB%B6" data-anchor="#%E4%BD%BF%E7%94%A8-pscp-%E5%AE%9E%E7%8E%B0-windows-%E5%92%8C-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%B4%E8%BF%9C%E7%A8%8B%E4%BC%A0%E9%80%92%E6%96%87%E4%BB%B6">使用 pscp 实现 Windows 和 Linux 服务器间远程传递文件</a></li><li title=redis 的雪崩和穿透><a href="#redis-%E7%9A%84%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%A9%BF%E9%80%8F" data-anchor="#redis-%E7%9A%84%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%A9%BF%E9%80%8F">redis 的雪崩和穿透</a><ul><li title=原因><a href="#%E5%8E%9F%E5%9B%A0" data-anchor="#%E5%8E%9F%E5%9B%A0">原因</a></li><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li></ul></li><li title=什么是 Base64><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-base64" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-base64">什么是 Base64</a><ul><li title=由来><a href="#%E7%94%B1%E6%9D%A5" data-anchor="#%E7%94%B1%E6%9D%A5">由来</a></li><li title=算法描述><a href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0" data-anchor="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0">算法描述</a></li><li title=使用场景><a href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" data-anchor="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">使用场景</a></li></ul></li><li title=Unicode 字符集><a href="#unicode-%E5%AD%97%E7%AC%A6%E9%9B%86" data-anchor="#unicode-%E5%AD%97%E7%AC%A6%E9%9B%86">Unicode 字符集</a></li></ul></div>
     

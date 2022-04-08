@@ -20,11 +20,12 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/7/2022, 3:07:35 PM -->
+  <!-- 编译时间：4/8/2022, 7:50:10 AM -->
 
   <script>
     window.root = '/my-book';
 
+    // 提前把搜索数据库载入内存
     fetch(`${window.root}/dir_tree.json`)
       .then(function (res) {
         return res.json();
@@ -206,10 +207,6 @@
         
             </ul>
           
-          <li id="test.md" class="children" title="test">
-            <a href="/my-book/test.html">test</a>
-          </li>
-        
           <li id="其他.md" class="children" title="其他">
             <a href="/my-book/其他.html">其他</a>
           </li>
@@ -228,7 +225,8 @@
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
-    <div class="content markdown-body"><h1 id="nodejs" tabindex="-1"><a class="header-anchor" href="#nodejs">Nodejs</a></h1>
+    <div class="content markdown-body">
+      <h1 id="nodejs" tabindex="-1"><a class="header-anchor" href="#nodejs">Nodejs</a></h1>
 <h1 id="node-%E6%A8%A1%E5%9D%97" tabindex="-1"><a class="header-anchor" href="#node-%E6%A8%A1%E5%9D%97">node 模块</a></h1>
 <h2 id="%E6%A8%A1%E5%9D%97%E8%A7%84%E8%8C%83" tabindex="-1"><a class="header-anchor" href="#%E6%A8%A1%E5%9D%97%E8%A7%84%E8%8C%83">模块规范</a></h2>
 <ul>
@@ -365,7 +363,9 @@
 <li>npx 想要解决的主要问题，就是调用项目内部安装的模块，可以避免全局安装模块</li>
 <li>npx 的原理很简单，就是运行的时候，会到 node<em>modules/.bin 路径和环境变量</em>PATH 里面*，*检查命令是否存在_。<em>由于 npx 会检查环境变量</em>PATH，所以系统命令也可以调用</li>
 </ul>
-</div>
+
+      <div class="btt" id="btt"></div>
+    </div>
     
     <div class="table-of-contents"><ul><li title=Nodejs><a href="#nodejs" data-anchor="#nodejs">Nodejs</a></li><li title=node 模块><a href="#node-%E6%A8%A1%E5%9D%97" data-anchor="#node-%E6%A8%A1%E5%9D%97">node 模块</a><ul><li title=模块规范><a href="#%E6%A8%A1%E5%9D%97%E8%A7%84%E8%8C%83" data-anchor="#%E6%A8%A1%E5%9D%97%E8%A7%84%E8%8C%83">模块规范</a><ul><li title=模块引用><a href="#%E6%A8%A1%E5%9D%97%E5%BC%95%E7%94%A8" data-anchor="#%E6%A8%A1%E5%9D%97%E5%BC%95%E7%94%A8">模块引用</a></li><li title=模块定义><a href="#%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89" data-anchor="#%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89">模块定义</a></li><li title=模块标识><a href="#%E6%A8%A1%E5%9D%97%E6%A0%87%E8%AF%86" data-anchor="#%E6%A8%A1%E5%9D%97%E6%A0%87%E8%AF%86">模块标识</a></li></ul></li><li title=模块实现><a href="#%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0" data-anchor="#%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0">模块实现</a><ul><li title=两种类型区别><a href="#%E4%B8%A4%E7%A7%8D%E7%B1%BB%E5%9E%8B%E5%8C%BA%E5%88%AB" data-anchor="#%E4%B8%A4%E7%A7%8D%E7%B1%BB%E5%9E%8B%E5%8C%BA%E5%88%AB">两种类型区别</a></li><li title=缓存优先特性><a href="#%E7%BC%93%E5%AD%98%E4%BC%98%E5%85%88%E7%89%B9%E6%80%A7" data-anchor="#%E7%BC%93%E5%AD%98%E4%BC%98%E5%85%88%E7%89%B9%E6%80%A7">缓存优先特性</a></li><li title=路径分析><a href="#%E8%B7%AF%E5%BE%84%E5%88%86%E6%9E%90" data-anchor="#%E8%B7%AF%E5%BE%84%E5%88%86%E6%9E%90">路径分析</a></li><li title=文件定位><a href="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D" data-anchor="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D">文件定位</a></li><li title=编译执行><a href="#%E7%BC%96%E8%AF%91%E6%89%A7%E8%A1%8C" data-anchor="#%E7%BC%96%E8%AF%91%E6%89%A7%E8%A1%8C">编译执行</a></li><li title=模块内部全局变量的由来><a href="#%E6%A8%A1%E5%9D%97%E5%86%85%E9%83%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E7%94%B1%E6%9D%A5" data-anchor="#%E6%A8%A1%E5%9D%97%E5%86%85%E9%83%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E7%94%B1%E6%9D%A5">模块内部全局变量的由来</a></li></ul></li></ul></li><li title=包结构><a href="#%E5%8C%85%E7%BB%93%E6%9E%84" data-anchor="#%E5%8C%85%E7%BB%93%E6%9E%84">包结构</a></li><li title=node 事件循环与浏览器的区别><a href="#node-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#node-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB">node 事件循环与浏览器的区别</a></li><li title=cluster 原理><a href="#cluster-%E5%8E%9F%E7%90%86" data-anchor="#cluster-%E5%8E%9F%E7%90%86">cluster 原理</a></li><li title=pipe 原理><a href="#pipe-%E5%8E%9F%E7%90%86" data-anchor="#pipe-%E5%8E%9F%E7%90%86">pipe 原理</a></li><li title=nodejs 异常处理><a href="#nodejs-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86" data-anchor="#nodejs-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86">nodejs 异常处理</a></li><li title=特点><a href="#%E7%89%B9%E7%82%B9" data-anchor="#%E7%89%B9%E7%82%B9">特点</a></li><li title=nodejs 解决的问题><a href="#nodejs-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98" data-anchor="#nodejs-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98">nodejs 解决的问题</a></li><li title=NodeJS 的优缺点><a href="#nodejs-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9" data-anchor="#nodejs-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">NodeJS 的优缺点</a></li><li title=应用场景><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF" data-anchor="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">应用场景</a></li><li title=npx><a href="#npx" data-anchor="#npx">npx</a></li></ul></div>
     
