@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/9/2022, 1:03:36 AM -->
+  <!-- 编译时间：4/10/2022, 3:28:52 AM -->
 
   <script>
     window.root = '/my-book';
@@ -34,8 +34,6 @@
         window.__doc_builder_dirTree__ = res;
       });
   </script>
-
-  <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
@@ -385,7 +383,9 @@
 <li>因为对象是引用类型，复制后改变属性还是会影响原始数据，这样会改变 state 里面的状态，是不允许，所以先用深度克隆复制对象，再修改。</li>
 </ul>
 
-      <div class="btt" id="btt"></div>
+      
+        <div class="btt withToc" id="btt"></div>
+      
     </div>
     
     <div class="table-of-contents"><ul><li title=Vue><a href="#vue" data-anchor="#vue">Vue</a></li><li title=Vue 生命周期><a href="#vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" data-anchor="#vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Vue 生命周期</a></li><li title=组件通信方式><a href="#%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F" data-anchor="#%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F">组件通信方式</a></li><li title=什么是 mvvm><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-mvvm" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-mvvm">什么是 mvvm</a></li><li title=双向绑定原理><a href="#%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86" data-anchor="#%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86">双向绑定原理</a></li><li title=说一下 vue2.x 中如何监测数组变化><a href="#%E8%AF%B4%E4%B8%80%E4%B8%8B-vue2.x-%E4%B8%AD%E5%A6%82%E4%BD%95%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84%E5%8F%98%E5%8C%96" data-anchor="#%E8%AF%B4%E4%B8%80%E4%B8%8B-vue2.x-%E4%B8%AD%E5%A6%82%E4%BD%95%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84%E5%8F%98%E5%8C%96">说一下 vue2.x 中如何监测数组变化</a></li><li title=data 和 computed 的区别><a href="#data-%E5%92%8C-computed-%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#data-%E5%92%8C-computed-%E7%9A%84%E5%8C%BA%E5%88%AB">data 和 computed 的区别</a></li><li title=为什么 vue 中 data 必须是一个函数><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-vue-%E4%B8%AD-data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-vue-%E4%B8%AD-data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">为什么 vue 中 data 必须是一个函数</a></li><li title=nextTick><a href="#nexttick" data-anchor="#nexttick">nextTick</a></li><li title=v-if 和 v-show 的区别><a href="#v-if-%E5%92%8C-v-show-%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#v-if-%E5%92%8C-v-show-%E7%9A%84%E5%8C%BA%E5%88%AB">v-if 和 v-show 的区别</a></li><li title=Vue 事件绑定原理><a href="#vue-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86" data-anchor="#vue-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86">Vue 事件绑定原理</a></li><li title=Vue 模版编译原理><a href="#vue-%E6%A8%A1%E7%89%88%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86" data-anchor="#vue-%E6%A8%A1%E7%89%88%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86">Vue 模版编译原理</a></li><li title=keep-alive><a href="#keep-alive" data-anchor="#keep-alive">keep-alive</a></li><li title=Vue 的性能优化><a href="#vue-%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96" data-anchor="#vue-%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">Vue 的性能优化</a></li><li title=vue3 新特性><a href="#vue3-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#vue3-%E6%96%B0%E7%89%B9%E6%80%A7">vue3 新特性</a></li><li title=vuex><a href="#vuex" data-anchor="#vuex">vuex</a><ul><li title=核心属性><a href="#%E6%A0%B8%E5%BF%83%E5%B1%9E%E6%80%A7" data-anchor="#%E6%A0%B8%E5%BF%83%E5%B1%9E%E6%80%A7">核心属性</a></li><li title=Vuex 中状态储存在哪里，怎么改变它？><a href="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E5%82%A8%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E6%94%B9%E5%8F%98%E5%AE%83%EF%BC%9F" data-anchor="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E5%82%A8%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E6%94%B9%E5%8F%98%E5%AE%83%EF%BC%9F">Vuex 中状态储存在哪里，怎么改变它？</a></li><li title=Vuex 中状态是对象时，使用时要注意什么？><a href="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E6%98%AF%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F" data-anchor="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E6%98%AF%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F">Vuex 中状态是对象时，使用时要注意什么？</a></li></ul></li></ul></div>
@@ -395,5 +395,6 @@
     <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
     <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
     <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+    <script src="/my-book/resource/script.js"></script>
   </body>
 </html>

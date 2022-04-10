@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/9/2022, 1:03:36 AM -->
+  <!-- 编译时间：4/10/2022, 3:28:52 AM -->
 
   <script>
     window.root = '/my-book';
@@ -34,8 +34,6 @@
         window.__doc_builder_dirTree__ = res;
       });
   </script>
-
-  <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
@@ -287,13 +285,16 @@
 </ul>
 <h1 id="%E6%9F%AF%E9%87%8C%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a></h1>
 <ul>
-<li>含义：把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。</li>
-<li>意义：让人们将关注的重点聚焦到函数本身，而不因冗余的数据参数分散注意力，单一参数的纯函数是最简单的，目的单纯、职责单一、灵活且通用</li>
-<li>缺点：过度使用会占用较大的堆栈空间</li>
-<li>在一个函数中，首先填充几个参数，然后再返回一个新的函数的技术，称为函数的柯里化。通常可用于在不侵入函数的前提下，为函数 预置通用参数，供多次重复调用</li>
-<li>把一个多参数的函数转化为单参数函数的方法 好处：</li>
-<li>提高程序性能</li>
-<li>使代码模块化，减少耦合增强其可维护性</li>
+<li>把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术</li>
+</ul>
+<h2 id="%E6%84%8F%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#%E6%84%8F%E4%B9%89">意义</a></h2>
+<ul>
+<li>让人们将关注的重点聚焦到函数本身，而不因冗余的数据参数分散注意力，单一参数的纯函数是最简单的，目的单纯、职责单一、灵活且通用</li>
+<li>减少耦合增强其可维护性</li>
+</ul>
+<h2 id="%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9">缺点</a></h2>
+<ul>
+<li>过度使用会占用较大的堆栈空间</li>
 <li>经过柯里化之后，函数的通用性有所降低，但是适用性有所提高</li>
 </ul>
 <pre><code class="language-javascript"><span class="hljs-comment">// 手写柯里化</span>
@@ -306,7 +307,7 @@
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">curryFun</span>(<span class="hljs-params">...args</span>) {
     <span class="hljs-keyword">if</span> (args.<span class="hljs-property">length</span> &lt; fn.<span class="hljs-property">length</span>) {
       <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-title function_">curryFun</span>(...args.<span class="hljs-title function_">concat</span>(<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(<span class="hljs-variable language_">arguments</span>)));
+        <span class="hljs-keyword">return</span> <span class="hljs-title function_">curryFun</span>([...args, ...<span class="hljs-variable language_">arguments</span>]);
       };
     }
     <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn</span>(...args);
@@ -757,57 +758,53 @@ ES6 新增，用来替代 for in 和 forEach，可以遍历 Arrays（数组）, 
 </ul>
 <h2 id="%E6%89%8B%E5%86%99" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99">手写</a></h2>
 <pre><code class="language-javascript"><span class="hljs-comment">// call</span>
-<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myCall</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">context</span>) {
-  <span class="hljs-comment">// 判断调用对象</span>
+<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myCall</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">context, ...args</span>) {
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">this</span> !== <span class="hljs-string">&#x27;function&#x27;</span>) {
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Type error&#x27;</span>);
   }
-  <span class="hljs-comment">// 首先获取参数</span>
-  <span class="hljs-keyword">let</span> args = [...<span class="hljs-variable language_">arguments</span>].<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>);
-  <span class="hljs-keyword">let</span> result = <span class="hljs-literal">null</span>;
+
   <span class="hljs-comment">// 判断 context 是否传入，如果没有传就设置为 window</span>
   context = context || <span class="hljs-variable language_">window</span>;
+
+  <span class="hljs-comment">// 使用 Symbol 来保证属性唯一</span>
+  <span class="hljs-comment">// 保证不会重写用户自己原来定义在 context 中的同名属性</span>
+  <span class="hljs-keyword">const</span> fnSymbol = <span class="hljs-title class_">Symbol</span>();
+
   <span class="hljs-comment">// 将被调用的方法设置为 context 的属性</span>
   <span class="hljs-comment">// this 即为我们要调用的方法</span>
-  context.<span class="hljs-property">fn</span> = <span class="hljs-variable language_">this</span>;
-  <span class="hljs-comment">// 执行要被调用的方法</span>
-  result = context.<span class="hljs-title function_">fn</span>(...args);
-  <span class="hljs-comment">// 删除手动增加的属性方法</span>
-  <span class="hljs-keyword">delete</span> context.<span class="hljs-property">fn</span>;
+  context[fnSymbol] = <span class="hljs-variable language_">this</span>;
+
   <span class="hljs-comment">// 将执行结果返回</span>
-  <span class="hljs-keyword">return</span> result;
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">return</span> context[fnSymbol](...args);
+  } <span class="hljs-keyword">finally</span> {
+    <span class="hljs-comment">// 最后删除手动增加的属性方法</span>
+    <span class="hljs-keyword">delete</span> context[fnSymbol];
+  }
 };
 
+<span class="hljs-keyword">var</span> foo = {
+  <span class="hljs-attr">value</span>: <span class="hljs-number">1</span>,
+};
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">bar</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">value</span>);
+}
+
+bar.<span class="hljs-title function_">call</span>(foo); <span class="hljs-comment">// 1</span>
+bar.<span class="hljs-title function_">myCall</span>(foo); <span class="hljs-comment">// 1</span>
+
 <span class="hljs-comment">// apply</span>
-<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myApply</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">context</span>) {
+<span class="hljs-comment">// 与 call 相比仅获取参数方式不同</span>
+
+<span class="hljs-comment">// bind</span>
+<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myBind</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">context, ...args</span>) {
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">this</span> !== <span class="hljs-string">&#x27;function&#x27;</span>) {
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Type error&#x27;</span>);
   }
-  <span class="hljs-keyword">let</span> result = <span class="hljs-literal">null</span>;
-  context = context || <span class="hljs-variable language_">window</span>;
-  <span class="hljs-comment">// 与上面代码相比，我们使用 Symbol 来保证属性唯一</span>
-  <span class="hljs-comment">// 也就是保证不会重写用户自己原来定义在 context 中的同名属性</span>
-  <span class="hljs-keyword">const</span> fnSymbol = <span class="hljs-title class_">Symbol</span>();
-  context[fnSymbol] = <span class="hljs-variable language_">this</span>;
-  <span class="hljs-comment">// 执行要被调用的方法</span>
-  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">arguments</span>[<span class="hljs-number">1</span>]) {
-    result = context[fnSymbol](...<span class="hljs-variable language_">arguments</span>[<span class="hljs-number">1</span>]);
-  } <span class="hljs-keyword">else</span> {
-    result = context[fnSymbol]();
-  }
-  <span class="hljs-keyword">delete</span> context[fnSymbol];
-  <span class="hljs-keyword">return</span> result;
-};
 
-<span class="hljs-comment">// bind</span>
-<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myBind</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">context</span>) {
-  <span class="hljs-comment">// 判断调用对象是否为函数</span>
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">this</span> !== <span class="hljs-string">&quot;function&quot;</span>) {
-    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Type error&quot;</span>);
-  }
-  <span class="hljs-comment">// 获取参数</span>
-  <span class="hljs-keyword">const</span> args = [...<span class="hljs-variable language_">arguments</span>].<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>),
   <span class="hljs-keyword">const</span> fn = <span class="hljs-variable language_">this</span>;
+
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Fn</span>(<span class="hljs-params"></span>) {
     <span class="hljs-keyword">return</span> fn.<span class="hljs-title function_">apply</span>(
       <span class="hljs-variable language_">this</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Fn</span> ? <span class="hljs-variable language_">this</span> : context,
@@ -852,16 +849,33 @@ ES6 新增，用来替代 for in 和 forEach，可以遍历 Arrays（数组）, 
 
 <span class="hljs-comment">// 1</span>
 </code></pre>
+<h1 id="%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">参数传递</a></h1>
+<ul>
+<li>参数如果是基本类型是按值传递，如果是引用类型按共享传递</li>
+<li>但是当值是一个复杂的数据结构的时候，拷贝就会产生性能上的问题</li>
+</ul>
+<h2 id="%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92" tabindex="-1"><a class="header-anchor" href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92">按值传递</a></h2>
+<ul>
+<li>把函数外部的值复制给函数内部的参数，就和把值从一个变量复制到另一个变量一样</li>
+</ul>
+<h2 id="%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92" tabindex="-1"><a class="header-anchor" href="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92">共享传递</a></h2>
+<ul>
+<li>在传递对象的时候，传递对象的引用的副本</li>
+<li>假设 arg 是一个对象参数，修改 arg.value，可以通过引用找到原值，但是直接修改 arg，并不会修改原值</li>
+</ul>
 
-      <div class="btt" id="btt"></div>
+      
+        <div class="btt withToc" id="btt"></div>
+      
     </div>
     
-    <div class="table-of-contents"><ul><li title=arguments><a href="#arguments" data-anchor="#arguments">arguments</a><ul><li title=为什么 ES6 不推荐使用 arguments.callee()><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li><li title=delete 机制><a href="#delete-%E6%9C%BA%E5%88%B6" data-anchor="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li title=0.1 + 0.2 为什么不等于 0.3><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" data-anchor="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a><ul><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li></ul></li><li title=es6 新特性><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li title=var let const><a href="#var-let-const" data-anchor="#var-let-const">var let const</a></li><li title=柯里化><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a></li><li title=闭包><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title=如何优化闭包><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li title=垃圾回收><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li title=标记清除（主流）><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" data-anchor="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li title=引用计数><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" data-anchor="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li title=如何避免垃圾回收><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li title=引起内存泄漏的操作><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" data-anchor="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li></ul></li><li title=js 数据类型><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" data-anchor="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a><ul><li title=数据类型的判断><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" data-anchor="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></li><li title=如何判断变量是否为数组><a href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" data-anchor="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></li></ul></li><li title=null 和 undefined 区别><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" data-anchor="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li title=为什么会出现精度丢失><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li><li title=深拷贝、浅拷贝><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" data-anchor="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li title=描述 Promise><a href="#%E6%8F%8F%E8%BF%B0-promise" data-anchor="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li title=手写 Promise><a href="#%E6%89%8B%E5%86%99-promise" data-anchor="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li title=描述 async/await><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" data-anchor="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li title=Array 的方法><a href="#array-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></li><li title=String 的方法><a href="#string-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></li><li title=数组的遍历迭代方法><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" data-anchor="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li title=apply、call、bind><a href="#apply%E3%80%81call%E3%80%81bind" data-anchor="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li title=手写><a href="#%E6%89%8B%E5%86%99" data-anchor="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li title=尾调用和尾递归><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" data-anchor="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li title=词法作用域和动态作用域><a href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F" data-anchor="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F">词法作用域和动态作用域</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=arguments><a href="#arguments" data-anchor="#arguments">arguments</a><ul><li title=为什么 ES6 不推荐使用 arguments.callee()><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li><li title=delete 机制><a href="#delete-%E6%9C%BA%E5%88%B6" data-anchor="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li title=0.1 + 0.2 为什么不等于 0.3><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" data-anchor="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a><ul><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li></ul></li><li title=es6 新特性><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li title=var let const><a href="#var-let-const" data-anchor="#var-let-const">var let const</a></li><li title=柯里化><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a><ul><li title=意义><a href="#%E6%84%8F%E4%B9%89" data-anchor="#%E6%84%8F%E4%B9%89">意义</a></li><li title=缺点><a href="#%E7%BC%BA%E7%82%B9" data-anchor="#%E7%BC%BA%E7%82%B9">缺点</a></li></ul></li><li title=闭包><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title=如何优化闭包><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li title=垃圾回收><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li title=标记清除（主流）><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" data-anchor="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li title=引用计数><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" data-anchor="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li title=如何避免垃圾回收><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li title=引起内存泄漏的操作><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" data-anchor="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li></ul></li><li title=js 数据类型><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" data-anchor="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a><ul><li title=数据类型的判断><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" data-anchor="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></li><li title=如何判断变量是否为数组><a href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" data-anchor="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></li></ul></li><li title=null 和 undefined 区别><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" data-anchor="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li title=为什么会出现精度丢失><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li><li title=深拷贝、浅拷贝><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" data-anchor="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li title=描述 Promise><a href="#%E6%8F%8F%E8%BF%B0-promise" data-anchor="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li title=手写 Promise><a href="#%E6%89%8B%E5%86%99-promise" data-anchor="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li title=描述 async/await><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" data-anchor="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li title=Array 的方法><a href="#array-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></li><li title=String 的方法><a href="#string-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></li><li title=数组的遍历迭代方法><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" data-anchor="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li title=apply、call、bind><a href="#apply%E3%80%81call%E3%80%81bind" data-anchor="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li title=手写><a href="#%E6%89%8B%E5%86%99" data-anchor="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li title=尾调用和尾递归><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" data-anchor="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li title=词法作用域和动态作用域><a href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F" data-anchor="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F">词法作用域和动态作用域</a></li><li title=参数传递><a href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92" data-anchor="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">参数传递</a><ul><li title=按值传递><a href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92" data-anchor="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92">按值传递</a></li><li title=共享传递><a href="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92" data-anchor="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92">共享传递</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->
     <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
     <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
     <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+    <script src="/my-book/resource/script.js"></script>
   </body>
 </html>

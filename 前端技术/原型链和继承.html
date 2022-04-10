@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/9/2022, 1:03:36 AM -->
+  <!-- 编译时间：4/10/2022, 3:28:52 AM -->
 
   <script>
     window.root = '/my-book';
@@ -34,8 +34,6 @@
         window.__doc_builder_dirTree__ = res;
       });
   </script>
-
-  <script src="/my-book/resource/script.js"></script>
 </head>
 
   <body>
@@ -320,10 +318,10 @@ null 表示“没有对象”，即该处不应该有值。
 <li>判断函数的返回值类型，如果是引用类型，就返回这个引用类型的对象</li>
 </ul>
 <p>手写 new：</p>
-<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myNew</span>(<span class="hljs-params">context</span>) {
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myNew</span>(<span class="hljs-params">context, ...args</span>) {
   <span class="hljs-keyword">const</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();
   obj.<span class="hljs-property">__proto__</span> = context.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>;
-  <span class="hljs-keyword">const</span> res = context.<span class="hljs-title function_">apply</span>(obj, [...<span class="hljs-variable language_">arguments</span>].<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));
+  <span class="hljs-keyword">const</span> res = context.<span class="hljs-title function_">apply</span>(obj, args);
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> res === <span class="hljs-string">&#x27;object&#x27;</span> ? res : obj;
 }
 </code></pre>
@@ -462,7 +460,9 @@ null 表示“没有对象”，即该处不应该有值。
 }
 </code></pre>
 
-      <div class="btt" id="btt"></div>
+      
+        <div class="btt withToc" id="btt"></div>
+      
     </div>
     
     <div class="table-of-contents"><ul><li title=参考><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title=原型链><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE" data-anchor="#%E5%8E%9F%E5%9E%8B%E9%93%BE">原型链</a><ul><li title=原型对象 和 构造函数><a href="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" data-anchor="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1-%E5%92%8C-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">原型对象 和 构造函数</a></li><li title=声明方法为什么要用 prototype><a href="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype" data-anchor="#%E5%A3%B0%E6%98%8E%E6%96%B9%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-prototype">声明方法为什么要用 prototype</a></li><li title=prototype 和 proto 和 constructor 的关系><a href="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB" data-anchor="#prototype-%E5%92%8C-proto-%E5%92%8C-constructor-%E7%9A%84%E5%85%B3%E7%B3%BB">prototype 和 proto 和 constructor 的关系</a></li><li title=typeof 和 instanceof 区别><a href="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB" data-anchor="#typeof-%E5%92%8C-instanceof-%E5%8C%BA%E5%88%AB">typeof 和 instanceof 区别</a></li><li title=new 干了什么><a href="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88" data-anchor="#new-%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88">new 干了什么</a></li></ul></li><li title=继承><a href="#%E7%BB%A7%E6%89%BF" data-anchor="#%E7%BB%A7%E6%89%BF">继承</a><ul><li title=原型链继承><a href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF" data-anchor="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF">原型链继承</a></li><li title=盗用构造函数><a href="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" data-anchor="#%E7%9B%97%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">盗用构造函数</a></li><li title=组合继承><a href="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" data-anchor="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">组合继承</a></li><li title=原型式继承><a href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF" data-anchor="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF">原型式继承</a></li><li title=寄生式继承><a href="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF" data-anchor="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF">寄生式继承</a></li><li title=寄生组合继承><a href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF" data-anchor="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF">寄生组合继承</a></li><li title=ES6 的 extends><a href="#es6-%E7%9A%84-extends" data-anchor="#es6-%E7%9A%84-extends">ES6 的 extends</a></li></ul></li></ul></div>
@@ -472,5 +472,6 @@ null 表示“没有对象”，即该处不应该有值。
     <script src="//cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
     <script src="//unpkg.com/viewerjs@1.10.4/dist/viewer.min.js"></script>
     <script src="//unpkg.com/jquery-viewer@1.0.1/dist/jquery-viewer.min.js"></script>
+    <script src="/my-book/resource/script.js"></script>
   </body>
 </html>

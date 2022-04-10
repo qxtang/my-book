@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return false;
     }
   };
+  var LAST_VISIT_KEY = '20220410091109_LAST_VISIT_KEY';
   var isMobile = !!(document.body.clientWidth < 900); // menu
 
   (function () {
@@ -34,9 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
       var _path = url.replace(host, '');
 
       var isActive = path === _path;
+      var lastVisit = window.localStorage.getItem(LAST_VISIT_KEY);
+      var isLastVisit = lastVisit === _path;
 
       if (isActive) {
         $(this).parent('.children').addClass('active');
+      }
+
+      if (isLastVisit) {
+        $(this).addClass('last-visit');
       }
     });
   })(); // menu drag
@@ -108,10 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   (function () {
-    if (isMobile) {
-      return;
-    }
-
     var $input = $('#search_bar > input');
     var $clear = $('#search_bar > #clear');
     var timer = null;
@@ -167,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         html = res.map(function (info) {
           var index = info.content.toLowerCase().indexOf(value);
-          var summary = "...".concat(info.content.substring(index, index + 30), "...");
+          var summary = "...".concat(info.content.substring(index, index + 50), "...");
           var href = "".concat(window.root, "/").concat(info.relative_path ? info.relative_path + '/' : '').concat(info.basename, ".html?search=").concat(value);
           return "\n              <a class=\"item\" href=\"".concat(href, "\">\n                <div class=\"title\">").concat(addHighlight(info.basename, value), "</div>\n                <div class=\"content\">").concat(addHighlight(summary, value), "</div>\n              </a>\n            ");
         }).join('');
@@ -236,5 +239,16 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTop: 0
       }, 200);
     });
+  })(); // set last visit
+
+
+  (function () {
+    var path = decodeURIComponent(window.location.pathname);
+
+    if (["".concat(window.root, "/"), "".concat(window.root, "/index.html"), '/', '/index.html'].includes(path)) {
+      return;
+    }
+
+    window.localStorage.setItem(LAST_VISIT_KEY, path);
   })();
 });
