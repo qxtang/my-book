@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/10/2022, 3:28:52 AM -->
+  <!-- 编译时间：4/10/2022, 2:38:46 PM -->
 
   <script>
     window.root = '/my-book';
@@ -155,6 +155,10 @@
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
+          <li id="前端技术/Redux.md" class="children" title="Redux">
+            <a href="/my-book/前端技术/Redux.html">Redux</a>
+          </li>
+        
           <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
@@ -228,17 +232,43 @@
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="arguments" tabindex="-1"><a class="header-anchor" href="#arguments">arguments</a></h1>
+      <h1 id="js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a></h1>
 <ul>
-<li>是一个类数组对象，存储传入函数的全部参数。（类数组对象：属性是 0 开始的下标，并且有 length 属性，但没有数组独有的方法）</li>
-<li>callee 属性：当前函数的引用</li>
-<li>妙用：递归、参数累加</li>
+<li>基本类型：number、string、boolean、undefined、null、Symbol、BigInt（BigInt 是一种内置对象，它提供了一种方法来表示大于 2^53 - 1 的整数。这原本是 Javascript 中可以用 Number 表示的最大数字。BigInt 可以表示任意大的整数）</li>
+<li>引用类型：Object、Array、Function、内置对象（Date、Math 等等）</li>
+<li>栈内存：是一种特殊的线性表，它具有后进先出的特性，存放基本类型</li>
+<li>堆内存：存放引用类型（在栈内存中存一个基本类型值保存对象在堆内存中的地址，用于引用这个对象)</li>
+<li>基本数据类型保存在栈内存中，因为基本数据类型占用空间小、大小固定，通过按值来访问，属于被频繁使用的数据</li>
+<li>引用数据类型存储在堆内存中，因为引用数据类型占据空间大、占用内存不固定。 如果存储在栈中，将会影响程序运行的性能</li>
+<li>引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体</li>
 </ul>
-<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></h2>
+<h2 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></h2>
 <ul>
-<li>访问 arguments 是个很昂贵的操作，因为它是个很大的对象，每次递归调用时都需要重新创建。影响浏览器的性能，还会影响闭包。</li>
-<li>当一个函数必须调用自身的时候，假如它是函数表达式则给它命名，或者使用函数声明，避免使用 callee</li>
+<li>typeof：能判断所有值类型，函数。不可对 null、对象、数组进行精确判断，因为都返回 object</li>
+<li>instanceof：能判断对象类型，不能判断基本数据类型，其内部运行机制是判断在其原型链中能否找到该类型的原型</li>
+<li>使用 Object.prototype.toString.call()，所有原始数据类型都能判断，还有 Error 对象，Date 对象等</li>
 </ul>
+<h2 id="%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></h2>
+<ul>
+<li><code>Array.isArray(arr)</code></li>
+<li><code>arr.__proto__ === Array.prototype</code></li>
+<li><code>arr instanceof Array</code></li>
+<li><code>Object.prototype.toString.call(arr)</code></li>
+</ul>
+<h2 id="null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></h2>
+<p>null 表示没有对象，即该处不应该有值。
+undefined 表示缺少值，即此处应该有值，但没有定义。
+typeof null 为 object
+typeof undefined 为 undefined</p>
+<p>null 和 undefined 转换成 number 数据类型时，
+null 转成 0 undefined 转成 NaN</p>
+<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></h2>
+<ul>
+<li>这跟浮点数在计算机内部（用二进制存储）的表示方法有关</li>
+<li>JS 采用 IEEE 754 标准的 64 位双精度浮点数表示法，这个标准是 20 世纪 80 年代以来最广泛使用的浮点数运算标准，为许多 CPU 与浮点运算器所采用，也被很多语言如 java、python 采用。</li>
+</ul>
+<p>这个标准，会让大部分的十进制小数都不能用二进制浮点数来精确表示（比如转成二进制就会变成无限小数）。所以一般情况下，你输入的十进制小数仅由实际存储在计算机中的近似的二进制浮点数表示。</p>
+<p>然而，许多语言在处理的时候，在一定误差范围内（通常极小）会将结果修正为正确的目标数字，而不是像 JS 一样将存在误差的真实结果转换成最接近的小数输出</p>
 <h1 id="delete-%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></h1>
 <ul>
 <li>使用 delete 操作符并不会直接释放内存，与 V8 引擎有关</li>
@@ -385,43 +415,8 @@
 <li>引用循环：在两个对象彼此引用且彼此保留时，就会产生一个引用循环</li>
 <li>console.log 打印了太大的变量</li>
 </ul>
-<h1 id="js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a></h1>
-<ul>
-<li>基本类型：number、string、boolean、undefined、null、Symbol、BigInt（BigInt 是一种内置对象，它提供了一种方法来表示大于 2^53 - 1 的整数。这原本是 Javascript 中可以用 Number 表示的最大数字。BigInt 可以表示任意大的整数）</li>
-<li>栈内存：是一种特殊的线性表，它具有后进先出的特性，存放基本类型</li>
-<li>堆内存：存放引用类型（在栈内存中存一个基本类型值保存对象在堆内存中的地址，用于引用这个对象)</li>
-<li>基本数据类型保存在栈内存中，因为基本数据类型占用空间小、大小固定，通过按值来访问，属于被频繁使用的数据</li>
-<li>引用数据类型存储在堆内存中，因为引用数据类型占据空间大、占用内存不固定。 如果存储在栈中，将会影响程序运行的性能</li>
-<li>引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体</li>
-<li>引用类型：Object、Array、Function、内置对象（Date、Math 等等）</li>
-</ul>
-<h2 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></h2>
-<ul>
-<li>typeof：能判断所有值类型，函数。不可对 null、对象、数组进行精确判断，因为都返回 object</li>
-<li>instanceof：能判断对象类型，不能判断基本数据类型，其内部运行机制是判断在其原型链中能否找到该类型的原型</li>
-<li>使用 Object.prototype.toString.call()，所有原始数据类型都能判断，还有 Error 对象，Date 对象等</li>
-</ul>
-<h2 id="%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></h2>
-<ul>
-<li><code>Array.isArray(arr)</code></li>
-<li><code>arr.__proto__ === Array.prototype</code></li>
-<li><code>arr instanceof Array</code></li>
-<li><code>Object.prototype.toString.call(arr)</code></li>
-</ul>
-<h1 id="null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></h1>
-<p>null 表示没有对象，即该处不应该有值。
-undefined 表示缺少值，即此处应该有值，但没有定义。
-typeof null 为 object
-typeof undefined 为 undefined</p>
-<p>null 和 undefined 转换成 number 数据类型时，
-null 转成 0 undefined 转成 NaN</p>
-<h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></h1>
-<ul>
-<li>这跟浮点数在计算机内部（用二进制存储）的表示方法有关</li>
-<li>JS 采用 IEEE 754 标准的 64 位双精度浮点数表示法，这个标准是 20 世纪 80 年代以来最广泛使用的浮点数运算标准，为许多 CPU 与浮点运算器所采用，也被很多语言如 java、python 采用。</li>
-</ul>
-<p>这个标准，会让大部分的十进制小数都不能用二进制浮点数来精确表示（比如转成二进制就会变成无限小数）。所以一般情况下，你输入的十进制小数仅由实际存储在计算机中的近似的二进制浮点数表示。</p>
-<p>然而，许多语言在处理的时候，在一定误差范围内（通常极小）会将结果修正为正确的目标数字，而不是像 JS 一样将存在误差的真实结果转换成最接近的小数输出</p>
+<h2 id="%E6%89%8B%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98">手动释放内存</a></h2>
+<p>fn = null【null：空指针对象】</p>
 <h1 id="%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></h1>
 <ul>
 <li>浅拷贝: 以赋值的形式拷贝引用对象，仍指向同一个地址，修改时原对象也会受到影响 Object.assign 或 展开运算符</li>
@@ -863,13 +858,24 @@ bar.<span class="hljs-title function_">myCall</span>(foo); <span class="hljs-com
 <li>在传递对象的时候，传递对象的引用的副本</li>
 <li>假设 arg 是一个对象参数，修改 arg.value，可以通过引用找到原值，但是直接修改 arg，并不会修改原值</li>
 </ul>
+<h1 id="arguments" tabindex="-1"><a class="header-anchor" href="#arguments">arguments</a></h1>
+<ul>
+<li>是一个类数组对象，存储传入函数的全部参数。（类数组对象：属性是 0 开始的下标，并且有 length 属性，但没有数组独有的方法）</li>
+<li>callee 属性：当前函数的引用</li>
+<li>妙用：递归、参数累加</li>
+</ul>
+<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></h2>
+<ul>
+<li>访问 arguments 是个很昂贵的操作，因为它是个很大的对象，每次递归调用时都需要重新创建。影响浏览器的性能，还会影响闭包。</li>
+<li>当一个函数必须调用自身的时候，假如它是函数表达式则给它命名，或者使用函数声明，避免使用 callee</li>
+</ul>
 
       
         <div class="btt withToc" id="btt"></div>
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=arguments><a href="#arguments" data-anchor="#arguments">arguments</a><ul><li title=为什么 ES6 不推荐使用 arguments.callee()><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li><li title=delete 机制><a href="#delete-%E6%9C%BA%E5%88%B6" data-anchor="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li title=0.1 + 0.2 为什么不等于 0.3><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" data-anchor="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a><ul><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li></ul></li><li title=es6 新特性><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li title=var let const><a href="#var-let-const" data-anchor="#var-let-const">var let const</a></li><li title=柯里化><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a><ul><li title=意义><a href="#%E6%84%8F%E4%B9%89" data-anchor="#%E6%84%8F%E4%B9%89">意义</a></li><li title=缺点><a href="#%E7%BC%BA%E7%82%B9" data-anchor="#%E7%BC%BA%E7%82%B9">缺点</a></li></ul></li><li title=闭包><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title=如何优化闭包><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li title=垃圾回收><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li title=标记清除（主流）><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" data-anchor="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li title=引用计数><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" data-anchor="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li title=如何避免垃圾回收><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li title=引起内存泄漏的操作><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" data-anchor="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li></ul></li><li title=js 数据类型><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" data-anchor="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a><ul><li title=数据类型的判断><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" data-anchor="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></li><li title=如何判断变量是否为数组><a href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" data-anchor="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></li></ul></li><li title=null 和 undefined 区别><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" data-anchor="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li title=为什么会出现精度丢失><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li><li title=深拷贝、浅拷贝><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" data-anchor="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li title=描述 Promise><a href="#%E6%8F%8F%E8%BF%B0-promise" data-anchor="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li title=手写 Promise><a href="#%E6%89%8B%E5%86%99-promise" data-anchor="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li title=描述 async/await><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" data-anchor="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li title=Array 的方法><a href="#array-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></li><li title=String 的方法><a href="#string-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></li><li title=数组的遍历迭代方法><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" data-anchor="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li title=apply、call、bind><a href="#apply%E3%80%81call%E3%80%81bind" data-anchor="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li title=手写><a href="#%E6%89%8B%E5%86%99" data-anchor="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li title=尾调用和尾递归><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" data-anchor="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li title=词法作用域和动态作用域><a href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F" data-anchor="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F">词法作用域和动态作用域</a></li><li title=参数传递><a href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92" data-anchor="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">参数传递</a><ul><li title=按值传递><a href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92" data-anchor="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92">按值传递</a></li><li title=共享传递><a href="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92" data-anchor="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92">共享传递</a></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title=js 数据类型><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" data-anchor="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a><ul><li title=数据类型的判断><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" data-anchor="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></li><li title=如何判断变量是否为数组><a href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" data-anchor="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></li><li title=null 和 undefined 区别><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" data-anchor="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li title=为什么会出现精度丢失><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li></ul></li><li title=delete 机制><a href="#delete-%E6%9C%BA%E5%88%B6" data-anchor="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li title=0.1 + 0.2 为什么不等于 0.3><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" data-anchor="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a><ul><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li></ul></li><li title=es6 新特性><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li title=var let const><a href="#var-let-const" data-anchor="#var-let-const">var let const</a></li><li title=柯里化><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a><ul><li title=意义><a href="#%E6%84%8F%E4%B9%89" data-anchor="#%E6%84%8F%E4%B9%89">意义</a></li><li title=缺点><a href="#%E7%BC%BA%E7%82%B9" data-anchor="#%E7%BC%BA%E7%82%B9">缺点</a></li></ul></li><li title=闭包><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title=如何优化闭包><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li title=垃圾回收><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li title=标记清除（主流）><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" data-anchor="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li title=引用计数><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" data-anchor="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li title=如何避免垃圾回收><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li title=引起内存泄漏的操作><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" data-anchor="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li><li title=手动释放内存><a href="#%E6%89%8B%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98" data-anchor="#%E6%89%8B%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98">手动释放内存</a></li></ul></li><li title=深拷贝、浅拷贝><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" data-anchor="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li title=描述 Promise><a href="#%E6%8F%8F%E8%BF%B0-promise" data-anchor="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li title=手写 Promise><a href="#%E6%89%8B%E5%86%99-promise" data-anchor="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li title=描述 async/await><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" data-anchor="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li title=Array 的方法><a href="#array-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></li><li title=String 的方法><a href="#string-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></li><li title=数组的遍历迭代方法><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" data-anchor="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li title=apply、call、bind><a href="#apply%E3%80%81call%E3%80%81bind" data-anchor="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li title=手写><a href="#%E6%89%8B%E5%86%99" data-anchor="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li title=尾调用和尾递归><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" data-anchor="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li title=词法作用域和动态作用域><a href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F" data-anchor="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F">词法作用域和动态作用域</a></li><li title=参数传递><a href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92" data-anchor="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">参数传递</a><ul><li title=按值传递><a href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92" data-anchor="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92">按值传递</a></li><li title=共享传递><a href="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92" data-anchor="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92">共享传递</a></li></ul></li><li title=arguments><a href="#arguments" data-anchor="#arguments">arguments</a><ul><li title=为什么 ES6 不推荐使用 arguments.callee()><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

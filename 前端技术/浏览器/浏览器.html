@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/10/2022, 3:28:51 AM -->
+  <!-- 编译时间：4/10/2022, 2:38:45 PM -->
 
   <script>
     window.root = '/my-book';
@@ -155,6 +155,10 @@
             <a href="/my-book/前端技术/React.html">React</a>
           </li>
         
+          <li id="前端技术/Redux.md" class="children" title="Redux">
+            <a href="/my-book/前端技术/Redux.html">Redux</a>
+          </li>
+        
           <li id="前端技术/Typescript.md" class="children" title="Typescript">
             <a href="/my-book/前端技术/Typescript.html">Typescript</a>
           </li>
@@ -253,7 +257,7 @@ dns-prefetch：DNS Prefetch 是一种 DNS 预解析技术。当你浏览网页�
 <p>获得请求 url 对应的 ip 地址，根据解析到的 IP 地址和端口号发起请求</p>
 </li>
 <li>
-<p>tcp 协议通过三次握手与服务器建立连接</p>
+<p>建立 TCP 连接：tcp 协议通过三次握手与服务器建立连接</p>
 </li>
 <li>
 <p>服务器（nginx、apache 等）处理请求并返回 HTTP 报文，浏览器收到开始渲染</p>
@@ -262,7 +266,7 @@ dns-prefetch：DNS Prefetch 是一种 DNS 预解析技术。当你浏览网页�
 <p>渲染过程</p>
 <ul>
 <li>
-<p>参考：<a href="https://juejin.cn/post/6844903779700047885" target="_blank">你真的了解回流和重绘吗</a></p>
+<p>参考：<a href="https://juejin.cn/post/6844903779700047885" target="_blank">https://juejin.cn/post/6844903779700047885</a></p>
 </li>
 <li>
 <p>浏览器根据深度遍历的方式把 html 节点遍历成 dom 树</p>
@@ -275,12 +279,12 @@ dns-prefetch：DNS Prefetch 是一种 DNS 预解析技术。当你浏览网页�
 <blockquote>
 <p>补充：构造渲染树的过程，从 DOM 树的根节点开始遍历每个可见的节点，对于每个可见的节点，找到 CSS 树中的对应的规则，并且应用他们，根据每个可见的节点及其对应的样式，组合生成渲染树</p>
 </blockquote>
-</li>
-<li>
+<blockquote>
 <p>当文档加载过程中遇到 js 文件，html 文档会挂起渲染的线程，要等待文档中 js 文件加载完毕，还要等待解析执行完毕，才可以恢复 html 文档的渲染线程，因为 JS 有可能会修改 DOM，这意味着在 JS 执行完成前，后续资源的下载可能是没有必要的，这是 js 阻塞后续资源下载的原因。所以平时的代码中，js 是放在 html 文档末尾的</p>
+</blockquote>
 </li>
 <li>
-<p>根据得到的渲染树 计算所有节点在屏幕中的位置，进行布局（回流）</p>
+<p>根据得到的渲染树，计算所有节点在屏幕中的位置，进行布局（回流）</p>
 </li>
 <li>
 <p>遍历渲染树并调用硬件的 API 绘制所有节点（重绘）</p>
@@ -636,7 +640,7 @@ res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string
 </code></pre>
 </li>
 </ul>
-<h3 id="cors-%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB" tabindex="-1"><a class="header-anchor" href="#cors-%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB">CORS 请求的分类</a></h3>
+<h3 id="%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB" tabindex="-1"><a class="header-anchor" href="#%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB">请求的分类</a></h3>
 <p>同时满足以下两大条件的请求，就属于简单请求，反之为非简单请求：</p>
 <ul>
 <li>请求方式：GET、POST、HEAD 三者之一</li>
@@ -653,7 +657,7 @@ res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string
 <p><strong>简单请求：</strong></p>
 <ul>
 <li>
-<p>请求头带上 Origin</p>
+<p>请求头自动带上 Origin</p>
 </li>
 <li>
 <p>如果 Origin 指定的源不在允许范围之内，服务器就会返回一个正常的 HTTP 回应，然后浏览器发现头信息中没有包含 Access-Control-Allow-Origin 字段，就表示出错</p>
@@ -756,7 +760,7 @@ scrollTop：滚动后被隐藏的高度，获取对象相对于由 offsetParent 
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=输入 URL 到网页渲染过程><a href="#%E8%BE%93%E5%85%A5-url-%E5%88%B0%E7%BD%91%E9%A1%B5%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B" data-anchor="#%E8%BE%93%E5%85%A5-url-%E5%88%B0%E7%BD%91%E9%A1%B5%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B">输入 URL 到网页渲染过程</a></li><li title=Web Worker><a href="#web-worker" data-anchor="#web-worker">Web Worker</a></li><li title=XSS、CSRF 攻击原理和防御><a href="#xss%E3%80%81csrf-%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E5%92%8C%E9%98%B2%E5%BE%A1" data-anchor="#xss%E3%80%81csrf-%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E5%92%8C%E9%98%B2%E5%BE%A1">XSS、CSRF 攻击原理和防御</a><ul><li title=SameSite><a href="#samesite" data-anchor="#samesite">SameSite</a></li></ul></li><li title=DOM api><a href="#dom-api" data-anchor="#dom-api">DOM api</a><ul><li title=创建新节点><a href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E8%8A%82%E7%82%B9" data-anchor="#%E5%88%9B%E5%BB%BA%E6%96%B0%E8%8A%82%E7%82%B9">创建新节点</a></li><li title=添加、移除、替换、插入><a href="#%E6%B7%BB%E5%8A%A0%E3%80%81%E7%A7%BB%E9%99%A4%E3%80%81%E6%9B%BF%E6%8D%A2%E3%80%81%E6%8F%92%E5%85%A5" data-anchor="#%E6%B7%BB%E5%8A%A0%E3%80%81%E7%A7%BB%E9%99%A4%E3%80%81%E6%9B%BF%E6%8D%A2%E3%80%81%E6%8F%92%E5%85%A5">添加、移除、替换、插入</a></li><li title=查找><a href="#%E6%9F%A5%E6%89%BE" data-anchor="#%E6%9F%A5%E6%89%BE">查找</a></li></ul></li><li title=前端路由原理><a href="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86" data-anchor="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86">前端路由原理</a></li><li title=什么是 HTML 语义化><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-html-%E8%AF%AD%E4%B9%89%E5%8C%96" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-html-%E8%AF%AD%E4%B9%89%E5%8C%96">什么是 HTML 语义化</a></li><li title=单页应用（SPA）优缺点><a href="#%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%EF%BC%88spa%EF%BC%89%E4%BC%98%E7%BC%BA%E7%82%B9" data-anchor="#%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%EF%BC%88spa%EF%BC%89%E4%BC%98%E7%BC%BA%E7%82%B9">单页应用（SPA）优缺点</a></li><li title=白屏><a href="#%E7%99%BD%E5%B1%8F" data-anchor="#%E7%99%BD%E5%B1%8F">白屏</a><ul><li title=如何解决白屏问题><a href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%99%BD%E5%B1%8F%E9%97%AE%E9%A2%98" data-anchor="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%99%BD%E5%B1%8F%E9%97%AE%E9%A2%98">如何解决白屏问题</a></li><li title=计算首屏白屏时间><a href="#%E8%AE%A1%E7%AE%97%E9%A6%96%E5%B1%8F%E7%99%BD%E5%B1%8F%E6%97%B6%E9%97%B4" data-anchor="#%E8%AE%A1%E7%AE%97%E9%A6%96%E5%B1%8F%E7%99%BD%E5%B1%8F%E6%97%B6%E9%97%B4">计算首屏白屏时间</a></li></ul></li><li title=性能优化><a href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96" data-anchor="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">性能优化</a><ul><li title=代码><a href="#%E4%BB%A3%E7%A0%81" data-anchor="#%E4%BB%A3%E7%A0%81">代码</a></li><li title=其他><a href="#%E5%85%B6%E4%BB%96" data-anchor="#%E5%85%B6%E4%BB%96">其他</a></li><li title=将静态资源放在其他域名的原因（CDN）><a href="#%E5%B0%86%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%94%BE%E5%9C%A8%E5%85%B6%E4%BB%96%E5%9F%9F%E5%90%8D%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%88cdn%EF%BC%89" data-anchor="#%E5%B0%86%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%94%BE%E5%9C%A8%E5%85%B6%E4%BB%96%E5%9F%9F%E5%90%8D%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%88cdn%EF%BC%89">将静态资源放在其他域名的原因（CDN）</a></li><li title=script 标签的 defer 和 async><a href="#script-%E6%A0%87%E7%AD%BE%E7%9A%84-defer-%E5%92%8C-async" data-anchor="#script-%E6%A0%87%E7%AD%BE%E7%9A%84-defer-%E5%92%8C-async">script 标签的 defer 和 async</a></li><li title=缓存优化><a href="#%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96" data-anchor="#%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96">缓存优化</a></li><li title=js 为什么放最下面？><a href="#js-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%BE%E6%9C%80%E4%B8%8B%E9%9D%A2%EF%BC%9F" data-anchor="#js-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%BE%E6%9C%80%E4%B8%8B%E9%9D%A2%EF%BC%9F">js 为什么放最下面？</a></li><li title=css 为什么放最上面？><a href="#css-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%BE%E6%9C%80%E4%B8%8A%E9%9D%A2%EF%BC%9F" data-anchor="#css-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%BE%E6%9C%80%E4%B8%8A%E9%9D%A2%EF%BC%9F">css 为什么放最上面？</a></li><li title=gzip><a href="#gzip" data-anchor="#gzip">gzip</a></li><li title=重绘（repaint）与回流（reflow）><a href="#%E9%87%8D%E7%BB%98%EF%BC%88repaint%EF%BC%89%E4%B8%8E%E5%9B%9E%E6%B5%81%EF%BC%88reflow%EF%BC%89" data-anchor="#%E9%87%8D%E7%BB%98%EF%BC%88repaint%EF%BC%89%E4%B8%8E%E5%9B%9E%E6%B5%81%EF%BC%88reflow%EF%BC%89">重绘（repaint）与回流（reflow）</a></li><li title=如何避免触发回流和重绘><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E8%A7%A6%E5%8F%91%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E8%A7%A6%E5%8F%91%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98">如何避免触发回流和重绘</a></li></ul></li><li title=requestAnimationFrame><a href="#requestanimationframe" data-anchor="#requestanimationframe">requestAnimationFrame</a></li><li title=手写 Ajax><a href="#%E6%89%8B%E5%86%99-ajax" data-anchor="#%E6%89%8B%E5%86%99-ajax">手写 Ajax</a></li><li title=同源策略（跨域）><a href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%EF%BC%88%E8%B7%A8%E5%9F%9F%EF%BC%89" data-anchor="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%EF%BC%88%E8%B7%A8%E5%9F%9F%EF%BC%89">同源策略（跨域）</a><ul><li title=为什么会有同源策略><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5">为什么会有同源策略</a></li><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li><li title=jsonp><a href="#jsonp" data-anchor="#jsonp">jsonp</a></li><li title=cors><a href="#cors" data-anchor="#cors">cors</a><ul><li title=CORS 请求的分类><a href="#cors-%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB" data-anchor="#cors-%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB">CORS 请求的分类</a></li></ul></li></ul></li><li title=事件流><a href="#%E4%BA%8B%E4%BB%B6%E6%B5%81" data-anchor="#%E4%BA%8B%E4%BB%B6%E6%B5%81">事件流</a><ul><li title=事件流的应用：事件委托（事件代理）><a href="#%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%EF%BC%88%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%EF%BC%89" data-anchor="#%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%EF%BC%88%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%EF%BC%89">事件流的应用：事件委托（事件代理）</a></li><li title=target 和 currentTarget 区别><a href="#target-%E5%92%8C-currenttarget-%E5%8C%BA%E5%88%AB" data-anchor="#target-%E5%92%8C-currenttarget-%E5%8C%BA%E5%88%AB">target 和 currentTarget 区别</a></li></ul></li><li title=js 的各种位置区别><a href="#js-%E7%9A%84%E5%90%84%E7%A7%8D%E4%BD%8D%E7%BD%AE%E5%8C%BA%E5%88%AB" data-anchor="#js-%E7%9A%84%E5%90%84%E7%A7%8D%E4%BD%8D%E7%BD%AE%E5%8C%BA%E5%88%AB">js 的各种位置区别</a></li><li title=localStorage、sessionStorage><a href="#localstorage%E3%80%81sessionstorage" data-anchor="#localstorage%E3%80%81sessionstorage">localStorage、sessionStorage</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=输入 URL 到网页渲染过程><a href="#%E8%BE%93%E5%85%A5-url-%E5%88%B0%E7%BD%91%E9%A1%B5%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B" data-anchor="#%E8%BE%93%E5%85%A5-url-%E5%88%B0%E7%BD%91%E9%A1%B5%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B">输入 URL 到网页渲染过程</a></li><li title=Web Worker><a href="#web-worker" data-anchor="#web-worker">Web Worker</a></li><li title=XSS、CSRF 攻击原理和防御><a href="#xss%E3%80%81csrf-%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E5%92%8C%E9%98%B2%E5%BE%A1" data-anchor="#xss%E3%80%81csrf-%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E5%92%8C%E9%98%B2%E5%BE%A1">XSS、CSRF 攻击原理和防御</a><ul><li title=SameSite><a href="#samesite" data-anchor="#samesite">SameSite</a></li></ul></li><li title=DOM api><a href="#dom-api" data-anchor="#dom-api">DOM api</a><ul><li title=创建新节点><a href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E8%8A%82%E7%82%B9" data-anchor="#%E5%88%9B%E5%BB%BA%E6%96%B0%E8%8A%82%E7%82%B9">创建新节点</a></li><li title=添加、移除、替换、插入><a href="#%E6%B7%BB%E5%8A%A0%E3%80%81%E7%A7%BB%E9%99%A4%E3%80%81%E6%9B%BF%E6%8D%A2%E3%80%81%E6%8F%92%E5%85%A5" data-anchor="#%E6%B7%BB%E5%8A%A0%E3%80%81%E7%A7%BB%E9%99%A4%E3%80%81%E6%9B%BF%E6%8D%A2%E3%80%81%E6%8F%92%E5%85%A5">添加、移除、替换、插入</a></li><li title=查找><a href="#%E6%9F%A5%E6%89%BE" data-anchor="#%E6%9F%A5%E6%89%BE">查找</a></li></ul></li><li title=前端路由原理><a href="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86" data-anchor="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86">前端路由原理</a></li><li title=什么是 HTML 语义化><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-html-%E8%AF%AD%E4%B9%89%E5%8C%96" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-html-%E8%AF%AD%E4%B9%89%E5%8C%96">什么是 HTML 语义化</a></li><li title=单页应用（SPA）优缺点><a href="#%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%EF%BC%88spa%EF%BC%89%E4%BC%98%E7%BC%BA%E7%82%B9" data-anchor="#%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%EF%BC%88spa%EF%BC%89%E4%BC%98%E7%BC%BA%E7%82%B9">单页应用（SPA）优缺点</a></li><li title=白屏><a href="#%E7%99%BD%E5%B1%8F" data-anchor="#%E7%99%BD%E5%B1%8F">白屏</a><ul><li title=如何解决白屏问题><a href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%99%BD%E5%B1%8F%E9%97%AE%E9%A2%98" data-anchor="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%99%BD%E5%B1%8F%E9%97%AE%E9%A2%98">如何解决白屏问题</a></li><li title=计算首屏白屏时间><a href="#%E8%AE%A1%E7%AE%97%E9%A6%96%E5%B1%8F%E7%99%BD%E5%B1%8F%E6%97%B6%E9%97%B4" data-anchor="#%E8%AE%A1%E7%AE%97%E9%A6%96%E5%B1%8F%E7%99%BD%E5%B1%8F%E6%97%B6%E9%97%B4">计算首屏白屏时间</a></li></ul></li><li title=性能优化><a href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96" data-anchor="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">性能优化</a><ul><li title=代码><a href="#%E4%BB%A3%E7%A0%81" data-anchor="#%E4%BB%A3%E7%A0%81">代码</a></li><li title=其他><a href="#%E5%85%B6%E4%BB%96" data-anchor="#%E5%85%B6%E4%BB%96">其他</a></li><li title=将静态资源放在其他域名的原因（CDN）><a href="#%E5%B0%86%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%94%BE%E5%9C%A8%E5%85%B6%E4%BB%96%E5%9F%9F%E5%90%8D%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%88cdn%EF%BC%89" data-anchor="#%E5%B0%86%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%94%BE%E5%9C%A8%E5%85%B6%E4%BB%96%E5%9F%9F%E5%90%8D%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%88cdn%EF%BC%89">将静态资源放在其他域名的原因（CDN）</a></li><li title=script 标签的 defer 和 async><a href="#script-%E6%A0%87%E7%AD%BE%E7%9A%84-defer-%E5%92%8C-async" data-anchor="#script-%E6%A0%87%E7%AD%BE%E7%9A%84-defer-%E5%92%8C-async">script 标签的 defer 和 async</a></li><li title=缓存优化><a href="#%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96" data-anchor="#%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96">缓存优化</a></li><li title=js 为什么放最下面？><a href="#js-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%BE%E6%9C%80%E4%B8%8B%E9%9D%A2%EF%BC%9F" data-anchor="#js-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%BE%E6%9C%80%E4%B8%8B%E9%9D%A2%EF%BC%9F">js 为什么放最下面？</a></li><li title=css 为什么放最上面？><a href="#css-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%BE%E6%9C%80%E4%B8%8A%E9%9D%A2%EF%BC%9F" data-anchor="#css-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%94%BE%E6%9C%80%E4%B8%8A%E9%9D%A2%EF%BC%9F">css 为什么放最上面？</a></li><li title=gzip><a href="#gzip" data-anchor="#gzip">gzip</a></li><li title=重绘（repaint）与回流（reflow）><a href="#%E9%87%8D%E7%BB%98%EF%BC%88repaint%EF%BC%89%E4%B8%8E%E5%9B%9E%E6%B5%81%EF%BC%88reflow%EF%BC%89" data-anchor="#%E9%87%8D%E7%BB%98%EF%BC%88repaint%EF%BC%89%E4%B8%8E%E5%9B%9E%E6%B5%81%EF%BC%88reflow%EF%BC%89">重绘（repaint）与回流（reflow）</a></li><li title=如何避免触发回流和重绘><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E8%A7%A6%E5%8F%91%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E8%A7%A6%E5%8F%91%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98">如何避免触发回流和重绘</a></li></ul></li><li title=requestAnimationFrame><a href="#requestanimationframe" data-anchor="#requestanimationframe">requestAnimationFrame</a></li><li title=手写 Ajax><a href="#%E6%89%8B%E5%86%99-ajax" data-anchor="#%E6%89%8B%E5%86%99-ajax">手写 Ajax</a></li><li title=同源策略（跨域）><a href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%EF%BC%88%E8%B7%A8%E5%9F%9F%EF%BC%89" data-anchor="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%EF%BC%88%E8%B7%A8%E5%9F%9F%EF%BC%89">同源策略（跨域）</a><ul><li title=为什么会有同源策略><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5">为什么会有同源策略</a></li><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li><li title=jsonp><a href="#jsonp" data-anchor="#jsonp">jsonp</a></li><li title=cors><a href="#cors" data-anchor="#cors">cors</a><ul><li title=请求的分类><a href="#%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB" data-anchor="#%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB">请求的分类</a></li></ul></li></ul></li><li title=事件流><a href="#%E4%BA%8B%E4%BB%B6%E6%B5%81" data-anchor="#%E4%BA%8B%E4%BB%B6%E6%B5%81">事件流</a><ul><li title=事件流的应用：事件委托（事件代理）><a href="#%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%EF%BC%88%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%EF%BC%89" data-anchor="#%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%EF%BC%88%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%EF%BC%89">事件流的应用：事件委托（事件代理）</a></li><li title=target 和 currentTarget 区别><a href="#target-%E5%92%8C-currenttarget-%E5%8C%BA%E5%88%AB" data-anchor="#target-%E5%92%8C-currenttarget-%E5%8C%BA%E5%88%AB">target 和 currentTarget 区别</a></li></ul></li><li title=js 的各种位置区别><a href="#js-%E7%9A%84%E5%90%84%E7%A7%8D%E4%BD%8D%E7%BD%AE%E5%8C%BA%E5%88%AB" data-anchor="#js-%E7%9A%84%E5%90%84%E7%A7%8D%E4%BD%8D%E7%BD%AE%E5%8C%BA%E5%88%AB">js 的各种位置区别</a></li><li title=localStorage、sessionStorage><a href="#localstorage%E3%80%81sessionstorage" data-anchor="#localstorage%E3%80%81sessionstorage">localStorage、sessionStorage</a></li></ul></div>
     
 
     <!-- bottom scripts -->
