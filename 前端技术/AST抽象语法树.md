@@ -1,14 +1,14 @@
 # 参考
 
-- [AST 抽象语法树——最基础的 javascript 重点知识，99%的人根本不了解](https://segmentfault.com/a/1190000016231512)
-- [平庸前端码农之蜕变 — AST](https://juejin.cn/post/6844903725228621832)
+- https://segmentfault.com/a/1190000016231512
+- https://juejin.cn/post/6844903725228621832
 
 # 解析器 Parser
 
 - 把 js 源码转化为抽象语法树（AST）
 - 常用解析器
-  - [babel-parser](https://github.com/babel/babel/tree/master/packages/babel-parser)
-  - [acorn](https://github.com/acornjs/acorn)
+  - https://github.com/babel/babel/tree/master/packages/babel-parser
+  - https://github.com/acornjs/acorn
 
 # 解析步骤
 
