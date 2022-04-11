@@ -130,8 +130,3 @@ require、exports、module、`__filename`、`__dirname`等变量的由来：
 - RESTful API
 - 统一 Web 应用的 UI 层
 - 大量 Ajax 请求的应用
-
-# npx
-
-- npx 想要解决的主要问题，就是调用项目内部安装的模块，可以避免全局安装模块
-- npx 的原理很简单，就是运行的时候，会到 node*modules/.bin 路径和环境变量*PATH 里面*，*检查命令是否存在\_。*由于 npx 会检查环境变量*PATH，所以系统命令也可以调用
