@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/10/2022, 2:38:45 PM -->
+  <!-- 编译时间：4/11/2022, 9:17:17 AM -->
 
   <script>
     window.root = '/my-book';
@@ -272,11 +272,11 @@
 <h1 id="workinprogress-fiber-%E6%A0%91" tabindex="-1"><a class="header-anchor" href="#workinprogress-fiber-%E6%A0%91">workInProgress Fiber 树</a></h1>
 <p>在 React 中最多会同时存在两棵 Fiber 树，当前显示在页面是 current Fiber 树，在内存中构建的 Fiber 树称为 workInProgress Fiber 树，workingProgress Fiber 这棵树是在内存中构建的，构建完成才统一替换，这样不会产生不完全的真实 dom。一旦更新完成，react 会直接将 current 树替换成 workingProgress Fiber 树，以便快速完成 DOM 的更新。也是 react 提升性能的一部分</p>
 <h1 id="fiber-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#fiber-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">Fiber 数据结构</a></h1>
-<pre><code class="language-javascript"><span class="hljs-keyword">const</span> fiber = {
-  stateNode,    <span class="hljs-comment">// 节点实例</span>
-  child,        <span class="hljs-comment">// 子节点</span>
-  sibling,      <span class="hljs-comment">// 兄弟节点</span>
-  <span class="hljs-keyword">return</span>,       <span class="hljs-comment">// 父节点</span>
+<pre><code class="language-typescript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">FiberNode</span> {
+  <span class="hljs-attr">stateNode</span>: <span class="hljs-built_in">any</span>; <span class="hljs-comment">// 节点实例</span>
+  <span class="hljs-attr">child</span>: <span class="hljs-built_in">any</span>; <span class="hljs-comment">// 子节点</span>
+  <span class="hljs-attr">sibling</span>: <span class="hljs-built_in">any</span>; <span class="hljs-comment">// 兄弟节点</span>
+  <span class="hljs-attr">return</span>: <span class="hljs-built_in">any</span>; <span class="hljs-comment">// 父节点</span>
 }
 </code></pre>
 <h1 id="fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8">Fiber 为什么使用链表</a></h1>

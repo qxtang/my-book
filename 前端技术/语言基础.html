@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/10/2022, 2:38:46 PM -->
+  <!-- 编译时间：4/11/2022, 9:17:17 AM -->
 
   <script>
     window.root = '/my-book';
@@ -269,6 +269,25 @@ null 转成 0 undefined 转成 NaN</p>
 </ul>
 <p>这个标准，会让大部分的十进制小数都不能用二进制浮点数来精确表示（比如转成二进制就会变成无限小数）。所以一般情况下，你输入的十进制小数仅由实际存储在计算机中的近似的二进制浮点数表示。</p>
 <p>然而，许多语言在处理的时候，在一定误差范围内（通常极小）会将结果修正为正确的目标数字，而不是像 JS 一样将存在误差的真实结果转换成最接近的小数输出</p>
+<h1 id="array-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%A5%BD%E8%AE%B0%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#array-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%A5%BD%E8%AE%B0%E7%9A%84%E6%96%B9%E6%B3%95">Array 的一些不好记的方法</a></h1>
+<p>全部：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array</a></p>
+<ul>
+<li><code>push(element1, ..., elementN)</code>：在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度，会改变原数组</li>
+<li><code>pop()</code>：删除数组的最后一个元素，并返回该元素，会改变原数组</li>
+<li><code>shift()</code>：删除数组的第一个元素，并返回该元素，会改变原数组</li>
+<li><code>unshift(element1, ..., elementN)</code>：在数组的第一个位置添加元素，并返回添加新元素后的数组长度，会改变原数组</li>
+<li><code>join([separator])</code>：以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔，<code>[1, 2, 3] =&gt; '1,2,3'</code></li>
+<li><code>slice([begin[, end]])</code>：用于提取目标数组的一部分，返回一个新数组，原数组不变</li>
+<li><code>splice(start[, deleteCount[, item1[, item2[, ...]]]])</code>：用于删除原数组的一部分成员，并可以在删除的位置添加新的数组成员，返回值是被删除的元素。会改变原数组</li>
+</ul>
+<h1 id="string-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%A5%BD%E8%AE%B0%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#string-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%A5%BD%E8%AE%B0%E7%9A%84%E6%96%B9%E6%B3%95">String 的一些不好记的方法</a></h1>
+<p>全部：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String</a></p>
+<ul>
+<li><code>substr(start[, length])</code>：要被废弃，跟 slice 和 substring 方法的作用相同</li>
+<li><code>split([separator[, limit]])</code>：按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组 <code>'1,2,3' =&gt; [1, 2, 3]</code></li>
+<li><code>substring(indexStart[, indexEnd])</code>：返回一个字符串在开始索引到结束索引之间的一个子集, 或从开始索引直到字符串的末尾的一个子集</li>
+<li><code>slice(beginIndex[, endIndex])</code>：提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串</li>
+</ul>
 <h1 id="delete-%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></h1>
 <ul>
 <li>使用 delete 操作符并不会直接释放内存，与 V8 引擎有关</li>
@@ -281,7 +300,7 @@ null 转成 0 undefined 转成 NaN</p>
 <li>进制转换：js 在做数字计算的时候，0.1 和 0.2 都会被转成二进制后无限循环，但是 js 采用的 IEEE 754 二进制浮点运算，最大可以存储 53 位有效数字，于是大于 53 位后面的会全部截掉，将导致精度丢失</li>
 <li>对阶运算：由于指数位数不相同，运算时需要对阶运算，阶小的尾数要根据阶差来右移（0 舍 1 入），尾数位移时可能会发生数丢失的情况，影响精度</li>
 </ul>
-<h2 id="%E8%A7%A3%E5%86%B3" tabindex="-1"><a class="header-anchor" href="#%E8%A7%A3%E5%86%B3">解决</a></h2>
+<p><strong>解决：</strong></p>
 <ul>
 <li>使用 Number.EPSILON 误差范围</li>
 </ul>
@@ -676,38 +695,6 @@ null 转成 0 undefined 转成 NaN</p>
 <li>await 用来等待一个 promise 执行结束，可以返回 promise 对象 resolve 出来的结果</li>
 <li>如果 await 等待的这个 Promise 对象出错或者结果为 reject，可以通过 try catch 捕获到错误</li>
 </ul>
-<h1 id="array-%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></h1>
-<ul>
-<li>isArray()</li>
-<li>indexOf、lastIndexOf</li>
-<li>toString() 返回字符串，逗号分隔</li>
-<li>push(o:any) 在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度，会改变原数组</li>
-<li>pop() 删除数组的最后一个元素，并返回该元素，会改变原数组</li>
-<li>shift() 删除数组的第一个元素，并返回该元素，会改变原数组</li>
-<li>unshift(o:any) 在数组的第一个位置添加元素，并返回添加新元素后的数组长度，会改变原数组</li>
-<li>join(o:str) 以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔</li>
-<li>concat(o:array) 用于多个数组的合并。它将新数组的成员，添加到原数组成员的后部，然后返回一个新数组，原数组不变</li>
-<li>reverse 用于颠倒排列数组元素，返回改变后的数组，会改变原数组</li>
-<li>slice(start, end) 用于提取目标数组的一部分，返回一个新数组，原数组不变</li>
-<li>splice(start, count, addElement1, addElement2, …) 用于删除原数组的一部分成员，并可以在删除的位置添加新的数组成员，返回值是被删除的元素。会改变原数组</li>
-<li>sort</li>
-<li>map、forEach、filter、some、every、reduce、reduceRight</li>
-</ul>
-<h1 id="string-%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></h1>
-<ul>
-<li>split(o:str) 按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组</li>
-<li>toLowerCase、toUpperCase</li>
-<li>trim 用于去除字符串两端的空格，返回一个新字符串，不改变原字符串</li>
-<li>indexOf、lastIndexOf</li>
-<li>substr 用于从原字符串取出子字符串并返回，不改变原字符串，跟 slice 和 substring 方法的作用相同</li>
-<li>substring(start, end) 用于从原字符串取出子字符串并返回，不改变原字符串，跟 slice 方法很相像。它的第一个参数表示子字符串的开始位置，第二个位置表示结束位置（返回结果不含该位置）</li>
-<li>slice(start, end) 用于从原字符串取出子字符串并返回，不改变原字符串。它的第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）</li>
-<li>concat 用于连接两个字符串，返回一个新字符串，不改变原字符串</li>
-<li>charAt(num) 返回指定位置的字符，参数是从 0 开始编号的位置，这个方法完全可以用数组下标替代</li>
-<li>fromCharCode 方法的参数是一个或多个数值，代表 Unicode 码点，返回值是这些码点组成的字符串</li>
-<li>btoa 任意值转为 Base64 编码</li>
-<li>atob Base64 编码转为原来的值</li>
-</ul>
 <h1 id="%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></h1>
 <ul>
 <li>for in
@@ -875,7 +862,7 @@ bar.<span class="hljs-title function_">myCall</span>(foo); <span class="hljs-com
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=js 数据类型><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" data-anchor="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a><ul><li title=数据类型的判断><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" data-anchor="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></li><li title=如何判断变量是否为数组><a href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" data-anchor="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></li><li title=null 和 undefined 区别><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" data-anchor="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li title=为什么会出现精度丢失><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li></ul></li><li title=delete 机制><a href="#delete-%E6%9C%BA%E5%88%B6" data-anchor="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li title=0.1 + 0.2 为什么不等于 0.3><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" data-anchor="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a><ul><li title=解决><a href="#%E8%A7%A3%E5%86%B3" data-anchor="#%E8%A7%A3%E5%86%B3">解决</a></li></ul></li><li title=es6 新特性><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li title=var let const><a href="#var-let-const" data-anchor="#var-let-const">var let const</a></li><li title=柯里化><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a><ul><li title=意义><a href="#%E6%84%8F%E4%B9%89" data-anchor="#%E6%84%8F%E4%B9%89">意义</a></li><li title=缺点><a href="#%E7%BC%BA%E7%82%B9" data-anchor="#%E7%BC%BA%E7%82%B9">缺点</a></li></ul></li><li title=闭包><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title=如何优化闭包><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li title=垃圾回收><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li title=标记清除（主流）><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" data-anchor="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li title=引用计数><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" data-anchor="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li title=如何避免垃圾回收><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li title=引起内存泄漏的操作><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" data-anchor="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li><li title=手动释放内存><a href="#%E6%89%8B%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98" data-anchor="#%E6%89%8B%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98">手动释放内存</a></li></ul></li><li title=深拷贝、浅拷贝><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" data-anchor="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li title=描述 Promise><a href="#%E6%8F%8F%E8%BF%B0-promise" data-anchor="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li title=手写 Promise><a href="#%E6%89%8B%E5%86%99-promise" data-anchor="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li title=描述 async/await><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" data-anchor="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li title=Array 的方法><a href="#array-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#array-%E7%9A%84%E6%96%B9%E6%B3%95">Array 的方法</a></li><li title=String 的方法><a href="#string-%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#string-%E7%9A%84%E6%96%B9%E6%B3%95">String 的方法</a></li><li title=数组的遍历迭代方法><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" data-anchor="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li title=apply、call、bind><a href="#apply%E3%80%81call%E3%80%81bind" data-anchor="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li title=手写><a href="#%E6%89%8B%E5%86%99" data-anchor="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li title=尾调用和尾递归><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" data-anchor="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li title=词法作用域和动态作用域><a href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F" data-anchor="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F">词法作用域和动态作用域</a></li><li title=参数传递><a href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92" data-anchor="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">参数传递</a><ul><li title=按值传递><a href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92" data-anchor="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92">按值传递</a></li><li title=共享传递><a href="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92" data-anchor="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92">共享传递</a></li></ul></li><li title=arguments><a href="#arguments" data-anchor="#arguments">arguments</a><ul><li title=为什么 ES6 不推荐使用 arguments.callee()><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title=js 数据类型><a href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" data-anchor="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">js 数据类型</a><ul><li title=数据类型的判断><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD" data-anchor="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD">数据类型的判断</a></li><li title=如何判断变量是否为数组><a href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84" data-anchor="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84">如何判断变量是否为数组</a></li><li title=null 和 undefined 区别><a href="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB" data-anchor="#null-%E5%92%8C-undefined-%E5%8C%BA%E5%88%AB">null 和 undefined 区别</a></li><li title=为什么会出现精度丢失><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1">为什么会出现精度丢失</a></li></ul></li><li title=Array 的一些不好记的方法><a href="#array-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%A5%BD%E8%AE%B0%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#array-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%A5%BD%E8%AE%B0%E7%9A%84%E6%96%B9%E6%B3%95">Array 的一些不好记的方法</a></li><li title=String 的一些不好记的方法><a href="#string-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%A5%BD%E8%AE%B0%E7%9A%84%E6%96%B9%E6%B3%95" data-anchor="#string-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%A5%BD%E8%AE%B0%E7%9A%84%E6%96%B9%E6%B3%95">String 的一些不好记的方法</a></li><li title=delete 机制><a href="#delete-%E6%9C%BA%E5%88%B6" data-anchor="#delete-%E6%9C%BA%E5%88%B6">delete 机制</a></li><li title=0.1 + 0.2 为什么不等于 0.3><a href="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3" data-anchor="#0.1-%2B-0.2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%AD%89%E4%BA%8E-0.3">0.1 + 0.2 为什么不等于 0.3</a></li><li title=es6 新特性><a href="#es6-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#es6-%E6%96%B0%E7%89%B9%E6%80%A7">es6 新特性</a></li><li title=var let const><a href="#var-let-const" data-anchor="#var-let-const">var let const</a></li><li title=柯里化><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a><ul><li title=意义><a href="#%E6%84%8F%E4%B9%89" data-anchor="#%E6%84%8F%E4%B9%89">意义</a></li><li title=缺点><a href="#%E7%BC%BA%E7%82%B9" data-anchor="#%E7%BC%BA%E7%82%B9">缺点</a></li></ul></li><li title=闭包><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title=如何优化闭包><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li><li title=垃圾回收><a href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">垃圾回收</a><ul><li title=标记清除（主流）><a href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89" data-anchor="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%EF%BC%88%E4%B8%BB%E6%B5%81%EF%BC%89">标记清除（主流）</a></li><li title=引用计数><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" data-anchor="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0">引用计数</a></li><li title=如何避免垃圾回收><a href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6" data-anchor="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6">如何避免垃圾回收</a></li><li title=引起内存泄漏的操作><a href="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C" data-anchor="#%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%93%8D%E4%BD%9C">引起内存泄漏的操作</a></li><li title=手动释放内存><a href="#%E6%89%8B%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98" data-anchor="#%E6%89%8B%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98">手动释放内存</a></li></ul></li><li title=深拷贝、浅拷贝><a href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D" data-anchor="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D">深拷贝、浅拷贝</a></li><li title=描述 Promise><a href="#%E6%8F%8F%E8%BF%B0-promise" data-anchor="#%E6%8F%8F%E8%BF%B0-promise">描述 Promise</a></li><li title=手写 Promise><a href="#%E6%89%8B%E5%86%99-promise" data-anchor="#%E6%89%8B%E5%86%99-promise">手写 Promise</a></li><li title=描述 async/await><a href="#%E6%8F%8F%E8%BF%B0-async%2Fawait" data-anchor="#%E6%8F%8F%E8%BF%B0-async%2Fawait">描述 async/await</a></li><li title=数组的遍历迭代方法><a href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95" data-anchor="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95">数组的遍历迭代方法</a></li><li title=apply、call、bind><a href="#apply%E3%80%81call%E3%80%81bind" data-anchor="#apply%E3%80%81call%E3%80%81bind">apply、call、bind</a><ul><li title=手写><a href="#%E6%89%8B%E5%86%99" data-anchor="#%E6%89%8B%E5%86%99">手写</a></li></ul></li><li title=尾调用和尾递归><a href="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92" data-anchor="#%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92">尾调用和尾递归</a></li><li title=词法作用域和动态作用域><a href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F" data-anchor="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F">词法作用域和动态作用域</a></li><li title=参数传递><a href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92" data-anchor="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">参数传递</a><ul><li title=按值传递><a href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92" data-anchor="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92">按值传递</a></li><li title=共享传递><a href="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92" data-anchor="#%E5%85%B1%E4%BA%AB%E4%BC%A0%E9%80%92">共享传递</a></li></ul></li><li title=arguments><a href="#arguments" data-anchor="#arguments">arguments</a><ul><li title=为什么 ES6 不推荐使用 arguments.callee()><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-es6-%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8-arguments.callee()">为什么 ES6 不推荐使用 arguments.callee()</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

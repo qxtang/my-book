@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/10/2022, 2:38:45 PM -->
+  <!-- 编译时间：4/11/2022, 9:17:17 AM -->
 
   <script>
     window.root = '/my-book';
@@ -232,11 +232,11 @@
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h2 id="%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" tabindex="-1"><a class="header-anchor" href="#%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">团队管理最佳实践</a></h2>
+      <h1 id="%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" tabindex="-1"><a class="header-anchor" href="#%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">团队管理最佳实践</a></h1>
 <ul>
 <li>开发环境 node 和 npm 版本需要一致，因为不同版本 npm 行为不一样</li>
 </ul>
-<h2 id="npm-%E7%9A%84%E4%BD%BF%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#npm-%E7%9A%84%E4%BD%BF%E7%94%A8">npm 的使用</a></h2>
+<h1 id="npm-%E7%9A%84%E4%BD%BF%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#npm-%E7%9A%84%E4%BD%BF%E7%94%A8">npm 的使用</a></h1>
 <ul>
 <li>
 <p>可以通过环境变量读取 package.json 中的属性：process.env.npm_package_name</p>
@@ -249,9 +249,6 @@
 </li>
 <li>
 <p>使用 link 调试本地包</p>
-</li>
-<li>
-<p>npx 工具：直接运行 node_modules/.bin 目录下的可执行文件</p>
 </li>
 <li>
 <p>npm run 新建的 Shell 环境，会将当前目录的 node_modules/.bin 加入 PATH 环境变量，执行结束后，再将 PATH 环境变量恢复，这意味着，当前目录的 node_modules/.bin 子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径或者 npx</p>
@@ -282,16 +279,22 @@ npm run serve --params=123 // 参数params将转化成process.env.npm_config_par
 </ul>
 </li>
 </ul>
-<h2 id="npm-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7" tabindex="-1"><a class="header-anchor" href="#npm-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7">npm 检查配置的优先级</a></h2>
+<h1 id="npx" tabindex="-1"><a class="header-anchor" href="#npx">npx</a></h1>
+<ul>
+<li>直接运行 node_modules/.bin 目录下的可执行文件</li>
+<li>npx 想要解决的主要问题，就是调用项目内部安装的模块，可以避免全局安装模块</li>
+<li>npx 的原理很简单，就是运行的时候，会到 node_modules/.bin 路径和环境变量 PATH 里面，检查命令是否存在。由于 npx 会检查环境变量 PATH，所以系统命令也可以调用</li>
+</ul>
+<h1 id="npm-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7" tabindex="-1"><a class="header-anchor" href="#npm-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7">npm 检查配置的优先级</a></h1>
 <ul>
 <li>项目级的 .npmrc 文件 &gt; 用户级的 .npmrc 文件 &gt; 全局级的 .npmrc &gt; npm 内置的 .npmrc 文件</li>
 </ul>
-<h2 id="package-lock.json%E3%80%81yarn.lock-%E7%9A%84%E4%BD%9C%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#package-lock.json%E3%80%81yarn.lock-%E7%9A%84%E4%BD%9C%E7%94%A8">package-lock.json、yarn.lock 的作用</a></h2>
+<h1 id="package-lock.json%E3%80%81yarn.lock-%E7%9A%84%E4%BD%9C%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#package-lock.json%E3%80%81yarn.lock-%E7%9A%84%E4%BD%9C%E7%94%A8">package-lock.json、yarn.lock 的作用</a></h1>
 <ul>
 <li>锁定安装时的包的版本号，并且需要上传到 git，以保证其他人在 npm install 时大家的依赖能保证一致</li>
 <li>package.json 文件只能锁定大版本，也就是版本号的第一位，并不能锁定后面的小版本，你每次 npm install 都是拉取的该大版本下的最新的版本，为了稳定性考虑我们几乎是不敢随意升级依赖包的，这将导致多出来很多工作量，测试/适配等，所以 package-lock.json 文件出来了，当你每次安装一个依赖的时候就锁定在你安装的这个版本。</li>
 </ul>
-<h2 id="npm-install-%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#npm-install-%E6%B5%81%E7%A8%8B">npm install 流程</a></h2>
+<h1 id="npm-install-%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#npm-install-%E6%B5%81%E7%A8%8B">npm install 流程</a></h1>
 <ul>
 <li>检查项目中是否有 package-lock.json 文件</li>
 <li>如果有， 检查 package-lock.json 和 package.json 声明的依赖是否一致：
@@ -312,24 +315,24 @@ npm run serve --params=123 // 参数params将转化成process.env.npm_config_par
 <blockquote>
 <p>如果希望一个模块不管是否安装过，npm 都要强制重新安装，可以使用 -f 或–force 参数</p>
 </blockquote>
-<h2 id="npm-%E7%9A%84%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#npm-%E7%9A%84%E7%BC%BA%E7%82%B9">npm 的缺点</a></h2>
+<h1 id="npm-%E7%9A%84%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#npm-%E7%9A%84%E7%BC%BA%E7%82%B9">npm 的缺点</a></h1>
 <ul>
 <li>包之间相互依赖，导致嵌套地狱，会形成一棵巨大的依赖树</li>
 <li>依赖层级过深，有问题不利于排查和调试</li>
 <li>安装结果占据大量空间资源，安装时间长</li>
 </ul>
-<h2 id="yarn-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#yarn-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98">yarn 解决的问题</a></h2>
+<h1 id="yarn-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#yarn-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98">yarn 解决的问题</a></h1>
 <ul>
 <li>采用模块扁平化的安装模式: 将不同版本的依赖包，按照一定的策略，归结为单个版本；以避免创建多个版本造成工程的冗余（目前版本的 npm 也有相同的优化）</li>
 <li>网络性能更好: yarn 采用了请求排队的理念，类似于并发池连接，能够更好的利用网络资源；同时也引入了一种安装失败的重试机制</li>
 <li>采用缓存机制，实现了离线模式 （目前的 npm 也有类似的实现）</li>
 </ul>
-<h2 id="%E4%BE%9D%E8%B5%96%E5%8C%85%E7%89%88%E6%9C%AC%E5%8F%B7" tabindex="-1"><a class="header-anchor" href="#%E4%BE%9D%E8%B5%96%E5%8C%85%E7%89%88%E6%9C%AC%E5%8F%B7">依赖包版本号</a></h2>
+<h1 id="%E4%BE%9D%E8%B5%96%E5%8C%85%E7%89%88%E6%9C%AC%E5%8F%B7" tabindex="-1"><a class="header-anchor" href="#%E4%BE%9D%E8%B5%96%E5%8C%85%E7%89%88%E6%9C%AC%E5%8F%B7">依赖包版本号</a></h1>
 <ul>
 <li>采用了 semver 规范作为依赖版本管理方案</li>
 <li>一般格式：主版本号.次版本号.修订号（x.y.z）</li>
 </ul>
-<h2 id="package.json" tabindex="-1"><a class="header-anchor" href="#package.json">package.json</a></h2>
+<h1 id="package.json" tabindex="-1"><a class="header-anchor" href="#package.json">package.json</a></h1>
 <ul>
 <li>bin：表示的是一个可执行文件到指定文件源的映射<pre><code class="language-json"><span class="hljs-attr">&quot;bin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;someTool&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./bin/someTool.js&quot;</span>
@@ -343,7 +346,7 @@ npm run serve --params=123 // 参数params将转化成process.env.npm_config_par
 <li>man：指定帮助文档</li>
 <li>typings：指定 TypeScript 的入口文件</li>
 </ul>
-<h3 id="dependencies" tabindex="-1"><a class="header-anchor" href="#dependencies">dependencies</a></h3>
+<h2 id="dependencies" tabindex="-1"><a class="header-anchor" href="#dependencies">dependencies</a></h2>
 <ul>
 <li>dependencies
 <ul>
@@ -370,14 +373,14 @@ npm run serve --params=123 // 参数params将转化成process.env.npm_config_par
 </ul>
 </li>
 </ul>
-<h2 id="%E5%9F%9F%E7%BA%A7%E5%8C%85%E7%AE%A1%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E5%9F%9F%E7%BA%A7%E5%8C%85%E7%AE%A1%E7%90%86">域级包管理</a></h2>
+<h1 id="%E5%9F%9F%E7%BA%A7%E5%8C%85%E7%AE%A1%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E5%9F%9F%E7%BA%A7%E5%8C%85%E7%AE%A1%E7%90%86">域级包管理</a></h1>
 <ul>
 <li>以@开头的包名</li>
 <li>由于用@声明了该包，npm 会默认将此包认定为私有包，而在 npm 上托管私有包是需要收费的，所以为了避免发布私有包，可以在发布时添加--accss=public 参数告知 npm 这不是一个私有包</li>
 <li>域级包不一定就是私有包，但是私有包一定是一个域级包</li>
 <li>在安装域级包时需要按照域级包全名来安装：<code>npm install @scopeName/package</code></li>
 </ul>
-<h2 id="%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E6%94%AF%E6%8C%81-tree-shaking-%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E6%94%AF%E6%8C%81-tree-shaking-%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8C%85">发布一个支持 tree shaking 机制的包</a></h2>
+<h1 id="%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E6%94%AF%E6%8C%81-tree-shaking-%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E6%94%AF%E6%8C%81-tree-shaking-%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8C%85">发布一个支持 tree shaking 机制的包</a></h1>
 <ul>
 <li>
 <p>tree shaking 是依赖 ES Module 的模块特性来工作的，那是因为 ES Module 模块的依赖关系是在编译时确定的（和运行时无关），并且之后不能再改变，所以基于此特性可以进行可靠的静态分析</p>
@@ -408,7 +411,7 @@ rollup 可以直接构建出符合 ES Module 模块规范的文件，但是 webp
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=团队管理最佳实践><a href="#%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" data-anchor="#%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">团队管理最佳实践</a></li><li title=npm 的使用><a href="#npm-%E7%9A%84%E4%BD%BF%E7%94%A8" data-anchor="#npm-%E7%9A%84%E4%BD%BF%E7%94%A8">npm 的使用</a></li><li title=npm 检查配置的优先级><a href="#npm-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7" data-anchor="#npm-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7">npm 检查配置的优先级</a></li><li title=package-lock.json、yarn.lock 的作用><a href="#package-lock.json%E3%80%81yarn.lock-%E7%9A%84%E4%BD%9C%E7%94%A8" data-anchor="#package-lock.json%E3%80%81yarn.lock-%E7%9A%84%E4%BD%9C%E7%94%A8">package-lock.json、yarn.lock 的作用</a></li><li title=npm install 流程><a href="#npm-install-%E6%B5%81%E7%A8%8B" data-anchor="#npm-install-%E6%B5%81%E7%A8%8B">npm install 流程</a></li><li title=npm 的缺点><a href="#npm-%E7%9A%84%E7%BC%BA%E7%82%B9" data-anchor="#npm-%E7%9A%84%E7%BC%BA%E7%82%B9">npm 的缺点</a></li><li title=yarn 解决的问题><a href="#yarn-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98" data-anchor="#yarn-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98">yarn 解决的问题</a></li><li title=依赖包版本号><a href="#%E4%BE%9D%E8%B5%96%E5%8C%85%E7%89%88%E6%9C%AC%E5%8F%B7" data-anchor="#%E4%BE%9D%E8%B5%96%E5%8C%85%E7%89%88%E6%9C%AC%E5%8F%B7">依赖包版本号</a></li><li title=package.json><a href="#package.json" data-anchor="#package.json">package.json</a><ul><li title=dependencies><a href="#dependencies" data-anchor="#dependencies">dependencies</a></li></ul></li><li title=域级包管理><a href="#%E5%9F%9F%E7%BA%A7%E5%8C%85%E7%AE%A1%E7%90%86" data-anchor="#%E5%9F%9F%E7%BA%A7%E5%8C%85%E7%AE%A1%E7%90%86">域级包管理</a></li><li title=发布一个支持 tree shaking 机制的包><a href="#%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E6%94%AF%E6%8C%81-tree-shaking-%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8C%85" data-anchor="#%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E6%94%AF%E6%8C%81-tree-shaking-%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8C%85">发布一个支持 tree shaking 机制的包</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=团队管理最佳实践><a href="#%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" data-anchor="#%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">团队管理最佳实践</a></li><li title=npm 的使用><a href="#npm-%E7%9A%84%E4%BD%BF%E7%94%A8" data-anchor="#npm-%E7%9A%84%E4%BD%BF%E7%94%A8">npm 的使用</a></li><li title=npx><a href="#npx" data-anchor="#npx">npx</a></li><li title=npm 检查配置的优先级><a href="#npm-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7" data-anchor="#npm-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7">npm 检查配置的优先级</a></li><li title=package-lock.json、yarn.lock 的作用><a href="#package-lock.json%E3%80%81yarn.lock-%E7%9A%84%E4%BD%9C%E7%94%A8" data-anchor="#package-lock.json%E3%80%81yarn.lock-%E7%9A%84%E4%BD%9C%E7%94%A8">package-lock.json、yarn.lock 的作用</a></li><li title=npm install 流程><a href="#npm-install-%E6%B5%81%E7%A8%8B" data-anchor="#npm-install-%E6%B5%81%E7%A8%8B">npm install 流程</a></li><li title=npm 的缺点><a href="#npm-%E7%9A%84%E7%BC%BA%E7%82%B9" data-anchor="#npm-%E7%9A%84%E7%BC%BA%E7%82%B9">npm 的缺点</a></li><li title=yarn 解决的问题><a href="#yarn-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98" data-anchor="#yarn-%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98">yarn 解决的问题</a></li><li title=依赖包版本号><a href="#%E4%BE%9D%E8%B5%96%E5%8C%85%E7%89%88%E6%9C%AC%E5%8F%B7" data-anchor="#%E4%BE%9D%E8%B5%96%E5%8C%85%E7%89%88%E6%9C%AC%E5%8F%B7">依赖包版本号</a></li><li title=package.json><a href="#package.json" data-anchor="#package.json">package.json</a><ul><li title=dependencies><a href="#dependencies" data-anchor="#dependencies">dependencies</a></li></ul></li><li title=域级包管理><a href="#%E5%9F%9F%E7%BA%A7%E5%8C%85%E7%AE%A1%E7%90%86" data-anchor="#%E5%9F%9F%E7%BA%A7%E5%8C%85%E7%AE%A1%E7%90%86">域级包管理</a></li><li title=发布一个支持 tree shaking 机制的包><a href="#%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E6%94%AF%E6%8C%81-tree-shaking-%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8C%85" data-anchor="#%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E6%94%AF%E6%8C%81-tree-shaking-%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8C%85">发布一个支持 tree shaking 机制的包</a></li></ul></div>
     
 
     <!-- bottom scripts -->
