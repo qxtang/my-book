@@ -1,14 +1,13 @@
-## 团队管理最佳实践
+# 团队管理最佳实践
 
 - 开发环境 node 和 npm 版本需要一致，因为不同版本 npm 行为不一样
 
-## npm 的使用
+# npm 的使用
 
 - 可以通过环境变量读取 package.json 中的属性：process.env.npm_package_name
 - 获取当前正在运行的 npm script 脚本名称：process.env.npm_lifecycle_event
 - 可通过添加 pre- 和 post- 前缀声明钩子脚本
 - 使用 link 调试本地包
-- npx 工具：直接运行 node_modules/.bin 目录下的可执行文件
 - npm run 新建的 Shell 环境，会将当前目录的 node_modules/.bin 加入 PATH 环境变量，执行结束后，再将 PATH 环境变量恢复，这意味着，当前目录的 node_modules/.bin 子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径或者 npx
 - script 中可通过 `$npm_config_tag` 获取 shell 中的配置值；如果 env 环境变量中存在以 `npm_config_*` 为前缀的环境变量，则也会被识别为 npm 的配置属性；以及各个级别的 .npmrc 配置文件
 
@@ -27,16 +26,22 @@
   - 要求项目中必须具有 package-lock.json 或 npm-shrinkwrap.json，否则执行 npm ci 将会报错
   - npm ci 只能一次安装整个项目的依赖包，而不能为项目安装单个依赖包
 
-## npm 检查配置的优先级
+# npx
+
+- 直接运行 node_modules/.bin 目录下的可执行文件
+- npx 想要解决的主要问题，就是调用项目内部安装的模块，可以避免全局安装模块
+- npx 的原理很简单，就是运行的时候，会到 node_modules/.bin 路径和环境变量 PATH 里面，检查命令是否存在。由于 npx 会检查环境变量 PATH，所以系统命令也可以调用
+
+# npm 检查配置的优先级
 
 - 项目级的 .npmrc 文件 > 用户级的 .npmrc 文件 > 全局级的 .npmrc > npm 内置的 .npmrc 文件
 
-## package-lock.json、yarn.lock 的作用
+# package-lock.json、yarn.lock 的作用
 
 - 锁定安装时的包的版本号，并且需要上传到 git，以保证其他人在 npm install 时大家的依赖能保证一致
 - package.json 文件只能锁定大版本，也就是版本号的第一位，并不能锁定后面的小版本，你每次 npm install 都是拉取的该大版本下的最新的版本，为了稳定性考虑我们几乎是不敢随意升级依赖包的，这将导致多出来很多工作量，测试/适配等，所以 package-lock.json 文件出来了，当你每次安装一个依赖的时候就锁定在你安装的这个版本。
 
-## npm install 流程
+# npm install 流程
 
 - 检查项目中是否有 package-lock.json 文件
 - 如果有， 检查 package-lock.json 和 package.json 声明的依赖是否一致：
@@ -50,24 +55,24 @@
 
 > 如果希望一个模块不管是否安装过，npm 都要强制重新安装，可以使用 -f 或–force 参数
 
-## npm 的缺点
+# npm 的缺点
 
 - 包之间相互依赖，导致嵌套地狱，会形成一棵巨大的依赖树
 - 依赖层级过深，有问题不利于排查和调试
 - 安装结果占据大量空间资源，安装时间长
 
-## yarn 解决的问题
+# yarn 解决的问题
 
 - 采用模块扁平化的安装模式: 将不同版本的依赖包，按照一定的策略，归结为单个版本；以避免创建多个版本造成工程的冗余（目前版本的 npm 也有相同的优化）
 - 网络性能更好: yarn 采用了请求排队的理念，类似于并发池连接，能够更好的利用网络资源；同时也引入了一种安装失败的重试机制
 - 采用缓存机制，实现了离线模式 （目前的 npm 也有类似的实现）
 
-## 依赖包版本号
+# 依赖包版本号
 
 - 采用了 semver 规范作为依赖版本管理方案
 - 一般格式：主版本号.次版本号.修订号（x.y.z）
 
-## package.json
+# package.json
 
 - bin：表示的是一个可执行文件到指定文件源的映射
   ```json
@@ -82,7 +87,7 @@
 - man：指定帮助文档
 - typings：指定 TypeScript 的入口文件
 
-### dependencies
+## dependencies
 
 - dependencies
   - 最终上线或者发布 npm 包时所需要，例如 vue 框架、UI 组件库
@@ -97,14 +102,14 @@
   - 如果一个依赖同时出现在 dependencies 和 optionalDependencies 中，那么 optionalDependencies 会获得更高的优先级
   - 在实际项目中，如果某个包已经失效，我们通常会寻找它的替代者，或者换一个实现方案。不确定的依赖会增加代码判断和测试难度，所以这个依赖项还是尽量不要使用
 
-## 域级包管理
+# 域级包管理
 
 - 以@开头的包名
 - 由于用@声明了该包，npm 会默认将此包认定为私有包，而在 npm 上托管私有包是需要收费的，所以为了避免发布私有包，可以在发布时添加--accss=public 参数告知 npm 这不是一个私有包
 - 域级包不一定就是私有包，但是私有包一定是一个域级包
 - 在安装域级包时需要按照域级包全名来安装：`npm install @scopeName/package`
 
-## 发布一个支持 tree shaking 机制的包
+# 发布一个支持 tree shaking 机制的包
 
 - tree shaking 是依赖 ES Module 的模块特性来工作的，那是因为 ES Module 模块的依赖关系是在编译时确定的（和运行时无关），并且之后不能再改变，所以基于此特性可以进行可靠的静态分析
 - 设置 module 字段：该字段指向一个既符合 ES Module 模块规范但是又使用 ES5 语法的源文件。这么做的目的是为了启动 tree shaking 的同时，又避免代码兼容性的问题

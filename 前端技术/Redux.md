@@ -35,7 +35,7 @@
 
 ## React-Redux
 
-- : 将 store 通过 context 传入组件中
+- Provider: 将 store 通过 context 传入组件中
 - connect: 一个高阶组件，可以方便在 React 组件中使用 Redux
 
 ## 异步 Action 方案

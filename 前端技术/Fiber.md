@@ -37,12 +37,12 @@ React 在 render 第一次渲染时，会通过 React.createElement 创建一颗
 
 # Fiber 数据结构
 
-```javascript
-const fiber = {
-  stateNode,    // 节点实例
-  child,        // 子节点
-  sibling,      // 兄弟节点
-  return,       // 父节点
+```typescript
+interface FiberNode {
+  stateNode: any; // 节点实例
+  child: any; // 子节点
+  sibling: any; // 兄弟节点
+  return: any; // 父节点
 }
 ```
 

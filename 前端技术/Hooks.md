@@ -1,4 +1,6 @@
-# Hooks
+# 参考
+
+- https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/
 
 # 为什么 hooks
 
@@ -40,6 +42,32 @@
 - 如果某些函数仅在 effect 中调用，可以把它们的定义移到 effect 中，这样可以不再需要去考虑依赖
 - 如果一个函数没有使用组件内的任何值，可以把它提到组件外面去定义成纯函数，然后就可以自由地在 effects 中使用（或者把它包装成 useCallback）
 - useEffect 第一个参数，不能返回 Promise，所以不能传递异步函数，可以自己在里面声明再执行
+
+# 定时器的例子
+
+```jsx
+// 先点击 alert，再点击几次 add 增加 count，3 秒后弹出的是点击 alert 时的状态
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  function handleAlertClick() {
+    setTimeout(() => {
+      alert('You clicked on: ' + count);
+    }, 3000);
+  }
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>add</button>
+      <button onClick={handleAlertClick}>alert</button>
+    </div>
+  );
+}
+
+// 而如果是在类组件中，则会正确弹出状态的当前值
+// 因为类组件的状态保存在实例属性上，状态改变实例不会销毁
+```
 
 # hooks 缺点
 
@@ -125,4 +153,3 @@ useEffect(() => {
 - 心智模型上
 - 函数式组件捕获了渲染所用的值
 - 类组件，this 是可变的
-- 函数式组件捕获了渲染所使用的值
