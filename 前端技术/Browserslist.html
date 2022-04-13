@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book - GitFlow 学习笔记</title>
+  <title>My Book - Browserslist</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/13/2022, 8:33:35 AM -->
+  <!-- 编译时间：4/13/2022, 8:33:36 AM -->
 
   <script>
     window.root = '/my-book';
@@ -232,68 +232,32 @@
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <blockquote>
-<p>简单记录工作中使用 gitflow 模型管理代码版本、保证代码安全的方法。</p>
-</blockquote>
-<p>参考文章：<br>
-<a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank">A successful Git branching model</a><br>
-<a href="http://www.ruanyifeng.com/blog/2015/12/git-workflow.html" target="_blank">Git 工作流程</a><br>
-<a href="http://www.ruanyifeng.com/blog/2012/07/git.html" target="_blank">Git 分支管理策略</a><br>
-<a href="https://www.cnblogs.com/lcngu/p/5770288.html" target="_blank">git flow 的使用</a><br>
-<a href="https://www.cnblogs.com/diffx/p/10690632.html" target="_blank">GitFlow 原理浅析</a></p>
-<p>gitflow 现在被认为过于复杂，可能不适用于现代软件开发：<br>
-<a href="https://www.zhihu.com/question/379545619" target="_blank">如何看待 Git flow 发明人称其不适用于持续交付？</a><br>
-<a href="http://scottchacon.com/2011/08/31/github-flow.html" target="_blank">Issues with git-flow</a><br>
-<a href="https://mp.weixin.qq.com/s/0N3isbSZL4fM5HjZo1aafA?" target="_blank">在阿里，我们如何管理代码分支？</a></p>
-<h1 id="%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B">分支类型</a></h1>
-<h2 id="master" tabindex="-1"><a class="header-anchor" href="#master">master</a></h2>
+      <h1 id="browserslist" tabindex="-1"><a class="header-anchor" href="#browserslist">Browserslist</a></h1>
 <ul>
-<li>只有一条</li>
-<li>主分支</li>
-<li>只读，只能从分支 release 或 hotfix 合并进来</li>
-<li>所有发生在 master 分支的修改应该打 tag 做记录，方便追溯</li>
+<li>用特定的语句来查询浏览器列表<pre><code class="language-sh"><span class="hljs-comment"># 查询 Chrome 最后的两个版本</span>
+npx browserslist <span class="hljs-string">&quot;last 2 Chrome versions&quot;</span>
+chrome 96
+chrome 95
+</code></pre>
+</li>
+<li>autoprefixer 和 babel 都会用到</li>
+<li>开发过程中为了减小垫片的体积，避免使用过多没必要的垫片</li>
+<li>当我们确认的浏览器版本号，那么它的垫片体积就可以确认</li>
+<li>例如：当我们确认的浏览器版本号，那么它的垫片体积就会确认</li>
 </ul>
-<h2 id="develop" tabindex="-1"><a class="header-anchor" href="#develop">develop</a></h2>
+<h2 id="caniuse-lite-%E4%B8%8E-caniuse-db" tabindex="-1"><a class="header-anchor" href="#caniuse-lite-%E4%B8%8E-caniuse-db">caniuse-lite 与 caniuse-db</a></h2>
 <ul>
-<li>只有一条</li>
-<li>主开发分支，基于 master 分支克隆</li>
-<li>包含所有要发布到下一个 release 的代码</li>
-<li>只读，只能从 feature 或 release 合并进来</li>
-<li>feature 功能分支完成开发后，合并到 develop，合并到 develop 前，提交合并申请，与 develop 分支进行比较做代码审查，审查通过则允许合并</li>
-<li>从 develop 拉取 release 分支，提测</li>
-<li>release 或 hotfix 分支上线完毕，合并回 develop。</li>
+<li>browserslist 是从 caniuse-lite 这个库中查询数据的，caniuse-lite 是 caniuse-db 的精简版本，对 caniuse-db 的数据按一定规则做了简化，减少了库的大小</li>
+<li>caniuse-db 则是 can i use 网站的数据源，提供了网站查询所需的所有数据，caniuse-db 发布时会同步发布 caniuse-lite</li>
+<li>caniuse-lite 这个库也由 browserslist 团队进行维护</li>
+<li>由于它们都不属于线上数据库，使用时会将数据克隆至本地，所以可能会存在本地数据不是最新的情况，browserslist 提供了更新 caniuse-lite 的命令，可定期运行以获取最新数据<pre><code class="language-sh">npx browserslist@latest --update-db
+</code></pre>
+</li>
 </ul>
-<h2 id="feature" tabindex="-1"><a class="header-anchor" href="#feature">feature</a></h2>
+<h2 id="%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E7%90%86">原理</a></h2>
 <ul>
-<li>功能开发分支，基于 develop 分支克隆，主要用于新需求新功能的开发</li>
-<li>有多条，按功能划分，如：<code>/feature/20200712-新增用户</code>、<code>/feature/20200801-登陆注册</code></li>
-<li>可以几个人一起开发一条 feature，也可以一人负责一条 feature</li>
-<li>功能开发完毕后，提测前，合并到 develop 分支</li>
-<li>feature 类型的分支可同时存在多个，用于团队中多个功能同时开发，属于临时分支，功能完成后可选择删除</li>
-</ul>
-<h2 id="release" tabindex="-1"><a class="header-anchor" href="#release">release</a></h2>
-<ul>
-<li>版本分支，用于测试与上线，基于 feature 分支合并到 develop 之后，从 develop 分支克隆</li>
-<li>有多条，按版本划分，如：<code>/release/20200712-第一版v0.1</code>、<code>/release/20200713-第二版v0.2</code></li>
-<li>release 类型的分支主要用于测试和修改 bug，完成上线后合并回 develop 与 master 分支</li>
-</ul>
-<h2 id="hotfix" tabindex="-1"><a class="header-anchor" href="#hotfix">hotfix</a></h2>
-<ul>
-<li>补丁分支，基于 master 分支克隆，主要用于对线上的版本进行 BUG 修复</li>
-<li>有多条，按版本划分，如：<code>/hotfix/20200712-修复xss漏洞</code>、<code>/hotfix/20200713-修复新增用户失败bug</code></li>
-<li>修复完毕后合并回 develop 与 master 分支</li>
-</ul>
-<h1 id="%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B">主要工作流程示例</a></h1>
-<ul>
-<li>初始化项目，创建 master 分支，然后从 master 拉取 develop 分支</li>
-<li>根据需求划分功能，从 develop 拉取 feature 分支进行编码开发，如<code>/feature/20200712-新增用户</code>、<code>/feature/20200801-登陆注册</code></li>
-<li>feature 分支完成后，合并到 develop 前，提交合并申请，与 develop 比较，进行代码审查，合并完成可以选择删除当前 feature</li>
-<li>需要发布时，从 develop 拉取 release 分支进行测试，例如<code>/release/20200712-第一版</code>，测试过程中在该条 release 分支上修改 BUG，测试通过后将该条 release 分支发布</li>
-<li>回归：任一 release 分支通过测试上线后，合并该 release 分支到 develop 与 master，master 分支打 tag，当前 release 不可修改，线上有问题须从 master 拉取 hotfix 分支进行修改</li>
-<li>通知所有进行中的 feature、release 把 master 合进来一次</li>
-<li>上线之后若发现 bug，从 master 拉取 hotfix 进行 bug 修改，如<code>/hotfix/20200713-修复新增用户失败bug</code></li>
-<li>hotfix 通过测试上线后，合并 hotfix 分支到 develop 与 master，master 分支打 tag</li>
-<li>版本回退：如果需进行版本回退，则选择上一版本号的 release 分支进行发布</li>
+<li>browserslist 根据正则解析查询语句，对浏览器版本数据库 caniuse-lite 进行查询，返回所得的浏览器版本列表</li>
+<li>因为 browserslist 并不维护数据库，因此它会经常提醒你去更新 caniuse-lite 这个库</li>
 </ul>
 
       
@@ -301,7 +265,7 @@
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=分支类型><a href="#%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B" data-anchor="#%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B">分支类型</a><ul><li title=master><a href="#master" data-anchor="#master">master</a></li><li title=develop><a href="#develop" data-anchor="#develop">develop</a></li><li title=feature><a href="#feature" data-anchor="#feature">feature</a></li><li title=release><a href="#release" data-anchor="#release">release</a></li><li title=hotfix><a href="#hotfix" data-anchor="#hotfix">hotfix</a></li></ul></li><li title=主要工作流程示例><a href="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B" data-anchor="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B">主要工作流程示例</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=Browserslist><a href="#browserslist" data-anchor="#browserslist">Browserslist</a><ul><li title=caniuse-lite 与 caniuse-db><a href="#caniuse-lite-%E4%B8%8E-caniuse-db" data-anchor="#caniuse-lite-%E4%B8%8E-caniuse-db">caniuse-lite 与 caniuse-db</a></li><li title=原理><a href="#%E5%8E%9F%E7%90%86" data-anchor="#%E5%8E%9F%E7%90%86">原理</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

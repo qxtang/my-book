@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book - GitFlow 学习笔记</title>
+  <title>My Book - Webpack</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/13/2022, 8:33:35 AM -->
+  <!-- 编译时间：4/13/2022, 8:33:36 AM -->
 
   <script>
     window.root = '/my-book';
@@ -232,68 +232,65 @@
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <blockquote>
-<p>简单记录工作中使用 gitflow 模型管理代码版本、保证代码安全的方法。</p>
-</blockquote>
-<p>参考文章：<br>
-<a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank">A successful Git branching model</a><br>
-<a href="http://www.ruanyifeng.com/blog/2015/12/git-workflow.html" target="_blank">Git 工作流程</a><br>
-<a href="http://www.ruanyifeng.com/blog/2012/07/git.html" target="_blank">Git 分支管理策略</a><br>
-<a href="https://www.cnblogs.com/lcngu/p/5770288.html" target="_blank">git flow 的使用</a><br>
-<a href="https://www.cnblogs.com/diffx/p/10690632.html" target="_blank">GitFlow 原理浅析</a></p>
-<p>gitflow 现在被认为过于复杂，可能不适用于现代软件开发：<br>
-<a href="https://www.zhihu.com/question/379545619" target="_blank">如何看待 Git flow 发明人称其不适用于持续交付？</a><br>
-<a href="http://scottchacon.com/2011/08/31/github-flow.html" target="_blank">Issues with git-flow</a><br>
-<a href="https://mp.weixin.qq.com/s/0N3isbSZL4fM5HjZo1aafA?" target="_blank">在阿里，我们如何管理代码分支？</a></p>
-<h1 id="%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B">分支类型</a></h1>
-<h2 id="master" tabindex="-1"><a class="header-anchor" href="#master">master</a></h2>
+      <h1 id="webpack" tabindex="-1"><a class="header-anchor" href="#webpack">Webpack</a></h1>
+<h1 id="webpack-1" tabindex="-1"><a class="header-anchor" href="#webpack-1">Webpack</a></h1>
+<p>原理：</p>
 <ul>
-<li>只有一条</li>
-<li>主分支</li>
-<li>只读，只能从分支 release 或 hotfix 合并进来</li>
-<li>所有发生在 master 分支的修改应该打 tag 做记录，方便追溯</li>
+<li>是一个 JavaScript 的模块打包工具。</li>
+<li>基于入口文件，自动地递归解析入口所需要加载的所有资源，然后用不同的 loader 来处理不同的文件，用 Plugin 来扩展 webpack 的功能</li>
+<li>通过分析模块之间的依赖，最终将所有模块打包成一份或者多份代码包，供 HTML 直接引用。</li>
+<li>实质上，Webpack 仅仅提供了 打包功能 和一套 文件处理机制，然后通过生态中的各种 Loader 和 Plugin 对代码进行预编译和打包。</li>
+<li>因此 Webpack 具有高度的可拓展性，能更好的发挥社区生态的力量。</li>
 </ul>
-<h2 id="develop" tabindex="-1"><a class="header-anchor" href="#develop">develop</a></h2>
+<p>概念：</p>
 <ul>
-<li>只有一条</li>
-<li>主开发分支，基于 master 分支克隆</li>
-<li>包含所有要发布到下一个 release 的代码</li>
-<li>只读，只能从 feature 或 release 合并进来</li>
-<li>feature 功能分支完成开发后，合并到 develop，合并到 develop 前，提交合并申请，与 develop 分支进行比较做代码审查，审查通过则允许合并</li>
-<li>从 develop 拉取 release 分支，提测</li>
-<li>release 或 hotfix 分支上线完毕，合并回 develop。</li>
+<li>Entry: 入口文件，Webpack 会从该文件开始进行分析与编译；</li>
+<li>Output: 出口路径，打包后创建 bundler 的文件路径以及文件名；</li>
+<li>Module: 源码目录中的每一个文件，在 Webpack 中任何文件都可以作为一个模块，会根据配置的不同的 Loader 进行加载和打包；</li>
+<li>Chunk: webpack 打包过程中的产物，在进行模块的依赖分析的时候，代码分割出来的代码块，可以根据配置，将所有模块代码合并成一个或多个代码块，以便按需加载，提高性能；</li>
+<li>Loader: 模块加载器，进行各种文件类型的加载与转换，比如 babel-loader 将 jsx 转为 React.createElement；</li>
+<li>Plugin: 拓展插件，可以通过 Webpack 相应的事件钩子，介入到打包过程中的任意环节，从而对代码按需修改；</li>
+<li>Bundle: webpack 打包出来的文件，webpack 最终输出的东西，可以直接在浏览器运行。在抽离 css(当然也可以是图片、字体文件之类的)的情况下，一个 chunk 是会输出多个 bundle 的，但是默认情况下一般一个 chunk 也只是会输出一个 bundle</li>
 </ul>
-<h2 id="feature" tabindex="-1"><a class="header-anchor" href="#feature">feature</a></h2>
+<h1 id="%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">工作流程</a></h1>
+<p>概括就是：加载 - 编译 - 输出</p>
 <ul>
-<li>功能开发分支，基于 develop 分支克隆，主要用于新需求新功能的开发</li>
-<li>有多条，按功能划分，如：<code>/feature/20200712-新增用户</code>、<code>/feature/20200801-登陆注册</code></li>
-<li>可以几个人一起开发一条 feature，也可以一人负责一条 feature</li>
-<li>功能开发完毕后，提测前，合并到 develop 分支</li>
-<li>feature 类型的分支可同时存在多个，用于团队中多个功能同时开发，属于临时分支，功能完成后可选择删除</li>
+<li>初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数</li>
+<li>开始编译：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译</li>
+<li>确定入口：根据配置中的 entry 找出所有的入口文件</li>
+<li>编译模块，发广播：按文件类型，调用相应的 Loader 对模块进行编译，并在合适的时机点触发广播事件，Plugin 收听这些事件执行相应方法，再找出该模块依赖的模块，递归执行本步骤</li>
+<li>输出资源：将编译后的所有代码包装成一个个代码块（Chunk），并按依赖和配置确定输出内容，这个步骤，仍然可以通过 Plugin 进行文件的修改，是可以修改输出内容的最后机会</li>
+<li>保存：最后，根据 output 配置，把文件内容一一写入到文件系统，完成</li>
 </ul>
-<h2 id="release" tabindex="-1"><a class="header-anchor" href="#release">release</a></h2>
+<h1 id="webpack-%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#webpack-%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86">webpack 打包原理</a></h1>
 <ul>
-<li>版本分支，用于测试与上线，基于 feature 分支合并到 develop 之后，从 develop 分支克隆</li>
-<li>有多条，按版本划分，如：<code>/release/20200712-第一版v0.1</code>、<code>/release/20200713-第二版v0.2</code></li>
-<li>release 类型的分支主要用于测试和修改 bug，完成上线后合并回 develop 与 master 分支</li>
+<li>根据配置中的 entry 找出所有的入口文件。</li>
+<li>从入口文件出发,调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理。</li>
+<li>在经过上一步使用 Loader 翻译完所有模块后,得到了每个模块被翻译后的最终内容以及它们之间的依赖关系。</li>
 </ul>
-<h2 id="hotfix" tabindex="-1"><a class="header-anchor" href="#hotfix">hotfix</a></h2>
+<h1 id="%E6%96%87%E4%BB%B6%E6%8C%87%E7%BA%B9" tabindex="-1"><a class="header-anchor" href="#%E6%96%87%E4%BB%B6%E6%8C%87%E7%BA%B9">文件指纹</a></h1>
 <ul>
-<li>补丁分支，基于 master 分支克隆，主要用于对线上的版本进行 BUG 修复</li>
-<li>有多条，按版本划分，如：<code>/hotfix/20200712-修复xss漏洞</code>、<code>/hotfix/20200713-修复新增用户失败bug</code></li>
-<li>修复完毕后合并回 develop 与 master 分支</li>
+<li>hash：所有的 bundle 使用同一个 hash 值，跟每一次 webpack 打包的过程有关</li>
+<li>chunkhash：根据每一个 chunk 的内容进行 hash，同一个 chunk 的所有 bundle 产物的 chunkhash 值是一样的。因此若其中一个 bundle 的修改，同一 chunk 的所有产物 hash 也会被修改</li>
+<li>contenthash：与文件内容本身相关</li>
+<li>注意：开发环境热更新下只能使用 hash 或者不使用 hash。在生产环境中我们一般使用 contenthash 或者 chunkhash，因为在热更新模式下，会导致 chunkhash 和 contenthash 计算错误</li>
 </ul>
-<h1 id="%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B">主要工作流程示例</a></h1>
+<h1 id="rollup-%E5%92%8C-webpack-%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#rollup-%E5%92%8C-webpack-%E5%8C%BA%E5%88%AB">rollup 和 webpack 区别</a></h1>
 <ul>
-<li>初始化项目，创建 master 分支，然后从 master 拉取 develop 分支</li>
-<li>根据需求划分功能，从 develop 拉取 feature 分支进行编码开发，如<code>/feature/20200712-新增用户</code>、<code>/feature/20200801-登陆注册</code></li>
-<li>feature 分支完成后，合并到 develop 前，提交合并申请，与 develop 比较，进行代码审查，合并完成可以选择删除当前 feature</li>
-<li>需要发布时，从 develop 拉取 release 分支进行测试，例如<code>/release/20200712-第一版</code>，测试过程中在该条 release 分支上修改 BUG，测试通过后将该条 release 分支发布</li>
-<li>回归：任一 release 分支通过测试上线后，合并该 release 分支到 develop 与 master，master 分支打 tag，当前 release 不可修改，线上有问题须从 master 拉取 hotfix 分支进行修改</li>
-<li>通知所有进行中的 feature、release 把 master 合进来一次</li>
-<li>上线之后若发现 bug，从 master 拉取 hotfix 进行 bug 修改，如<code>/hotfix/20200713-修复新增用户失败bug</code></li>
-<li>hotfix 通过测试上线后，合并 hotfix 分支到 develop 与 master，master 分支打 tag</li>
-<li>版本回退：如果需进行版本回退，则选择上一版本号的 release 分支进行发布</li>
+<li>webpack 拆分代码， 按需加载；</li>
+<li>Rollup 所有资源放在同一个地方，一次性加载，利用 tree-shake 特性来剔除项目中未使用的代码，减少冗余</li>
+<li>对于应用使用 webpack，对于类库使用 Rollup，rollup 适用于基础库的打包，如 vue、react</li>
+<li>如果你需要代码拆分(Code Splitting)，或者你有很多静态资源需要处理，再或者你构建的项目需要引入很多 CommonJS 模块的依赖，那么 webpack 是个很不错的选择。</li>
+<li>如果您的代码库是基于 ES2015 模块的，而且希望你写的代码能够被其他人直接使用，你需要的打包工具可能是 Rollup。</li>
+</ul>
+<h1 id="%E5%B8%B8%E8%A7%81-loader" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A7%81-loader">常见 loader</a></h1>
+<ul>
+<li>image-loader：加载并且压缩图片文件</li>
+<li>file-loader: 加载文件资源，如 字体 / 图片 等，具有移动/复制/命名等功能、把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件</li>
+<li>url-loader: 通常用于加载图片，可以将小图片直接转换为 Date Url，减少请求；和 file-loader 类似，但是能在文件很小的情况下以 base64 的方式把文件内容注入到代码中去</li>
+<li>babel-loader: 加载 js / jsx 文件， 将 ES6 / ES7 代码转换成 ES5，抹平兼容性问题；</li>
+<li>ts-loader: 加载 ts / tsx 文件，编译 TypeScript；</li>
+<li>style-loader: 将 css 代码以</li>
 </ul>
 
       
@@ -301,7 +298,7 @@
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=分支类型><a href="#%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B" data-anchor="#%E5%88%86%E6%94%AF%E7%B1%BB%E5%9E%8B">分支类型</a><ul><li title=master><a href="#master" data-anchor="#master">master</a></li><li title=develop><a href="#develop" data-anchor="#develop">develop</a></li><li title=feature><a href="#feature" data-anchor="#feature">feature</a></li><li title=release><a href="#release" data-anchor="#release">release</a></li><li title=hotfix><a href="#hotfix" data-anchor="#hotfix">hotfix</a></li></ul></li><li title=主要工作流程示例><a href="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B" data-anchor="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B">主要工作流程示例</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title=Webpack><a href="#webpack" data-anchor="#webpack">Webpack</a></li><li title=Webpack><a href="#webpack-1" data-anchor="#webpack-1">Webpack</a></li><li title=工作流程><a href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B" data-anchor="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">工作流程</a></li><li title=webpack 打包原理><a href="#webpack-%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86" data-anchor="#webpack-%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86">webpack 打包原理</a></li><li title=文件指纹><a href="#%E6%96%87%E4%BB%B6%E6%8C%87%E7%BA%B9" data-anchor="#%E6%96%87%E4%BB%B6%E6%8C%87%E7%BA%B9">文件指纹</a></li><li title=rollup 和 webpack 区别><a href="#rollup-%E5%92%8C-webpack-%E5%8C%BA%E5%88%AB" data-anchor="#rollup-%E5%92%8C-webpack-%E5%8C%BA%E5%88%AB">rollup 和 webpack 区别</a></li><li title=常见 loader><a href="#%E5%B8%B8%E8%A7%81-loader" data-anchor="#%E5%B8%B8%E8%A7%81-loader">常见 loader</a></li></ul></div>
     
 
     <!-- bottom scripts -->
