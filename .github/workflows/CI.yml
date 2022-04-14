@@ -26,5 +26,4 @@ jobs:
           folder: dist
           clean: true
           clean-exclude: |
-            manifest.json
             .nojekyll
