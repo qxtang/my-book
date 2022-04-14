@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/13/2022, 1:29:06 PM -->
+  <!-- 编译时间：4/14/2022, 4:55:18 AM -->
 
   <script>
     window.root = '/my-book';
@@ -38,6 +38,9 @@
 
   <body>
     <ul class="menu expand" id="menu">
+      <div class="loading">
+        <span>加载中...</span>
+      </div>
       <div class="search_bar" id="search_bar">
         <input type="text" placeholder="search..." />
         <img
@@ -49,7 +52,7 @@
         <div class="search_result" id="search_result"></div>
       </div>
       
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
@@ -93,7 +96,7 @@
         
             </ul>
           
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="其他笔记" class="dir" title="其他笔记">
                 <span>其他笔记</span>
                 <div class="triangle"></div>
@@ -118,7 +121,9 @@
       </li>
     </ul>
     <div class="drager" id="drager">
-      <div class="switcher" id="switcher" title="展开或收起"></div>
+      <div class="switcher btn" id="switcher" title="展开或收起"></div>
+      <div class="expand-all btn" id="expand-all" title="展开所有"></div>
+      <div class="collapse-all btn" id="collapse-all" title="收起所有"></div>
     </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
@@ -668,7 +673,7 @@
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=参考><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title=Javascript><a href="#javascript" data-anchor="#javascript">Javascript</a></li><li title=React><a href="#react" data-anchor="#react">React</a></li><li title=Typescript><a href="#typescript" data-anchor="#typescript">Typescript</a></li><li title=其他><a href="#%E5%85%B6%E4%BB%96" data-anchor="#%E5%85%B6%E4%BB%96">其他</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title="参考"><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title="Javascript"><a href="#javascript" data-anchor="#javascript">Javascript</a></li><li title="React"><a href="#react" data-anchor="#react">React</a></li><li title="Typescript"><a href="#typescript" data-anchor="#typescript">Typescript</a></li><li title="其他"><a href="#%E5%85%B6%E4%BB%96" data-anchor="#%E5%85%B6%E4%BB%96">其他</a></li></ul></div>
     
 
     <!-- bottom scripts -->

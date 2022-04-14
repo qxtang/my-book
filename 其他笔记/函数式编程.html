@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/13/2022, 1:29:07 PM -->
+  <!-- 编译时间：4/14/2022, 4:55:18 AM -->
 
   <script>
     window.root = '/my-book';
@@ -38,6 +38,9 @@
 
   <body>
     <ul class="menu expand" id="menu">
+      <div class="loading">
+        <span>加载中...</span>
+      </div>
       <div class="search_bar" id="search_bar">
         <input type="text" placeholder="search..." />
         <img
@@ -49,7 +52,7 @@
         <div class="search_result" id="search_result"></div>
       </div>
       
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
@@ -93,7 +96,7 @@
         
             </ul>
           
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="其他笔记" class="dir" title="其他笔记">
                 <span>其他笔记</span>
                 <div class="triangle"></div>
@@ -118,7 +121,9 @@
       </li>
     </ul>
     <div class="drager" id="drager">
-      <div class="switcher" id="switcher" title="展开或收起"></div>
+      <div class="switcher btn" id="switcher" title="展开或收起"></div>
+      <div class="expand-all btn" id="expand-all" title="展开所有"></div>
+      <div class="collapse-all btn" id="collapse-all" title="收起所有"></div>
     </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
@@ -150,7 +155,7 @@
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=函数式编程><a href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B" data-anchor="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a></li><li title=是什么><a href="#%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li><li title=函数式库：Ramda.js、lodash、RxJS><a href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E5%BA%93%EF%BC%9Aramda.js%E3%80%81lodash%E3%80%81rxjs" data-anchor="#%E5%87%BD%E6%95%B0%E5%BC%8F%E5%BA%93%EF%BC%9Aramda.js%E3%80%81lodash%E3%80%81rxjs">函数式库：Ramda.js、lodash、RxJS</a></li><li title=命令模式中 run 函数的好处><a href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%AD-run-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A5%BD%E5%A4%84" data-anchor="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%AD-run-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A5%BD%E5%A4%84">命令模式中 run 函数的好处</a></li><li title=为什么纯函数><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%AF%E5%87%BD%E6%95%B0" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%AF%E5%87%BD%E6%95%B0">为什么纯函数</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title="函数式编程"><a href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B" data-anchor="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a></li><li title="是什么"><a href="#%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li><li title="函数式库：Ramda.js、lodash、RxJS"><a href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E5%BA%93%EF%BC%9Aramda.js%E3%80%81lodash%E3%80%81rxjs" data-anchor="#%E5%87%BD%E6%95%B0%E5%BC%8F%E5%BA%93%EF%BC%9Aramda.js%E3%80%81lodash%E3%80%81rxjs">函数式库：Ramda.js、lodash、RxJS</a></li><li title="命令模式中 run 函数的好处"><a href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%AD-run-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A5%BD%E5%A4%84" data-anchor="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%AD-run-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A5%BD%E5%A4%84">命令模式中 run 函数的好处</a></li><li title="为什么纯函数"><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%AF%E5%87%BD%E6%95%B0" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%AF%E5%87%BD%E6%95%B0">为什么纯函数</a></li></ul></div>
     
 
     <!-- bottom scripts -->

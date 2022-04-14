@@ -1,5 +1,13 @@
 "use strict";
 
+Array.prototype.remove = function (val) {
+  var index = this.indexOf(val);
+
+  if (index > -1) {
+    this.splice(index, 1);
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   var utils = {
     getQueryString: function getQueryString(variable) {
@@ -17,15 +25,40 @@ document.addEventListener('DOMContentLoaded', function () {
       return false;
     }
   };
-  var LAST_VISIT_KEY = '20220410091109_LAST_VISIT_KEY';
+  var LAST_VISIT_STORAGE_KEY = '20220410091109_LAST_VISIT_KEY_FJHY3PHJ00';
+  var COLLAPSE_STORAGE_KEY = '20220414095652_COLLAPSE_KEY_IXIFMU64D7';
   var isMobile = !!(document.body.clientWidth < 900); // menu
 
   (function () {
     var $dirs = $('#menu .dir');
+    var $loading = $('#menu .loading'); // 设置展开状态
+
+    $dirs.each(function () {
+      var curr = JSON.parse(window.localStorage.getItem(COLLAPSE_STORAGE_KEY) || '[]');
+      var id = $(this).attr('id');
+      var $p = $(this).parent('.parent');
+
+      if (curr.includes(id)) {
+        $p.removeClass('expand');
+      }
+    }); // 点击事件
+
     $dirs.on('click', function () {
       var $p = $(this).parent('.parent');
-      $p.toggleClass('open');
-    });
+      $p.toggleClass('expand');
+      var id = $(this).attr('id');
+      var hasExpand = $p.hasClass('expand');
+      var curr = JSON.parse(window.localStorage.getItem(COLLAPSE_STORAGE_KEY) || '[]');
+
+      if (hasExpand) {
+        curr.remove(id);
+      } else {
+        curr.push(id);
+      }
+
+      window.localStorage.setItem(COLLAPSE_STORAGE_KEY, JSON.stringify(curr));
+    }); // 设置上次看到状态
+
     var $links = $('#menu .children > a');
     var host = window.location.protocol + '//' + window.location.host;
     var path = decodeURIComponent(window.location.pathname);
@@ -35,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var _path = url.replace(host, '');
 
       var isActive = path === _path;
-      var lastVisit = window.localStorage.getItem(LAST_VISIT_KEY);
+      var lastVisit = window.localStorage.getItem(LAST_VISIT_STORAGE_KEY);
       var isLastVisit = lastVisit === _path;
 
       if (isActive) {
@@ -45,6 +78,33 @@ document.addEventListener('DOMContentLoaded', function () {
       if (isLastVisit) {
         $(this).addClass('last-visit');
       }
+    });
+    setTimeout(function () {
+      $loading.remove();
+    }, 300);
+  })(); // expand-all
+
+
+  (function () {
+    var $expandAll = $('#expand-all');
+    var $parents = $('#menu .parent');
+    $expandAll.on('click', function () {
+      $parents.addClass('expand');
+      window.localStorage.setItem(COLLAPSE_STORAGE_KEY, '[]');
+    });
+  })(); // collapse-all
+
+
+  (function () {
+    var $collapseAll = $('#collapse-all');
+    var $parents = $('#menu .parent');
+    var $dirs = $('#menu .dir');
+    var ids = $.map($dirs, function (item) {
+      return $(item).attr('id');
+    });
+    $collapseAll.on('click', function () {
+      $parents.removeClass('expand');
+      window.localStorage.setItem(COLLAPSE_STORAGE_KEY, JSON.stringify(ids));
     });
   })(); // menu drag
 
@@ -96,10 +156,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     var $menu = $('#menu');
+    var $expandAll = $('#expand-all');
+    var $collapseAll = $('#collapse-all');
     var $switcher = $('#drager > #switcher');
     $switcher.on('click', function () {
       $menu.removeAttr('style');
       $menu.toggleClass('expand');
+      $expandAll.toggle();
+      $collapseAll.toggle();
       $(this).toggleClass('expand');
     });
   })(); // mobile_menu
@@ -239,6 +303,21 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTop: 0
       }, 200);
     });
+  })(); // jump hash
+
+
+  (function () {
+    var hash = window.location.hash.slice(1);
+    var $content = $('body > .content.markdown-body');
+
+    if (hash) {
+      var _$, _$$offset;
+
+      var ele = document.getElementById(hash);
+      $content.animate({
+        scrollTop: ((_$ = $(ele)) === null || _$ === void 0 ? void 0 : (_$$offset = _$.offset()) === null || _$$offset === void 0 ? void 0 : _$$offset.top) || 0
+      }, 0);
+    }
   })(); // set last visit
 
 
@@ -249,6 +328,6 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    window.localStorage.setItem(LAST_VISIT_KEY, path);
+    window.localStorage.setItem(LAST_VISIT_STORAGE_KEY, path);
   })();
 });

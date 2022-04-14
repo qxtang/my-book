@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/13/2022, 1:29:07 PM -->
+  <!-- 编译时间：4/14/2022, 4:55:18 AM -->
 
   <script>
     window.root = '/my-book';
@@ -38,6 +38,9 @@
 
   <body>
     <ul class="menu expand" id="menu">
+      <div class="loading">
+        <span>加载中...</span>
+      </div>
       <div class="search_bar" id="search_bar">
         <input type="text" placeholder="search..." />
         <img
@@ -49,7 +52,7 @@
         <div class="search_result" id="search_result"></div>
       </div>
       
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
@@ -93,7 +96,7 @@
         
             </ul>
           
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="其他笔记" class="dir" title="其他笔记">
                 <span>其他笔记</span>
                 <div class="triangle"></div>
@@ -118,7 +121,9 @@
       </li>
     </ul>
     <div class="drager" id="drager">
-      <div class="switcher" id="switcher" title="展开或收起"></div>
+      <div class="switcher btn" id="switcher" title="展开或收起"></div>
+      <div class="expand-all btn" id="expand-all" title="展开所有"></div>
+      <div class="collapse-all btn" id="collapse-all" title="收起所有"></div>
     </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
@@ -212,7 +217,7 @@
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=浏览器架构（以 chrome 为例）><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9E%B6%E6%9E%84%EF%BC%88%E4%BB%A5-chrome-%E4%B8%BA%E4%BE%8B%EF%BC%89" data-anchor="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9E%B6%E6%9E%84%EF%BC%88%E4%BB%A5-chrome-%E4%B8%BA%E4%BE%8B%EF%BC%89">浏览器架构（以 chrome 为例）</a><ul><li title=各个进程以及负责的工作><a href="#%E5%90%84%E4%B8%AA%E8%BF%9B%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B4%9F%E8%B4%A3%E7%9A%84%E5%B7%A5%E4%BD%9C" data-anchor="#%E5%90%84%E4%B8%AA%E8%BF%9B%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B4%9F%E8%B4%A3%E7%9A%84%E5%B7%A5%E4%BD%9C">各个进程以及负责的工作</a><ul><li title=Browser（主进程）><a href="#browser%EF%BC%88%E4%B8%BB%E8%BF%9B%E7%A8%8B%EF%BC%89" data-anchor="#browser%EF%BC%88%E4%B8%BB%E8%BF%9B%E7%A8%8B%EF%BC%89">Browser（主进程）</a></li><li title=Plugin><a href="#plugin" data-anchor="#plugin">Plugin</a></li><li title=GPU><a href="#gpu" data-anchor="#gpu">GPU</a></li><li title=Renderer（渲染进程），最重要><a href="#renderer%EF%BC%88%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%EF%BC%89%EF%BC%8C%E6%9C%80%E9%87%8D%E8%A6%81" data-anchor="#renderer%EF%BC%88%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%EF%BC%89%EF%BC%8C%E6%9C%80%E9%87%8D%E8%A6%81">Renderer（渲染进程），最重要</a></li></ul></li><li title=渲染进程><a href="#%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B" data-anchor="#%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B">渲染进程</a><ul><li title=GUI 渲染线程><a href="#gui-%E6%B8%B2%E6%9F%93%E7%BA%BF%E7%A8%8B" data-anchor="#gui-%E6%B8%B2%E6%9F%93%E7%BA%BF%E7%A8%8B">GUI 渲染线程</a></li><li title=JS 引擎线程><a href="#js-%E5%BC%95%E6%93%8E%E7%BA%BF%E7%A8%8B" data-anchor="#js-%E5%BC%95%E6%93%8E%E7%BA%BF%E7%A8%8B">JS 引擎线程</a></li><li title=事件触发线程><a href="#%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E7%BA%BF%E7%A8%8B" data-anchor="#%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E7%BA%BF%E7%A8%8B">事件触发线程</a></li><li title=定时器线程><a href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%BA%BF%E7%A8%8B" data-anchor="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%BA%BF%E7%A8%8B">定时器线程</a></li><li title=异步网络请求线程><a href="#%E5%BC%82%E6%AD%A5%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%BA%BF%E7%A8%8B" data-anchor="#%E5%BC%82%E6%AD%A5%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%BA%BF%E7%A8%8B">异步网络请求线程</a></li></ul></li><li title=一个 tab 一个渲染进程的优缺点><a href="#%E4%B8%80%E4%B8%AA-tab-%E4%B8%80%E4%B8%AA%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9" data-anchor="#%E4%B8%80%E4%B8%AA-tab-%E4%B8%80%E4%B8%AA%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">一个 tab 一个渲染进程的优缺点</a></li><li title=网站隔离功能><a href="#%E7%BD%91%E7%AB%99%E9%9A%94%E7%A6%BB%E5%8A%9F%E8%83%BD" data-anchor="#%E7%BD%91%E7%AB%99%E9%9A%94%E7%A6%BB%E5%8A%9F%E8%83%BD">网站隔离功能</a></li><li title=常见浏览器内核><a href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8" data-anchor="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8">常见浏览器内核</a></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title="浏览器架构（以 chrome 为例）"><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9E%B6%E6%9E%84%EF%BC%88%E4%BB%A5-chrome-%E4%B8%BA%E4%BE%8B%EF%BC%89" data-anchor="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9E%B6%E6%9E%84%EF%BC%88%E4%BB%A5-chrome-%E4%B8%BA%E4%BE%8B%EF%BC%89">浏览器架构（以 chrome 为例）</a><ul><li title="各个进程以及负责的工作"><a href="#%E5%90%84%E4%B8%AA%E8%BF%9B%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B4%9F%E8%B4%A3%E7%9A%84%E5%B7%A5%E4%BD%9C" data-anchor="#%E5%90%84%E4%B8%AA%E8%BF%9B%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B4%9F%E8%B4%A3%E7%9A%84%E5%B7%A5%E4%BD%9C">各个进程以及负责的工作</a><ul><li title="Browser（主进程）"><a href="#browser%EF%BC%88%E4%B8%BB%E8%BF%9B%E7%A8%8B%EF%BC%89" data-anchor="#browser%EF%BC%88%E4%B8%BB%E8%BF%9B%E7%A8%8B%EF%BC%89">Browser（主进程）</a></li><li title="Plugin"><a href="#plugin" data-anchor="#plugin">Plugin</a></li><li title="GPU"><a href="#gpu" data-anchor="#gpu">GPU</a></li><li title="Renderer（渲染进程），最重要"><a href="#renderer%EF%BC%88%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%EF%BC%89%EF%BC%8C%E6%9C%80%E9%87%8D%E8%A6%81" data-anchor="#renderer%EF%BC%88%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%EF%BC%89%EF%BC%8C%E6%9C%80%E9%87%8D%E8%A6%81">Renderer（渲染进程），最重要</a></li></ul></li><li title="渲染进程"><a href="#%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B" data-anchor="#%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B">渲染进程</a><ul><li title="GUI 渲染线程"><a href="#gui-%E6%B8%B2%E6%9F%93%E7%BA%BF%E7%A8%8B" data-anchor="#gui-%E6%B8%B2%E6%9F%93%E7%BA%BF%E7%A8%8B">GUI 渲染线程</a></li><li title="JS 引擎线程"><a href="#js-%E5%BC%95%E6%93%8E%E7%BA%BF%E7%A8%8B" data-anchor="#js-%E5%BC%95%E6%93%8E%E7%BA%BF%E7%A8%8B">JS 引擎线程</a></li><li title="事件触发线程"><a href="#%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E7%BA%BF%E7%A8%8B" data-anchor="#%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E7%BA%BF%E7%A8%8B">事件触发线程</a></li><li title="定时器线程"><a href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%BA%BF%E7%A8%8B" data-anchor="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%BA%BF%E7%A8%8B">定时器线程</a></li><li title="异步网络请求线程"><a href="#%E5%BC%82%E6%AD%A5%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%BA%BF%E7%A8%8B" data-anchor="#%E5%BC%82%E6%AD%A5%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%BA%BF%E7%A8%8B">异步网络请求线程</a></li></ul></li><li title="一个 tab 一个渲染进程的优缺点"><a href="#%E4%B8%80%E4%B8%AA-tab-%E4%B8%80%E4%B8%AA%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9" data-anchor="#%E4%B8%80%E4%B8%AA-tab-%E4%B8%80%E4%B8%AA%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">一个 tab 一个渲染进程的优缺点</a></li><li title="网站隔离功能"><a href="#%E7%BD%91%E7%AB%99%E9%9A%94%E7%A6%BB%E5%8A%9F%E8%83%BD" data-anchor="#%E7%BD%91%E7%AB%99%E9%9A%94%E7%A6%BB%E5%8A%9F%E8%83%BD">网站隔离功能</a></li><li title="常见浏览器内核"><a href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8" data-anchor="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8">常见浏览器内核</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

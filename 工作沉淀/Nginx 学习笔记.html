@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/13/2022, 1:29:06 PM -->
+  <!-- 编译时间：4/14/2022, 4:55:18 AM -->
 
   <script>
     window.root = '/my-book';
@@ -38,6 +38,9 @@
 
   <body>
     <ul class="menu expand" id="menu">
+      <div class="loading">
+        <span>加载中...</span>
+      </div>
       <div class="search_bar" id="search_bar">
         <input type="text" placeholder="search..." />
         <img
@@ -49,7 +52,7 @@
         <div class="search_result" id="search_result"></div>
       </div>
       
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
@@ -93,7 +96,7 @@
         
             </ul>
           
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="其他笔记" class="dir" title="其他笔记">
                 <span>其他笔记</span>
                 <div class="triangle"></div>
@@ -118,7 +121,9 @@
       </li>
     </ul>
     <div class="drager" id="drager">
-      <div class="switcher" id="switcher" title="展开或收起"></div>
+      <div class="switcher btn" id="switcher" title="展开或收起"></div>
+      <div class="expand-all btn" id="expand-all" title="展开所有"></div>
+      <div class="collapse-all btn" id="collapse-all" title="收起所有"></div>
     </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
@@ -318,7 +323,7 @@ location <span class="hljs-regexp">~* \.(gif|jpg|jpeg)$</span> {
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=实用><a href="#%E5%AE%9E%E7%94%A8" data-anchor="#%E5%AE%9E%E7%94%A8">实用</a></li><li title=简单实现负载均衡><a href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1" data-anchor="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">简单实现负载均衡</a></li><li title=关于 location 的匹配><a href="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D" data-anchor="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D">关于 location 的匹配</a><ul><li title=location 的几种匹配方式><a href="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F" data-anchor="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F">location 的几种匹配方式</a></li><li title=几种匹配方式的说明与优先级><a href="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7" data-anchor="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7">几种匹配方式的说明与优先级</a></li><li title=示例><a href="#%E7%A4%BA%E4%BE%8B" data-anchor="#%E7%A4%BA%E4%BE%8B">示例</a></li><li title=总结><a href="#%E6%80%BB%E7%BB%93" data-anchor="#%E6%80%BB%E7%BB%93">总结</a></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title="实用"><a href="#%E5%AE%9E%E7%94%A8" data-anchor="#%E5%AE%9E%E7%94%A8">实用</a></li><li title="简单实现负载均衡"><a href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1" data-anchor="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">简单实现负载均衡</a></li><li title="关于 location 的匹配"><a href="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D" data-anchor="#%E5%85%B3%E4%BA%8E-location-%E7%9A%84%E5%8C%B9%E9%85%8D">关于 location 的匹配</a><ul><li title="location 的几种匹配方式"><a href="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F" data-anchor="#location-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F">location 的几种匹配方式</a></li><li title="几种匹配方式的说明与优先级"><a href="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7" data-anchor="#%E5%87%A0%E7%A7%8D%E5%8C%B9%E9%85%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AF%B4%E6%98%8E%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7">几种匹配方式的说明与优先级</a></li><li title="示例"><a href="#%E7%A4%BA%E4%BE%8B" data-anchor="#%E7%A4%BA%E4%BE%8B">示例</a></li><li title="总结"><a href="#%E6%80%BB%E7%BB%93" data-anchor="#%E6%80%BB%E7%BB%93">总结</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

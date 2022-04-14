@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/13/2022, 1:29:07 PM -->
+  <!-- 编译时间：4/14/2022, 4:55:18 AM -->
 
   <script>
     window.root = '/my-book';
@@ -38,6 +38,9 @@
 
   <body>
     <ul class="menu expand" id="menu">
+      <div class="loading">
+        <span>加载中...</span>
+      </div>
       <div class="search_bar" id="search_bar">
         <input type="text" placeholder="search..." />
         <img
@@ -49,7 +52,7 @@
         <div class="search_result" id="search_result"></div>
       </div>
       
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
@@ -93,7 +96,7 @@
         
             </ul>
           
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="其他笔记" class="dir" title="其他笔记">
                 <span>其他笔记</span>
                 <div class="triangle"></div>
@@ -118,7 +121,9 @@
       </li>
     </ul>
     <div class="drager" id="drager">
-      <div class="switcher" id="switcher" title="展开或收起"></div>
+      <div class="switcher btn" id="switcher" title="展开或收起"></div>
+      <div class="expand-all btn" id="expand-all" title="展开所有"></div>
+      <div class="collapse-all btn" id="collapse-all" title="收起所有"></div>
     </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
@@ -143,7 +148,7 @@
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=敏捷模型><a href="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B" data-anchor="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B">敏捷模型</a><ul><li title=总览><a href="#%E6%80%BB%E8%A7%88" data-anchor="#%E6%80%BB%E8%A7%88">总览</a></li><li title=敏捷模型><a href="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B-1" data-anchor="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B-1">敏捷模型</a></li><li title=组织架构><a href="#%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84" data-anchor="#%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84">组织架构</a><ul><li title=客户化小组><a href="#%E5%AE%A2%E6%88%B7%E5%8C%96%E5%B0%8F%E7%BB%84" data-anchor="#%E5%AE%A2%E6%88%B7%E5%8C%96%E5%B0%8F%E7%BB%84">客户化小组</a></li><li title=专项+小车道><a href="#%E4%B8%93%E9%A1%B9%2B%E5%B0%8F%E8%BD%A6%E9%81%93" data-anchor="#%E4%B8%93%E9%A1%B9%2B%E5%B0%8F%E8%BD%A6%E9%81%93">专项+小车道</a></li><li title=小组组建与职责><a href="#%E5%B0%8F%E7%BB%84%E7%BB%84%E5%BB%BA%E4%B8%8E%E8%81%8C%E8%B4%A3" data-anchor="#%E5%B0%8F%E7%BB%84%E7%BB%84%E5%BB%BA%E4%B8%8E%E8%81%8C%E8%B4%A3">小组组建与职责</a></li></ul></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title="敏捷模型"><a href="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B" data-anchor="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B">敏捷模型</a><ul><li title="总览"><a href="#%E6%80%BB%E8%A7%88" data-anchor="#%E6%80%BB%E8%A7%88">总览</a></li><li title="敏捷模型"><a href="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B-1" data-anchor="#%E6%95%8F%E6%8D%B7%E6%A8%A1%E5%9E%8B-1">敏捷模型</a></li><li title="组织架构"><a href="#%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84" data-anchor="#%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84">组织架构</a><ul><li title="客户化小组"><a href="#%E5%AE%A2%E6%88%B7%E5%8C%96%E5%B0%8F%E7%BB%84" data-anchor="#%E5%AE%A2%E6%88%B7%E5%8C%96%E5%B0%8F%E7%BB%84">客户化小组</a></li><li title="专项+小车道"><a href="#%E4%B8%93%E9%A1%B9%2B%E5%B0%8F%E8%BD%A6%E9%81%93" data-anchor="#%E4%B8%93%E9%A1%B9%2B%E5%B0%8F%E8%BD%A6%E9%81%93">专项+小车道</a></li><li title="小组组建与职责"><a href="#%E5%B0%8F%E7%BB%84%E7%BB%84%E5%BB%BA%E4%B8%8E%E8%81%8C%E8%B4%A3" data-anchor="#%E5%B0%8F%E7%BB%84%E7%BB%84%E5%BB%BA%E4%B8%8E%E8%81%8C%E8%B4%A3">小组组建与职责</a></li></ul></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：4/13/2022, 1:29:07 PM -->
+  <!-- 编译时间：4/14/2022, 4:55:18 AM -->
 
   <script>
     window.root = '/my-book';
@@ -38,6 +38,9 @@
 
   <body>
     <ul class="menu expand" id="menu">
+      <div class="loading">
+        <span>加载中...</span>
+      </div>
       <div class="search_bar" id="search_bar">
         <input type="text" placeholder="search..." />
         <img
@@ -49,7 +52,7 @@
         <div class="search_result" id="search_result"></div>
       </div>
       
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="工作沉淀" class="dir" title="工作沉淀">
                 <span>工作沉淀</span>
                 <div class="triangle"></div>
@@ -93,7 +96,7 @@
         
             </ul>
           
-            <ul class="parent open">
+            <ul class="parent expand">
               <li id="其他笔记" class="dir" title="其他笔记">
                 <span>其他笔记</span>
                 <div class="triangle"></div>
@@ -118,7 +121,9 @@
       </li>
     </ul>
     <div class="drager" id="drager">
-      <div class="switcher" id="switcher" title="展开或收起"></div>
+      <div class="switcher btn" id="switcher" title="展开或收起"></div>
+      <div class="expand-all btn" id="expand-all" title="展开所有"></div>
+      <div class="collapse-all btn" id="collapse-all" title="收起所有"></div>
     </div>
     <div class="mobile_menu" id="mobile_menu">
       <img src="https://cdn.jsdelivr.net/gh/FortAwesome/font-awesome/svgs/solid/bars.svg" alt="" />
@@ -188,7 +193,7 @@
       
     </div>
     
-    <div class="table-of-contents"><ul><li title=Fiber><a href="#fiber" data-anchor="#fiber">Fiber</a></li><li title=为什么 Fiber><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber">为什么 Fiber</a></li><li title=Fiber 架构思想><a href="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3" data-anchor="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3">Fiber 架构思想</a></li><li title=Fiber 树><a href="#fiber-%E6%A0%91" data-anchor="#fiber-%E6%A0%91">Fiber 树</a></li><li title=workInProgress Fiber 树><a href="#workinprogress-fiber-%E6%A0%91" data-anchor="#workinprogress-fiber-%E6%A0%91">workInProgress Fiber 树</a></li><li title=Fiber 数据结构><a href="#fiber-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" data-anchor="#fiber-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">Fiber 数据结构</a></li><li title=Fiber 为什么使用链表><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8" data-anchor="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8">Fiber 为什么使用链表</a></li><li title=Fiber 为什么深度优先><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88" data-anchor="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88">Fiber 为什么深度优先</a></li></ul></div>
+    <div class="table-of-contents"><ul><li title="Fiber"><a href="#fiber" data-anchor="#fiber">Fiber</a></li><li title="为什么 Fiber"><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-fiber">为什么 Fiber</a></li><li title="Fiber 架构思想"><a href="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3" data-anchor="#fiber-%E6%9E%B6%E6%9E%84%E6%80%9D%E6%83%B3">Fiber 架构思想</a></li><li title="Fiber 树"><a href="#fiber-%E6%A0%91" data-anchor="#fiber-%E6%A0%91">Fiber 树</a></li><li title="workInProgress Fiber 树"><a href="#workinprogress-fiber-%E6%A0%91" data-anchor="#workinprogress-fiber-%E6%A0%91">workInProgress Fiber 树</a></li><li title="Fiber 数据结构"><a href="#fiber-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" data-anchor="#fiber-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">Fiber 数据结构</a></li><li title="Fiber 为什么使用链表"><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8" data-anchor="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E9%93%BE%E8%A1%A8">Fiber 为什么使用链表</a></li><li title="Fiber 为什么深度优先"><a href="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88" data-anchor="#fiber-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88">Fiber 为什么深度优先</a></li></ul></div>
     
 
     <!-- bottom scripts -->
