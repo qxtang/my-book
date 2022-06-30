@@ -1,5 +1,3 @@
-> 未完待续
-
 # Fiber
 
 - 是 React 核心算法的重新实现，是 React 团队两年多研究的结晶，是对 reconciliation 的重新编写，重新实现了 reconciler（协调器）
