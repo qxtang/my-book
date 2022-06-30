@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - Vue</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/viewerjs-1.10.5/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：6/30/2022, 3:19:27 AM -->
+
+  <script>
+    window.root = '/my-book';
+
+    // 提前把搜索数据库载入内存
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
+  </script>
+</head>
+
+  <body>
+    <ul class="menu expand" id="menu">
+      <div class="loading">
+        <span>加载中...</span>
+      </div>
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="/my-book/resource/icons/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
+      
+            <ul class="parent expand">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
+                <span>工作沉淀</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="工作沉淀/ADB 通过 Wi-Fi 调试手机.md" class="children" title="ADB 通过 Wi-Fi 调试手机">
+            <a href="/my-book/工作沉淀/ADB 通过 Wi-Fi 调试手机.html">ADB 通过 Wi-Fi 调试手机</a>
+          </li>
+        
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
+            <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
+          </li>
+        
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
+            <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
+          </li>
+        
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
+            <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
+          </li>
+        
+          <li id="工作沉淀/为什么一般不在开发环境下部署代码.md" class="children" title="为什么一般不在开发环境下部署代码">
+            <a href="/my-book/工作沉淀/为什么一般不在开发环境下部署代码.html">为什么一般不在开发环境下部署代码</a>
+          </li>
+        
+          <li id="工作沉淀/动态校验企微应用可信域名.md" class="children" title="动态校验企微应用可信域名">
+            <a href="/my-book/工作沉淀/动态校验企微应用可信域名.html">动态校验企微应用可信域名</a>
+          </li>
+        
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
+            <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
+          </li>
+        
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
+            <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
+          </li>
+        
+          <li id="工作沉淀/最佳实践.md" class="children" title="最佳实践">
+            <a href="/my-book/工作沉淀/最佳实践.html">最佳实践</a>
+          </li>
+        
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
+            <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
+          </li>
+        
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
+            <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
+          </li>
+        
+            </ul>
+          
+            <ul class="parent expand">
+              <li id="前端技术" class="dir" title="前端技术">
+                <span>前端技术</span>
+                <div class="triangle"></div>
+              </li>
+              
+            <ul class="parent expand">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
+                <span>浏览器</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="前端技术/浏览器/事件循环.md" class="children" title="事件循环">
+            <a href="/my-book/前端技术/浏览器/事件循环.html">事件循环</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器架构.md" class="children" title="浏览器架构">
+            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
+            <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
+          </li>
+        
+            </ul>
+          
+            <ul class="parent expand">
+              <li id="前端技术/React" class="dir" title="React">
+                <span>React</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="前端技术/React/Fiber.md" class="children" title="Fiber">
+            <a href="/my-book/前端技术/React/Fiber.html">Fiber</a>
+          </li>
+        
+          <li id="前端技术/React/Hooks.md" class="children" title="Hooks">
+            <a href="/my-book/前端技术/React/Hooks.html">Hooks</a>
+          </li>
+        
+          <li id="前端技术/React/React.md" class="children" title="React">
+            <a href="/my-book/前端技术/React/React.html">React</a>
+          </li>
+        
+            </ul>
+          
+            <ul class="parent expand">
+              <li id="前端技术/Javascript" class="dir" title="Javascript">
+                <span>Javascript</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="前端技术/Javascript/Promise.md" class="children" title="Promise">
+            <a href="/my-book/前端技术/Javascript/Promise.html">Promise</a>
+          </li>
+        
+          <li id="前端技术/Javascript/代理对.md" class="children" title="代理对">
+            <a href="/my-book/前端技术/Javascript/代理对.html">代理对</a>
+          </li>
+        
+          <li id="前端技术/Javascript/其他.md" class="children" title="其他">
+            <a href="/my-book/前端技术/Javascript/其他.html">其他</a>
+          </li>
+        
+          <li id="前端技术/Javascript/原型链和继承.md" class="children" title="原型链和继承">
+            <a href="/my-book/前端技术/Javascript/原型链和继承.html">原型链和继承</a>
+          </li>
+        
+          <li id="前端技术/Javascript/数据类型.md" class="children" title="数据类型">
+            <a href="/my-book/前端技术/Javascript/数据类型.html">数据类型</a>
+          </li>
+        
+          <li id="前端技术/Javascript/模块.md" class="children" title="模块">
+            <a href="/my-book/前端技术/Javascript/模块.html">模块</a>
+          </li>
+        
+          <li id="前端技术/Javascript/正则表达式.md" class="children" title="正则表达式">
+            <a href="/my-book/前端技术/Javascript/正则表达式.html">正则表达式</a>
+          </li>
+        
+          <li id="前端技术/Javascript/闭包.md" class="children" title="闭包">
+            <a href="/my-book/前端技术/Javascript/闭包.html">闭包</a>
+          </li>
+        
+            </ul>
+          
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
+            <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
+          </li>
+        
+          <li id="前端技术/Babel.md" class="children" title="Babel">
+            <a href="/my-book/前端技术/Babel.html">Babel</a>
+          </li>
+        
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
+            <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
+          </li>
+        
+          <li id="前端技术/CSS.md" class="children" title="CSS">
+            <a href="/my-book/前端技术/CSS.html">CSS</a>
+          </li>
+        
+          <li id="前端技术/DOM 变动观察器（Mutation observer）.md" class="children" title="DOM 变动观察器（Mutation observer）">
+            <a href="/my-book/前端技术/DOM 变动观察器（Mutation observer）.html">DOM 变动观察器（Mutation observer）</a>
+          </li>
+        
+          <li id="前端技术/Flex布局.md" class="children" title="Flex布局">
+            <a href="/my-book/前端技术/Flex布局.html">Flex布局</a>
+          </li>
+        
+          <li id="前端技术/Less.md" class="children" title="Less">
+            <a href="/my-book/前端技术/Less.html">Less</a>
+          </li>
+        
+          <li id="前端技术/NodeJS.md" class="children" title="NodeJS">
+            <a href="/my-book/前端技术/NodeJS.html">NodeJS</a>
+          </li>
+        
+          <li id="前端技术/Redux.md" class="children" title="Redux">
+            <a href="/my-book/前端技术/Redux.html">Redux</a>
+          </li>
+        
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
+            <a href="/my-book/前端技术/Typescript.html">Typescript</a>
+          </li>
+        
+          <li id="前端技术/URL对象.md" class="children" title="URL对象">
+            <a href="/my-book/前端技术/URL对象.html">URL对象</a>
+          </li>
+        
+          <li id="前端技术/Vue.md" class="children" title="Vue">
+            <a href="/my-book/前端技术/Vue.html">Vue</a>
+          </li>
+        
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
+            <a href="/my-book/前端技术/Webpack.html">Webpack</a>
+          </li>
+        
+          <li id="前端技术/lerna.md" class="children" title="lerna">
+            <a href="/my-book/前端技术/lerna.html">lerna</a>
+          </li>
+        
+          <li id="前端技术/npm.md" class="children" title="npm">
+            <a href="/my-book/前端技术/npm.html">npm</a>
+          </li>
+        
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
+            <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
+          </li>
+        
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
+            <a href="/my-book/前端技术/微信开发.html">微信开发</a>
+          </li>
+        
+          <li id="前端技术/微前端.md" class="children" title="微前端">
+            <a href="/my-book/前端技术/微前端.html">微前端</a>
+          </li>
+        
+          <li id="前端技术/性能优化.md" class="children" title="性能优化">
+            <a href="/my-book/前端技术/性能优化.html">性能优化</a>
+          </li>
+        
+          <li id="前端技术/手写题.md" class="children" title="手写题">
+            <a href="/my-book/前端技术/手写题.html">手写题</a>
+          </li>
+        
+          <li id="前端技术/文件上传&下载.md" class="children" title="文件上传&下载">
+            <a href="/my-book/前端技术/文件上传&下载.html">文件上传&下载</a>
+          </li>
+        
+          <li id="前端技术/柯里化.md" class="children" title="柯里化">
+            <a href="/my-book/前端技术/柯里化.html">柯里化</a>
+          </li>
+        
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
+            <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
+          </li>
+        
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
+            <a href="/my-book/前端技术/设计模式.html">设计模式</a>
+          </li>
+        
+            </ul>
+          
+          <li id="其他.md" class="children" title="其他">
+            <a href="/my-book/其他.html">其他</a>
+          </li>
+        
+          <li id="单元测试.md" class="children" title="单元测试">
+            <a href="/my-book/单元测试.html">单元测试</a>
+          </li>
+        
+          <li id="数据结构与算法.md" class="children" title="数据结构与算法">
+            <a href="/my-book/数据结构与算法.html">数据结构与算法</a>
+          </li>
+        
+          <li id="网络.md" class="children" title="网络">
+            <a href="/my-book/网络.html">网络</a>
+          </li>
+        
+      <li id="index.md" class="children about">
+        <a href="/my-book/">关于</a>
+      </li>
+    </ul>
+    <div class="drager" id="drager">
+      <div class="switcher btn" id="switcher" title="展开或收起"></div>
+      <div class="expand-all btn" id="expand-all" title="展开所有"></div>
+      <div class="collapse-all btn" id="collapse-all" title="收起所有"></div>
+    </div>
+    <div class="mobile_menu" id="mobile_menu">
+      <img src="/my-book/resource/icons/bars.svg" alt="" />
+    </div>
+    <div class="content markdown-body">
+      <h1 id="vue" tabindex="-1"><a class="header-anchor" href="#vue">Vue</a></h1>
+<h1 id="vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" tabindex="-1"><a class="header-anchor" href="#vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Vue 生命周期</a></h1>
+<ul>
+<li>beforeCreate</li>
+<li>created</li>
+<li>beforeMount</li>
+<li>mounted <code>dom加载完毕，可以进行ajax请求和dom操作</code></li>
+<li>beforeUpdate</li>
+<li>updated</li>
+<li>beforeDestroy</li>
+<li>destroyed</li>
+</ul>
+<h1 id="%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F">组件通信方式</a></h1>
+<ul>
+<li>props / $emit 适用 父子组件通信</li>
+<li>parent / children 适用 父子组件通信</li>
+<li>事件总线 EventBus</li>
+<li>vuex 状态管理库</li>
+</ul>
+<h1 id="%E4%BB%80%E4%B9%88%E6%98%AF-mvvm" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-mvvm">什么是 mvvm</a></h1>
+<ul>
+<li>Model-View-ViewModel 的缩写</li>
+<li>mvvm 是一种设计思想</li>
+<li>Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑</li>
+<li>View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来</li>
+<li>ViewModel 是一个同步 View 和 Model 的对象</li>
+<li>在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互</li>
+</ul>
+<h1 id="%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86">双向绑定原理</a></h1>
+<ul>
+<li>vue2 是采用数据劫持结合发布者-订阅者模式的方式，通过 Object.defineProperty() 来劫持各个属性的 setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</li>
+<li>Vue2 中使用 Object.definePorperty() 的缺陷
+<ul>
+<li>Object.definePorperty()递归遍历所有对象的所有属性，当数据层级较深时，会造成性能影响。</li>
+<li>Object.definePorperty()只能作用在对象上，不能作用在数组上。</li>
+<li>Object.definePorperty()只能监听定义时的属性，不能监听新增属性。</li>
+<li>由于 Object.definePorperty()不能作用于数组，vue2.0 选择通过重写数组方法原型的方式对数组数据进行监听，但是仍然无法监听数组索引的变化和长度的变更</li>
+</ul>
+</li>
+<li>Vue3.x 改用 Proxy 替代 Object.defineProperty，因为 Proxy 可以直接监听对象和数组的变化，数组变化也能监听到，不需要深度遍历监听，并且作为新标准将受到浏览器厂商重点持续的性能优化</li>
+<li>Proxy 只会代理对象的第一层，那么 Vue3 又是怎样处理这个问题的呢？
+<ul>
+<li>判断当前 Reflect.get 的返回值是否为 Object，如果是则再通过 reactive 方法做代理， 这样就实现了深度观测</li>
+</ul>
+</li>
+<li>监测数组的时候可能触发多次 get/set，那么如何防止触发多次呢？
+<ul>
+<li>我们可以判断 key 是否为当前被代理对象 target 自身属性，也可以判断旧值与新值是否相等，只有满足以上两个条件之一时，才有可能执行 trigger。</li>
+</ul>
+</li>
+</ul>
+<h1 id="%E8%AF%B4%E4%B8%80%E4%B8%8B-vue2.x-%E4%B8%AD%E5%A6%82%E4%BD%95%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84%E5%8F%98%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E8%AF%B4%E4%B8%80%E4%B8%8B-vue2.x-%E4%B8%AD%E5%A6%82%E4%BD%95%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84%E5%8F%98%E5%8C%96">说一下 vue2.x 中如何监测数组变化</a></h1>
+<p>使用了函数劫持的方式，重写了数组的方法，Vue 将 data 中的数组进行了原型链重写，指向了自己定义的数组原型方法。这样当调用数组 api 时，可以通知依赖更新。如果数组中包含着引用类型，会对数组中的引用类型再次递归遍历进行监控。这样就实现了监测数组变化。</p>
+<h1 id="data-%E5%92%8C-computed-%E7%9A%84%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#data-%E5%92%8C-computed-%E7%9A%84%E5%8C%BA%E5%88%AB">data 和 computed 的区别</a></h1>
+<ul>
+<li>data 中的属性并不会随赋值变量的改动而改动，而 computed 会</li>
+</ul>
+<h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88-vue-%E4%B8%AD-data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-vue-%E4%B8%AD-data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">为什么 vue 中 data 必须是一个函数</a></h1>
+<ul>
+<li>js 中，对象为引用类型</li>
+<li>由于数据对象都指向同一个 data 对象，当在一个组件中修改 data 时，其他重用的组件中的 data 会同时被修改</li>
+<li>使用返回对象的函数，每次都创建一个新对象，引用地址不同，则不会出现这个问题</li>
+</ul>
+<h1 id="nexttick" tabindex="-1"><a class="header-anchor" href="#nexttick">nextTick</a></h1>
+<p>定义：在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。 理解：nextTick()，是将回调函数延迟在下一次 dom 更新数据后调用，简单的理解是：当数据更新了，在 dom 中渲染后，自动执行该函数。</p>
+<ul>
+<li>什么时候用：
+<ul>
+<li>Vue 生命周期的 created()钩子函数进行的 DOM 操作一定要放在 Vue.nextTick()的回调函数中</li>
+<li>当项目中你想在改变 DOM 元素的数据后基于新的 dom 做点什么，对新 DOM 一系列的 js 操作都需要放进 Vue.nextTick()的回调函数中</li>
+<li>在使用某个第三方插件时 ，希望在 vue 生成的某些 dom 动态发生变化时重新应用该插件，也会用到该方法，这时候就需要在 $nextTick 的回调函数中执行重新应用插件的方法，比如 swipebox 插件</li>
+</ul>
+</li>
+</ul>
+<h1 id="v-if-%E5%92%8C-v-show-%E7%9A%84%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#v-if-%E5%92%8C-v-show-%E7%9A%84%E5%8C%BA%E5%88%AB">v-if 和 v-show 的区别</a></h1>
+<ul>
+<li>v-if 是动态的向 DOM 树内添加或者删除 DOM 元素</li>
+<li>v-show 是通过设置 DOM 元素的 display 样式属性控制显隐</li>
+</ul>
+<h1 id="vue-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#vue-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86">Vue 事件绑定原理</a></h1>
+<p>原生事件绑定是通过 addEventListener 绑定给真实元素的，组件事件绑定是通过 Vue 自定义的$on 实现的。</p>
+<h1 id="vue-%E6%A8%A1%E7%89%88%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#vue-%E6%A8%A1%E7%89%88%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86">Vue 模版编译原理</a></h1>
+<p>简单说，Vue 的编译过程就是将 template 转化为 render 函数的过程。会经历以下阶段：</p>
+<ul>
+<li>生成 AST 树</li>
+<li>优化</li>
+<li>codegen</li>
+</ul>
+<p>首先解析模版，生成 AST 语法树(一种用 JavaScript 对象的形式来描述整个模板)。 使用大量的正则表达式对模板进行解析，遇到标签、文本的时候都会执行对应的钩子进行相关处理。</p>
+<p>Vue 的数据是响应式的，但其实模板中并不是所有的数据都是响应式的。有一些数据首次渲染后就不会再变化，对应的 DOM 也不会变化。那么优化过程就是深度遍历 AST 树，按照相关条件对树节点进行标记。这些被标记的节点(静态节点)我们就可以跳过对它们的比对，对运行时的模板起到很大的优化作用。 编译的最后一步是将优化后的 AST 树转换为可执行的代码。</p>
+<h1 id="keep-alive" tabindex="-1"><a class="header-anchor" href="#keep-alive">keep-alive</a></h1>
+<ul>
+<li>keep-alive 可以实现组件缓存，当组件切换时不会对当前组件进行卸载。</li>
+<li>常用的两个属性 include/exclude，允许组件有条件的进行缓存。</li>
+<li>两个生命周期 activated/deactivated，用来得知当前组件是否处于活跃状态。</li>
+</ul>
+<h1 id="vue-%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#vue-%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">Vue 的性能优化</a></h1>
+<ul>
+<li>编码阶段
+<ul>
+<li>尽量减少 data 中的数据，data 中的数据都会增加 getter 和 setter，会收集对应的 watcher</li>
+<li>v-if 和 v-for 不能连用</li>
+<li>如果需要使用 v-for 给每项元素绑定事件时使用事件代理</li>
+<li>SPA 页面采用 keep-alive 缓存组件</li>
+<li>在更多的情况下，使用 v-if 替代 v-show</li>
+<li>key 保证唯一</li>
+<li>使用路由懒加载、异步组件</li>
+<li>防抖、节流</li>
+<li>第三方模块按需导入</li>
+<li>长列表滚动到可视区域动态加载</li>
+<li>图片懒加载</li>
+</ul>
+</li>
+<li>SEO 优化
+<ul>
+<li>服务端渲染 SSR</li>
+</ul>
+</li>
+<li>打包优化
+<ul>
+<li>压缩代码</li>
+<li>使用 cdn 加载第三方模块</li>
+<li>抽离公共文件</li>
+</ul>
+</li>
+<li>用户体验
+<ul>
+<li>骨架屏</li>
+<li>缓存优化（客户端缓存、服务端缓存、服务端开启 gzip 压缩等）</li>
+</ul>
+</li>
+</ul>
+<h1 id="vue3-%E6%96%B0%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#vue3-%E6%96%B0%E7%89%B9%E6%80%A7">vue3 新特性</a></h1>
+<ul>
+<li>基于 Proxy 的观察者机制，目前，Vue 的反应系统是使用 Object.defineProperty 的 getter 和 setter。 但是，Vue 3 将使用 ES2015 Proxy 作为其观察者机制。 这消除了以前存在的警告，使速度加倍，并节省了一半的内存开销</li>
+<li>更好的支持 TS 和 JSX</li>
+</ul>
+<h1 id="vuex" tabindex="-1"><a class="header-anchor" href="#vuex">vuex</a></h1>
+<h2 id="%E6%A0%B8%E5%BF%83%E5%B1%9E%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B8%E5%BF%83%E5%B1%9E%E6%80%A7">核心属性</a></h2>
+<ul>
+<li>state 全局唯一数据源</li>
+<li>getters 类似过滤器和计算属性，从 store 中的 state 中派生出一些状态</li>
+<li>mutations 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation，类似 redux 里的 reducer，同步任务</li>
+<li>actions 类似 redux 里的异步 reducer，可以执行异步任务</li>
+<li>modules 模块，使用单一状态树，应用的所有状态会集中到一个比较大的对象，变得复杂、臃肿。Vuex 允许我们将 store 分割成模块（module）</li>
+</ul>
+<h2 id="vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E5%82%A8%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E6%94%B9%E5%8F%98%E5%AE%83%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E5%82%A8%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E6%94%B9%E5%8F%98%E5%AE%83%EF%BC%9F">Vuex 中状态储存在哪里，怎么改变它？</a></h2>
+<ul>
+<li>存储在 state 中，改变 Vuex 中的状态的唯一途径就是显式地提交 (commit) mutation。</li>
+</ul>
+<h2 id="vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E6%98%AF%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E6%98%AF%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F">Vuex 中状态是对象时，使用时要注意什么？</a></h2>
+<ul>
+<li>因为对象是引用类型，复制后改变属性还是会影响原始数据，这样会改变 state 里面的状态，是不允许，所以先用深度克隆复制对象，再修改。</li>
+</ul>
+<h1 id="vue2-%E7%9A%84%E7%BC%BA%E9%99%B7" tabindex="-1"><a class="header-anchor" href="#vue2-%E7%9A%84%E7%BC%BA%E9%99%B7">vue2 的缺陷</a></h1>
+<!-- TODO -->
+
+      
+        <div class="btt withToc" id="btt"></div>
+      
+    </div>
+    
+    <div class="table-of-contents"><ul><li title="Vue"><a href="#vue" data-anchor="#vue">Vue</a></li><li title="Vue 生命周期"><a href="#vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" data-anchor="#vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Vue 生命周期</a></li><li title="组件通信方式"><a href="#%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F" data-anchor="#%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F">组件通信方式</a></li><li title="什么是 mvvm"><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-mvvm" data-anchor="#%E4%BB%80%E4%B9%88%E6%98%AF-mvvm">什么是 mvvm</a></li><li title="双向绑定原理"><a href="#%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86" data-anchor="#%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86">双向绑定原理</a></li><li title="说一下 vue2.x 中如何监测数组变化"><a href="#%E8%AF%B4%E4%B8%80%E4%B8%8B-vue2.x-%E4%B8%AD%E5%A6%82%E4%BD%95%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84%E5%8F%98%E5%8C%96" data-anchor="#%E8%AF%B4%E4%B8%80%E4%B8%8B-vue2.x-%E4%B8%AD%E5%A6%82%E4%BD%95%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84%E5%8F%98%E5%8C%96">说一下 vue2.x 中如何监测数组变化</a></li><li title="data 和 computed 的区别"><a href="#data-%E5%92%8C-computed-%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#data-%E5%92%8C-computed-%E7%9A%84%E5%8C%BA%E5%88%AB">data 和 computed 的区别</a></li><li title="为什么 vue 中 data 必须是一个函数"><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-vue-%E4%B8%AD-data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88-vue-%E4%B8%AD-data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">为什么 vue 中 data 必须是一个函数</a></li><li title="nextTick"><a href="#nexttick" data-anchor="#nexttick">nextTick</a></li><li title="v-if 和 v-show 的区别"><a href="#v-if-%E5%92%8C-v-show-%E7%9A%84%E5%8C%BA%E5%88%AB" data-anchor="#v-if-%E5%92%8C-v-show-%E7%9A%84%E5%8C%BA%E5%88%AB">v-if 和 v-show 的区别</a></li><li title="Vue 事件绑定原理"><a href="#vue-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86" data-anchor="#vue-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86">Vue 事件绑定原理</a></li><li title="Vue 模版编译原理"><a href="#vue-%E6%A8%A1%E7%89%88%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86" data-anchor="#vue-%E6%A8%A1%E7%89%88%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86">Vue 模版编译原理</a></li><li title="keep-alive"><a href="#keep-alive" data-anchor="#keep-alive">keep-alive</a></li><li title="Vue 的性能优化"><a href="#vue-%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96" data-anchor="#vue-%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">Vue 的性能优化</a></li><li title="vue3 新特性"><a href="#vue3-%E6%96%B0%E7%89%B9%E6%80%A7" data-anchor="#vue3-%E6%96%B0%E7%89%B9%E6%80%A7">vue3 新特性</a></li><li title="vuex"><a href="#vuex" data-anchor="#vuex">vuex</a><ul><li title="核心属性"><a href="#%E6%A0%B8%E5%BF%83%E5%B1%9E%E6%80%A7" data-anchor="#%E6%A0%B8%E5%BF%83%E5%B1%9E%E6%80%A7">核心属性</a></li><li title="Vuex 中状态储存在哪里，怎么改变它？"><a href="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E5%82%A8%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E6%94%B9%E5%8F%98%E5%AE%83%EF%BC%9F" data-anchor="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E5%82%A8%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%80%8E%E4%B9%88%E6%94%B9%E5%8F%98%E5%AE%83%EF%BC%9F">Vuex 中状态储存在哪里，怎么改变它？</a></li><li title="Vuex 中状态是对象时，使用时要注意什么？"><a href="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E6%98%AF%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F" data-anchor="#vuex-%E4%B8%AD%E7%8A%B6%E6%80%81%E6%98%AF%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F">Vuex 中状态是对象时，使用时要注意什么？</a></li></ul></li><li title="vue2 的缺陷"><a href="#vue2-%E7%9A%84%E7%BC%BA%E9%99%B7" data-anchor="#vue2-%E7%9A%84%E7%BC%BA%E9%99%B7">vue2 的缺陷</a></li></ul></div>
+    
+
+    <!-- bottom scripts -->
+    <script src="/my-book/resource/lib/mark.js-8.11.1/jquery.mark.min.js"></script>
+    <script src="/my-book/resource/lib/viewerjs-1.10.5/viewer.min.js"></script>
+    <script src="/my-book/resource/lib/jquery-viewer-1.0.1/jquery-viewer.min.js"></script>
+    <script src="/my-book/resource/script.js"></script>
+  </body>
+</html>

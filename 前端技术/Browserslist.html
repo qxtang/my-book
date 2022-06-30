@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - Browserslist</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -321,13 +321,40 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <h1 id="browserslist" tabindex="-1"><a class="header-anchor" href="#browserslist">Browserslist</a></h1>
+<ul>
+<li>用特定的语句来查询浏览器列表<pre><code class="language-sh"><span class="hljs-comment"># 查询 Chrome 最后的两个版本</span>
+npx browserslist <span class="hljs-string">&quot;last 2 Chrome versions&quot;</span>
+chrome 96
+chrome 95
+</code></pre>
+</li>
+<li>autoprefixer 和 babel 都会用到</li>
+<li>开发过程中为了减小垫片的体积，避免使用过多没必要的垫片</li>
+<li>当我们确认的浏览器版本号，那么它的垫片体积就可以确认</li>
+<li>例如：当我们确认的浏览器版本号，那么它的垫片体积就会确认</li>
+</ul>
+<h2 id="caniuse-lite-%E4%B8%8E-caniuse-db" tabindex="-1"><a class="header-anchor" href="#caniuse-lite-%E4%B8%8E-caniuse-db">caniuse-lite 与 caniuse-db</a></h2>
+<ul>
+<li>browserslist 是从 caniuse-lite 这个库中查询数据的，caniuse-lite 是 caniuse-db 的精简版本，对 caniuse-db 的数据按一定规则做了简化，减少了库的大小</li>
+<li>caniuse-db 则是 can i use 网站的数据源，提供了网站查询所需的所有数据，caniuse-db 发布时会同步发布 caniuse-lite</li>
+<li>caniuse-lite 这个库也由 browserslist 团队进行维护</li>
+<li>由于它们都不属于线上数据库，使用时会将数据克隆至本地，所以可能会存在本地数据不是最新的情况，browserslist 提供了更新 caniuse-lite 的命令，可定期运行以获取最新数据<pre><code class="language-sh">npx browserslist@latest --update-db
+</code></pre>
+</li>
+</ul>
+<h2 id="%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E7%90%86">原理</a></h2>
+<ul>
+<li>browserslist 根据正则解析查询语句，对浏览器版本数据库 caniuse-lite 进行查询，返回所得的浏览器版本列表</li>
+<li>因为 browserslist 并不维护数据库，因此它会经常提醒你去更新 caniuse-lite 这个库</li>
+</ul>
 
       
-        <div class="btt" id="btt"></div>
+        <div class="btt withToc" id="btt"></div>
       
     </div>
+    
+    <div class="table-of-contents"><ul><li title="Browserslist"><a href="#browserslist" data-anchor="#browserslist">Browserslist</a><ul><li title="caniuse-lite 与 caniuse-db"><a href="#caniuse-lite-%E4%B8%8E-caniuse-db" data-anchor="#caniuse-lite-%E4%B8%8E-caniuse-db">caniuse-lite 与 caniuse-db</a></li><li title="原理"><a href="#%E5%8E%9F%E7%90%86" data-anchor="#%E5%8E%9F%E7%90%86">原理</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

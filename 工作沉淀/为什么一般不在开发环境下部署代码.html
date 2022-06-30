@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - 为什么一般不在开发环境下部署代码</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：6/30/2022, 3:19:27 AM -->
+  <!-- 编译时间：6/30/2022, 3:19:25 AM -->
 
   <script>
     window.root = '/my-book';
@@ -321,13 +321,41 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <h1 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E8%88%AC%E4%B8%8D%E5%9C%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E8%88%AC%E4%B8%8D%E5%9C%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81">为什么一般不在开发环境下部署代码</a></h1>
+<p>为什么不建议本地构建</p>
+<h2 id="%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B">前端项目的一般部署流程</a></h2>
+<ul>
+<li>获取代码：从代码仓库获取项目代码，并切换到待部署的分支或版本</li>
+<li>安装依赖：安装项目构建所需要的依赖包</li>
+<li>源码构建：使用构建工具对项目源代码进行构建，生成产物代码</li>
+<li>产物打包：将部署所需的代码（通常指的是构建后的产物代码，如果是部署 Node 服务则还需要其他目录与文件）打成压缩包</li>
+<li>推送代码：将待部署的文件或压缩包推送至目标服务器的特定目录下，如果是推送压缩包的情况，还需执行解压</li>
+<li>重启服务：在部署 Node 服务的情况下，在代码推送后需要进行服务重启</li>
+</ul>
+<h2 id="%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8A%BF" tabindex="-1"><a class="header-anchor" href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8A%BF">本地部署优势</a></h2>
+<ul>
+<li>快速：不需要获取代码、安装依赖这几个步骤</li>
+<li>构建失败能更方便查找问题</li>
+</ul>
+<h2 id="%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8A%A3%E5%8A%BF" tabindex="-1"><a class="header-anchor" href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8A%A3%E5%8A%BF">本地部署的劣势</a></h2>
+<ul>
+<li>
+<p>溯源难</p>
+</li>
+<li>
+<p>环境一致性：不同开发人员的本地依赖包版本可能存在差异，导致打包结果并不严格一致；本地环境和部署代码的目标服务器环境之间也可能存在差异；导致项目代码的稳定性无法得到保障</p>
+<blockquote>
+<p>例如对于一个 Node 项目而言，在一个 NodeJS 低版本环境下构建的产物，在 Node 高版本环境下就有可能启动异常</p>
+</blockquote>
+</li>
+</ul>
 
       
-        <div class="btt" id="btt"></div>
+        <div class="btt withToc" id="btt"></div>
       
     </div>
+    
+    <div class="table-of-contents"><ul><li title="为什么一般不在开发环境下部署代码"><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E8%88%AC%E4%B8%8D%E5%9C%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81" data-anchor="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E8%88%AC%E4%B8%8D%E5%9C%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81">为什么一般不在开发环境下部署代码</a><ul><li title="前端项目的一般部署流程"><a href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B" data-anchor="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B">前端项目的一般部署流程</a></li><li title="本地部署优势"><a href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8A%BF" data-anchor="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8A%BF">本地部署优势</a></li><li title="本地部署的劣势"><a href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8A%A3%E5%8A%BF" data-anchor="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8A%A3%E5%8A%BF">本地部署的劣势</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - 单元测试</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -321,13 +321,37 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
+<ul>
+<li><a href="https://zh.javascript.info/testing-mocha" target="_blank">https://zh.javascript.info/testing-mocha</a></li>
+</ul>
+<h1 id="%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">单元测试</a></h1>
+<ul>
+<li>是指对软件中的最小可测试单元进行检查和验证</li>
+<li>当通过手动重新运行来测试代码时，很容易漏掉一些东西</li>
+<li>对于单元测试中单元的含义，一般来说，要根据实际情况去判定其具体含义，如 C 语言中单元指一个函数，Java 里单元指一个类，图形化的软件中可以指一个窗口或一个菜单等。总的来说，单元就是人为规定的最小的被测功能模块。</li>
+<li>单元测试是在软件开发过程中要进行的最低级别的测试活动，软件的独立单元将在与程序的其他部分相隔离的情况下进行测试</li>
+</ul>
+<h1 id="%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95">自动化测试</a></h1>
+<ul>
+<li>测试是独立于代码的</li>
+<li>以各种方式运行我们的函数，并将结果与预期结果进行比较</li>
+</ul>
+<h1 id="%E8%A1%8C%E4%B8%BA%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%EF%BC%88bdd%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E8%A1%8C%E4%B8%BA%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%EF%BC%88bdd%EF%BC%89">行为驱动开发（BDD）</a></h1>
+<ul>
+<li>规范先行，实现在后</li>
+<li>简单来说就是首先写一些暂时无法通过的测试，然后去实现它们</li>
+<li>包含了三部分内容：测试、文档和示例</li>
+</ul>
+<h1 id="%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6">前端常用单元测试框架</a></h1>
+<p>mocha、Jest 提供了单元测试所需的各种 API，你可以使用它们来对你的代码进行单元测试</p>
 
       
-        <div class="btt" id="btt"></div>
+        <div class="btt withToc" id="btt"></div>
       
     </div>
+    
+    <div class="table-of-contents"><ul><li title="参考"><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title="单元测试"><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" data-anchor="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">单元测试</a></li><li title="自动化测试"><a href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95" data-anchor="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95">自动化测试</a></li><li title="行为驱动开发（BDD）"><a href="#%E8%A1%8C%E4%B8%BA%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%EF%BC%88bdd%EF%BC%89" data-anchor="#%E8%A1%8C%E4%B8%BA%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%EF%BC%88bdd%EF%BC%89">行为驱动开发（BDD）</a></li><li title="前端常用单元测试框架"><a href="#%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6" data-anchor="#%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6">前端常用单元测试框架</a></li></ul></div>
     
 
     <!-- bottom scripts -->

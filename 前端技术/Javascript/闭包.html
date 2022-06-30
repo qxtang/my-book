@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - 闭包</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -321,13 +321,59 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <h1 id="%E9%97%AD%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#%E9%97%AD%E5%8C%85">闭包</a></h1>
+<ul>
+<li>函数 A 返回了一个函数 B，并且函数 B 中使用了函数 A 的变量，函数 B 就被称为闭包</li>
+<li>闭包中的变量并不保存中栈内存中，而是保存在堆内存中。 这也就解释了函数调用之后之后为什么闭包还能引用到函数内的变量</li>
+<li>能够访问已经被销毁的执行期上下文的活动对象的函数、有权访问另一个函数作用域中的变量的函数</li>
+<li>函数做为参数传递或在尾部 return，并且子函数在外调用，形成闭包，子函数所在的父函数的作用域不会被释放，子函数的作用域中仍然保留着父级的单变量对象和作用域链，因此可以继续访问到父级的变量对象</li>
+<li>应用：设计私有的方法和变量。</li>
+<li>优点：可以避免全局变量的污染</li>
+<li>缺点：常驻内存会增大内存使用量，会躲掉垃圾回收机制，使用不当很容易造成内存泄露。</li>
+</ul>
+<h2 id="%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E7%B4%AF%E5%8A%A0" tabindex="-1"><a class="header-anchor" href="#%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E7%B4%AF%E5%8A%A0">闭包实现累加</a></h2>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">A</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">B</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> ++start;
+  }
+
+  <span class="hljs-keyword">return</span> B;
+}
+
+<span class="hljs-keyword">const</span> inc = <span class="hljs-title function_">A</span>();
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">inc</span>());
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">inc</span>());
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">inc</span>());
+</code></pre>
+<h2 id="%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></h2>
+<ul>
+<li>通过解除对匿名函数的引用，可以将匿名函数占用的内存安全释（将闭包创建的函数赋值为 null）</li>
+</ul>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">outerFun</span>(<span class="hljs-params">outerArg</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这里是内部匿名函数&#x27;</span>);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;可以访问包含函数的变量&#x27;</span>, outerArg);
+  };
+}
+<span class="hljs-keyword">var</span> create = <span class="hljs-title function_">outerFun</span>(<span class="hljs-string">&#x27;hi&#x27;</span>);
+<span class="hljs-comment">// 创建一个函数，是 outerFun 中返回的匿名函数create();</span>
+<span class="hljs-comment">// 调用函数，是调用匿名函数create = null;</span>
+<span class="hljs-comment">// 释放对匿名函数的引用</span>
+</code></pre>
+<ul>
+<li>如果没有对匿名函数的引用，匿名函数执行完之后自动销毁，就可以做到减少占用内存的问题。</li>
+<li>利用匿名函数，制造私有作用域（块级作用域），这样匿名函数执行完之后可以将引用的活动对象销毁。</li>
+</ul>
 
       
-        <div class="btt" id="btt"></div>
+        <div class="btt withToc" id="btt"></div>
       
     </div>
+    
+    <div class="table-of-contents"><ul><li title="闭包"><a href="#%E9%97%AD%E5%8C%85" data-anchor="#%E9%97%AD%E5%8C%85">闭包</a><ul><li title="闭包实现累加"><a href="#%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E7%B4%AF%E5%8A%A0" data-anchor="#%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E7%B4%AF%E5%8A%A0">闭包实现累加</a></li><li title="如何优化闭包"><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85" data-anchor="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%97%AD%E5%8C%85">如何优化闭包</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

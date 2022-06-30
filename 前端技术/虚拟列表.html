@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - 虚拟列表</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -321,13 +321,37 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <h1 id="%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8">虚拟列表</a></h1>
+<h2 id="%E6%98%AF%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></h2>
+<ul>
+<li>不能分页的情况下渲染多条（上万级别）数据</li>
+<li>只对可见区域进行渲染，对非可见区域中的数据不渲染或部分渲染的技术，从而达到极高的渲染性能</li>
+</ul>
+<h2 id="%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0">实现描述</a></h2>
+<ul>
+<li>首屏加载时，只加载可视区域内需要的列表项</li>
+<li>滚动发生时，计算出可视区域内的列表项，并将非可视区域内存在的列表项销毁</li>
+</ul>
+<h2 id="%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E9%A2%98">问题</a></h2>
+<h3 id="%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98">列表项动态高度问题</a></h3>
+<ul>
+<li>列表项包含文字或图片，图片加载完成是异步的，无法预判高度</li>
+<li>对组件属性 itemSize 进行扩展，支持传递类型为数字、数组、函数</li>
+<li>将列表项渲染到屏幕外，对其高度进行测量并缓存，然后再将其渲染至可视区域内</li>
+<li>以预估高度先行渲染，然后获取真实高度并缓存</li>
+<li>使用新 api：ResizeObserver 监听图片尺寸变化，但需要考虑浏览器兼容性</li>
+</ul>
+<h3 id="scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98">scroll 事件频繁触发问题</a></h3>
+<ul>
+<li>IntersectionObserver</li>
+</ul>
 
       
-        <div class="btt" id="btt"></div>
+        <div class="btt withToc" id="btt"></div>
       
     </div>
+    
+    <div class="table-of-contents"><ul><li title="虚拟列表"><a href="#%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8" data-anchor="#%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8">虚拟列表</a><ul><li title="是什么"><a href="#%E6%98%AF%E4%BB%80%E4%B9%88" data-anchor="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li><li title="实现描述"><a href="#%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0" data-anchor="#%E5%AE%9E%E7%8E%B0%E6%8F%8F%E8%BF%B0">实现描述</a></li><li title="问题"><a href="#%E9%97%AE%E9%A2%98" data-anchor="#%E9%97%AE%E9%A2%98">问题</a><ul><li title="列表项动态高度问题"><a href="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98" data-anchor="#%E5%88%97%E8%A1%A8%E9%A1%B9%E5%8A%A8%E6%80%81%E9%AB%98%E5%BA%A6%E9%97%AE%E9%A2%98">列表项动态高度问题</a></li><li title="scroll 事件频繁触发问题"><a href="#scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98" data-anchor="#scroll-%E4%BA%8B%E4%BB%B6%E9%A2%91%E7%B9%81%E8%A7%A6%E5%8F%91%E9%97%AE%E9%A2%98">scroll 事件频繁触发问题</a></li></ul></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - AST抽象语法树</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -321,13 +321,118 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <h1 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h1>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000016231512" target="_blank">https://segmentfault.com/a/1190000016231512</a></li>
+<li><a href="https://juejin.cn/post/6844903725228621832" target="_blank">https://juejin.cn/post/6844903725228621832</a></li>
+</ul>
+<h1 id="%E8%A7%A3%E6%9E%90%E5%99%A8-parser" tabindex="-1"><a class="header-anchor" href="#%E8%A7%A3%E6%9E%90%E5%99%A8-parser">解析器 Parser</a></h1>
+<ul>
+<li>把 js 源码转化为抽象语法树（AST）</li>
+<li>常用解析器
+<ul>
+<li><a href="https://github.com/babel/babel/tree/master/packages/babel-parser" target="_blank">https://github.com/babel/babel/tree/master/packages/babel-parser</a></li>
+<li><a href="https://github.com/acornjs/acorn" target="_blank">https://github.com/acornjs/acorn</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="%E8%A7%A3%E6%9E%90%E6%AD%A5%E9%AA%A4" tabindex="-1"><a class="header-anchor" href="#%E8%A7%A3%E6%9E%90%E6%AD%A5%E9%AA%A4">解析步骤</a></h1>
+<ul>
+<li>两步：词法分析、语法分析</li>
+</ul>
+<h2 id="%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">词法分析</a></h2>
+<p>把字符串形式的代码转换为 令牌（tokens）流，可以把令牌看作是一个扁平的语法片段数组
+例如：</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// 源</span>
+n * n;
+
+<span class="hljs-comment">// 词法分析结果</span>
+[
+  { <span class="hljs-attr">type</span>: { ... }, <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;n&quot;</span>, <span class="hljs-attr">start</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">end</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">loc</span>: { ... } },
+  { <span class="hljs-attr">type</span>: { ... }, <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;*&quot;</span>, <span class="hljs-attr">start</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">end</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">loc</span>: { ... } },
+  { <span class="hljs-attr">type</span>: { ... }, <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;n&quot;</span>, <span class="hljs-attr">start</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">end</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">loc</span>: { ... } },
+]
+</code></pre>
+<p>每一个 type 有一组属性来描述该令牌：</p>
+<pre><code class="language-javascript">{
+  <span class="hljs-attr">type</span>: {
+    <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;name&#x27;</span>,
+    <span class="hljs-attr">keyword</span>: <span class="hljs-literal">undefined</span>,
+    <span class="hljs-attr">beforeExpr</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">startsExpr</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">rightAssociative</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">isLoop</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">isAssign</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">prefix</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">postfix</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">binop</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">updateContext</span>: <span class="hljs-literal">null</span>
+  },
+}
+
+</code></pre>
+<h2 id="%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90">语法分析</a></h2>
+<ul>
+<li>根据词法分析的结果，也就是令牌 tokens，将其转换成 AST</li>
+</ul>
+<pre><code class="language-javascript"><span class="hljs-comment">// 源</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">square</span>(<span class="hljs-params">n</span>) {
+  <span class="hljs-keyword">return</span> n * n;
+}
+
+<span class="hljs-comment">// ATS</span>
+{
+  <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;FunctionDeclaration&quot;</span>,
+  <span class="hljs-attr">id</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;Identifier&quot;</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;square&quot;</span>
+  },
+  <span class="hljs-attr">params</span>: [{
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;Identifier&quot;</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;n&quot;</span>
+  }],
+  <span class="hljs-attr">body</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;BlockStatement&quot;</span>,
+    <span class="hljs-attr">body</span>: [{
+      <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;ReturnStatement&quot;</span>,
+      <span class="hljs-attr">argument</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;BinaryExpression&quot;</span>,
+        <span class="hljs-attr">operator</span>: <span class="hljs-string">&quot;*&quot;</span>,
+        <span class="hljs-attr">left</span>: {
+          <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;Identifier&quot;</span>,
+          <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;n&quot;</span>
+        },
+        <span class="hljs-attr">right</span>: {
+          <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;Identifier&quot;</span>,
+          <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;n&quot;</span>
+        }
+      }
+    }]
+  }
+}
+
+</code></pre>
+<h1 id="%E5%BA%94%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E5%BA%94%E7%94%A8">应用</a></h1>
+<ul>
+<li>IDE 使用，如代码风格检测(eslint 等)、代码的格式化，代码高亮，代码错误等等</li>
+<li>代码的混淆压缩</li>
+<li>转换代码工具，如 babel</li>
+<li>vue 模板编译过程</li>
+<li>prettier</li>
+</ul>
+<h2 id="babel-plugin-import" tabindex="-1"><a class="header-anchor" href="#babel-plugin-import">babel-plugin-import</a></h2>
+<ul>
+<li><a href="https://github.com/umijs/babel-plugin-import" target="_blank">https://github.com/umijs/babel-plugin-import</a></li>
+<li>将 antd 组件 import 语句转换成按需引入写法的 babel 插件，对 AST 的经典应用</li>
+<li>这个插件现在不是必须的了，antd 的组件库提供了 ES Module 的构建产物，直接通过 <code>import {} from</code> 的形式也可以 tree-shaking</li>
+</ul>
 
       
-        <div class="btt" id="btt"></div>
+        <div class="btt withToc" id="btt"></div>
       
     </div>
+    
+    <div class="table-of-contents"><ul><li title="参考"><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title="解析器 Parser"><a href="#%E8%A7%A3%E6%9E%90%E5%99%A8-parser" data-anchor="#%E8%A7%A3%E6%9E%90%E5%99%A8-parser">解析器 Parser</a></li><li title="解析步骤"><a href="#%E8%A7%A3%E6%9E%90%E6%AD%A5%E9%AA%A4" data-anchor="#%E8%A7%A3%E6%9E%90%E6%AD%A5%E9%AA%A4">解析步骤</a><ul><li title="词法分析"><a href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90" data-anchor="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">词法分析</a></li><li title="语法分析"><a href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90" data-anchor="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90">语法分析</a></li></ul></li><li title="应用"><a href="#%E5%BA%94%E7%94%A8" data-anchor="#%E5%BA%94%E7%94%A8">应用</a><ul><li title="babel-plugin-import"><a href="#babel-plugin-import" data-anchor="#babel-plugin-import">babel-plugin-import</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

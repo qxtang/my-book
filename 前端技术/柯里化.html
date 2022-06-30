@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - 柯里化</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -321,13 +321,56 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <h1 id="%E6%9F%AF%E9%87%8C%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a></h1>
+<ul>
+<li>把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术</li>
+</ul>
+<h2 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">参考</a></h2>
+<ul>
+<li><a href="https://zh.javascript.info/currying-partials" target="_blank">https://zh.javascript.info/currying-partials</a></li>
+</ul>
+<h2 id="%E6%84%8F%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#%E6%84%8F%E4%B9%89">意义</a></h2>
+<ul>
+<li>让人们将关注的重点聚焦到函数本身，而不因冗余的数据参数分散注意力，单一参数的纯函数是最简单的，目的单纯、职责单一、灵活且通用</li>
+<li>减少耦合增强其可维护性</li>
+</ul>
+<h2 id="%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9">缺点</a></h2>
+<ul>
+<li>过度使用会占用较大的堆栈空间</li>
+<li>经过柯里化之后，函数的通用性有所降低，但是适用性有所提高</li>
+</ul>
+<h2 id="%E5%AE%9E%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%8E%B0">实现</a></h2>
+<pre><code class="language-javascript"><span class="hljs-comment">// 手写柯里化</span>
+
+<span class="hljs-keyword">const</span> add = <span class="hljs-keyword">function</span> (<span class="hljs-params">a, b, c</span>) {
+  <span class="hljs-keyword">return</span> a + b + c;
+};
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">curry</span>(<span class="hljs-params">fn</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">curryFun</span>(<span class="hljs-params">...args</span>) {
+    <span class="hljs-keyword">if</span> (args.<span class="hljs-property">length</span> &lt; fn.<span class="hljs-property">length</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-title function_">curryFun</span>([...args, ...<span class="hljs-variable language_">arguments</span>]);
+      };
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn</span>(...args);
+  };
+}
+
+<span class="hljs-keyword">const</span> curried = <span class="hljs-title function_">curry</span>(add);
+
+<span class="hljs-keyword">const</span> a = <span class="hljs-title function_">curried</span>(<span class="hljs-number">1</span>)(<span class="hljs-number">9</span>)(<span class="hljs-number">3</span>);
+<span class="hljs-keyword">const</span> b = <span class="hljs-title function_">curried</span>(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>)(<span class="hljs-number">6</span>);
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>({ a, b });
+</code></pre>
 
       
-        <div class="btt" id="btt"></div>
+        <div class="btt withToc" id="btt"></div>
       
     </div>
+    
+    <div class="table-of-contents"><ul><li title="柯里化"><a href="#%E6%9F%AF%E9%87%8C%E5%8C%96" data-anchor="#%E6%9F%AF%E9%87%8C%E5%8C%96">柯里化</a><ul><li title="参考"><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title="意义"><a href="#%E6%84%8F%E4%B9%89" data-anchor="#%E6%84%8F%E4%B9%89">意义</a></li><li title="缺点"><a href="#%E7%BC%BA%E7%82%B9" data-anchor="#%E7%BC%BA%E7%82%B9">缺点</a></li><li title="实现"><a href="#%E5%AE%9E%E7%8E%B0" data-anchor="#%E5%AE%9E%E7%8E%B0">实现</a></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->

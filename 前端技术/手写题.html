@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Book - 手写题</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/style.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/highlight.default.min.css" />
+  <link rel="stylesheet" href="/my-book/resource/lib/viewerjs-1.10.5/viewer.min.css" />
+
+  <!-- scripts -->
+  <script src="/my-book/resource/lib/jquery.min.js"></script>
+
+  <link rel="manifest" href="/my-book/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
+  <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
+
+  <!-- 编译时间：6/30/2022, 3:19:27 AM -->
+
+  <script>
+    window.root = '/my-book';
+
+    // 提前把搜索数据库载入内存
+    fetch(`${window.root}/dir_tree.json`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        window.__doc_builder_dirTree__ = res;
+      });
+  </script>
+</head>
+
+  <body>
+    <ul class="menu expand" id="menu">
+      <div class="loading">
+        <span>加载中...</span>
+      </div>
+      <div class="search_bar" id="search_bar">
+        <input type="text" placeholder="search..." />
+        <img
+          class="clear"
+          id="clear"
+          src="/my-book/resource/icons/circle-xmark.svg"
+          alt=""
+        />
+        <div class="search_result" id="search_result"></div>
+      </div>
+      
+            <ul class="parent expand">
+              <li id="工作沉淀" class="dir" title="工作沉淀">
+                <span>工作沉淀</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="工作沉淀/ADB 通过 Wi-Fi 调试手机.md" class="children" title="ADB 通过 Wi-Fi 调试手机">
+            <a href="/my-book/工作沉淀/ADB 通过 Wi-Fi 调试手机.html">ADB 通过 Wi-Fi 调试手机</a>
+          </li>
+        
+          <li id="工作沉淀/Fiddler 真机调试微信 h5.md" class="children" title="Fiddler 真机调试微信 h5">
+            <a href="/my-book/工作沉淀/Fiddler 真机调试微信 h5.html">Fiddler 真机调试微信 h5</a>
+          </li>
+        
+          <li id="工作沉淀/GitFlow 学习笔记.md" class="children" title="GitFlow 学习笔记">
+            <a href="/my-book/工作沉淀/GitFlow 学习笔记.html">GitFlow 学习笔记</a>
+          </li>
+        
+          <li id="工作沉淀/Nginx 学习笔记.md" class="children" title="Nginx 学习笔记">
+            <a href="/my-book/工作沉淀/Nginx 学习笔记.html">Nginx 学习笔记</a>
+          </li>
+        
+          <li id="工作沉淀/为什么一般不在开发环境下部署代码.md" class="children" title="为什么一般不在开发环境下部署代码">
+            <a href="/my-book/工作沉淀/为什么一般不在开发环境下部署代码.html">为什么一般不在开发环境下部署代码</a>
+          </li>
+        
+          <li id="工作沉淀/动态校验企微应用可信域名.md" class="children" title="动态校验企微应用可信域名">
+            <a href="/my-book/工作沉淀/动态校验企微应用可信域名.html">动态校验企微应用可信域名</a>
+          </li>
+        
+          <li id="工作沉淀/工作中遇到问题汇总.md" class="children" title="工作中遇到问题汇总">
+            <a href="/my-book/工作沉淀/工作中遇到问题汇总.html">工作中遇到问题汇总</a>
+          </li>
+        
+          <li id="工作沉淀/敏捷迭代.md" class="children" title="敏捷迭代">
+            <a href="/my-book/工作沉淀/敏捷迭代.html">敏捷迭代</a>
+          </li>
+        
+          <li id="工作沉淀/最佳实践.md" class="children" title="最佳实践">
+            <a href="/my-book/工作沉淀/最佳实践.html">最佳实践</a>
+          </li>
+        
+          <li id="工作沉淀/登录方案.md" class="children" title="登录方案">
+            <a href="/my-book/工作沉淀/登录方案.html">登录方案</a>
+          </li>
+        
+          <li id="工作沉淀/设计稿多端适配方案.md" class="children" title="设计稿多端适配方案">
+            <a href="/my-book/工作沉淀/设计稿多端适配方案.html">设计稿多端适配方案</a>
+          </li>
+        
+            </ul>
+          
+            <ul class="parent expand">
+              <li id="前端技术" class="dir" title="前端技术">
+                <span>前端技术</span>
+                <div class="triangle"></div>
+              </li>
+              
+            <ul class="parent expand">
+              <li id="前端技术/浏览器" class="dir" title="浏览器">
+                <span>浏览器</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="前端技术/浏览器/事件循环.md" class="children" title="事件循环">
+            <a href="/my-book/前端技术/浏览器/事件循环.html">事件循环</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器.md" class="children" title="浏览器">
+            <a href="/my-book/前端技术/浏览器/浏览器.html">浏览器</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器架构.md" class="children" title="浏览器架构">
+            <a href="/my-book/前端技术/浏览器/浏览器架构.html">浏览器架构</a>
+          </li>
+        
+          <li id="前端技术/浏览器/浏览器缓存.md" class="children" title="浏览器缓存">
+            <a href="/my-book/前端技术/浏览器/浏览器缓存.html">浏览器缓存</a>
+          </li>
+        
+            </ul>
+          
+            <ul class="parent expand">
+              <li id="前端技术/React" class="dir" title="React">
+                <span>React</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="前端技术/React/Fiber.md" class="children" title="Fiber">
+            <a href="/my-book/前端技术/React/Fiber.html">Fiber</a>
+          </li>
+        
+          <li id="前端技术/React/Hooks.md" class="children" title="Hooks">
+            <a href="/my-book/前端技术/React/Hooks.html">Hooks</a>
+          </li>
+        
+          <li id="前端技术/React/React.md" class="children" title="React">
+            <a href="/my-book/前端技术/React/React.html">React</a>
+          </li>
+        
+            </ul>
+          
+            <ul class="parent expand">
+              <li id="前端技术/Javascript" class="dir" title="Javascript">
+                <span>Javascript</span>
+                <div class="triangle"></div>
+              </li>
+              
+          <li id="前端技术/Javascript/Promise.md" class="children" title="Promise">
+            <a href="/my-book/前端技术/Javascript/Promise.html">Promise</a>
+          </li>
+        
+          <li id="前端技术/Javascript/代理对.md" class="children" title="代理对">
+            <a href="/my-book/前端技术/Javascript/代理对.html">代理对</a>
+          </li>
+        
+          <li id="前端技术/Javascript/其他.md" class="children" title="其他">
+            <a href="/my-book/前端技术/Javascript/其他.html">其他</a>
+          </li>
+        
+          <li id="前端技术/Javascript/原型链和继承.md" class="children" title="原型链和继承">
+            <a href="/my-book/前端技术/Javascript/原型链和继承.html">原型链和继承</a>
+          </li>
+        
+          <li id="前端技术/Javascript/数据类型.md" class="children" title="数据类型">
+            <a href="/my-book/前端技术/Javascript/数据类型.html">数据类型</a>
+          </li>
+        
+          <li id="前端技术/Javascript/模块.md" class="children" title="模块">
+            <a href="/my-book/前端技术/Javascript/模块.html">模块</a>
+          </li>
+        
+          <li id="前端技术/Javascript/正则表达式.md" class="children" title="正则表达式">
+            <a href="/my-book/前端技术/Javascript/正则表达式.html">正则表达式</a>
+          </li>
+        
+          <li id="前端技术/Javascript/闭包.md" class="children" title="闭包">
+            <a href="/my-book/前端技术/Javascript/闭包.html">闭包</a>
+          </li>
+        
+            </ul>
+          
+          <li id="前端技术/AST抽象语法树.md" class="children" title="AST抽象语法树">
+            <a href="/my-book/前端技术/AST抽象语法树.html">AST抽象语法树</a>
+          </li>
+        
+          <li id="前端技术/Babel.md" class="children" title="Babel">
+            <a href="/my-book/前端技术/Babel.html">Babel</a>
+          </li>
+        
+          <li id="前端技术/Browserslist.md" class="children" title="Browserslist">
+            <a href="/my-book/前端技术/Browserslist.html">Browserslist</a>
+          </li>
+        
+          <li id="前端技术/CSS.md" class="children" title="CSS">
+            <a href="/my-book/前端技术/CSS.html">CSS</a>
+          </li>
+        
+          <li id="前端技术/DOM 变动观察器（Mutation observer）.md" class="children" title="DOM 变动观察器（Mutation observer）">
+            <a href="/my-book/前端技术/DOM 变动观察器（Mutation observer）.html">DOM 变动观察器（Mutation observer）</a>
+          </li>
+        
+          <li id="前端技术/Flex布局.md" class="children" title="Flex布局">
+            <a href="/my-book/前端技术/Flex布局.html">Flex布局</a>
+          </li>
+        
+          <li id="前端技术/Less.md" class="children" title="Less">
+            <a href="/my-book/前端技术/Less.html">Less</a>
+          </li>
+        
+          <li id="前端技术/NodeJS.md" class="children" title="NodeJS">
+            <a href="/my-book/前端技术/NodeJS.html">NodeJS</a>
+          </li>
+        
+          <li id="前端技术/Redux.md" class="children" title="Redux">
+            <a href="/my-book/前端技术/Redux.html">Redux</a>
+          </li>
+        
+          <li id="前端技术/Typescript.md" class="children" title="Typescript">
+            <a href="/my-book/前端技术/Typescript.html">Typescript</a>
+          </li>
+        
+          <li id="前端技术/URL对象.md" class="children" title="URL对象">
+            <a href="/my-book/前端技术/URL对象.html">URL对象</a>
+          </li>
+        
+          <li id="前端技术/Vue.md" class="children" title="Vue">
+            <a href="/my-book/前端技术/Vue.html">Vue</a>
+          </li>
+        
+          <li id="前端技术/Webpack.md" class="children" title="Webpack">
+            <a href="/my-book/前端技术/Webpack.html">Webpack</a>
+          </li>
+        
+          <li id="前端技术/lerna.md" class="children" title="lerna">
+            <a href="/my-book/前端技术/lerna.html">lerna</a>
+          </li>
+        
+          <li id="前端技术/npm.md" class="children" title="npm">
+            <a href="/my-book/前端技术/npm.html">npm</a>
+          </li>
+        
+          <li id="前端技术/函数式编程.md" class="children" title="函数式编程">
+            <a href="/my-book/前端技术/函数式编程.html">函数式编程</a>
+          </li>
+        
+          <li id="前端技术/微信开发.md" class="children" title="微信开发">
+            <a href="/my-book/前端技术/微信开发.html">微信开发</a>
+          </li>
+        
+          <li id="前端技术/微前端.md" class="children" title="微前端">
+            <a href="/my-book/前端技术/微前端.html">微前端</a>
+          </li>
+        
+          <li id="前端技术/性能优化.md" class="children" title="性能优化">
+            <a href="/my-book/前端技术/性能优化.html">性能优化</a>
+          </li>
+        
+          <li id="前端技术/手写题.md" class="children" title="手写题">
+            <a href="/my-book/前端技术/手写题.html">手写题</a>
+          </li>
+        
+          <li id="前端技术/文件上传&下载.md" class="children" title="文件上传&下载">
+            <a href="/my-book/前端技术/文件上传&下载.html">文件上传&下载</a>
+          </li>
+        
+          <li id="前端技术/柯里化.md" class="children" title="柯里化">
+            <a href="/my-book/前端技术/柯里化.html">柯里化</a>
+          </li>
+        
+          <li id="前端技术/虚拟列表.md" class="children" title="虚拟列表">
+            <a href="/my-book/前端技术/虚拟列表.html">虚拟列表</a>
+          </li>
+        
+          <li id="前端技术/设计模式.md" class="children" title="设计模式">
+            <a href="/my-book/前端技术/设计模式.html">设计模式</a>
+          </li>
+        
+            </ul>
+          
+          <li id="其他.md" class="children" title="其他">
+            <a href="/my-book/其他.html">其他</a>
+          </li>
+        
+          <li id="单元测试.md" class="children" title="单元测试">
+            <a href="/my-book/单元测试.html">单元测试</a>
+          </li>
+        
+          <li id="数据结构与算法.md" class="children" title="数据结构与算法">
+            <a href="/my-book/数据结构与算法.html">数据结构与算法</a>
+          </li>
+        
+          <li id="网络.md" class="children" title="网络">
+            <a href="/my-book/网络.html">网络</a>
+          </li>
+        
+      <li id="index.md" class="children about">
+        <a href="/my-book/">关于</a>
+      </li>
+    </ul>
+    <div class="drager" id="drager">
+      <div class="switcher btn" id="switcher" title="展开或收起"></div>
+      <div class="expand-all btn" id="expand-all" title="展开所有"></div>
+      <div class="collapse-all btn" id="collapse-all" title="收起所有"></div>
+    </div>
+    <div class="mobile_menu" id="mobile_menu">
+      <img src="/my-book/resource/icons/bars.svg" alt="" />
+    </div>
+    <div class="content markdown-body">
+      <h1 id="%E6%89%8B%E5%86%99%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E9%A2%98">手写题</a></h1>
+<h1 id="%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81" tabindex="-1"><a class="header-anchor" href="#%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81">防抖节流</a></h1>
+<ul>
+<li>防抖：n 秒内只执行一次，如果 n 秒内再次触发，则重新计算时间（多用于输入框）</li>
+<li>节流：n 秒内只会执行一次，稀释执行频率</li>
+</ul>
+<p>手写：</p>
+<pre><code class="language-jsx"><span class="hljs-keyword">const</span> tools = {
+  <span class="hljs-attr">debounce</span>: <span class="hljs-function">(<span class="hljs-params">fn, wait = <span class="hljs-number">500</span></span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> timer = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+      <span class="hljs-keyword">if</span> (timer) {
+        <span class="hljs-built_in">clearTimeout</span>(timer);
+      }
+      timer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+        fn.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, <span class="hljs-variable language_">arguments</span>);
+      }, wait);
+    };
+  },
+  <span class="hljs-attr">throttle</span>: <span class="hljs-function">(<span class="hljs-params">fn, wait = <span class="hljs-number">500</span></span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> canrun = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+      <span class="hljs-keyword">if</span> (!canrun) {
+        <span class="hljs-keyword">return</span>;
+      }
+      canrun = <span class="hljs-literal">false</span>;
+      <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+        fn.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, <span class="hljs-variable language_">arguments</span>);
+        canrun = <span class="hljs-literal">true</span>;
+      }, wait);
+    };
+  },
+};
+</code></pre>
+<h1 id="%E6%89%8B%E5%86%99%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">手写工厂模式</a></h1>
+<pre><code class="language-jsx"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SuperAdmin</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;超级管理员&#x27;</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">viewPage</span> = [<span class="hljs-string">&#x27;首页&#x27;</span>, <span class="hljs-string">&#x27;通讯录&#x27;</span>, <span class="hljs-string">&#x27;发现页&#x27;</span>, <span class="hljs-string">&#x27;应用数据&#x27;</span>, <span class="hljs-string">&#x27;权限管理&#x27;</span>];
+  }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Admin</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;管理员&#x27;</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">viewPage</span> = [<span class="hljs-string">&#x27;首页&#x27;</span>, <span class="hljs-string">&#x27;通讯录&#x27;</span>, <span class="hljs-string">&#x27;发现页&#x27;</span>, <span class="hljs-string">&#x27;应用数据&#x27;</span>, <span class="hljs-string">&#x27;权限管理&#x27;</span>];
+  }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">NormalUser</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;普通用户&#x27;</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">viewPage</span> = [<span class="hljs-string">&#x27;首页&#x27;</span>, <span class="hljs-string">&#x27;通讯录&#x27;</span>, <span class="hljs-string">&#x27;发现页&#x27;</span>, <span class="hljs-string">&#x27;应用数据&#x27;</span>, <span class="hljs-string">&#x27;权限管理&#x27;</span>];
+  }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">UserFactory</span> {
+  <span class="hljs-title function_">getFactory</span>(<span class="hljs-params">role</span>) {
+    <span class="hljs-keyword">switch</span> (role) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;superAdmin&#x27;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SuperAdmin</span>();
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;admin&#x27;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Admin</span>();
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;user&#x27;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">NormalUser</span>();
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-attr">default</span>:
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;参数错误, 可选参数:superAdmin、admin、user&#x27;</span>);
+    }
+  }
+}
+<span class="hljs-keyword">let</span> uesr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserFactory</span>();
+uesr.<span class="hljs-title function_">getFactory</span>(<span class="hljs-string">&#x27;superAdmin&#x27;</span>);
+uesr.<span class="hljs-title function_">getFactory</span>(<span class="hljs-string">&#x27;admin&#x27;</span>);
+uesr.<span class="hljs-title function_">getFactory</span>(<span class="hljs-string">&#x27;user&#x27;</span>);
+</code></pre>
+<h1 id="%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D">手写数组去重</a></h1>
+<pre><code class="language-jsx"><span class="hljs-comment">// 方法1</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">uniqBy</span> = (<span class="hljs-params">arr, key</span>) =&gt; {
+  <span class="hljs-keyword">return</span> [...<span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>(arr.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> [item[key], item])).<span class="hljs-title function_">values</span>()];
+};
+<span class="hljs-keyword">const</span> singers = [
+  { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Leslie Cheung&#x27;</span> },
+  { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Leslie Cheung&#x27;</span> },
+  { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Eason Chan&#x27;</span> },
+];
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">uniqBy</span>(singers, <span class="hljs-string">&#x27;id&#x27;</span>));
+
+<span class="hljs-comment">// 方法2</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">unique</span>(<span class="hljs-params">arr</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>(arr));
+}
+</code></pre>
+<h1 id="%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96">手写数组扁平化</a></h1>
+<pre><code class="language-jsx"><span class="hljs-keyword">const</span> str = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]]].<span class="hljs-title function_">toString</span>();
+<span class="hljs-comment">// &#x27;0, 1, 2, 3, 4&#x27;</span>
+<span class="hljs-keyword">const</span> arr = str.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;,&#x27;</span>);
+<span class="hljs-comment">// [&#x27;0&#x27;,&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;]</span>
+<span class="hljs-keyword">const</span> newArr = arr.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> +item);
+<span class="hljs-comment">// [0, 1, 2, 3, 4]</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">flatten</span> = (<span class="hljs-params">arr</span>) =&gt;
+  arr
+    .<span class="hljs-title function_">toString</span>()
+    .<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;,&#x27;</span>)
+    .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> +item);
+</code></pre>
+<h1 id="%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85-eventemitter" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85-eventemitter">手写发布订阅 EventEmitter</a></h1>
+<pre><code class="language-jsx"><span class="hljs-keyword">class</span> <span class="hljs-title class_">EventEmitter</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span> = {};
+  }
+  <span class="hljs-title function_">on</span>(<span class="hljs-params">name, cb</span>) {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[name]) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[name] = [cb];
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[name].<span class="hljs-title function_">push</span>(cb);
+    }
+  }
+  <span class="hljs-title function_">emit</span>(<span class="hljs-params">name, ...arg</span>) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[name]) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[name].<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">fn</span>) =&gt;</span> {
+        fn.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>, ...arg);
+      });
+    }
+  }
+  <span class="hljs-title function_">off</span>(<span class="hljs-params">name, cb</span>) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[name]) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[name].<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">fn</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> fn != cb;
+      });
+    }
+  }
+  <span class="hljs-title function_">once</span>(<span class="hljs-params">name, fn</span>) {
+    <span class="hljs-keyword">let</span> <span class="hljs-title function_">onlyOnce</span> = (<span class="hljs-params"></span>) =&gt; {
+      fn.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, <span class="hljs-variable language_">arguments</span>);
+      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">off</span>(name, onlyOnce);
+    };
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">on</span>(name, onlyOnce);
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;
+  }
+}
+</code></pre>
+<h1 id="%E6%89%8B%E5%86%99%E8%8E%B7%E5%8F%96-url-%E5%8F%82%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E8%8E%B7%E5%8F%96-url-%E5%8F%82%E6%95%B0">手写获取 url 参数</a></h1>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getQuery</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">let</span> result = {};
+  <span class="hljs-keyword">let</span> search = <span class="hljs-built_in">decodeURI</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">search</span>);
+  <span class="hljs-keyword">if</span> (!search) {
+    <span class="hljs-keyword">return</span> result;
+  }
+  search
+    .<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>)
+    .<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;&amp;&#x27;</span>)
+    .<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">item, i</span>) =&gt;</span> {
+      <span class="hljs-keyword">let</span> k = item.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;=&#x27;</span>)[<span class="hljs-number">0</span>];
+      <span class="hljs-keyword">let</span> v = item.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;=&#x27;</span>)[<span class="hljs-number">1</span>];
+      result[k] = v;
+    });
+  <span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+<h1 id="%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E4%B9%B1%E5%BA%8F" tabindex="-1"><a class="header-anchor" href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E4%B9%B1%E5%BA%8F">手写数组乱序</a></h1>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">mixArr</span>(<span class="hljs-params">arr</span>) {
+  <span class="hljs-keyword">return</span> arr.<span class="hljs-title function_">sort</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() - <span class="hljs-number">0.5</span>;
+  });
+}
+</code></pre>
+<h1 id="%E5%88%A4%E6%96%AD%E6%8B%AC%E5%8F%B7%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88" tabindex="-1"><a class="header-anchor" href="#%E5%88%A4%E6%96%AD%E6%8B%AC%E5%8F%B7%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88">判断括号字符串是否有效</a></h1>
+<pre><code class="language-jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">is_leagl_brackets</span>(<span class="hljs-params">string</span>) {
+  <span class="hljs-keyword">var</span> array = [];
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; string.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-keyword">var</span> item = string[i];
+    <span class="hljs-keyword">if</span> (item === <span class="hljs-string">&#x27;(&#x27;</span>) {
+      array.<span class="hljs-title function_">push</span>(<span class="hljs-params"><span class="hljs-string">&#x27;(&#x27;</span></span>);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (item === <span class="hljs-string">&#x27;)&#x27;</span>) {
+      <span class="hljs-keyword">if</span> (array.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+      } <span class="hljs-keyword">else</span> {
+        array.<span class="hljs-title function_">pop</span>();
+      }
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">continue</span>;
+    }
+  }
+  <span class="hljs-keyword">return</span> array.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>;
+}
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;(asd):&#x27;</span>, <span class="hljs-title function_">is_leagl_brackets</span>(<span class="hljs-string">&#x27;(asd)&#x27;</span>));
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;asd(asd(adsfsdf(asdf())))):&#x27;</span>, <span class="hljs-title function_">is_leagl_brackets</span>(<span class="hljs-string">&#x27;asd(asd(adsfsdf(asdf()))))&#x27;</span>));
+</code></pre>
+<h1 id="%E6%B1%82%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%AC%AC-n-%E9%A1%B9" tabindex="-1"><a class="header-anchor" href="#%E6%B1%82%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%AC%AC-n-%E9%A1%B9">求斐波那契数列第 N 项</a></h1>
+<pre><code class="language-javascript"><span class="hljs-comment">// 求斐波那契数列（Fibonacci）中的第n项 1 1 2 3 5 8 13 21 ...</span>
+<span class="hljs-comment">// 在控制台输出 斐波那契竖列的前12项</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">getFib</span>(<span class="hljs-params">n</span>) {
+  <span class="hljs-keyword">if</span> (n === <span class="hljs-number">1</span> || n === <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  }
+  <span class="hljs-keyword">var</span> n1 = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">var</span> n2 = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">var</span> fib;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++) {
+    fib = n1 + n2;
+    n1 = n2;
+    n2 = fib;
+  }
+  <span class="hljs-keyword">return</span> fib;
+}
+
+<span class="hljs-comment">// console.log(getFib(12)); // 144</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">12</span>; i++) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">getFib</span>(i));
+}
+</code></pre>
+
+      
+        <div class="btt withToc" id="btt"></div>
+      
+    </div>
+    
+    <div class="table-of-contents"><ul><li title="手写题"><a href="#%E6%89%8B%E5%86%99%E9%A2%98" data-anchor="#%E6%89%8B%E5%86%99%E9%A2%98">手写题</a></li><li title="防抖节流"><a href="#%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81" data-anchor="#%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81">防抖节流</a></li><li title="手写工厂模式"><a href="#%E6%89%8B%E5%86%99%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F" data-anchor="#%E6%89%8B%E5%86%99%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">手写工厂模式</a></li><li title="手写数组去重"><a href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D" data-anchor="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D">手写数组去重</a></li><li title="手写数组扁平化"><a href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96" data-anchor="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96">手写数组扁平化</a></li><li title="手写发布订阅 EventEmitter"><a href="#%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85-eventemitter" data-anchor="#%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85-eventemitter">手写发布订阅 EventEmitter</a></li><li title="手写获取 url 参数"><a href="#%E6%89%8B%E5%86%99%E8%8E%B7%E5%8F%96-url-%E5%8F%82%E6%95%B0" data-anchor="#%E6%89%8B%E5%86%99%E8%8E%B7%E5%8F%96-url-%E5%8F%82%E6%95%B0">手写获取 url 参数</a></li><li title="手写数组乱序"><a href="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E4%B9%B1%E5%BA%8F" data-anchor="#%E6%89%8B%E5%86%99%E6%95%B0%E7%BB%84%E4%B9%B1%E5%BA%8F">手写数组乱序</a></li><li title="判断括号字符串是否有效"><a href="#%E5%88%A4%E6%96%AD%E6%8B%AC%E5%8F%B7%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88" data-anchor="#%E5%88%A4%E6%96%AD%E6%8B%AC%E5%8F%B7%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88">判断括号字符串是否有效</a></li><li title="求斐波那契数列第 N 项"><a href="#%E6%B1%82%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%AC%AC-n-%E9%A1%B9" data-anchor="#%E6%B1%82%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E7%AC%AC-n-%E9%A1%B9">求斐波那契数列第 N 项</a></li></ul></div>
+    
+
+    <!-- bottom scripts -->
+    <script src="/my-book/resource/lib/mark.js-8.11.1/jquery.mark.min.js"></script>
+    <script src="/my-book/resource/lib/viewerjs-1.10.5/viewer.min.js"></script>
+    <script src="/my-book/resource/lib/jquery-viewer-1.0.1/jquery-viewer.min.js"></script>
+    <script src="/my-book/resource/script.js"></script>
+  </body>
+</html>

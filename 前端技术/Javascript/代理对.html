@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - 代理对</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：6/30/2022, 3:19:27 AM -->
+  <!-- 编译时间：6/30/2022, 3:19:26 AM -->
 
   <script>
     window.root = '/my-book';
@@ -321,8 +321,27 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <ul>
+<li>
+<p>参考：<a href="https://zh.javascript.info/string" target="_blank">https://zh.javascript.info/string</a></p>
+</li>
+<li>
+<p>所有常用的字符都是一个 2 字节的代码。大多数欧洲语言，数字甚至大多数象形文字中的字母都有 2 字节的表示形式。</p>
+</li>
+<li>
+<p>但 2 字节只允许 65536 个组合，这对于表示每个可能的符号是不够的。所以稀有的符号被称为“代理对”的一对 2 字节的符号编码。</p>
+</li>
+<li>
+<p>这些符号的 length 是 2：</p>
+<pre><code class="language-js"><span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;𝒳&#x27;</span>.<span class="hljs-property">length</span>); <span class="hljs-comment">// 2，大写数学符号</span>
+<span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;😂&#x27;</span>.<span class="hljs-property">length</span>); <span class="hljs-comment">// 2，部分 emoji 表情</span>
+<span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;𩷶&#x27;</span>.<span class="hljs-property">length</span>); <span class="hljs-comment">// 2，罕见的中国象形文字</span>
+</code></pre>
+</li>
+<li>
+<p>代理对在 JavaScript 被创建时并不存在，因此无法被编程语言正确处理</p>
+</li>
+</ul>
 
       
         <div class="btt" id="btt"></div>

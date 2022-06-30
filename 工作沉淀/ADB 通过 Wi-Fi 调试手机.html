@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Book</title>
+  <title>My Book - ADB 通过 Wi-Fi 调试手机</title>
 
   <!-- styles -->
   <link rel="stylesheet" href="/my-book/resource/lib/github-markdown.min.css" />
@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：6/30/2022, 3:19:27 AM -->
+  <!-- 编译时间：6/30/2022, 3:19:25 AM -->
 
   <script>
     window.root = '/my-book';
@@ -321,8 +321,13 @@
       <img src="/my-book/resource/icons/bars.svg" alt="" />
     </div>
     <div class="content markdown-body">
-      <h1 id="%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E2%9C%92%E5%B7%A5%E4%BD%9C%E4%B8%8E%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">✒工作与日常学习笔记</a></h1>
-<p>via：<a href="https://www.npmjs.com/package/@qxtang/doc-builder" target="_blank">doc-builder</a></p>
+      <ul>
+<li>手机和电脑需连接在同一 WiFi 下</li>
+<li>保证 SDK 为最新版本（adb --version ≥ 30.0.0）</li>
+<li>手机启用开发者选项和无线调试模式</li>
+<li>允许无线调试后，选择使用配对码配对，<code>adb pair ip:port</code>，填写显示的配对码、IP 地址和端口号</li>
+<li>运行 <code>adb connect ip:port</code></li>
+</ul>
 
       
         <div class="btt" id="btt"></div>
