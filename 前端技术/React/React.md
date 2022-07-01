@@ -260,7 +260,7 @@ class Component extends React.Component {
 
 # 为什么一定要 import “react”
 
-- JSX 实际上是 React.createElement 的语法糖，jsx 会被翻译成 React.createElement
+- JSX 实际上是 React.createElement 的语法糖，jsx 会被 babel 翻译成 React.createElement
 
 # react 性能优化方案
 
