@@ -129,10 +129,10 @@ function Counter() {
 
   ```jsx
   useEffect(() => {
-    (async) => {
+    (async () => {
       const res = await fetch(SOME_API);
       setValue(res.data);
-    };
+    })();
   }, []);
   ```
 
