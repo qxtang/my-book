@@ -20,7 +20,7 @@
   <link rel="bookmark" type="image/x-icon" href="/my-book/resource/favicon.ico" />
   <link rel="apple-touch-icon" href="/my-book/resource/favicon.ico" />
 
-  <!-- 编译时间：7/11/2022, 6:06:30 AM -->
+  <!-- 编译时间：7/13/2022, 7:24:15 AM -->
 
   <script>
     window.root = '/my-book';
@@ -220,6 +220,10 @@
         
           <li id="前端技术/NodeJS.md" class="children" title="NodeJS">
             <a href="/my-book/前端技术/NodeJS.html">NodeJS</a>
+          </li>
+        
+          <li id="前端技术/React源码学习.md" class="children" title="React源码学习">
+            <a href="/my-book/前端技术/React源码学习.html">React源码学习</a>
           </li>
         
           <li id="前端技术/Redux.md" class="children" title="Redux">
@@ -844,8 +848,16 @@
 <li><code>types</code> 通用类型</li>
 <li><code>utils</code> 工具</li>
 </ul>
-<h1 id="%E5%85%B6%E4%BB%96" tabindex="-1"><a class="header-anchor" href="#%E5%85%B6%E4%BB%96">其他</a></h1>
+<h1 id="%E9%80%9A%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E9%80%9A%E7%94%A8">通用</a></h1>
 <ul>
+<li>函数遵循单一职责原则</li>
+<li>只导入类型，使用 import type<pre><code class="language-js"><span class="hljs-keyword">import</span> type { <span class="hljs-title class_">DependencyList</span>, useEffect, useLayoutEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
+</code></pre>
+</li>
+<li>业务配置必须是不可修改的常量，可使用 <code>Object.freeze()</code> 冻结，禁止任何业务代码修改</li>
+<li>使用 pnpm 代替 npm、yarn<pre><code class="language-json"><span class="hljs-attr">&quot;packageManager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pnpm@x.x.x&quot;</span>
+</code></pre>
+</li>
 <li>通过定义环境变量、判断环境变量的方式，区分执行环境差异代码</li>
 <li>开发环境 node 和 npm 版本需要一致，因为不同版本 node、npm 行为不一样</li>
 <li>移除生产环境的控制台打印</li>
@@ -861,7 +873,7 @@
 </li>
 </ul>
 <h2 id="%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E5%A4%84%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E5%A4%84%E7%90%86">前置操作的处理</a></h2>
-<p>如登录、获取用户信息等任务，放在根组件（App.tsx、App.vue）中执行，执行结束再渲染路由组件，保证业务接口能正确获取业务参数</p>
+<p>如登录、获取用户信息、权限检查等任务，放在根组件（App.tsx、App.vue）中执行，执行结束再渲染路由组件，保证业务接口能正确获取业务参数</p>
 <h2 id="%E4%B8%8D%E5%BB%BA%E8%AE%AE%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8D%E5%BB%BA%E8%AE%AE%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81">不建议在本地构建部署代码</a></h2>
 <p>应使用 devops 系统</p>
 <h3 id="%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B">前端项目的一般部署流程</a></h3>
@@ -896,7 +908,7 @@
       
     </div>
     
-    <div class="table-of-contents"><ul><li title="参考"><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title="Javascript"><a href="#javascript" data-anchor="#javascript">Javascript</a></li><li title="React"><a href="#react" data-anchor="#react">React</a></li><li title="Typescript"><a href="#typescript" data-anchor="#typescript">Typescript</a><ul><li title="类型定义文件(.d.ts)如何放置"><a href="#%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89%E6%96%87%E4%BB%B6(.d.ts)%E5%A6%82%E4%BD%95%E6%94%BE%E7%BD%AE" data-anchor="#%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89%E6%96%87%E4%BB%B6(.d.ts)%E5%A6%82%E4%BD%95%E6%94%BE%E7%BD%AE">类型定义文件(.d.ts)如何放置</a></li></ul></li><li title="CSS"><a href="#css" data-anchor="#css">CSS</a></li><li title="项目目录结构"><a href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" data-anchor="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">项目目录结构</a></li><li title="其他"><a href="#%E5%85%B6%E4%BB%96" data-anchor="#%E5%85%B6%E4%BB%96">其他</a><ul><li title="npm 脚本名称"><a href="#npm-%E8%84%9A%E6%9C%AC%E5%90%8D%E7%A7%B0" data-anchor="#npm-%E8%84%9A%E6%9C%AC%E5%90%8D%E7%A7%B0">npm 脚本名称</a></li><li title="前置操作的处理"><a href="#%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E5%A4%84%E7%90%86" data-anchor="#%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E5%A4%84%E7%90%86">前置操作的处理</a></li><li title="不建议在本地构建部署代码"><a href="#%E4%B8%8D%E5%BB%BA%E8%AE%AE%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81" data-anchor="#%E4%B8%8D%E5%BB%BA%E8%AE%AE%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81">不建议在本地构建部署代码</a><ul><li title="前端项目的一般部署流程"><a href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B" data-anchor="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B">前端项目的一般部署流程</a></li><li title="本地部署的优势"><a href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E4%BC%98%E5%8A%BF" data-anchor="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E4%BC%98%E5%8A%BF">本地部署的优势</a></li><li title="本地部署的劣势"><a href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8A%A3%E5%8A%BF" data-anchor="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8A%A3%E5%8A%BF">本地部署的劣势</a></li></ul></li></ul></li></ul></div>
+    <div class="table-of-contents"><ul><li title="参考"><a href="#%E5%8F%82%E8%80%83" data-anchor="#%E5%8F%82%E8%80%83">参考</a></li><li title="Javascript"><a href="#javascript" data-anchor="#javascript">Javascript</a></li><li title="React"><a href="#react" data-anchor="#react">React</a></li><li title="Typescript"><a href="#typescript" data-anchor="#typescript">Typescript</a><ul><li title="类型定义文件(.d.ts)如何放置"><a href="#%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89%E6%96%87%E4%BB%B6(.d.ts)%E5%A6%82%E4%BD%95%E6%94%BE%E7%BD%AE" data-anchor="#%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89%E6%96%87%E4%BB%B6(.d.ts)%E5%A6%82%E4%BD%95%E6%94%BE%E7%BD%AE">类型定义文件(.d.ts)如何放置</a></li></ul></li><li title="CSS"><a href="#css" data-anchor="#css">CSS</a></li><li title="项目目录结构"><a href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" data-anchor="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">项目目录结构</a></li><li title="通用"><a href="#%E9%80%9A%E7%94%A8" data-anchor="#%E9%80%9A%E7%94%A8">通用</a><ul><li title="npm 脚本名称"><a href="#npm-%E8%84%9A%E6%9C%AC%E5%90%8D%E7%A7%B0" data-anchor="#npm-%E8%84%9A%E6%9C%AC%E5%90%8D%E7%A7%B0">npm 脚本名称</a></li><li title="前置操作的处理"><a href="#%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E5%A4%84%E7%90%86" data-anchor="#%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E5%A4%84%E7%90%86">前置操作的处理</a></li><li title="不建议在本地构建部署代码"><a href="#%E4%B8%8D%E5%BB%BA%E8%AE%AE%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81" data-anchor="#%E4%B8%8D%E5%BB%BA%E8%AE%AE%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9E%84%E5%BB%BA%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81">不建议在本地构建部署代码</a><ul><li title="前端项目的一般部署流程"><a href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B" data-anchor="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E8%88%AC%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B">前端项目的一般部署流程</a></li><li title="本地部署的优势"><a href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E4%BC%98%E5%8A%BF" data-anchor="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E4%BC%98%E5%8A%BF">本地部署的优势</a></li><li title="本地部署的劣势"><a href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8A%A3%E5%8A%BF" data-anchor="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8A%A3%E5%8A%BF">本地部署的劣势</a></li></ul></li></ul></li></ul></div>
     
 
     <!-- bottom scripts -->
