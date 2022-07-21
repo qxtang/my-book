@@ -1,6 +1,6 @@
-# 团队管理最佳实践
+# 参考
 
-- 开发环境 node 和 npm 版本需要一致，因为不同版本 npm 行为不一样
+- https://www.ruanyifeng.com/blog/2016/10/npm_scripts.html
 
 # npm 的使用
 
